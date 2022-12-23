@@ -1,0 +1,26 @@
+[
+  {
+    "name": "cheese",
+    "color": "#FFD76D"
+  },
+  {
+    "name": "blueberry",
+    "color": "#D0A5FF"
+  },
+  {
+    "name": "tangerine",
+    "color": "#FF8E72"
+  },
+  {
+    "name": "lime",
+    "color": "#E4FF4B"
+  },
+  {
+    "name": "mint",
+    "color": "#9CD1BB"
+  },
+  {
+    "name": "punch",
+    "color": "#FF6A5C"
+  }
+]

@@ -1,0 +1,119 @@
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #797979;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #797979;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  overflow: auto;
+  @apply text-gray-100 font-mono font-normal rounded-b-md
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-black dark:bg-raisin 
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  white-space: normal;
+}
+
+pre span.highlight {
+  background-color: rgba(197, 197, 197, 0.2);
+  width: 100%;
+  display: inline-block;
+}
+
+.token.comment {
+  @apply text-gray-500;
+  font-style: italic
+}
+
+.token.string, .token.changed {
+  @apply text-cheese
+}
+
+.token.constant, .token.hexcode, .token.number, .token.builtin, .token.char, .token.boolean {
+  @apply text-blueberry
+}
+
+.token.symbol {
+  @apply text-tangerine
+}
+
+.token.function, .token.inserted {
+  @apply text-lime
+}
+
+.token.namespace, .token.class-name {
+  @apply text-mint
+}
+
+.token.tag, .token.keyword, .token.operator, .token.deleted, .token.template-punctuation, .token.interpolation > .token.interpolation-punctuation {
+  @apply text-punch
+}
+
+.token.attr-name, .token.selector {
+  @apply text-mint italic;
+}
+
+.token.variable {
+  @apply text-gray-400
+}
+
+.token.punctuation {
+  @apply text-gray-400
+}
+
+.token.property {
+  @apply text-gray-200
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.line-number {
+  @apply select-none contents align-top text-gray-500;
+}
