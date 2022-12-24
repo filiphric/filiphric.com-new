@@ -1,6 +1,6 @@
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -45,12 +45,12 @@ code[class*="language-"] ::selection {
 pre[class*="language-"] {
   padding: 1em;
   overflow: auto;
-  @apply text-gray-100 font-mono font-normal rounded-b-md
+  @apply text-gray-100 font-mono font-normal rounded-b-2xl
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  @apply bg-black dark:bg-raisin 
+  @apply bg-black
 }
 
 :not(pre) > code[class*="language-"] {

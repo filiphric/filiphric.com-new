@@ -3,21 +3,21 @@ export const punctuation = {
     pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
     greedy: true,
     inside: {
-      'punctuation': /^["']|["']$/
+      punctuation: /^["']|["']$/
     }
   },
   property: {
     pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
     greedy: true,
     inside: {
-      'punctuation': /^["']|["']$/
+      punctuation: /^["']|["']$/
     }
   },
-  "string-property": {
+  'string-property': {
     pattern: /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,
     greedy: true,
     inside: {
-      'punctuation': /^["']|["']$/
+      punctuation: /^["']|["']$/
     }
   }
 }

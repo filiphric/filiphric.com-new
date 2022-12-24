@@ -5,5 +5,5 @@
 
 html {
   @apply bg-ivory;
-  @apply dark:bg-black dark:text-white;
+  @apply dark:bg-black-light dark:text-gray-200;
 }

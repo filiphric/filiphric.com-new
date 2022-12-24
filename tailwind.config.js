@@ -10,69 +10,118 @@ module.exports = {
     './app.vue'
   ],
   theme: {
-    colors: {
-      black: {
-        DEFAULT: '#161821'
-      },
-      gray: {
-        50: '#f9fafb',
-        100: '#f3f4f6',
-        200: '#e5e7eb',
-        300: '#d1d5db',
-        400: '#9ca3af',
-        500: '#6b7280'
-      },
-      raisin: {
-        DEFAULT: '#212431'
-      },
-      blackberry: {
-        DEFAULT: '#292D3D'
-      },
-      white: {
-        DEFAULT: '#fff'
-      },
-      ivory: {
-        DEFAULT: '#fffff2'
-      },
-      cheese: {
-        DEFAULT: '#ffd76d',
-        dark: '#B88700'
-      },
-      blueberry: {
-        DEFAULT: '#c39ac9',
-        dark: '#64396A'
-      },
-      tangerine: {
-        DEFAULT: '#ff9b5e',
-        dark: '#B84600'
-      },
-      lime: {
-        DEFAULT: '#bad761',
-        dark: '#5D721D'
-      },
-      mint: {
-        DEFAULT: '#9cd1bb',
-        dark: '#2D624C'
-      },
-      punch: {
-        DEFAULT: '#ff657a',
-        dark: '#A30016'
+    extend: {
+      colors: {
+        black: {
+          lighter: '#313549',
+          light: '#181B25',
+          DEFAULT: '#161821'
+        },
+        white: {
+          DEFAULT: '#fff'
+        },
+        ivory: {
+          DEFAULT: '#fffff2'
+        },
+        cheese: {
+          DEFAULT: '#ffd76d',
+          dark: '#FFC933'
+        },
+        blueberry: {
+          DEFAULT: '#c39ac9',
+          dark: '#64396A'
+        },
+        tangerine: {
+          DEFAULT: '#ff9b5e',
+          dark: '#B84600'
+        },
+        lime: {
+          DEFAULT: '#bad761',
+          dark: '#B0D24B'
+        },
+        mint: {
+          DEFAULT: '#9cd1bb',
+          dark: '#2D624C'
+        },
+        punch: {
+          DEFAULT: '#ff657a',
+          dark: '#FF4760'
+        }
       }
     },
     boxShadow: ({ theme }) => ({
-      'small-cheese': `-6px 6px ${theme('colors.cheese.DEFAULT')}, -6px 6px 0 2px ${theme('colors.black.DEFAULT')}`,
-      'small-blueberry': `-6px 6px ${theme('colors.blueberry.DEFAULT')}, -6px 6px 0 2px ${theme('colors.black.DEFAULT')}`,
-      'small-tangerine': `-6px 6px ${theme('colors.tangerine.DEFAULT')}, -6px 6px 0 2px ${theme('colors.black.DEFAULT')}`,
-      'small-lime': `-6px 6px ${theme('colors.lime.DEFAULT')}, -6px 6px 0 2px ${theme('colors.black.DEFAULT')}`,
-      'small-mint': `-6px 6px ${theme('colors.mint.DEFAULT')}, -6px 6px 0 2px ${theme('colors.black.DEFAULT')}`,
-      'small-punch': `-6px 6px ${theme('colors.punch.DEFAULT')}, -6px 6px 0 2px ${theme('colors.black.DEFAULT')}`,
-      'small-cheese-dark': `-6px 6px ${theme('colors.cheese.dark')}, -6px 6px 0 2px ${theme('colors.raisin.DEFAULT')}`,
-      'small-blueberry-dark': `-6px 6px ${theme('colors.blueberry.dark')}, -6px 6px 0 2px ${theme('colors.raisin.DEFAULT')}`,
-      'small-tangerine-dark': `-6px 6px ${theme('colors.tangerine.dark')}, -6px 6px 0 2px ${theme('colors.raisin.DEFAULT')}`,
-      'small-lime-dark': `-6px 6px ${theme('colors.lime.dark')}, -6px 6px 0 2px ${theme('colors.raisin.DEFAULT')}`,
-      'small-mint-dark': `-6px 6px ${theme('colors.mint.dark')}, -6px 6px 0 2px ${theme('colors.raisin.DEFAULT')}`,
-      'small-punch-dark': `-6px 6px ${theme('colors.punch.dark')}, -6px 6px 0 2px ${theme('colors.raisin.DEFAULT')}`
-
+      'code-cheese': `
+        0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+        14px 14px 0 ${theme('colors.cheese.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.DEFAULT')},
+        13px 13px 10px 1px ${theme('colors.cheese.DEFAULT')}
+        `,
+      'code-blueberry': `
+        0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+        14px 14px 0 ${theme('colors.blueberry.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.DEFAULT')},
+        13px 13px 10px 1px ${theme('colors.blueberry.DEFAULT')}
+        `,
+      'code-tangerine': `
+        0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+        14px 14px 0 ${theme('colors.tangerine.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.DEFAULT')},
+        13px 13px 10px 1px ${theme('colors.tangerine.DEFAULT')}
+        `,
+      'code-lime': `
+        0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+        14px 14px 0 ${theme('colors.lime.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.DEFAULT')},
+        13px 13px 10px 1px ${theme('colors.lime.DEFAULT')}
+        `,
+      'code-mint': `
+        0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+        14px 14px 0 ${theme('colors.mint.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.DEFAULT')},
+        13px 13px 10px 1px ${theme('colors.mint.DEFAULT')}
+        `,
+      'code-punch': `
+        0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+        14px 14px 0 ${theme('colors.punch.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.DEFAULT')},
+        13px 13px 10px 1px ${theme('colors.punch.DEFAULT')}
+        `,
+      'code-dark-cheese': `
+        0px 0px 0 2px ${theme('colors.black.lighter')},
+        14px 14px 0 ${theme('colors.cheese.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.lighter')},
+        13px 13px 10px 1px ${theme('colors.cheese.DEFAULT')}b5
+        `,
+      'code-dark-blueberry': `
+        0px 0px 0 2px ${theme('colors.black.lighter')},
+        14px 14px 0 ${theme('colors.blueberry.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.lighter')},
+        13px 13px 10px 1px ${theme('colors.blueberry.DEFAULT')}b5
+        `,
+      'code-dark-tangerine': `
+        0px 0px 0 2px ${theme('colors.black.lighter')},
+        14px 14px 0 ${theme('colors.tangerine.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.lighter')},
+        13px 13px 10px 1px ${theme('colors.tangerine.DEFAULT')}b5
+        `,
+      'code-dark-lime': `
+        0px 0px 0 2px ${theme('colors.black.lighter')},
+        14px 14px 0 ${theme('colors.lime.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.lighter')},
+        13px 13px 10px 1px ${theme('colors.lime.DEFAULT')}b5
+        `,
+      'code-dark-mint': `
+        0px 0px 0 2px ${theme('colors.black.lighter')},
+        14px 14px 0 ${theme('colors.mint.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.lighter')},
+        13px 13px 10px 1px ${theme('colors.mint.DEFAULT')}b5
+        `,
+      'code-dark-punch': `
+        0px 0px 0 2px ${theme('colors.black.lighter')},
+        14px 14px 0 ${theme('colors.punch.DEFAULT')},
+        14px 14px 0 2px ${theme('colors.black.lighter')},
+        13px 13px 10px 1px ${theme('colors.punch.DEFAULT')}b5
+        `
     }),
     fontFamily: {
       mono: ['Fira Code']
@@ -80,18 +129,18 @@ module.exports = {
 
   },
   safelist: [
-    'shadow-small-cheese',
-    'shadow-small-blueberry',
-    'shadow-small-tangerine',
-    'shadow-small-lime',
-    'shadow-small-mint',
-    'shadow-small-punch',
-    'shadow-small-cheese-dark',
-    'shadow-small-blueberry-dark',
-    'shadow-small-tangerine-dark',
-    'shadow-small-lime-dark',
-    'shadow-small-mint-dark',
-    'shadow-small-punch-dark'
+    'shadow-code-cheese',
+    'shadow-code-blueberry',
+    'shadow-code-tangerine',
+    'shadow-code-lime',
+    'shadow-code-mint',
+    'shadow-code-punch',
+    'dark:shadow-code-dark-cheese',
+    'dark:shadow-code-dark-blueberry',
+    'dark:shadow-code-dark-tangerine',
+    'dark:shadow-code-dark-lime',
+    'dark:shadow-code-dark-mint',
+    'dark:shadow-code-dark-punch'
   ],
   plugins: []
 }
