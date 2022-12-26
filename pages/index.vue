@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/no-multiple-template-root -->
 <template>
   <div>
-    this is index page
-    <NuxtLink to="/my-post">Let me take you to post</NuxtLink>
+    <HomeMainElement />
+    <HomeAboutMe />
   </div>
 </template>

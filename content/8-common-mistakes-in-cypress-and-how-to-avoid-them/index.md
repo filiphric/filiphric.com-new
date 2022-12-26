@@ -28,16 +28,16 @@ cy.visit('/')
 cy.get('button', { timeout: 10000 })
   .should('be.visible')
 ```
-So why is this better? Because this way, we will wait maximum 10 seconds for that `button` to appear. But if the button renders sooner, the test will immediately move on to the next command. This will help you save some time. If you want to read more about this, I recommend <nuxt-link to="/waiting-in-cypress-and-how-to-avoid-it">checking out my blog on this topic</nuxt-link>.
+So why is this better? Because this way, we will wait maximum 10 seconds for that `button` to appear. But if the button renders sooner, the test will immediately move on to the next command. This will help you save some time. If you want to read more about this, I recommend [checking out my blog on this topic](/waiting-in-cypress-and-how-to-avoid-it).
 
 ## #2: Using unreadable selectors
-I could write a whole article just on the topic of selectors (<nuxt-link to="/cypress-basics-selecting-elements">in fact, I did</nuxt-link>), since this is one of the most dealt-with topics for testers. Selectors can be the first thing that can give us a clue as to what our test is doing. Because of that, it is worth making them readable.
+I could write a whole article just on the topic of selectors ([in fact, I did](/cypress-basics-selecting-elements)), since this is one of the most dealt-with topics for testers. Selectors can be the first thing that can give us a clue as to what our test is doing. Because of that, it is worth making them readable.
 
-[Cypress has some [recommendations](https://docs.cypress.io/guides/references/best-practices#Selecting-Elements) as to which selectors should be used. The main purpose of these recommendations is to provide stability for your tests. At the top of the recommendations is to use separate `data-`*` selectors. You should add these to your application.
+[Cypress has some recommendations](https://docs.cypress.io/guides/references/best-practices#Selecting-Elements) as to which selectors should be used. The main purpose of these recommendations is to provide stability for your tests. At the top of the recommendations is to use separate `data-`*` selectors. You should add these to your application.
 
 However (and unfortunately IMHO), testers don’t always have the access to the tested application. This makes selecting elements quite a challenge, especially when the element we are searching for is obscure. Many that find themselves in this situation reach for various strategies for selecting elements.
 
-One of these strategies is using **xpath**. <nuxt-link to="/cypress-basics-xpath-vs-css-selectors">The big caveat of xpath is that their syntax is very hard to read</nuxt-link>. By merely looking at your xpath selector, you are not really able to tell what element you are selecting. Moreover, they don’t really add anything to the capabilities of your Cypress tests. Anything xpath can do you can do with Cypress commands, and make it more readable.
+One of these strategies is using **xpath**. [The big caveat of xpath is that their syntax is very hard to read](/cypress-basics-xpath-vs-css-selectors). By merely looking at your xpath selector, you are not really able to tell what element you are selecting. Moreover, they don’t really add anything to the capabilities of your Cypress tests. Anything xpath can do you can do with Cypress commands, and make it more readable.
 
 ```js [❌ selecting elements using xpath]
 // Select an element by text
@@ -79,7 +79,7 @@ You might be guessing the first one, with the text "triage found bugs". While th
 
 It is important to remember that whenever a Cypress command finishes doing its job, it will move on to the next command. So once an element is found by the `.get(`)` command, we will move to the `.eq(0)` command. After that, we will move to our assertion that will fail.
 
-You might wonder why Cypress does not retry at this point, but it actually does. Just not the whole chain. By design, `.should()` command will [retry the previos command, but not the whole chain](https://twitter.com/filip_hric/status/1493964887336251394). This is why it is vital to implement a better test design here and add a "guard" for this test. Before we assert the text of our card, we’ll make sure that all cards are present in DOM:
+You might wonder why Cypress does not retry at this point, but it actually does. Just not the whole chain. By design, `.should()` command will [retry the previous command, but not the whole chain](https://twitter.com/filip_hric/status/1493964887336251394). This is why it is vital to implement a better test design here and add a "guard" for this test. Before we assert the text of our card, we’ll make sure that all cards are present in DOM:
 
 ```js {3}
 cy,visit('/board/1')
@@ -151,7 +151,7 @@ cy.get('[data-cy=result-item]')
   .should('contain.text', 'search for critical bugs')
 ```
 
-But what if we cannot assert the number of results? <nuxt-link to="/testing-lists-of-items">I wrote about this in the past</nuxt-link>, but in short, the solution is to use `.should()` command with a callback, something like this:
+But what if we cannot assert the number of results? [I wrote about this in the past](/testing-lists-of-items), but in short, the solution is to use `.should()` command with a callback, something like this:
 
 ```js {5-7}
 cy.realPress(['Meta', 'k'])
@@ -256,4 +256,4 @@ Cypress.Commands.add('login', () => {
 
 This will cause to run the sequence in your custom commands just once per spec. But if you want to cache it throughout your whole test run, you can do that by using [cypress-data-session plugin](https://www.npmjs.com/package/cypress-data-session). There are a lot more things you can do this, but caching your steps is probably the most valuable one, as it can easily shave off a couple of minutes from the whole test run. This will of course depend on the test itself. In my own tests, where I just ran 4 tests that logged in, I was able to cut the time in half.
 
-Hopefully, this helped. I’m teaching all this and more in my <nuxt-link to="/cypress-core-workshop-november-2022">upcoming workshop</nuxt-link>. Hope to see you there!
+Hopefully, this helped. I’m teaching all this and more in my [upcoming workshop](/cypress-core-workshop-november-2022). Hope to see you there!

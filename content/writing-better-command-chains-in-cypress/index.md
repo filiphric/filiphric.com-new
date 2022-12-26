@@ -4,6 +4,9 @@ date: 2022-02-15
 published: true
 slug: "writing-better-command-chains-in-cypress"
 description: "Understanding how command chaining in Cypress works is essential for writing stable tests. In this week’s explainer we’ll take a look on how we can make our tests more stable with writing proper command chains"
+cypressVersion: "v11.0.0"
+darkImage: 'cypress_in_chains_dark.png'
+lightImage: 'cypress_in_chains_light_transparent.png'
 tags: ['cypress', 'chaining', 'flakiness']
 ---
 If you have been using Cypress, you are probably familiar with command chains. Or are you? I see many Cypress users be aware of them but sometimes slightly miss the underlying logic.

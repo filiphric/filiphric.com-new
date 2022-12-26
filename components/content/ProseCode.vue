@@ -6,13 +6,13 @@
         <!-- three dots -->
         <span class="h-3 w-3 rounded-full border border-punch-dark bg-punch" />
         <span class="h-3 w-3 rounded-full border border-cheese-dark bg-cheese" />
-        <span class="h-3 w-3 rounded-full bg-lime" />
+        <span class="h-3 w-3 rounded-full border border-lime-dark bg-lime" />
       </div>
       <div>
         {{ filename }}
       </div>
       <div class="grid items-center">
-        <Copy class="h-4 w-4" />
+        <IconCopy class="hidden h-4 w-4 md:block" />
       </div>
     </div>
     <pre :class="'language-' + language" v-html="transformedCode" />
@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import Copy from './icons/PhCopy.vue'
 import { transform } from '@/helpers/transform'
 import { randomColor } from '@/helpers/randomColor'
 
@@ -52,6 +51,6 @@ const color = `shadow-code-${randomColor()} dark:shadow-code-dark-${randomColor(
 /* all code block styles */
 @import '~/assets/css/prism.css';
 .code-block {
-  @apply m-8 rounded-2xl max-w-3xl font-mono font-semibold;
+  @apply mt-10 mb-14 mr-2 rounded-2xl font-mono font-semibold text-sm md:text-base max-w-2xl;
 }
 </style>

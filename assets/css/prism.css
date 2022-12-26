@@ -45,7 +45,7 @@ code[class*="language-"] ::selection {
 pre[class*="language-"] {
   padding: 1em;
   overflow: auto;
-  @apply text-gray-100 font-mono font-normal rounded-b-2xl
+  @apply text-gray-100 font-mono font-normal rounded-b-2xl pb-5
 }
 
 :not(pre) > code[class*="language-"],
@@ -94,7 +94,11 @@ pre span.highlight {
 }
 
 .token.attr-name, .token.selector {
-  @apply text-mint italic;
+  @apply text-mint;
+}
+
+.token.attr-value {
+  @apply text-tangerine;
 }
 
 .token.variable {

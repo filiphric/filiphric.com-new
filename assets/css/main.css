@@ -1,9 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-  @apply bg-ivory;
+  @apply bg-ivory text-black-light;
   @apply dark:bg-black-light dark:text-gray-200;
+}
+
+.prettyLink {
+  text-decoration: none;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 4px;
+  transition: background-size .3s;
+}
+
+.prettyLink {
+@apply bg-gradient-to-r from-punch to-blueberry pb-1;
+}
+.prettyLink:hover,
+.prettyLink:focus {
+background-size: 100% 4px;
 }
