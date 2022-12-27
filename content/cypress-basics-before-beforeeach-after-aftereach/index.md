@@ -8,14 +8,14 @@ tags: ['cypress', 'basics', 'mocha', 'hooks', 'before', 'beforeEach']
 ---
 Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 
-- <nuxt-link to="/cypress-basics-selecting-elements">Selecting elements</nuxt-link>
-- <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Where did my cookies disappear?</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-if-element-exists">Check if element exists</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-attributes-value-and-text">Check attributes, value and text</nuxt-link>
-- <nuxt-link to="/cypress-basics-xpath-vs-css-selectors">xpath vs. CSS selectors</nuxt-link>
-- <nuxt-link to="/cypress-basics-variables">Variables</nuxt-link>
-- <nuxt-link to="/cypress-basics-api-testing">API testing</nuxt-link>
-- <nuxt-link to="/cypress-basics-uploading-file">Uploading a file</nuxt-link>
+- [Selecting elements](/cypress-basics-selecting-elements)
+- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
+- [Check if element exists](/cypress-basics-check-if-element-exists)
+- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
+- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
+- [Variables](/cypress-basics-variables)
+- [API testing](/cypress-basics-api-testing)
+- [Uploading a file](/cypress-basics-uploading-file)
   
 ## Basics - before() and beforeEach()
 Let’s say you have a spec that has a couple of tests in it. In these tests you are opening a page and testing some functionality. Each time you want to open that page using `.visit()` command
@@ -51,7 +51,7 @@ it('test #2', () => {
   // rest of your test
 })
 ```
-Bear in mind that [Cypress clears out the state of browser](https://docs.cypress.io/api/commands/clearcookies.html#Syntax) in between tests. So if you e.g. do a login in `test #1`, you will be logged out in `test #2`. To read more about this, go check out my blog on cookies in <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Cypress</nuxt-link>.
+Bear in mind that [Cypress clears out the state of browser](https://docs.cypress.io/api/commands/clearcookies.html#Syntax) in between tests. So if you e.g. do a login in `test #1`, you will be logged out in `test #2`. To read more about this, go check out my blog on cookies in [Cypress](/cypress-basics-where-did-my-cookies-disappear).
 
 There’s one thing to note here - `test #2` might be dependent on the result of `test #1`. If the first test would fail, the second one might start in a different place in our app and create a domino effect for all the tests in that spec. It is a good practice to isolate your tests in such a way that tests don’t affect each other. For this, you might find `beforeEach()` hook more useful. This may require you to structure your tests in a certain way, but will help you gain overall test stability.
 
@@ -122,7 +122,7 @@ Do you know in what order will these logs be called? The correct answer is this:
 Compare the order of which we have written these in our test and in which these tests are executed. I like to think of all hooks as being "squashed" together before executing a test or a `describe()` block.
 
 ## Using beforeEach block in support/index.js
-Sometimes I like to use these blocks to run a "global" `beforeEach()` block that I want to run before all of my tests. I describe one case like this in my blog about <nuxt-link to="/working-with-api-response-data-in-cypress">handling data from API</nuxt-link>. I create a storage for myself, which I erase before each of my tests. I use my `support/index.js` file like this:
+Sometimes I like to use these blocks to run a "global" `beforeEach()` block that I want to run before all of my tests. I describe one case like this in my blog about [handling data from API](/working-with-api-response-data-in-cypress). I create a storage for myself, which I erase before each of my tests. I use my `support/index.js` file like this:
 ```js [support/index.js]
 beforeEach(() => {
 

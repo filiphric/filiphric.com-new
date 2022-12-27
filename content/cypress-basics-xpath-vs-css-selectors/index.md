@@ -9,14 +9,14 @@ tags: ['cypress', 'selectors', 'xpath', 'locators']
 
 This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 
-- <nuxt-link to="/cypress-basics-selecting-elements">Selecting elements</nuxt-link>
-- <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Where did my cookies disappear?</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-if-element-exists">Check if element exists</nuxt-link>
-- <nuxt-link to="/cypress-basics-before-beforeeach-after-aftereach">before(), beforeEach(), after() and afterEach()</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-attributes-value-and-text">Check attributes, value and text</nuxt-link>
-- <nuxt-link to="/cypress-basics-variables">Variables</nuxt-link>
-- <nuxt-link to="/cypress-basics-api-testing">API testing</nuxt-link>
-- <nuxt-link to="/cypress-basics-uploading-file">Uploading a file</nuxt-link>
+- [Selecting elements](/cypress-basics-selecting-elements)
+- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
+- [Check if element exists](/cypress-basics-check-if-element-exists)
+- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
+- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
+- [Variables](/cypress-basics-variables)
+- [API testing](/cypress-basics-api-testing)
+- [Uploading a file](/cypress-basics-uploading-file)
 
 Let me start right of the bat stating that I’m not the biggest fan of [xpath selectors](https://developer.mozilla.org/en-US/docs/Web/XPath). In my opinion, they are hard to read, and provide little benefits in comparison to CSS selectors or data-* attributes. With jQuery bundled into Cypress, you can select your elements in a much more readable way. However, they are widely used and a go-to choice for projects where you don’t have access to the source code. That’s why it’s useful to have knowledge on how to use them.
 
@@ -104,4 +104,4 @@ cy.contains('.card', 'bread').next('.card')
 ```
 Hope this helps. I’ll be updating this post to sShare this with your friends if you feel like someone can learn from this, I’d greatly appreciate this.
 
-If you want to learn more about selecting elements, I recommend checking out my other articles on <nuxt-link to="/cypress-basics-selecting-elements">selecting elements</nuxt-link>, <nuxt-link to="/autocompleting-selectors-in-cypress-with-typescript">autocompleting selectors</nuxt-link> or a very powerful <nuxt-link to="/contains-an-overlooked-gem-in-cypress">.contains() command</nuxt-link>. Additionally, if you work with xpath, I recommend checking out [Sanjay Kumar’s SelectorsHub tool](https://selectorshub.com/testcase-studio/).
+If you want to learn more about selecting elements, I recommend checking out my other articles on [selecting elements](/cypress-basics-selecting-elements), [autocompleting selectors](/autocompleting-selectors-in-cypress-with-typescript) or a very powerful [.contains() command](/contains-an-overlooked-gem-in-cypress). Additionally, if you work with xpath, I recommend checking out [Sanjay Kumar’s SelectorsHub tool](https://selectorshub.com/testcase-studio/).

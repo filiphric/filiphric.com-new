@@ -21,7 +21,7 @@ Cypress.Commands.add('getDataCy', (input) => {
   return cy.get(`[data-cy='${input}']`);
 })
 ```
-This way you can skip writing out `[data-cy='']` part, when you are using a `.get()` command. If you’d like to create a fancier version of this, I wrote about an article on this topic, explaining how you can <nuxt-link to="/improve-your-custom-command-logs-in-cypress#highlighting-elements">improve your logs for your custom command.</nuxt-link>
+This way you can skip writing out `[data-cy='']` part, when you are using a `.get()` command. If you’d like to create a fancier version of this, I wrote about an article on this topic, explaining how you can [improve your logs for your custom command.](/improve-your-custom-command-logs-in-cypress#highlighting-elements)
 
 When using TypeScript, you can further define what kind of input will our newly created custom function receive. Usually we could go for something simple, like `input: string`. But we can instead create our own type, which will limit what kind of input we can pass to our function.
 

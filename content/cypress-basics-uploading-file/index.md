@@ -8,14 +8,14 @@ tags: ['cypress', 'upload', 'dropzone', 'file']
 ---
 This blog post is a part of "Cypress basics" series. It is my attempt of breaking down some of the basics and explain all the nuts and bolts of the process. If you want to learn more, click on any article of this series.
 
-- <nuxt-link to="/cypress-basics-selecting-elements">Selecting elements</nuxt-link>
-- <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Where did my cookies disappear?</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-if-element-exists">Check if element exists</nuxt-link>
-- <nuxt-link to="/cypress-basics-before-beforeeach-after-aftereach">before(), beforeEach(), after() and afterEach()</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-attributes-value-and-text">Check attributes, value and text</nuxt-link>
-- <nuxt-link to="/cypress-basics-xpath-vs-css-selectors">xpath vs. CSS selectors</nuxt-link>
-- <nuxt-link to="/cypress-basics-variables">Variables</nuxt-link>
-- <nuxt-link to="/cypress-basics-api-testing">API testing</nuxt-link>
+- [Selecting elements](/cypress-basics-selecting-elements)
+- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
+- [Check if element exists](/cypress-basics-check-if-element-exists)
+- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
+- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
+- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
+- [Variables](/cypress-basics-variables)
+- [API testing](/cypress-basics-api-testing)
 
 File uploading can be done in various ways, but all of them have a couple of things in common. Most notably, when dealing with file upload, we need to have our frontend ready to accept the file, and then we need to have our backend ready to handle the file. Let’s start with frontend and how we can make an upload using Cypress.
 

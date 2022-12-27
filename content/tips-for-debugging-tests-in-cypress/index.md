@@ -50,7 +50,7 @@ Cypress._.times(10, () => {
 });
 ```
 ## Watch the video
-Might seem like an obvious one, but many times I tend to forget that the first thing I should look at is not the error itself, but the context in which the error happens. Cypress records all video automatically in headless mode, but it can be disabled if screenshots are good enough. I have written an article on <nuxt-link to="/improve-your-error-screenshots-in-cypress">how you can improve your screenshots</nuxt-link> to make them more useful for debugging purposes.
+Might seem like an obvious one, but many times I tend to forget that the first thing I should look at is not the error itself, but the context in which the error happens. Cypress records all video automatically in headless mode, but it can be disabled if screenshots are good enough. I have written an article on [how you can improve your screenshots](/improve-your-error-screenshots-in-cypress) to make them more useful for debugging purposes.
 
 The most often, people disable video recording for speed purposes, but you can actually make a pretty good compromise. `videoUploadOnPasses` set to `false` in your `cypress.json` will upload video only if there is a failed test in your spec. This can shave of minutes from your test run.
 

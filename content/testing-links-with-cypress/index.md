@@ -93,7 +93,7 @@ it('use requests to navigation bar links', () => {
 });
 ```
 
-This will help us reveal the error on `about` page, because we will get a 404 error. As a bonus, you get to test URLs that direct outside your superdomain, ~~which is a current limitation with Cypress. You cannot visit multiple domains~~ (EDIT: Multi-domain support [landed with version 9.6.0](https://docs.cypress.io/guides/references/changelog#9-6-0)), but you can do requests to them and that might be good enough for your use case. I write more about this in my blog on <nuxt-link to="/opening-a-new-tab-in-cypress">how to test tab opening in Cypress</nuxt-link>.
+This will help us reveal the error on `about` page, because we will get a 404 error. As a bonus, you get to test URLs that direct outside your superdomain, ~~which is a current limitation with Cypress. You cannot visit multiple domains~~ (EDIT: Multi-domain support [landed with version 9.6.0](https://docs.cypress.io/guides/references/changelog#9-6-0)), but you can do requests to them and that might be good enough for your use case. I write more about this in my blog on [how to test tab opening in Cypress](/opening-a-new-tab-in-cypress).
 
 As a last example, let’s say we don’t know for sure how many links does our navbar have. We just want to be absolutely sure that each one of them works. To do that, we can easily just select all `<a>` elements and iterate through them:
 

@@ -18,7 +18,7 @@ cy.get('[data-cy=login-submit]').click()
 cy.location('pathname').should('eq', '/')
 ```
 
-Cypress tries to clear browser data inbetween tests, which leads to the need of logging in before every rest. We can either do this by using `beforeEach()` hook or <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">by using cookies api</nuxt-link> to ignore deleting certain cookies from our app.
+Cypress tries to clear browser data inbetween tests, which leads to the need of logging in before every rest. We can either do this by using `beforeEach()` hook or [by using cookies api](/cypress-basics-where-did-my-cookies-disappear) to ignore deleting certain cookies from our app.
 
 ## Abstracting login into page object
 It makes sense to abstract the login sequence into a separate entity. A go to solution is a page object. In many cases it might look something like this:
@@ -73,7 +73,7 @@ beforeEach( () => {
 ```
 
 ## Using a custom command
-I personally prefer using custom commands for widely used functions like this. The big advantage of custom commands is that they become part of your Cypress library. Because of this, they are easy to find, and also play well with Cypress’ chaining syntax. You can also create DOM snapshots for debugging and many more. I write about these in more detail in <nuxt-link to="/improve-your-custom-command-logs-in-cypress">my previous blogpost</nuxt-link>. A custom command for a login might look like this:
+I personally prefer using custom commands for widely used functions like this. The big advantage of custom commands is that they become part of your Cypress library. Because of this, they are easy to find, and also play well with Cypress’ chaining syntax. You can also create DOM snapshots for debugging and many more. I write about these in more detail in [my previous blogpost](/improve-your-custom-command-logs-in-cypress). A custom command for a login might look like this:
 
 ```ts
 declare global {

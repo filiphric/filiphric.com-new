@@ -82,7 +82,7 @@ cy.get('#modal', { timeout: 10000 })
 Side note: Be mindful of the difference between `not.exist` and `not.be.visible`. I sometimes see people confuse these two and a for good reason. Intuitively, they feel like the same thing. But while `not.exist` will check for absence of the element in DOM, `not.be.visible` will only pass if the element is present in DOM, but it is not visible.
 
 ## Wait for page load
-I’ve talked about <nuxt-link to="/testing-links-with-cypress">checking links</nuxt-link> in the past and why clicking individual links might not be the best solution. But if a page redirect is part of your test flow, you might want to wait a second for the test to continue. Instead of using the wait command, you can use the same principle as in the previous example.
+I’ve talked about [checking links](/testing-links-with-cypress) in the past and why clicking individual links might not be the best solution. But if a page redirect is part of your test flow, you might want to wait a second for the test to continue. Instead of using the wait command, you can use the same principle as in the previous example.
 
 ```js
 cy.get('#redirectLink')

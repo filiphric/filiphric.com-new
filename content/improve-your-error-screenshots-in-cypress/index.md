@@ -19,7 +19,7 @@ But - on an error screenshot, you are limited to screenshot height so you probab
 
 Then, I added a few tweaks into this.
 
-1. I rewrote the command to add triple dash in front and at the end of the message, to make my logs pop out. Basically to guide my eyes better (yes, I know <nuxt-link to="/what-psychology-taught-me-about-qa">some psycholog</nuxt-link>
+1. I rewrote the command to add triple dash in front and at the end of the message, to make my logs pop out. Basically to guide my eyes better (yes, I know [some psycholog](/what-psychology-taught-me-about-qa)
 2. I added a counter, so that every log has a number and I can get a grasp of where the test failed
 
 The result looks like this:

@@ -10,14 +10,14 @@ If you have ever tested API via Postman or some other tool, this one will be a p
 
 This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 
-- <nuxt-link to="/cypress-basics-selecting-elements">Selecting elements</nuxt-link>
-- <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Where did my cookies disappear?</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-if-element-exists">Check if element exists</nuxt-link>
-- <nuxt-link to="/cypress-basics-before-beforeeach-after-aftereach">before(), beforeEach(), after() and afterEach()</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-attributes-value-and-text">Check attributes, value and text</nuxt-link>
-- <nuxt-link to="/cypress-basics-xpath-vs-css-selectors">xpath vs. CSS selectors</nuxt-link>
-- <nuxt-link to="/cypress-basics-variables">Variables</nuxt-link>
-- <nuxt-link to="/cypress-basics-uploading-file">Uploading a file</nuxt-link>
+- [Selecting elements](/cypress-basics-selecting-elements)
+- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
+- [Check if element exists](/cypress-basics-check-if-element-exists)
+- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
+- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
+- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
+- [Variables](/cypress-basics-variables)
+- [Uploading a file](/cypress-basics-uploading-file)
 
 ## .request() command
 This command will be the center of it all. To send a simple request with a `GET` method, you can call it like this:
@@ -109,9 +109,9 @@ cy.request({
   console.log(status) // 201
 })
 ```
-This way you don’t have to create a named alias everytime you want to get some data from the request. If you want to learn more about destructuring, you can read <nuxt-link to="/using-destructuring-in-cypress">of my older posts on this topic</nuxt-link>.
+This way you don’t have to create a named alias everytime you want to get some data from the request. If you want to learn more about destructuring, you can read [of my older posts on this topic](/using-destructuring-in-cypress).
 
-If you want to use data from the response elsewhere in the test, you can check out <nuxt-link to="/working-with-api-response-data-in-cypress">this post on working with API data</nuxt-link>, or <nuxt-link to="/cypress-basics-variables">this one, on using variables in Cypress</nuxt-link>.
+If you want to use data from the response elsewhere in the test, you can check out [this post on working with API data](/working-with-api-response-data-in-cypress), or [this one, on using variables in Cypress](/cypress-basics-variables).
 
 ## Testing response data
 Now that we have gotten data from our server, we can proceed with testing them. Cypress has bundled chai library, which you can use inside your `.then()` command.
@@ -127,7 +127,7 @@ cy.request({
   expect(status).to.eq(201)
 })
 ```
-Response body is usually stored in JSON format, which means that if you want to find particular item in the response and test it, you need to find a proper path. <nuxt-link to="/reading-and-testing-json-object-in-cypress">I dive more deeply into this topic in one of my older blogs</nuxt-link>, but a simple example would look something like this:
+Response body is usually stored in JSON format, which means that if you want to find particular item in the response and test it, you need to find a proper path. [I dive more deeply into this topic in one of my older blogs](/reading-and-testing-json-object-in-cypress), but a simple example would look something like this:
 ```js
 cy.request({
   method: 'GET', 

@@ -208,7 +208,7 @@ const measure = (markName: string): Cypress.Chainable<number> => {
 Cypress.Commands.addAll({ measure })
 ```
 
-A small difference from our `cy.mark()` is that this time our return type will be `number`, because the our function will return a number. Also, instead of using `.its()` function, we are returning it from `.then()` function as we want to use it in our console command detail as well. If this is a lot of new terms, I suggest checking out this post about <nuxt-link to="/improve-your-custom-command-logs-in-cypress">improving custom Cypress command I’ve made earlier</nuxt-link>.
+A small difference from our `cy.mark()` is that this time our return type will be `number`, because the our function will return a number. Also, instead of using `.its()` function, we are returning it from `.then()` function as we want to use it in our console command detail as well. If this is a lot of new terms, I suggest checking out this post about [improving custom Cypress command I’ve made earlier](/improve-your-custom-command-logs-in-cypress).
 
 ## Performance testing in Cypress
 Whenever we do performance testing of any kind, we need to pay close attention to the environment we are testing on. Are we in production? Is it currently under heavy load? If on staging server, is it 1:1 with production or are we testing a scaled down version? Are we using browser for perfomance testing? Which one? Which version? All of this and more questions need to be asked to provide context for the performance metrics. 

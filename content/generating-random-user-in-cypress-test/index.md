@@ -32,7 +32,7 @@ With a little bit of help from [faker](https://www.npmjs.com/package/faker), we 
 
 Signing up before each test may create quite a lot of data. On the other hand, it helps our tests with being separated from one another. This is usually a good thing, but for most of the tests, creating a new user might be a little bit of an overkill.
 
-By the way, that curly bracket syntax is known as destructuring. It’s a JavaScript syntax, and I wrote <nuxt-link to="/using-destructuring-in-cypress">an article about how to use it in Cypress</nuxt-link>.
+By the way, that curly bracket syntax is known as destructuring. It’s a JavaScript syntax, and I wrote [an article about how to use it in Cypress](/using-destructuring-in-cypress).
 
 ## Creating a script
 This is an approach I have chosen in the past. Basically, before I’d start my test with `cypress run` I’d run a script that would create my test user and write it to a file. I’d then use that file in my test and log in with my user.

@@ -42,7 +42,7 @@ npx cypress open --baseUrl http://localhost:3000
 ```
 
 ## Writing a plugin
-I wrote about this approach in the past, so you can check out a <nuxt-link to="/create-a-configuration-plugin-in-cypress">more detailed article here.</nuxt-link> Basically, as Cypress opens, you can change the config on the fly and rewrite anything in the config. See the following code:
+I wrote about this approach in the past, so you can check out a [more detailed article here.](/create-a-configuration-plugin-in-cypress) Basically, as Cypress opens, you can change the config on the fly and rewrite anything in the config. See the following code:
 ```js [cypress/plugins/index.js]
 module.exports = (on, config) => {
 

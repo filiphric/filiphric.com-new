@@ -8,14 +8,14 @@ tags: ['cypress', 'selectors', 'custom commands']
 ---
 Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 
-- <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Where did my cookies disappear?</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-if-element-exists">Check if element exists</nuxt-link>
-- <nuxt-link to="/cypress-basics-before-beforeeach-after-aftereach">before(), beforeEach(), after() and afterEach()</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-attributes-value-and-text">Check attributes, value and text</nuxt-link>
-- <nuxt-link to="/cypress-basics-xpath-vs-css-selectors">xpath vs. CSS selectors</nuxt-link>
-- <nuxt-link to="/cypress-basics-variables">Variables</nuxt-link>
-- <nuxt-link to="/cypress-basics-api-testing">API testing</nuxt-link>
-- <nuxt-link to="/cypress-basics-uploading-file">Uploading a file</nuxt-link>
+- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
+- [Check if element exists](/cypress-basics-check-if-element-exists)
+- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
+- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
+- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
+- [Variables](/cypress-basics-variables)
+- [API testing](/cypress-basics-api-testing)
+- [Uploading a file](/cypress-basics-uploading-file)
 
 Selectors can be painful. Especially when you are starting with test automation. During my recent Cypress workshop, I saw some people struggle with selectors and the reason was, that they were using a different approach for selecting elements on page. In this blog, I would like to showcase some basics on how to select elements on page using Cypress.
 

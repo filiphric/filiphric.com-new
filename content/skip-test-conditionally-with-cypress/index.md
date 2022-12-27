@@ -7,7 +7,7 @@ description: "This article explains various ways of skipping and filtering your 
 author: "Filip Hric"
 tags: ['skip', 'grep', 'cypress', 'conditional']
 ---
-In this blog, I’d like to show you various strategies and tools how you can skip your test and run them conditionally. In the past, I wrote a blogpost on how you can <nuxt-link to="/test-grepping-in-cypress-using-module-api">grep your tests using module API.</nuxt-link> You might like that as well.
+In this blog, I’d like to show you various strategies and tools how you can skip your test and run them conditionally. In the past, I wrote a blogpost on how you can [grep your tests using module API.](/test-grepping-in-cypress-using-module-api) You might like that as well.
 
 ## .skip and .only
 The easiest way to skip or filter a test is to use `.only` and `.skip` functions. You can use them with multiple tests in a single spec, so that you’ll run only those test that you want. This code will tun only `test #1` and `test #3`
@@ -132,6 +132,6 @@ npx cypress run --spec 'cypress/integration/*[!.smoke].ts'
 ```
 
 ## Your own logic
-There are quite a lot options you can use out there. I described one of them <nuxt-link to="/test-grepping-in-cypress-using-module-api">in my blog</nuxt-link>. With Module API, there’s really nothing stopping you from organizing your test suite in various different ways. There’s also an option for grepping all of your tests [via plugin](https://github.com/bahmutov/cypress-select-tests). Whichever you choose!
+There are quite a lot options you can use out there. I described one of them [in my blog](/test-grepping-in-cypress-using-module-api). With Module API, there’s really nothing stopping you from organizing your test suite in various different ways. There’s also an option for grepping all of your tests [via plugin](https://github.com/bahmutov/cypress-select-tests). Whichever you choose!
 
 If you liked this blog, you can help me grow it by sharing it on your favourite social network. I write posts like these every week, so if you like them, you can subscribe to my newsletter down below this article.

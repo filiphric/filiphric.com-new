@@ -8,14 +8,14 @@ tags: ['cypress', 'variables', 'basics']
 ---
 This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 
-- <nuxt-link to="/cypress-basics-selecting-elements">Selecting elements</nuxt-link>
-- <nuxt-link to="/cypress-basics-where-did-my-cookies-disappear">Where did my cookies disappear?</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-if-element-exists">Check if element exists</nuxt-link>
-- <nuxt-link to="/cypress-basics-before-beforeeach-after-aftereach">before(), beforeEach(), after() and afterEach()</nuxt-link>
-- <nuxt-link to="/cypress-basics-check-attributes-value-and-text">Check attributes, value and text</nuxt-link>
-- <nuxt-link to="/cypress-basics-xpath-vs-css-selectors">xpath vs. CSS selectors</nuxt-link>
-- <nuxt-link to="/cypress-basics-api-testing">API testing</nuxt-link>
-- <nuxt-link to="/cypress-basics-uploading-file">Uploading a file</nuxt-link>
+- [Selecting elements](/cypress-basics-selecting-elements)
+- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
+- [Check if element exists](/cypress-basics-check-if-element-exists)
+- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
+- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
+- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
+- [API testing](/cypress-basics-api-testing)
+- [Uploading a file](/cypress-basics-uploading-file)
 
 If you came here via Google search, you are probably wondering why code like this does not work in Cypress:
 ```js
@@ -222,4 +222,4 @@ it('use variable', function() {
 })
 ```
 
-There are a couple of more examples that can help you with storing variables in Cypress, these are just a few of them. I shared some more advanced examples in my older blog on how to handle data from API, <nuxt-link to="/working-with-api-response-data-in-cypress">you can check it out here.</nuxt-link>
+There are a couple of more examples that can help you with storing variables in Cypress, these are just a few of them. I shared some more advanced examples in my older blog on how to handle data from API, [you can check it out here.](/working-with-api-response-data-in-cypress)

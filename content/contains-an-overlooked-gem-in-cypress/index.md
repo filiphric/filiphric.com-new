@@ -73,6 +73,6 @@ cy
   .contains(/Apple/)
 ```
 
-Although `.contains()` sounds like an assertion and can be used as one, the intention is aimed for selecting elements. I written about different ways of <nuxt-link to="/cypress-basics-selecting-elements">selecting elements with Cypress</nuxt-link> in the past, and `.contains()` makes a great addition to that. Even if you don’t have the tested app under full control, these commands can definitely be a good substitution over xpath or complicated css selectors.
+Although `.contains()` sounds like an assertion and can be used as one, the intention is aimed for selecting elements. I written about different ways of [selecting elements with Cypress](/cypress-basics-selecting-elements) in the past, and `.contains()` makes a great addition to that. Even if you don’t have the tested app under full control, these commands can definitely be a good substitution over xpath or complicated css selectors.
 
 If you enjoyed this, feel free to follow me on [Twitter](https://twitter.com/filip_hric/) or on [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/).

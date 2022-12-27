@@ -6,7 +6,7 @@ slug: "improve-your-custom-command-logs-in-cypress"
 description: "How to take your custom commands to another level with custom logging, snapshots and many more."
 tags: ['cypress', 'custom commands', 'logging']
 ---
-In the past, I wrote about custom commands and how you <nuxt-link to="/starting-with-typescript-in-cypress">leverage TypeScript</nuxt-link> to give you some great autocomplete capabilities. Using TypeScript is definitely worth it when working on a bigger project with multiple collaborators. In this blog, I’d like to take our custom commands one level further and enable custom logging. This will improve the experience in test runner.
+In the past, I wrote about custom commands and how you [leverage TypeScript](/starting-with-typescript-in-cypress) to give you some great autocomplete capabilities. Using TypeScript is definitely worth it when working on a bigger project with multiple collaborators. In this blog, I’d like to take our custom commands one level further and enable custom logging. This will improve the experience in test runner.
 
 If you are interested in this topic, I suggest you [check out the webinar on patterns and practices](https://www.youtube.com/watch?v=V-o8WzlwKmM) that Cypress DX team has done. It’s full of great tips, and they talk about custom logging too.
 
@@ -298,6 +298,6 @@ Cypress.Commands.add('take', (input: string) => {
 });
 ```
 
-For the sake of keeping this article simple, I’m not going to dive into any more details. I am using custom commands e.g. for logging information from API requests (check out how I work with those in my <nuxt-link to="/working-with-api-response-data-in-cypress">previous blog</nuxt-link>), where I snapshot the "before" and "after" state. In my work, I use a similar command to our `.take()` custom command, but I am actually using it as a dual command, meaning that I can get a parent element, and then only select a child element within the context of that parent element. There’s really a lot of cool stuff you can do with this.
+For the sake of keeping this article simple, I’m not going to dive into any more details. I am using custom commands e.g. for logging information from API requests (check out how I work with those in my [previous blog](/working-with-api-response-data-in-cypress)), where I snapshot the "before" and "after" state. In my work, I use a similar command to our `.take()` custom command, but I am actually using it as a dual command, meaning that I can get a parent element, and then only select a child element within the context of that parent element. There’s really a lot of cool stuff you can do with this.
 
 Hope you liked this. I’m writing a blogpost like this every week, so if you are interested, make sure to follow me on Twitter, connect with me on LinkedIn, or subscribe to my newsletter where I will let you know each time I publish a new article.
