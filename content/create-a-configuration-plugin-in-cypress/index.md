@@ -19,7 +19,7 @@ Every Cypress project has a `cypress.json` file. In this file, you have a `env` 
 ```
 When I now open Cypress in GUI mode, I can look into settings tab and see my config file being read, highlighted in blue.
 
-<v-img alt="Cypress env variable added in cypress.json file" src="cypress-config.png"></v-img>
+![Cypress env variable added in cypress.json file](cypress-config.png)
 
 As you can see from the screenshot, there are multiple ways to add your environment variables. You can separate them into `cypress.env.json` file, add them with a `CYPRESS_` prefix to your environment or pass them through CLI as arguments. [Take a peek into the documentation](https://docs.cypress.io/guides/guides/environment-variables.html#Setting), where you can find examples of all these approaches.
 
@@ -77,7 +77,7 @@ module.exports = (on, config) => {
 ```
 Using our plugin, we are now adding some more variables to our env. When we look into our settings in Cypress CLI, you can see that our env variables have been added.
 
-<v-img alt="Cypress env variable added through a plugin" src="cypress-plugin.png"></v-img>
+![Cypress env variable added through a plugin](cypress-plugin.png)
 
 This helps demonstrate how creating a configuration plugin works. Let’s now say that our configuration paths are stored in separate json files, for which we created a separate `config` folder in our Cypress project:
 
@@ -135,4 +135,4 @@ module.exports = (on, config) => {
 ```
 When you open your tests now, you can see the `SECRET_KEY` being displayed in our project settings.
 
-<v-img alt="Environment variable is read in Cypress" src="environment.png"></v-img>
+![Environment variable is read in Cypress](environment.png)

@@ -57,7 +57,7 @@ it('creating a board', () => {
 
 You might notice, looking at the code, that I left my `.addBoard()` function empty. Since I did not input any text, my test would fail. My app does not allow creating a board with empty name. Let’s now simply switch the extension name from `.js` to `.ts` and see what happens in our text editor.
 
-<v-img alt="Function has an error underline when argument is not provided" src="ts.png"></v-img>
+![Function has an error underline when argument is not provided](ts.png)
 
 As you can see, our function now shows an error in our editor. I made the screenshot while hovering over our underlined function. VS Code has provided an explanation - our function expects to have at least one argument, but none were provided.
 
@@ -102,7 +102,7 @@ const addBoard = (input: 'new board' | 'my board') => {
 ```
 By adding this, I can specify which types of input will my function take. What’s even nicer, VS Code provides me with autocomplete:
 
-<v-img alt="Autocompleting function arguments" src="autocomplete.png"></v-img>
+![Autocompleting function arguments](autocomplete.png)
 
 I can imagine there might be some very cool use cases for this. Not sure why, but `data-cy` attribute selectors come to mind immediately. I have this `getDataCy` command,that is just a simple wrapper around Cypress `.get()` command. It will select element based on `data-cy` attribute so I don’t have to type the whole `[data-cy=selector]` text all the time. What if I could autocomplete my selectors? 🤔 If I find out this would be something useful, I’ll let you know on this blog, subscribe down at the bottom of the page if you are interested.
 
@@ -132,7 +132,7 @@ If your project already uses TypeScript, there’s a good chance that a big part
 ## Using JSDoc
 There’s another cool TypeScript feature, which you can use even with pure JavaScript. With JSDoc, you can add documentation to your functions. In VS Code, you can add your documentation by typing `/** */`. This will create a special comment, that will pop out once you hover over your function.
 
-<v-img alt="JSDoc comment pop out on hover" src="jsdoc.png"></v-img>
+![JSDoc comment pop out on hover](jsdoc.png)
 
 There are many different flags, like `@param` to give explanation for your parameters `@example` to provide a whole example of usage for that command or `@deprecated` to mark that command as soon to be obsolete. You can see JSDoc being used with Cypress commands too where they even show a link to a documentation. Imagine using these for your custom commands or your page objects and giving them instant context.
 

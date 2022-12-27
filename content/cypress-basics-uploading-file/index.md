@@ -29,21 +29,21 @@ cy.get('#upload')
 
 So, which element do we need to select? This is where we get to dive into the code a little. Everytime you do an upload, there is an `<input type=file>` element present on the page. Even if you don’t see it, I assure you it’s there. It’s an HTML5 element that provides your application an API to communicate with your browser and open that "choose file" window. This is how this element normally renders on page:
 
-<v-img alt="Choose a file to upload" src="choose-file.png" shadow="shadow-lg w-1/2"></v-img>
+![Choose a file to upload](choose-file.png" shadow="shadow-lg w-1/2)
 
 However, when we want to upload a file with Cypress, we don’t click this button, but select the `<input>` element and use `.selectFile()` function on it. This way, instead of interacting with a dialog window to choose a file, we just specify a path to the file we want to to upload. But what if we don’t see the "Choose file" button, but instead we have a upload button or a dropzone area?
 
 ## Uploading to a dropzone
 Many pages choose to render a slightly nicer UI, where client can just drag and drop a file or click a nicely styled button. This may look something like this:
 
-<v-img alt="Dropzone UI" src="dropzone.png" shadow="shadow-lg"></v-img>
+![Dropzone UI](dropzone.png" shadow="shadow-lg)
 
 
 In cases like this, the `<input>` element is often hidden. The interesting bit about this is that the `<input>` element can be found in weird places in the DOM, often away from the dropzone area. This is because the insertion of the file is handled by JavaScript. You can imagine it as if your file gets taken from the dropzone and passed into the `<input>` element where it gets handled.
 
 In my [Trelloapp project](https://github.com/filiphric/trelloapp-vue-vite-ts), the dropzone looks something like this:
 
-<v-img alt="Dropzone DOM" src="dropzone-input.png" shadow="shadow-lg"></v-img>
+![Dropzone DOM](dropzone-input.png" shadow="shadow-lg)
 
 You’ll see that the the `<input>` element has a style of `display: none` and therefore is hidden from user. To upload a file to this dropzone we can choose one of three strategies:
 

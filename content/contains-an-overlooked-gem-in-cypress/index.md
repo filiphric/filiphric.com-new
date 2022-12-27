@@ -29,7 +29,7 @@ cy
 ```
 Plain and simple. You know what this will do. It will select our heading. Notice how we don’t even need to write the whole text, just `Apples` is good enough.
 
-<v-img alt="Selecting by text" src="simple.png"></v-img>
+![Selecting by text](simple.png)
 
 Bear in mind, that if I just used `Apple` as a text, the result would be different, since `Apple` appears twice on our page. By default `.contains()` will search the whole DOM, and return the first element with matching parameters. If you have multiple elements with the same text, you will need to scope the search,
 
@@ -55,7 +55,7 @@ cy
 ```
 
 Take a look into which element was selected:
-<v-img alt="Selecting the parent element" src="parent.png"></v-img>
+![Selecting the parent element](parent.png)
 
 This way I’m selecting the parent `ul` element.
 

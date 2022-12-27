@@ -151,7 +151,7 @@ cy
 
 These combinations can be overwhelming at first, but they become natural after a while. Chrome DevTools can be a great help here. Right click on a JSON object can trigger a menu from where you can copy an attribute path to a given value. This works across many places in Chrome DevTools.
 
-<v-img alt="Copy property path in DevTools" src="devtools.png"></v-img>
+![Copy property path in DevTools](devtools.png)
 
 
 ## Common error #1 - Comparing arrays
@@ -167,7 +167,7 @@ cy
 
 Although it looks like it should definitely pass, our test will fail. What’s even weirder, is the error in the console:
 
-<v-img alt="Equal does not work" src="equal.png"></v-img>
+![Equal does not work](equal.png)
 
 Everything looks the same, so why does the test fail?
 
@@ -217,7 +217,7 @@ cy
 
 This test will fail with a following error:
 
-<v-img alt="Cannot read property 'x' of undefined" src="cannot-read-property-x-of-undefined.png" shadow="shadow-md"></v-img>
+![Cannot read property 'x' of undefined](cannot-read-property-x-of-undefined.png" shadow="shadow-md)
 
 The reason why this test fails is that the `horsepower` key cannot be found. The `of undefined` part points us closer to the reason. It seems that key that should be inside `engines` attribute is not defined.
 

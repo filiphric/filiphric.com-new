@@ -19,12 +19,12 @@ But - on an error screenshot, you are limited to screenshot height so you probab
 
 Then, I added a few tweaks into this.
 
-1. I rewrote the command to add triple dash in front and at the end of the message, to make my logs pop out. Basically to guide my eyes better (yes, I know [some psycholog](/what-psychology-taught-me-about-qa)
+1. I rewrote the command to add triple dash in front and at the end of the message, to make my logs pop out. Basically to guide my eyes better (yes, I know [some psychology](/what-psychology-taught-me-about-qa)
 2. I added a counter, so that every log has a number and I can get a grasp of where the test failed
 
 The result looks like this:
 
-<v-img alt="Upper screenshots is without logs, lower screenshot shows log on each step." src="1.png"></v-img>
+![Upper screenshots is without logs, lower screenshot shows log on each step.](log-comparison.png)
 *Upper screenshots is without logs, lower screenshot shows log on each step.*
 
 Adding this was in fact quite easy. I added this piece of code to my support/index.js file:
@@ -49,7 +49,7 @@ Cypress.Commands.overwrite('log', (...args) => {
 ```
 While writing this blog, I realized, that these logs can be further used for creating better error logs. Each of these steps can be added to error message, which would look something like this:
 
-<v-img alt="Error report in Cypress log" src="2.png"></v-img>
+![Error report in Cypress log](2.png)
 
 Basically we are just creating an empty array that we are going to output as a part of error message when a test fails.
 

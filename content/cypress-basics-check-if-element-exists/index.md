@@ -83,7 +83,7 @@ it('deletes a board', () => {
 ## Checking visibility on viewport
 Let’s now create a long list of boards in my list. I will check visibility of all these. A slightly unexpected thing happens. My assertion still passes, but I will get a warning on my `.get()` command:
 
-<v-img alt="Matched elements" src="matched-elements.png"></v-img>
+![Matched elements](matched-elements.png)
 
 This is a good thing to have in mind when making assertions on multiple elements at once. It’s important to understand how an element is considered visible from perspective of browser. In our app, we have a container element that has a property `overflow: scroll`. If that wasn’t the case, Cypress would declare all my elements visible. Even the last one.
 

@@ -117,7 +117,7 @@ describe('group #1', () => {
 ```
 
 Do you know in what order will these logs be called? The correct answer is this:
-<v-img alt="before and beforeEach hooks" src="hooks.png"></v-img>
+![before and beforeEach hooks](hooks.png)
 
 Compare the order of which we have written these in our test and in which these tests are executed. I like to think of all hooks as being "squashed" together before executing a test or a `describe()` block.
 

@@ -39,4 +39,4 @@ With all the different code blocks, it is easy to get lost in all the brackets. 
 
 [Just a nice little addition](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons) to your VS code. To keep things organized different folders get different icons. Cypress-related files and folder get a nice little Cypress icon, so you can find them more easily.
 
-<v-img alt="VS Code icons" src="vs_code_icons.png"></v-img>
+![VS Code icons](vs_code_icons.png)

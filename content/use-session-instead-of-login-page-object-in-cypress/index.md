@@ -143,7 +143,7 @@ it('logs in the user', () => {
 
 In our test, we have wrapped our `cy.login()` command inside `cy.session()` command. This is giving Cypress the information, that whatever runs inside the `cy.session()` callback (in other words, between line 3 and 5) should be remembered as a session. When we run this test again, instead of going through the login, our session will be restored. Notice the following image that shows first run (image above) and second run (image below).
 
-<v-img alt="Session in action" src="session.png"></v-img>
+![Session in action](session.png)
 
 As you can see, the second run is going to **restore** the session, while the first one is **creating** it. You can also notice how the second test takes just a fragment of the time compared to first test.
 

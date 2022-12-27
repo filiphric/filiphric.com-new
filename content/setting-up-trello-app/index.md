@@ -16,11 +16,11 @@ Open the workshop repository folder and in the top bar click on "Terminal" and
 
 If you have gone through the initial steps (clone, install), you should be able to run the app with `npm start` command. Make sure you are opening the terminal in the workshop folder (you can check that by typing "pwd" into your command line). You should see the following message and be able to see the application in your browser on url http://localhost:3000 
 
-<v-img alt="Application running" src="vite.png"></v-img>
+![Application running](vite.png)
  
 You should see a running application that looks something like this:
 
-<v-img alt="Application in browser" src="trello.png"></v-img>
+![Application in browser](trello.png)
 
 ## Check #2 - run Cypress
 
@@ -35,7 +35,7 @@ npm cy:open
 
 If at least one of them works, great 👍 You should see a window like this:  
 
-<v-img alt="Cypress" src="cypress.png"></v-img>
+![Cypress](cypress.png)
 
 ## 🚨 Something is not working, help!
 If one or more checks don’t work, please reach out to me. We can make a call and solve it. It is necessary to solve all the problems before the workshop, otherwise it might be hard to get back on track. Here are couple of tips for most common issues:

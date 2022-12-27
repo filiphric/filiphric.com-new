@@ -23,7 +23,7 @@ The reason is actually simple. [Cypress clears out the state of browser](https:/
 
 Clearing the state of the browser is actually a good thing, but you might be in a situation where you want to work around this. E.g. you want to group multiple tests in one spec, where each test requires you to be logged in. Let’s look into what are the options. As is often the case with my blogs, [I have a repo set up, so make sure you clone it](https://github.com/filiphric/cypress-cookies) and play with the code yourself. In our repo, we have a simple app, that lists all of the cookies that are present.
 
-<v-img alt="Cookies application we will be testing with Cypress" src="cypress-cookie-app.png"></v-img>
+![Cookies application we will be testing with Cypress](cypress-cookie-app.png)
 
 In our first piece of code you can see that we are setting a cookie to our app using `.setCookie()` command, but in our second test this cookie is not present anymore.
 

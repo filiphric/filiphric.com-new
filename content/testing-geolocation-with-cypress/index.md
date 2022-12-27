@@ -13,7 +13,7 @@ Basically, there are two ways of locating a user. First way is by using API call
 ## Testing a pricing page
 [In the application under test](https://github.com/filiphric/trelloapp-vue-vite-ts), we have a pricing page. This pricing page will show pricing in different currencies based on whether user is connecting from EU, UK or anywhere from rest of the world.
 
-<v-img alt="Pricing page" src="pricing.png" shadow="shadow-lg"></v-img>
+![Pricing page](pricing.png" shadow="shadow-lg)
 
 Moreover, pricing page uses Purchasing Power Parity to provide a discount to some of the countries. All of this is handled by a `GET /api/location` endpoint. This points to a service that will determine user’s location and return the details about the country and some other details. The response from server will look something like this:
 
@@ -40,18 +40,18 @@ cy.visit('/pricing')
 
 This will render our page as if it was opened in Great Britain region, with £ as the main currency. Notice how price changed as well. This is something which usually needs a test, so that we can make sure prices show up as intended.
 
-<v-img alt="Intercepting location" src="intercept-location.png" shadow="shadow-lg"></v-img>
+![Intercepting location](intercept-location.png" shadow="shadow-lg)
 
 This opens up a possibility to test different combinations of currencies, locations and discount eligibility. Since our frontend relies on API to determine user’s location, we are isolating the frontend and testing different cases based on mocked API response.
 
 ## Browser Geolocation
 With browser Geolocation API, users can allow browser to provide position coordinates to the application. Many sites use this, to determine your location and provide you e.g. with suggestions of restaurants near you. If you have ever seen this dialog, you’ve seen the Geolocation API in action:
 
-<v-img alt="Geolocation prompt" src="geolocation-dialog.png" shadow="shadow-lg"></v-img>
+![Geolocation prompt](geolocation-dialog.png" shadow="shadow-lg)
 
 In our application, we have a "Find My Location" button, that will reveal a map with your current location when clicked. When trying to automate this flow in Cypress, we immediately stumble upon a problem:
 
-<v-img alt="Geolocation prompt in Cypress" src="geolocation-cypress.png" shadow="shadow-lg"></v-img>
+![Geolocation prompt in Cypress](geolocation-cypress.png" shadow="shadow-lg)
 
 In the top left corner you can see that our location prompt is appearing in Cypress window. Since Cypress is running inside the browser, there’s no way of confirming this dialog. However, there are two ways we can approach this. Using a plugin to allow Geolocation automatically, or stubbing it.
 

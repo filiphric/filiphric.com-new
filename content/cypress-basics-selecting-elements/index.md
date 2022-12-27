@@ -29,7 +29,7 @@ cy.get('.selector')
 ```
 
 For starters, let’s look into what goes into the `.selector` part. Cypress is selecting elements by [querying DOM](https://www.w3schools.com/cssref/css_selectors.asp). You may be already familiar with such selectors if you have ever played with CSS or used jQuery or if you are familiar with `document.querySelector` command in JavaScript. Let’s see  what does this mean. As an example we can look into a page that looks something like this:
-<v-img alt="Selecting different shapes with Cypress" src="shapes.png"></v-img>
+![Selecting different shapes with Cypress](shapes.png)
 
 To select elements, it is of course vital to see into the page. Markup of our page looks like this:
 ```html
@@ -67,7 +67,7 @@ When working with nested elements, these are often being referred to as child el
 ```
 The structure is pretty simple and hopefully readable. All the green elements have a class `.green` on them, and all the circle elements have a class `.circle` on them. On the line 2, we have an element that has both of these classes. This will render a green circle. I made a screenshot of the actual page. Give yourself a moment and try to see how the html code corresponds with the rendered page (BTW, I left out the headings in the html code):
 
-<v-img alt="Selecting various elements on page" src="squares.png"></v-img>
+![Selecting various elements on page](squares.png)
 
 Let’s focus only the inner circles for now. Selecting our circle by class, using `cy.get('.circle')` would return all 3 elements. But we may want to narrow down our selection though. We can do that by specifying our selector. Which element(s) would you guess will be returned by this selector?
 ```js
@@ -88,7 +88,7 @@ There are tons of ways we can select elements, and `.get()` command works well w
 
 ## Cypress commands for selecting elements
 While mastering various CSS selectors is definitely useful, there are ton of ways you can select elements on page using Cypress commands. More importantly, these commands provide a better readability to for tests. In this example, we will be testing this lovely rainbow page:
-<v-img alt="Testing rainbow with Cypress commands" src="rainbow.png"></v-img>
+![Testing rainbow with Cypress commands](rainbow.png)
 
 ## Select by text
 To select our element its containing text we can use `.contains()` command. This is very [similar to a jQuery method with the same name](https://api.jquery.com/jQuery.contains/#jQuery-contains-container-contained). This command can be used in various ways:

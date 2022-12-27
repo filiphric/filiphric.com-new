@@ -96,7 +96,7 @@ After that, we can call `performance.measure()`function to make our measurement.
 
 The invoke command is going to yield an object with all kinds of results:
 
-<v-img alt="Performance measure output" src="performance_measure.png" shadow="shadow-lg"></v-img>
+![Performance measure output](performance_measure.png" shadow="shadow-lg)
 
 Within this command, we can pick a property from this object using `.its()` command. Since we don’t need retryability, we can set timeout to 0 and make our assertion immediately. Let’s make an assertion that the modal should not load longer than 2 seconds (2000 in milliseconds).
 

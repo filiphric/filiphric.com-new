@@ -64,7 +64,7 @@ cy.contains('.card', 'milk').next('.card')
 ## #3: Selecting elements improperly
 Consider the following scenario. You want to select a card (the white element on the page) and assert its text. 
 
-<v-img alt="Select a proper card" src="selecting-elements.png" shadow="shadow-lg"></v-img>
+![Select a proper card](selecting-elements.png" shadow="shadow-lg)
 
 Notice how both of these elements contain the word "bugs" inside. Can you tell which card are we going to select when using this code?
 

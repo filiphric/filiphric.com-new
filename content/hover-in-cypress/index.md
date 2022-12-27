@@ -14,7 +14,7 @@ I will be using my Trello clone app, so make sure you [clone it on GitHub](https
 
 Our board card gets darker and a star icon appears on top right corner. Upon further examination, you can see that these two changes are triggered differently. Looking at DevTools, you can see that the color change is handled by CSS, but our icon is not displayed when we force hover state via DevTools:
 
-<v-img alt="trigger hover state via devtools" src="hover-via-devtools.png"></v-img>
+![trigger hover state via devtools](hover-via-devtools.png)
 
 Instead, there is an event listener that will change the visibility of our star icon.
 
@@ -31,7 +31,7 @@ cy
 ```
 This will of course throw an error, because the element we want to click on is not visible. Cypress has some great explanatory error messages, with some recommendations on how to solve the problem.
 
-<v-img alt="Cypress error message on invisible element" shadow="shadow-lg" src="cypress-error.png"></v-img>
+![Cypress error message on invisible element" shadow="shadow-lg](cypress-error.png)
 
 As a quick fix, we can apply `.click({force: true})` to skip checks that Cypress does for us before we click on an element. There’s a really good article on [what this means in Cypress docs](https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html#Actionability). Of course, there are many reasons you might not want to skip these checks.
 

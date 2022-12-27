@@ -168,6 +168,6 @@ cy
 
 This test will then produce this nice render in your test:
 
-<v-img alt="cy.api command in action" src="cypress-plugin-api.png" shadow="shadow-lg"></v-img>
+![cy.api command in action](cypress-plugin-api.png" shadow="shadow-lg)
 
 Hope you liked this. You can help me spread the word and share this post with your friends if you feel like I deserved it. Make sure to follow me on [Twitter](https://twitter.com/filip_hric/) or [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/).

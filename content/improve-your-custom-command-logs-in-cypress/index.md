@@ -45,7 +45,7 @@ it('Creates a new board', () => {
 
 If we want to use our custom command, we need to provide a name for the board. If we don’t our test will still run, but will throw an error:
 
-<v-img alt=".type() accepts only a string or number" src="error.png"></v-img>
+![.type() accepts only a string or number](error.png)
 
 While this is certainly a well written error, we may want to provide some more insight on what exactly went wrong in this case. To do that, we can check whether an argument was provided. If not, we’ll say that right inside our test runner.
 
@@ -68,7 +68,7 @@ Cypress.Commands.add('addBoardUi', (name: string) => {
 
 When we now run an error, we get a slightly more informative message:
 
-<v-img alt="Custom error - board name needs to be provided" src="customError.png"></v-img>
+![Custom error - board name needs to be provided](customError.png)
 
 Of course, if we are using TypeScript, it’s hard to miss this kind of error. But mistakes happen, and when they do, it’s nice to find out about the root of the problem as soon as possible.
 
@@ -101,7 +101,7 @@ Cypress.Commands.add('addBoardUi', (name: string) => {
 ```
 This will now display our custom command in Cypress runner. Nice addition to this, is our `name` parameter, that is printed next to our command name.
 
-<v-img alt="Custom log - new board name is displayed in command log" src="customLog.png"></v-img>
+![Custom log - new board name is displayed in command log](customLog.png)
 
 To bring some more information to our board, we can add a `consoleProps` function, that will print additional info to our console:
 
@@ -159,7 +159,7 @@ Cypress.Commands.add('addBoardUi', (name: string) => {
 
 First, we define a variable `boardUrl`. This will be used for assigning our url, later on line 30. The other thing we are doing slightly differently is that we assign our `Cypress.log()` to a variable. This enables us to continuously feed data into our log. This means that although our `boardUrl` will be `undefined` at first, we can fill the information later and it will appear in the test runner. The last thing about this is the `autoEnd` attribute, which will tell Cypress not to finish logging until we explicitly say so using `.end()` function on line 31.
 
-<v-img alt="Information logged into console" src="consoleLog.png"></v-img>
+![Information logged into console](consoleLog.png)
 
 ## Highlighting elements
 Let’s move on from our current example to something else. In my app I have couple of data attributes, and I want to create a custom command for selecting them. I will call it `take` and it will basically be a shortcut for `.get()` command. I want to be able to write `.take('create-board')` instead of `.get([data-cy='create-board'])`. The basics will look like this:
@@ -252,7 +252,7 @@ Cypress.Commands.add('take', (input: string) => {
 
 Our command is starting to look pretty neat. In fact, our console print looks exactly as the original `.get()` command:
 
-<v-img alt="Custom command with logging" src="takeLogs.png"></v-img>
+![Custom command with logging](takeLogs.png)
 
 There’s one small bug here, which might not be visible at first sight. Congratulations if you spotted it.
 

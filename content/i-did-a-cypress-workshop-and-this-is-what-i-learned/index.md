@@ -40,7 +40,7 @@ There is always a potential threat of missed opportunity when information flows 
 
 As I said — this was an amazing experience to me and participants left me some very nice feedbacks:
 
-<v-img alt="Some feedbacks from participants: useful, amazing, beneficial" src="1.png"></v-img>
+![Some feedbacks from participants: useful, amazing, beneficial](1.png)
 *Some feedbacks from participants: useful, amazing, beneficial,...*
 
 I hope my blog will help you in doing *your* workshops. Any other tips? Feedbacks? [Tweet at me](https://twitter.com/filip_hric)!
