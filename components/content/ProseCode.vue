@@ -43,7 +43,7 @@ const props = defineProps({
 })
 
 const transformedCode = transform(props.code, props.language, props.highlights)
-const color = `shadow-code-${randomColor()} dark:shadow-code-dark-${randomColor()}`
+const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColor()}`
 
 </script>
 

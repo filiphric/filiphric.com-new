@@ -5,6 +5,8 @@ published: true
 slug: "my-favourite-vs-code-extensions"
 description: "Couple of cool VS code extensions that have proven to be useful for my workflow."
 tags: ['cypress', 'plugins', 'extensions', 'tips']
+image: plugins_viwxh9.png
+cypressVersion: 'v10.0.0'
 ---
 
 That’s what we needed, right? Another VS code extension blog 😂 But I guess I got your attention, so why not share a little bit of my workflow? This one is for all you testers and developers writing tests in Cypress.
