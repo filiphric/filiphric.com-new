@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="item.slug" class="col-span-1 grid min-h-blog-item grid-flow-row place-content-between rounded-3xl p-9 md:max-w-md" :class="styleClasses">
+  <NuxtLink :to="item.slug" class="col-span-1 mx-2 grid min-h-blog-item grid-flow-row place-content-between rounded-3xl p-9 md:mx-0 md:max-w-md" :class="styleClasses">
     <div v-if="item.image" class="mb-7 grid place-items-center">
       <nuxt-picture :src="item.image" class="w-10/12" />
     </div>

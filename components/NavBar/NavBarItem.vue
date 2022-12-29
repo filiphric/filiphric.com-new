@@ -1,6 +1,6 @@
 <template>
-  <NuxtLink class="prettyLink" :to="link">
-    {{ title }}
+  <NuxtLink :to="link" class="w-full text-center">
+    <span class="prettyLink">{{ title }}</span>
   </NuxtLink>
 </template>
 <script setup lang="ts">

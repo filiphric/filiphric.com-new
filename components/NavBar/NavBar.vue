@@ -1,16 +1,15 @@
 <template>
-  <nav class="grid grid-cols-12 pt-7">
-    <div class="col-span-3">
-      <NuxtLink to="/" class="text-2xl ">
-        Filip Hric
-      </NuxtLink>
-    </div>
-    <div class="col-span-9 grid grid-flow-col gap-7 place-self-end text-xl ">
-      <NavBarItem title="Blog" link="/blog" />
-      <NavBarItem title="Workshops" link="/workshops" />
-      <NavBarItem title="Courses" link="/courses" />
-      <NavBarItem title="Community" link="http://filiphric.com/discord" />
-      <NavBarItem title="About" link="/about" />
-    </div>
+  <nav class="grid grid-flow-col grid-cols-2 place-items-stretch pt-7">
+    <NuxtLink to="/" class="self-center text-2xl">
+      Filip Hric
+    </NuxtLink>
+    <NavBarItems class="hidden md:grid" />
+    <!-- mobile menu -->
+    <button class="place-self-end" @click="$emit('open:menu')">
+      <IconMenu class="h-12 w-12 rounded-full border border-gray-400 fill-gray-200 p-2 md:hidden" />
+    </button>
   </nav>
 </template>
+<script setup lang="ts">
+defineEmits(['open:menu'])
+</script>

@@ -1,7 +1,8 @@
 <template>
   <Search :show="searchOn" @hide="searchOn = false" />
+  <NavBarMobileMenu v-show="showMenu" @close:menu="showMenu = false" />
   <div class="mx-3 md:mx-10 lg:mx-20">
-    <NavBar />
+    <NavBar @open:menu="showMenu = true" />
     <slot />
   </div>
   <Footer class="px-3 md:px-10 lg:px-20" />
@@ -11,6 +12,7 @@ import { useMagicKeys } from '@vueuse/core'
 
 const { meta, k, escape } = useMagicKeys()
 const searchOn = ref(false)
+const showMenu = ref(false)
 
 watchEffect(() => {
   if (meta.value && k.value) { searchOn.value = true }
