@@ -5,6 +5,8 @@ published: true
 slug: "cypress-basics-xpath-vs-css-selectors"
 description: "Using xpath with Cypress is possible through a plugin. In this post I show you how to install this plugin and show you some examples how to use xpath and compare it to Cypress commands."
 tags: ['cypress', 'selectors', 'xpath', 'locators']
+image: xpath_n6hkq3.png
+cypressVersion: v10.0.0
 ---
 
 This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:

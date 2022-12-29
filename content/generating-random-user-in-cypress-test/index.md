@@ -5,6 +5,8 @@ published: true
 slug: "generating-random-user-in-cypress-test"
 description: "Article on how to randomly generate a user and various ways how to use its data"
 tags: ["cypress", "faker", "random"]
+image: random_uctegd.png
+cypressVersion: v10.0.0
 ---
 
 Most of web applications under test require some kind of authentication. What I like to do when testing such application is to create a testing user. This is usually a randomly generated user, which I then use for most of my tests. In this blogpost I explore a couple of ways how to generate a user an then use that user in Cypress tests. 

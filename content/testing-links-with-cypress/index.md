@@ -5,6 +5,8 @@ published: true
 slug: "testing-links-with-cypress"
 description: "Let’s say you want to test all the links in a navigation bar, ideally in most effective way. In this article I show you some of the most effective ways"
 tags: ['cypress', 'links', 'loop', 'href']
+image: links_yiwpfg.png
+cypressVersion: v10.0.0
 ---
 I often see a testing case when someone needs to test a navigation bar on a page, to make sure that all the links are actually functioning. This is a very nice problem case, where different strategies may be applied. In this article, I’d like to go through these and show you how can you apply them with Cypress.
 
