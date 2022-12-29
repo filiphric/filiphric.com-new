@@ -6,8 +6,7 @@
           :cypress-version="doc.cypressVersion"
           :date="doc.date"
           :title="doc.title"
-          :dark-image="doc.darkImage"
-          :light-image="doc.lightImage"
+          :image="doc.mage"
           :reading-time="doc.readingTime.text"
         />
         <div class="grid max-w-2xl grid-cols-1 gap-14 lg:max-w-none lg:grid-cols-7">

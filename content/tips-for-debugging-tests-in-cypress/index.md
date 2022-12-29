@@ -12,7 +12,7 @@ Debugging, right? Not sure if I love it or hate it. The part of me that loves it
 ## .pause() your test
 When using Cypress in GUI mode, you can use `.pause()` command to stop your test at a problematic spot. I usually do this to look at the test right before problematic assertion or action that caused the test to fail. After pausing your test, you can interact with your page, examine the state and then click play button to continue with the test.
 
-<v-video alt=".pause() command in action" src="pause.mp4"></v-video>
+![pause.mp4](.pause() command in action)
 
 You don’t need to worry about leaving this command in your tests, since it is ignored when you run your tests in headless mode. Read more about `.pause()` in [Cypress docs](https://docs.cypress.io/api/commands/pause.html#Syntax).
 
@@ -72,7 +72,7 @@ I’ve seen a test like this fail a lot. There is a lot happening in between typ
 
 This is because Cypress will automatically retry an assertion + previous command. But it will only retry the previous command, not entire command chain. If you would hover over the `.eq()` command in our test, you would see that we are actually not getting the right element. If an item renders with a delay, you would get stuck with the state of your app as it was when `.get()` command was made. Example of what might be happening:
 
-<v-video alt="Failing assertion on .eq() command" src="list.mp4"></v-video>
+![list.mp4](Failing assertion on .eq() command)
 
 I explore this topic a little more in one of my <nuxt-link to="testing-lists-of-items">previous blogs</nuxt-link>. While confusing at a first glance, looking at the timeline might shed some more light into what test did before it failed.
 

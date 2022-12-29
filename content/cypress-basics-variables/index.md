@@ -5,6 +5,7 @@ published: true
 slug: "cypress-basics-variables"
 description: "How to store variables in Cypress tests and use variables and aliases inside the test and between tests."
 tags: ['cypress', 'variables', 'basics']
+image: variables_o9j7mz.png
 ---
 This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 

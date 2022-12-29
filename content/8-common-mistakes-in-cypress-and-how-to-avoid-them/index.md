@@ -5,6 +5,8 @@ published: true
 slug: "8-common-mistakes-in-cypress-and-how-to-avoid-them"
 description: "In this blogpost I’m sharing a couple of testing antipatterns that can make your test flaky, hard to read or slow."
 tags: ['cypress', 'best practices', 'flakiness']
+image: mistakes_bffqhy.png
+cypressVersion: 'v10.0.0'
 ---
 This is a blog post made from a talk I gave at Front end test fest, so if you want to watch a video about it, [feel free to do so on this link](http://front-endtestfest.com/6gm).
 
@@ -64,7 +66,7 @@ cy.contains('.card', 'milk').next('.card')
 ## #3: Selecting elements improperly
 Consider the following scenario. You want to select a card (the white element on the page) and assert its text. 
 
-![Select a proper card](selecting-elements.png" shadow="shadow-lg)
+![Select a proper card](selecting-elements.png)
 
 Notice how both of these elements contain the word "bugs" inside. Can you tell which card are we going to select when using this code?
 

@@ -34,7 +34,7 @@ Cypress.Commands.add('getDataCy', (input: Selectors) => {
 ```
 This way, TypeScript will throw an error when we use a selector that is not allowed:
 
-![TypeScript error on unknown selector](selector.png" shadow="shadow-lg)
+![TypeScript error on unknown selector](selector.png)
 
 ## Creating a selector file
 The list of selectors might get quite big over time. That’s why it’s probably a good idea to keep it in a separate file. My approach is to create a `selectors.d.ts` file where I keep a list of all my selectors. I usually save this to the `cypress/support/@types/` folder.
@@ -47,7 +47,7 @@ type Selectors =
 ```
 Whenever I add a new selector to my application, I need to add it to my list, otherwise I’ll get an error. On the other hand, when I use a selector that is already in the list, I get a nice autocomplete in VS Code.
 
-![Autosuggesting selectors](autosuggest.png" shadow="shadow-lg)
+![Autosuggesting selectors](autosuggest.png)
 
 ## Checking the selectors
 Of course, we can get into a situation where we might delete a selector from our list, and we wouldn’t notice until we open the test file, or our tests run. Since we are using TypeScript, we can create a `typecheck` script, which will check for any TypeScript errors. This script will use `--noEmit` flag, because don’t need to compile our files. This is done by Cypress when we run our tests.

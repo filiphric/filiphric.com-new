@@ -5,6 +5,8 @@ published: true
 slug: "switch-between-environments-in-cypress"
 description: "There are multiple ways you can switch to different environments in Cypress. In this blogpost, I explain which ones you can use and show some examples."
 tags: ['cypress', 'environment', 'config', 'configuration', 'baseUrl']
+image: environments_yl1hva.png
+cypressVersion: v9.8.0
 ---
 You probably want to run your tests on mulitple environments. Many times I’ve seen people doing something like this:
 

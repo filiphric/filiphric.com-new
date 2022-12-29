@@ -6,21 +6,11 @@
       </NuxtLink>
     </div>
     <div class="col-span-9 grid grid-flow-col gap-7 place-self-end text-xl ">
-      <NavBarItem>
-        Blog
-      </NavBarItem>
-      <NavBarItem>
-        Workshops
-      </NavBarItem>
-      <NavBarItem>
-        Courses
-      </NavBarItem>
-      <NavBarItem>
-        Community
-      </NavBarItem>
-      <NavBarItem>
-        About
-      </NavBarItem>
+      <NavBarItem title="Blog" link="/blog" />
+      <NavBarItem title="Workshops" link="/workshops" />
+      <NavBarItem title="Courses" link="/courses" />
+      <NavBarItem title="Community" link="http://filiphric.com/discord" />
+      <NavBarItem title="About" link="/about" />
     </div>
   </nav>
 </template>

@@ -10,7 +10,7 @@ If you looked at [Cypress documentation](https://on.cypress.io/hover) and looked
 
 I will be using my Trello clone app, so make sure you [clone it on GitHub](https://github.com/filiphric/trelloapp) if you want to follow along. Let’s take a look onto our board list and see what happens when we hover over a board.
 
-<v-video alt="Hovering over element" src="hovering-over-element.mp4"></v-video>
+![hovering-over-element.mp4](Hovering over element)
 
 Our board card gets darker and a star icon appears on top right corner. Upon further examination, you can see that these two changes are triggered differently. Looking at DevTools, you can see that the color change is handled by CSS, but our icon is not displayed when we force hover state via DevTools:
 
@@ -18,7 +18,7 @@ Our board card gets darker and a star icon appears on top right corner. Upon fur
 
 Instead, there is an event listener that will change the visibility of our star icon.
 
-<v-video alt="Element hovered by JavaScript" src="hover-javascript.mp4"></v-video>
+![hover-javascript.mp4](Element hovered by JavaScript)
 
 User of course does not see this. The functionality here enables user to bookmark a board, so that’s what we need to focus on in our test. Let’s now try to write a test, in which we attempt to mimic this user behavior.
 ```ts
@@ -31,7 +31,7 @@ cy
 ```
 This will of course throw an error, because the element we want to click on is not visible. Cypress has some great explanatory error messages, with some recommendations on how to solve the problem.
 
-![Cypress error message on invisible element" shadow="shadow-lg](cypress-error.png)
+![Cypress error message on invisible element](cypress-error.png)
 
 As a quick fix, we can apply `.click({force: true})` to skip checks that Cypress does for us before we click on an element. There’s a really good article on [what this means in Cypress docs](https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html#Actionability). Of course, there are many reasons you might not want to skip these checks.
 

@@ -75,7 +75,7 @@ cy
 ## Invoke properties
 By using `.invoke('prop')`, you can access many different properties from selected element. The whole list of that properties can be found in Chrome DevTools. To access them, click on the given element and open properties panel.
 
-<v-video  src="chrome-props.mp4" alt="Element properties in Chrome DevTools"></v-video>
+![Element properties in Chrome DevTools](chrome-props.mp4)
 
 As you can see, there are tons of options. For example, we can use `.invoke()` command to look into whether checkbox element is checked.
 

@@ -5,6 +5,8 @@ published: true
 slug: "google-sign-in-with-cypress"
 description: "Explanation on how to log in to Google SSO enabled app programmatically and how does the process actually work."
 tags: ['cypress', 'google', 'login', 'sso', 'third party']
+image: google_y1e3mr.png
+cypressVersion: 'v10.0.0'
 ---
 
 If you ever tried to click on "Sign in with Google" button with Cypress, then you know it throws an error. ~~The reason for that is that Cypress does not support [visiting multiple domains](https://github.com/cypress-io/cypress/issues/944). This feature is still [being worked on](https://github.com/cypress-io/cypress/pull/20022)~~ (EDIT: Multi-domain support [landed with version 9.6.0](https://docs.cypress.io/guides/references/changelog#9-6-0)), however, in order to log in to Google, you don’t need this feature to land. The good news is, that while the `.visit()` command redirects in your app allow you to be on a single domain only, `.request()` can go anywhere.
@@ -16,7 +18,7 @@ Google SSO is following a standard OAuth 2.0 flow. You might find some graphs on
 
 Imagine an exclusive club. In front of that club, there’s a guard that let’s guests in. Once he allows you to get in, you’ll get a stamp sign on your hand. Only those that have this stamp sign on, are allow to enter the club, dance, order drinks and stay in the club. In your application that would be some kind of token, usually stored in your cookies, that will authenticate you against your app.
 
-![Club metaphor for authentication](club.png" shadow="shadow-lg)
+![Club metaphor for authentication](club.png)
 
 In this metaphor, the club is your application and all the data that is stored in database. In order to access it, you need to be authenticated. In a typical login/password situation you would tell the guard the password and your name and he’ll let you in.
 
@@ -24,7 +26,7 @@ Of course, there could be some more situations. You’re not on the list (user n
 
 So where does Google SSO come in? In this particular situation, you don’t have a password, but instead you have a good friend that knows the club owner and can get you to that super-exclusive club. The guard knows about this, trusts your friend, and will let you in.
 
-![Google authentication](google.png" shadow="shadow-lg)
+![Google authentication](google.png)
 
 Notice that no password is needed in this situation, because everything depends on the communication of your friend and the guard. You just need to have that friend that will communicate with the guard. In our application, these will be two servers talking. In general, it actually does not matter all that much whether it is the Google server, or some other OAuth provider.
 
@@ -44,7 +46,7 @@ The rest of these steps are done by developers. But as a tester, it is good for 
 
 By the way, if you want to try this whole process, I suggest you create your own project in [Google developer console](https://console.developers.google.com/). Copy the **Client id** (you will just need that one), and set your origin URLs to `http://localhost:3000`. If it looks something like this, you are on the right track:
 
-![Google developer console](console.png" shadow="shadow-lg)
+![Google developer console](console.png)
 
 You can do this on my [Trello app](https://github.com/filiphric/trelloapp-vue-vite-ts), or follow the [instructions on Cypress docs](https://docs.cypress.io/guides/testing-strategies/google-authentication) to set this up on [Cypress Real World app](https://github.com/cypress-io/cypress-realworld-app). 
 
@@ -55,15 +57,15 @@ You can choose whichever Google user you want. Got one? Good. Now go to [OAuth P
 
 There are many options on this playground, but since we just want to authenticate in our app, we want to choose "Google Oauth API v2".
 
-![Google oauth playground scope](playground_api.png" shadow="shadow-lg)
+![Google oauth playground scope](playground_api.png)
 
 Don’t try to select all of the different APIs, just to be sure. Scoping the authorization to a minimal degree is certainly the better way. Not only we want to scope the data that the refresh token will have access to, but we want to scope **where** can this token be used. To use it only in our project, check the "Use your own OAuth credentials" checkbox and enter the **Client ID** and **Client secret**. Remember how I mentioned those?
 
-![Google oauth configuration](playground_oauth.png" shadow="shadow-lg)
+![Google oauth configuration](playground_oauth.png)
 
 After setting this up, click the "Authorize API" button and proceed to step 2. You are just click of a button away. Click on "Exchange authorization code for tokens" button and copy the refresh token.
 
-![Exchange authorization code for tokens](playground_token.png" shadow="shadow-lg)
+![Exchange authorization code for tokens](playground_token.png)
 
 ## Login the user in our app
 As you might have noticed, there are two big parts to all this. One is the application (project in the Google developer console) and the other part is the user we want to authenticate (OAuth playground). Once we have **Client Id**, **Client secret** and **refresh token** ready, we are ready to log in programmatically. To do that, we’ll create a `.request()` in our test.

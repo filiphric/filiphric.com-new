@@ -89,7 +89,7 @@ cy.get('.card').parents('.list')
 ```
 In this example, we want to select only the list that contains some cards:
 
-![Selecting only the list with cards](list-with-cards.png" shadow="shadow-lg)
+![Selecting only the list with cards](list-with-cards.png)
 
 ### Select an element after a specific element
 ```ts

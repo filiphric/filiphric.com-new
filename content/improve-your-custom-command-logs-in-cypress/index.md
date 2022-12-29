@@ -184,7 +184,7 @@ Cypress.Commands.add('take', (input: string) => {
 
 But you can notice that our new command does not highlight our element:
 
-<v-video alt="Missing highlight on custom command" src="highlight.mp4"></v-video>
+![highlight.mp4](Missing highlight on custom command)
 
 Let’s fix that and also get rid of our `.get()` command, so that we don’t have duplicity in our test:
 

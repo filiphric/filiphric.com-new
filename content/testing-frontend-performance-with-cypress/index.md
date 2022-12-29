@@ -5,6 +5,8 @@ published: true
 slug: "testing-frontend-performance-with-cypress"
 description: "How to measure loading of elements appearing on page using browser performance API and creating a custom command out of it."
 tags: ['cypress', 'performance', 'speed', 'metrics']
+image: performance_jllmxd.png
+cypressVersion: 'v10.0.0'
 ---
 There are many ways to measure performance. In today’s post I want to talk about one of the most simple. Imagine a following scenario:
 
@@ -27,7 +29,7 @@ Our test may look something like this:
 
 This modal window may fetch some data from server, reorder or filter it. Additionally it may perform some other actions such as render images etc. All of these actions take some time and as testers, we want to make sure that the result will not take too long.
 
-<v-video alt="performance" src="performance.mp4"></v-video>
+![performance.mp4](performance)
 
 ## performance.mark() API
 In [all of the current browsers](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark#browser_compatibility) a `performance` API is available on `window` object. We can access this API by using `cy.window()` function and then calling a method. To start measuring the performance, we can create a mark that will label the start of our measurement.
@@ -96,7 +98,7 @@ After that, we can call `performance.measure()`function to make our measurement.
 
 The invoke command is going to yield an object with all kinds of results:
 
-![Performance measure output](performance_measure.png" shadow="shadow-lg)
+![Performance measure output](performance_measure.png)
 
 Within this command, we can pick a property from this object using `.its()` command. Since we don’t need retryability, we can set timeout to 0 and make our assertion immediately. Let’s make an assertion that the modal should not load longer than 2 seconds (2000 in milliseconds).
 

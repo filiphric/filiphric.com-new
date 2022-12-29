@@ -5,12 +5,14 @@ published: true
 slug: "testing-pdf-file-with-cypress"
 description: "How to download a PDF file, check the download and parse out the content of the file for further testing"
 tags: ['cypress', 'pdf', 'download']
+image: plane_jubadr.png
+cypressVersion: 'v11.0.0'
 ---
 I recently got a question on LinkedIn about Cypress’ ability to test contents of PDF file. At first I thought it is not possible as Cypress is made for testing web applications. But after I thought about it a little more I realized, there are actually couple of ways to approach this problem.
 
 Let’s start with a description of our app. You can clone it [from my GitHub page and see the final solution](https://github.com/filiphric/testing-pdf-with-cypress) described in this blogpost. Basically it’s just a simple html file containing links to two PDF files. Clicking on a button will download them to your computer.
 
-![Page with a download PDF link](download-pdf.png" shadow="shadow-lg)
+![Page with a download PDF link](download-pdf.png)
 
 ## Verifying download
 To start off, we can write a simple test to download our file. The test code for this will be simple:
@@ -32,7 +34,7 @@ Also, while writing your tests, I’d recommend adding `cypress/downloads` folde
 ## Checking contents of the file
 While `cy.readFile()` works for making sure the file was downloaded, it doesn’t do a good job with our PDF file. Ironically, there’s a problem with the one thing that the file promises to do. Read file. Just take a look into the console output for the command:
 
-![PDF file content read by Cypress cy.readFile() command](pdf-content.png" shadow="shadow-lg)
+![PDF file content read by Cypress cy.readFile() command](pdf-content.png)
 
 Unfortunately, there is no native way for Cypress to read the contents of our file, so we need to make our own. It’s actually pretty easy using `cy.task()` but there are couple of small gotchas which need to be taken care of.
 
@@ -77,7 +79,7 @@ In the config, we are importing our script, which I saved in the `cypress/script
 
 This now works almost perfectly. There’s a small gotcha here. For some reason we are getting this error:
 
-![PDF file content read by Cypress cy.task() command](pdf-task-fail.png" shadow="shadow-lg)
+![PDF file content read by Cypress cy.task() command](pdf-task-fail.png)
 
 It took me some time before realizing that the reason I’m getting this error is that my function is actually still in the process of working through the PDF file and `cy.task()` is not waiting for it to finish. In order to make sure the function actually finishes doing it’s thing, we need to wrap it inside a promise. While promises can be confusing at first (they definitely were for me), in this case the code is pretty simple:
 
@@ -103,7 +105,7 @@ export const readPdf = (pathToPdf: string) => {
 
 This way we can ensure that even if the file takes a little while to parse, Cypress will wait for it to finish. In fact, it will wait up to 60 seconds by default. This number can be changed once again, by modifying `cypress.config.ts` and its `taskTimeout` option.
 
-![PDF file content read by Cypress cy.task() command](pdf-task.png" shadow="shadow-lg)
+![PDF file content read by Cypress cy.task() command](pdf-task.png)
 
 Our `cy.task()` will yield the text of our PDF to the next command, so we can make an assertion right away:
 

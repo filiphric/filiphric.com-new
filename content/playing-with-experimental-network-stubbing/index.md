@@ -62,7 +62,7 @@ This is simple, yet very powerful thing you do to test your application. `.route
 
 The problem with this command though, is that you can only work with xhr requests. This rules out fetch requests, or other assets loaded via network. If you tried to route fetch request, you would end up like this:
 
-<v-video alt="Fetch requests not working in Cypress" src="fetch_requests_not_working_in_cypress.mp4"></v-video>
+![fetch_requests_not_working_in_cypress.mp4](Fetch requests not working in Cypress)
 
 ## The power of .route2()
 
@@ -169,7 +169,7 @@ cy
 cy
   .addItem('new todo item');
 ```
-<v-video alt="Changing network request body in Cypress" src="changing_network_request_body_in_cypress.mp4"></v-video>
+![changing_network_request_body_in_cypress.mp4](Changing network request body in Cypress)
 
 All these examples can be found in a [repo that I have put together for this blog](https://github.com/filiphric/route2-showcase). Feel free to play around with it and [let me know on Twitter](https://twitter.com/filip_hric/), what you think of this new feature. In my perspective Cypress team has done amazing job here, and I’m excited about possibilities this change will bring.
 

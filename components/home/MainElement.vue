@@ -5,6 +5,6 @@
         Hi, I’m Filip. I teach testers about web development, and developers about testing.
       </h1>
     </div>
-    <nuxt-img src="/filip.png" class="w-9/12 place-self-center self-center dark:mix-blend-lighten md:w-full" />
+    <nuxt-picture src="/filip.png" class="place-self-center self-center p-7 dark:mix-blend-lighten md:w-full" />
   </div>
 </template>

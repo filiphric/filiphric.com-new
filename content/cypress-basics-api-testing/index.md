@@ -5,6 +5,8 @@ published: true
 slug: "cypress-basics-api-testing"
 description: "Cypress is a great testing tool that can be also very helpful when testing API. In this post, I’ll go over some basics on how to write an API test in Cypress."
 tags: ['cypress', 'api', 'request']
+image: api_wdcxjh.png
+cypressVersion: v10.0.0
 ---
 If you have ever tested API via Postman or some other tool, this one will be a piece of cake for you. Cypress is a great testing tool that can be also very helpful when testing API. In today’s post, I’ll go over some basics on how to write an API test in Cypress.
 
@@ -168,6 +170,6 @@ cy
 
 This test will then produce this nice render in your test:
 
-![cy.api command in action](cypress-plugin-api.png" shadow="shadow-lg)
+![cy.api command in action](cypress-plugin-api.png)
 
 Hope you liked this. You can help me spread the word and share this post with your friends if you feel like I deserved it. Make sure to follow me on [Twitter](https://twitter.com/filip_hric/) or [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/).

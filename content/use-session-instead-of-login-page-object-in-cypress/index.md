@@ -5,6 +5,8 @@ published: true
 slug: "use-session-instead-of-login-page-object-in-cypress"
 description: "Short guide to using cy.session() command an save minutes from your test run. Creating a session with Cypress can not only save you time, but can be a great substitution for a log page object"
 tags: ['cypress', 'login', 'session', 'performance', 'caching']
+image: 'session_hnis8d.png'
+cypressVersion: 'v12.0.0'
 ---
 With many test automation efforts, dealing with login is the first hurdle to overcome. This can in itself be quite the challenge.
 
