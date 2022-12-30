@@ -8,7 +8,7 @@
 <script setup lang="ts">
 
 const route = useRoute()
-const tweetText = route
+const tweetText = route.fullPath
 
 // const tweetText = ${doc.slug}&text=${encodeURI(`Hey! I just read \"${doc.title}\" by @filip_hric`)}
 </script>
