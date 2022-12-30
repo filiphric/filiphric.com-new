@@ -12,11 +12,13 @@ export const formatDate = (dateString: string) => {
   const year = date.getFullYear()
 
   // Determine the ordinal suffix for the day of the month
-  const ordinalSuffix = dayOfMonth % 10 === 1
-    ? 'st'
-    : dayOfMonth % 10 === 2
-      ? 'nd'
-      : dayOfMonth % 10 === 3 ? 'rd' : 'th'
+  const ordinalSuffix = dayOfMonth === 12 || dayOfMonth === 11
+    ? 'th'
+    : dayOfMonth % 10 === 1
+      ? 'st'
+      : dayOfMonth % 10 === 2
+        ? 'nd'
+        : dayOfMonth % 10 === 3 ? 'rd' : 'th'
 
   // Return the formatted string
   return `${monthName} ${dayOfMonth}${ordinalSuffix}, ${year}`

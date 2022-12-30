@@ -1,11 +1,16 @@
 <template>
-  <Search :show="searchOn" @hide="searchOn = false" />
-  <NavBarMobileMenu v-show="showMenu" @close:menu="showMenu = false" />
-  <div class="mx-3 md:mx-10 lg:mx-20">
-    <NavBar @open:menu="showMenu = true" />
-    <slot />
+  <div>
+    <div class="mx-auto max-w-screen-xl">
+      <Search :show="searchOn" @hide="searchOn = false" />
+      <NavBarMobileMenu v-show="showMenu" @close:menu="showMenu = false" />
+      <div class="mx-3 md:mx-10 lg:mx-20">
+        <NavBar @open:menu="showMenu = true" />
+        <slot />
+      </div>
+    </div>
+
+    <Footer />
   </div>
-  <Footer class="px-3 md:px-10 lg:px-20" />
 </template>
 <script setup lang="ts">
 import { useMagicKeys } from '@vueuse/core'

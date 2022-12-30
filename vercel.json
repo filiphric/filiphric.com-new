@@ -1,0 +1,112 @@
+{
+  "redirects": [
+    {
+      "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",
+      "source": "/youtube"
+    },
+    {
+      "destination": "https://discord.com/invite/3MdvPfT",
+      "source": "/discord"
+    },
+    {
+      "destination": "https://github.com/filiphric/",
+      "source": "/github"
+    },
+    {
+      "destination": "https://www.linkedin.com/in/filip-hric-11a5b1126/",
+      "source": "/linkedin"
+    },
+    {
+      "destination": "https://twitter.com/filip_hric/",
+      "source": "/twitter"
+    },
+    {
+      "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",
+      "source": "/twitch"
+    },
+    {
+      "destination": "/skip-test-conditionally-with-cypress",
+      "source": "/skip-tests"
+    },
+    {
+      "destination": "/cypress-basics-selecting-elements",
+      "source": "/selectors"
+    },
+    {
+      "destination": "/lesser-known-cypress-tricks",
+      "source": "/tricks"
+    },
+    {
+      "destination": "/hover-in-cypress",
+      "source": "/hover"
+    },
+    {
+      "destination": "/cypress-basics-check-if-element-exists",
+      "source": "/visibility"
+    },
+    {
+      "destination": "/create-a-configuration-plugin-in-cypress",
+      "source": "/config-plugin"
+    },
+    {
+      "destination": "/cypress-basics-where-did-my-cookies-disappear",
+      "source": "/cookies"
+    },
+    {
+      "destination": "https://filiphric.sk/bootcamp",
+      "source": "/bootcamp"
+    },
+    {
+      "destination": "https://forms.gle/1amxSEET8fGt3TWA7",
+      "source": "/merch"
+    },
+    {
+      "destination": "https://discord.gg/45UtpwJPXd",
+      "source": "/tau-workshop"
+    },
+    {
+      "destination": "https://calendly.com/filip_hric/meeting",
+      "source": "/lets-meet"
+    },
+    {
+      "destination": "https://calendly.com/filip_hric/consultation-60-min",
+      "source": "/consultation"
+    },
+    {
+      "destination": "https://zoom.us/j/6831877746",
+      "source": "/workshop-zoom"
+    },
+    {
+      "destination": "/cypress-core-workshop-january-2023",
+      "source": "/workshop"
+    },
+    {
+      "destination": "/cypress-core-workshop-january-2023",
+      "source": "/cypress-core-workshop"
+    },
+    {
+      "destination": "/cypress-api-testing-workshop-december-2022",
+      "source": "/workshop-api"
+    },
+    {
+      "destination": "/cypress-api-testing-workshop-december-2022",
+      "source": "/cypress-api-testing-workshop"
+    },
+    {
+      "destination": "/cypress-ts-workshop-december-2022",
+      "source": "/cypress-ts-workshop"
+    },
+    {
+      "destination": "https://calendly.com/filip_hric/tutoring",
+      "source": "/tutoring"
+    },
+    {
+      "source": "/stats/js/script.js",
+      "destination": "https://plausible.io/js/script.js"
+    },
+    {
+      "source": "/stats/api/event",
+      "destination": "https://plausible.io/api/event"
+    }
+  ]
+}

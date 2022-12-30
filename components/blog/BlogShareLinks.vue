@@ -1,14 +1,33 @@
 <template>
-  <div>
-    <a :href="`https://twitter.com/intent/tweet?url=${tweetText}`">Share on social networks</a>
-
-    <hr class="mb-14 mt-3 w-full border-gray-400 ">
+  <div class="mt-14">
+    <a class="prettyLink mr-7 pb-2" :href="`https://twitter.com/intent/tweet?url=${tweetText}`">
+      <IconTwitter class="mr-2 inline w-5 fill-white" /><p class="inline text-left">
+        Tweet this article
+      </p>
+    </a>
+    <a class="prettyLink mr-7 pb-2" :href="`https://twitter.com/intent/tweet?url=${tweetText}`">
+      <IconLinkedin class="mr-2 inline w-5 fill-white" /><p class="inline text-left">
+        Share on LinkedIn
+      </p>
+    </a>
+    <a class="prettyLink pb-2" :href="githubLink">
+      <IconGithub class="mr-2 inline w-5 fill-white" /><p class="inline text-left">
+        Edit on GitHub
+      </p>
+    </a>
+    <hr class="mt-5 w-full border-gray-400 ">
   </div>
 </template>
 <script setup lang="ts">
+const props = defineProps({
+  blogInfo: {
+    type: Object,
+    default: undefined
+  }
+})
 
-const route = useRoute()
-const tweetText = route.fullPath
+const githubLink = `https://github.com/filiphric/filiphric.com-new/edit/main/content/${props.blogInfo?._file}`
 
-// const tweetText = ${doc.slug}&text=${encodeURI(`Hey! I just read \"${doc.title}\" by @filip_hric`)}
+const tweetText = `https://filiphric.com/${props.blogInfo?.slug}&text=${encodeURIComponent(`Hey I just read "${props.blogInfo?.title}`)}" by @filip_hric`
+
 </script>

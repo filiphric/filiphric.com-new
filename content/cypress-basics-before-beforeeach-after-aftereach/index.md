@@ -5,6 +5,8 @@ published: true
 slug: "cypress-basics-before-beforeeach-after-aftereach"
 description: "Mocha hooks can help you tremendously when trying to avoid repetition in your tests. This article explains how these hooks work and how to use them effectively."
 tags: ['cypress', 'basics', 'mocha', 'hooks', 'before', 'beforeEach']
+image: before_xpvrhe.png
+cypressVersion: v10.0.0
 ---
 Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 

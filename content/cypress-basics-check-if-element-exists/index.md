@@ -5,6 +5,7 @@ published: true
 slug: "cypress-basics-check-if-element-exists"
 description: "In this article we are exploring ways to assert visibility of an element on a page. There are couple of gotchas that may be confusing at times. All explained in the blog"
 tags: ['cypress', 'basics', 'assertions']
+image: visibility_vsmzla.png
 ---
 One of the first things you might want to test in your app with Cypress is element presence. In this article I’d like to take a look into how test if element exists, is visible and discuss some gotchas that might occur during some of these tests.
 

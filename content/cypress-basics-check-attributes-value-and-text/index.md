@@ -5,6 +5,8 @@ published: true
 slug: "cypress-basics-check-attributes-value-and-text"
 description: "Short explanation of how to test and access different properties of a given element using .invok() function"
 tags: ['cypress', 'basics', 'attributes', 'value', 'text']
+image: attributes_n4tygd.png
+cypressVersion: v10.0.0
 ---
 
 Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
@@ -141,4 +143,3 @@ cy
 
 Hope you like this. If you did, you can subscribe to a newsletter to get notified about a new article every week. You can also follow me on [Twitter](https://twitter.com/filip_hric/) or [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/).
 
-See you next week!

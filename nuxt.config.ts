@@ -3,7 +3,11 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
   app: {
     pageTransition: {
-      name: 'fade',
+      name: 'page',
+      mode: 'out-in'
+    },
+    layoutTransition: {
+      name: 'layout',
       mode: 'out-in'
     }
   },
@@ -22,8 +26,12 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image-edge',
     '@pinia/nuxt',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@nuxtjs/plausible'
   ],
+  plausible: {
+    apiHost: '/stats/api/event'
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="link" class="w-full text-center">
-    <span class="prettyLink">{{ title }}</span>
+    <span class="prettyLink" @click="useTrackEvent(title)">{{ title }}</span>
   </NuxtLink>
 </template>
 <script setup lang="ts">
@@ -11,7 +11,7 @@ defineProps({
   },
   title: {
     type: String,
-    default: undefined
+    default: 'NavBarLink'
   }
 })
 </script>
