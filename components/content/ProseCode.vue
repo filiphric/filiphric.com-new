@@ -11,8 +11,16 @@
       <div>
         {{ filename }}
       </div>
-      <div class="grid items-center">
-        <IconCopy class="hidden h-4 w-4 md:block" />
+      <div class="copyToolbar grid cursor-pointer items-center font-normal" @click="copy()">
+        <div v-if="!copied">
+          <div class="copyLabel inline opacity-0 transition-all duration-100">
+            Copy to clipboard
+          </div>
+          <IconCopy class="hidden h-4 w-4 md:inline" />
+        </div>
+        <div v-else>
+          Copied! 🎉
+        </div>
       </div>
     </div>
     <pre :class="'language-' + language" v-html="transformedCode" />
@@ -20,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
 import { transform } from '@/helpers/transform'
 import { randomColor } from '@/helpers/randomColor'
 
@@ -42,6 +51,9 @@ const props = defineProps({
   }
 })
 
+const source = ref(props.code)
+const { copy, copied } = useClipboard({ source })
+
 const transformedCode = transform(props.code, props.language, props.highlights)
 const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColor()}`
 
@@ -53,4 +65,8 @@ const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColo
 .code-block {
   @apply mt-10 mb-14 mr-2 rounded-2xl font-mono font-semibold text-sm md:text-base max-w-2xl;
 }
+.copyToolbar:hover .copyLabel {
+  opacity: 100%
+}
+
 </style>
