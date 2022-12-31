@@ -256,4 +256,4 @@ export class LoginPage {
 
 In this case, our page object contains just a single function and it would not make sense to add any more as this would break the session. Because of this, it makes more sense to choose a simpler pattern, like custom command or a standalone function module that you import to your test.
 
-Hopefully you enjoyed this blogpost, let me know what you think by raching out to me on [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/), [Twitter](https://twitter.com/filip_hric/), or on my [Discord](https://filiphric.com/discord) server.
+Hopefully you enjoyed this blogpost, let me know what you think by reaching out to me on [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/), [Twitter](https://twitter.com/filip_hric/), or on my [Discord](https://filiphric.com/discord) server.
