@@ -1,28 +1,26 @@
 <template>
   <div>
     <h2 class="text-xl font-bold">
-      <span class="block">Content creation,</span>
-      <span class="block">consulting &</span>
-      <span class="block">public speaking</span>
+      What I do
     </h2>
     <div class="my-7 grid grid-flow-row gap-1">
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="prettyLink max-w-fit">
         About me
       </NuxtLink>
-      <NuxtLink to="/">
-        Conference talks
+      <NuxtLink to="/" class="prettyLink max-w-fit">
+        Talks & webinars
       </NuxtLink>
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="prettyLink max-w-fit">
         Private workshops
       </NuxtLink>
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="prettyLink max-w-fit">
         Company consulting
       </NuxtLink>
-      <NuxtLink to="/">
+      <NuxtLink to="/" class="prettyLink max-w-fit">
         Individual tutoring
       </NuxtLink>
-      <NuxtLink to="/">
-        Blogposts & video
+      <NuxtLink to="/" class="prettyLink max-w-fit">
+        Video & blog authoring
       </NuxtLink>
     </div>
   </div>

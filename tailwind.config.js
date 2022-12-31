@@ -22,7 +22,8 @@ module.exports = {
           DEFAULT: '#fff'
         },
         ivory: {
-          DEFAULT: '#fffff2'
+          DEFAULT: '#fffff2',
+          dark: '#FFFFD6'
         },
         cheese: {
           DEFAULT: '#ffd76d',

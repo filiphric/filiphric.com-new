@@ -18,9 +18,28 @@ html {
 }
 
 .prettyLink {
-@apply bg-gradient-to-r from-punch to-blueberry pb-1;
+@apply bg-gradient-to-r from-tangerine to-blueberry pb-1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .prettyLink {
+    @apply bg-gradient-to-r from-punch to-blueberry pb-1;
+  }
 }
 .prettyLink:hover,
 .prettyLink:focus {
 background-size: 100% 4px;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translate(200px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translate(-200px);
 }
