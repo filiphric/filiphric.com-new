@@ -36,7 +36,7 @@ useHead({
   },
   {
     name: 'image',
-    content: `https://filiphric-com-og.vercel.app/api/og?${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}readingTime=${page.value.readingTime.text}`
+    content: `https://filiphric-com-og.vercel.app/api/og?${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
   },
   {
     property: 'og:url',
@@ -56,7 +56,7 @@ useHead({
   },
   {
     property: 'og:image',
-    content: `https://filiphric-com-og.vercel.app/api/og?${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}readingTime=${page.value.readingTime.text}`
+    content: `https://filiphric-com-og.vercel.app/api/og?${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
   },
   {
     property: 'twitter:card',
@@ -76,7 +76,7 @@ useHead({
   },
   {
     property: 'twitter:image',
-    content: `https://filiphric-com-og.vercel.app/api/og?${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}readingTime=${page.value.readingTime.text}`
+    content: `https://filiphric-com-og.vercel.app/api/og?${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
   },
   {
     property: 'article:published_time',
