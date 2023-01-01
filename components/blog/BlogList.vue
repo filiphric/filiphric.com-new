@@ -27,7 +27,7 @@ const props = defineProps({
   }
 })
 
-const { data } = useAsyncData('home', () => queryContent<MaybeComputedRef<any>>('/').where({ published: true }).sort({ date: -1 }).find())
+const { data } = await useAsyncData('home', () => queryContent<MaybeComputedRef<any>>('/').where({ published: true }).sort({ date: -1 }).find())
 
 const searchQuery = toRefs(props)
 

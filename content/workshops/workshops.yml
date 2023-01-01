@@ -1,0 +1,24 @@
+- title: Cypress core workshop
+  description: 4 session workshop, packed with real-life examples and coding challenges. Suitable for beginner or intermediate Cypress users. 
+  slug: cypress-core-january-2023
+  image: core_workshop_2_q9fzxv.png
+  date: 'from 16th to 25th January 2023'
+  time: 'from 8PM to 11PM'
+  days: 'Mondays and Wednesdays'
+  featured: true
+- title: Testing API with Cypress
+  description: Learn how to expand your testing suite with powerful API tests using Cypress
+  slug: /
+  image: api-workshop_axjhrw.png
+  date: ''
+  time: ''
+  days: ''
+  featured: false
+- title: Using Cypress with TypeScript
+  description: Learn how to take your Cypress test suite to the next level with TypeScript
+  slug: /
+  image: ts-workshop_kibeky.png
+  date: ''
+  time: ''
+  days: ''
+  featured: false

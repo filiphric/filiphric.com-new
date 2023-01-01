@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div>
     <ContentDoc v-slot="{ doc }">
       <div class="mt-7">
         <BlogHeading
@@ -22,5 +22,5 @@
         </div>
       </div>
     </ContentDoc>
-  </main>
+  </div>
 </template>
