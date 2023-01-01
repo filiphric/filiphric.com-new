@@ -30,9 +30,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/plausible'
   ],
-  plausible: {
-    apiHost: '/stats/api/event'
-  },
   postcss: {
     plugins: {
       tailwindcss: {},
