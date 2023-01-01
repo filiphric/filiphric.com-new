@@ -5,12 +5,17 @@ export default defineNuxtConfig({
     pageTransition: {
       name: 'page',
       mode: 'out-in'
+    },
+    layoutTransition: {
+      name: 'layout',
+      mode: 'out-in'
     }
   },
   content: {
     markdown: {
       remarkPlugins: ['remark-reading-time']
-    }
+    },
+    documentDriven: true
   },
   css: ['~/assets/css/main.css'],
   image: {

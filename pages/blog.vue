@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <NuxtLayout>
     <BlogHeader>
       <BlogSearch @update:query="updateQuery" />
     </BlogHeader>
     <BlogList :query="query" />
-  </div>
+  </NuxtLayout>
 </template>
 <script setup lang="ts">
 const query = ref('')

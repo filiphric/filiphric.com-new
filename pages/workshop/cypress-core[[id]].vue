@@ -1,3 +1,5 @@
 <template>
-  <div>core workshop site</div>
+  <NuxtLayout>
+    <div>core workshop site</div>
+  </NuxtLayout>
 </template>

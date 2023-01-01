@@ -1,3 +1,5 @@
 <template>
-  <div>typescript workshop site</div>
+  <NuxtLayout>
+    <div>typescript workshop site</div>
+  </NuxtLayout>
 </template>

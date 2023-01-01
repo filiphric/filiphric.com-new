@@ -1,11 +1,15 @@
 <template>
   <div class="mx-2 grid items-center rounded-3xl p-9 md:mx-0" :class="styleClasses">
-    <nuxt-picture :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" />
+    <NuxtLink :to="'/workshop/' + item.slug">
+      <nuxt-picture :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" />
+    </NuxtLink>
     <div>
-      <h2 class="font-black" :class="item.featured ?'md:text-5xl text-3xl' : 'text-3xl'">
-        {{ item.title }}
-      </h2>
-      <div v-if="item.featured" class="mt-5 inline-block rounded-md bg-blueberry px-3 py-0.5 font-black uppercase">
+      <NuxtLink :to="'/workshop/' + item.slug">
+        <h2 class="font-black" :class="item.featured ?'md:text-5xl text-3xl' : 'text-3xl'">
+          {{ item.title }}
+        </h2>
+      </NuxtLink>
+      <div v-if="item.featured" class="mt-5 inline-block rounded-md bg-white px-3 py-0.5 font-black uppercase shadow-block-lime dark:bg-transparent dark:shadow-block-dark-lime">
         Featured
       </div>
       <div class="mt-5 text-xs">

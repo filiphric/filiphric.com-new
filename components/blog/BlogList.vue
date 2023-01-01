@@ -38,5 +38,4 @@ const { results } = useFuse(searchQuery.query, data, {
     keys: ['title', 'description']
   }
 })
-
 </script>

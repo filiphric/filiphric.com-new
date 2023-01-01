@@ -1,6 +1,6 @@
 <template>
-  <div>
+  <NuxtLayout>
     <WorkshopsHeader />
     <WorkshopsList />
-  </div>
+  </NuxtLayout>
 </template>

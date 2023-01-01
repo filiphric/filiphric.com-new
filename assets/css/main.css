@@ -44,6 +44,19 @@ background-size: 100% 4px;
   transform: translate(-200px);
 }
 
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.3s;
+}
+.layout-enter-from {
+  opacity: 0;
+  transform: translate(200px);
+}
+.layout-leave-to {
+  opacity: 0;
+  transform: translate(-200px);
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.1s ease-out;

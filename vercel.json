@@ -1,4 +1,5 @@
 {
+  "devCommand": "nuxt dev",
   "redirects": [
     {
       "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",
@@ -20,50 +21,7 @@
       "destination": "https://twitter.com/filip_hric/",
       "source": "/twitter"
     },
-    {
-      "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",
-      "source": "/twitch"
-    },
-    {
-      "destination": "/skip-test-conditionally-with-cypress",
-      "source": "/skip-tests"
-    },
-    {
-      "destination": "/cypress-basics-selecting-elements",
-      "source": "/selectors"
-    },
-    {
-      "destination": "/lesser-known-cypress-tricks",
-      "source": "/tricks"
-    },
-    {
-      "destination": "/hover-in-cypress",
-      "source": "/hover"
-    },
-    {
-      "destination": "/cypress-basics-check-if-element-exists",
-      "source": "/visibility"
-    },
-    {
-      "destination": "/create-a-configuration-plugin-in-cypress",
-      "source": "/config-plugin"
-    },
-    {
-      "destination": "/cypress-basics-where-did-my-cookies-disappear",
-      "source": "/cookies"
-    },
-    {
-      "destination": "https://filiphric.sk/bootcamp",
-      "source": "/bootcamp"
-    },
-    {
-      "destination": "https://forms.gle/1amxSEET8fGt3TWA7",
-      "source": "/merch"
-    },
-    {
-      "destination": "https://discord.gg/45UtpwJPXd",
-      "source": "/tau-workshop"
-    },
+    
     {
       "destination": "https://calendly.com/filip_hric/meeting",
       "source": "/lets-meet"

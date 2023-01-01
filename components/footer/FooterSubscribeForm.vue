@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pr-20">
     <h2 class="text-xl font-bold">
       Let’s keep in touch
     </h2>
@@ -39,7 +39,7 @@
       >
         Subscribe
       </button>
-      <p class=" mt-6 text-xs sm:text-center md:text-left">
+      <p class=" mt-6 text-left text-xs">
         I treat your email address like I would my own. That means no ads. Just notifications of when I do cool stuff. Unsubscribe anytime. <NuxtLink to="/" class="prettyLink">
           Click here to read about how I handle your data
         </NuxtLink>
