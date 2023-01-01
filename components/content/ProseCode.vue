@@ -72,18 +72,4 @@ const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColo
 .copyToolbar:hover .copyLabel {
   opacity: 100%
 }
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.1s ease-out;
-}
-
-.fade-enter-from {
-  opacity: 0;
-}
-
-.fade-leave-to {
-  opacity: 0;
-}
-
 </style>
