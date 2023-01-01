@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-multiple-template-root -->
 <template>
   <div>
-    <HomeMainElement />
+    <HomeHero />
     <HomeAboutMe />
   </div>
 </template>

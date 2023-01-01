@@ -43,3 +43,7 @@ background-size: 100% 4px;
   opacity: 0;
   transform: translate(-200px);
 }
+
+.animatedIcon:hover > svg {
+    transform: translate(6px)
+}

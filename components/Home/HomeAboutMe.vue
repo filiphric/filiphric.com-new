@@ -13,8 +13,3 @@
     </div>
   </div>
 </template>
-<style scoped>
-a:hover svg {
-  transform: translate(6px)
-}
-</style>
