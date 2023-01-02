@@ -5,9 +5,9 @@ import 'prismjs/components/prism-bash'
 import { punctuation } from './punctuation'
 
 export const transform = (body: any, language: string, highlights: number[]) => {
-  Prism.languages.insertBefore('json', 'punctuation', punctuation)
-  Prism.languages.insertBefore('js', 'punctuation', punctuation)
-  Prism.languages.insertBefore('ts', 'punctuation', punctuation)
+  Prism.languages?.insertBefore('json', 'punctuation', punctuation)
+  Prism.languages?.insertBefore('js', 'punctuation', punctuation)
+  Prism.languages?.insertBefore('ts', 'punctuation', punctuation)
 
   const formatted = Prism.highlight(body, Prism.languages[language], language)
 

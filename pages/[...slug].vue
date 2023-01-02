@@ -28,7 +28,7 @@
 const { page } = useContent()
 
 useHead({
-  title: 'Hey!',
+  title: page.value.title,
   meta: [{
     hid: 'description',
     name: 'description',
