@@ -30,6 +30,9 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/plausible'
   ],
+  plausible: {
+    apiHost: 'https://filiphric.com'
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
