@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible'
   ],
   plausible: {
-    apiHost: 'https://filiphric.com'
+    apiHost: 'https://filiphric.com/stats'
   },
   postcss: {
     plugins: {

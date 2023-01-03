@@ -55,10 +55,13 @@ const props = defineProps({
   }
 })
 
+const transformedCode = ref()
+
 const source = ref(props.code)
 const { copy, copied } = useClipboard({ source })
-
-const transformedCode = transform(props.code, props.language, props.highlights)
+// nextTick(() => {
+transformedCode.value = transform(props.code, props.language, props.highlights)
+// })
 const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColor()}`
 
 </script>
