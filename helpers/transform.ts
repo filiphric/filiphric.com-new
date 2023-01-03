@@ -9,12 +9,22 @@ export const transform = (body: any, language: string, highlights: number[]) => 
   Prism.languages?.insertBefore('js', 'punctuation', punctuation)
   Prism.languages?.insertBefore('ts', 'punctuation', punctuation)
 
-  const formatted = Prism.highlight(body, Prism.languages[language], language)
+  // const formatted = Prism.highlight(body, Prism.languages[language], language)
 
-  const code = formatted.split('\n')
-    .map((line, num) => `<span ${highlights.includes(num + 1) ? 'class="highlight"' : ''}><span class="line-number">${(num + 1).toString().padStart(2, ' ')}  </span>${line}</span>`)
-    .slice(0, -1) // remove last line
-    .join('\n')
+  // const code = formatted.split('\n')
+  //   .map((line, num) => `<span ${highlights.includes(num + 1) ? 'class="highlight"' : ''}><span class="line-number">${(num + 1).toString().padStart(2, ' ')}  </span>${line}</span>`)
+  //   .slice(0, -1) // remove last line
+  //   .join('\n')
 
-  return code
+  // return code
+
+  const highlighted = language
+    ? Prism.highlight(
+      body,
+      Prism.languages[language],
+      language
+    )
+    : body
+
+  return highlighted
 }
