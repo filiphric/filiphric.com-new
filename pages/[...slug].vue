@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
     <ContentDoc v-slot="{ doc }">
-      <div class="mt-7">
+      <div v-if="doc.title" class="mt-7">
         <BlogHeading
           :cypress-version="doc.cypressVersion"
           :date="doc.date"
@@ -27,65 +27,67 @@
 <script setup lang="ts">
 const { page } = useContent()
 
-useHead({
-  title: page.value.title,
-  meta: [{
-    hid: 'description',
-    name: 'description',
-    content: page.value.description
-  },
-  {
-    name: 'image',
-    content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
-  },
-  {
-    property: 'og:url',
-    content: `https://filiphric.com/${page.value.slug}`
-  },
-  {
-    property: 'og:type',
-    content: 'article'
-  },
-  {
-    property: 'og:title',
-    content: page.value.title
-  },
-  {
-    property: 'og:description',
-    content: page.value.description
-  },
-  {
-    property: 'og:image',
-    content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
-  },
-  {
-    property: 'twitter:card',
-    content: 'summary_large_image'
-  },
-  {
-    property: 'twitter:creator',
-    content: '@filip_hric'
-  },
-  {
-    property: 'twitter:title',
-    content: page.value.title
-  },
-  {
-    property: 'twitter:description',
-    content: page.value.description
-  },
-  {
-    property: 'twitter:image',
-    content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
-  },
-  {
-    property: 'article:published_time',
-    content: page.value.date
-  },
-  {
-    property: 'article:author',
-    content: 'Filip Hric'
-  }
-  ]
-})
+if (page.value) {
+  useHead({
+    title: page.value.title || 'Filip Hric',
+    meta: [{
+      hid: 'description',
+      name: 'description',
+      content: page.value.description
+    },
+    {
+      name: 'image',
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
+    },
+    {
+      property: 'og:url',
+      content: `https://filiphric.com/${page.value.slug}`
+    },
+    {
+      property: 'og:type',
+      content: 'article'
+    },
+    {
+      property: 'og:title',
+      content: page.value.title
+    },
+    {
+      property: 'og:description',
+      content: page.value.description
+    },
+    {
+      property: 'og:image',
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:creator',
+      content: '@filip_hric'
+    },
+    {
+      property: 'twitter:title',
+      content: page.value.title
+    },
+    {
+      property: 'twitter:description',
+      content: page.value.description
+    },
+    {
+      property: 'twitter:image',
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(page.value.image)}&title=${encodeURIComponent(page.value.title)}&readingTime=${encodeURIComponent(page.value.readingTime.text)}`
+    },
+    {
+      property: 'article:published_time',
+      content: page.value.date
+    },
+    {
+      property: 'article:author',
+      content: 'Filip Hric'
+    }
+    ]
+  })
+}
 </script>

@@ -33,9 +33,12 @@
 
 <script setup lang="ts">
 import { useClipboard } from '@vueuse/core'
-import Prism from 'prismjs'
-import { transform } from '@/helpers/transform'
+import * as Prism from 'prismjs'
+import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-bash'
 import { randomColor } from '@/helpers/randomColor'
+import { punctuation } from '@/helpers/punctuation'
 
 const props = defineProps({
   code: {
@@ -56,14 +59,24 @@ const props = defineProps({
   }
 })
 
-const transformedCode = ref()
-
 const source = ref(props.code)
 const { copy, copied } = useClipboard({ source })
-transformedCode.value = transform(props.code, props.language, props.highlights)
-onUpdated(() => {
-  Prism.highlightAll()
+
+// transform code - add line numbers and highlights
+const transformedCode = ref()
+onMounted(() => {
+  Prism.languages?.insertBefore('json', 'punctuation', punctuation)
+  Prism.languages?.insertBefore('js', 'punctuation', punctuation)
+  Prism.languages?.insertBefore('ts', 'punctuation', punctuation)
+
+  const formatted = Prism.highlight(props.code, Prism.languages[props.language], props.language)
+
+  transformedCode.value = formatted.split('\n')
+    .map((line, num) => `<span ${props.highlights.includes(num + 1) ? 'class="highlight"' : ''}><span class="line-number">${(num + 1).toString().padStart(2, ' ')}  </span>${line}</span>`)
+    .slice(0, -1) // remove last line
+    .join('\n')
 })
+
 const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColor()}`
 
 </script>
@@ -71,6 +84,7 @@ const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColo
 <style>
 /* all code block styles */
 @import '~/assets/css/prism.css';
+
 .code-block {
   @apply mt-10 mb-14 mr-2 rounded-2xl font-mono font-semibold text-sm md:text-base max-w-2xl;
 }
