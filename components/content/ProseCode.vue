@@ -33,6 +33,7 @@
 
 <script setup lang="ts">
 import { useClipboard } from '@vueuse/core'
+import Prism from 'prismjs'
 import { transform } from '@/helpers/transform'
 import { randomColor } from '@/helpers/randomColor'
 
@@ -59,9 +60,10 @@ const transformedCode = ref()
 
 const source = ref(props.code)
 const { copy, copied } = useClipboard({ source })
-// nextTick(() => {
 transformedCode.value = transform(props.code, props.language, props.highlights)
-// })
+onUpdated(() => {
+  Prism.highlightAll()
+})
 const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColor()}`
 
 </script>
