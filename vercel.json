@@ -1,5 +1,6 @@
 {
   "devCommand": "nuxt dev",
+  "framework": "nuxtjs",
   "redirects": [
     {
       "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",
