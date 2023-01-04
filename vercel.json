@@ -1,5 +1,5 @@
 {
-  "devCommand": "npm run build && npm run generate && npm run preview",
+  "devCommand": "npm run generate && npm run preview",
   "redirects": [
     {
       "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",

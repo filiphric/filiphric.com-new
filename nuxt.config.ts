@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     markdown: {
       remarkPlugins: ['remark-reading-time']
     },
-    documentDriven: true
+    documentDriven: false
   },
   css: ['~/assets/css/main.css'],
   image: {
