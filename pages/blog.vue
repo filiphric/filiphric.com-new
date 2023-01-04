@@ -7,7 +7,7 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-const query = ref('')
+const query = ref()
 const updateQuery = (q: string) => {
   query.value = q
 }
