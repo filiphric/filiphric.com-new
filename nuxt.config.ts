@@ -1,4 +1,5 @@
 import svgLoader from 'vite-svg-loader'
+const hostname = process.env.NODE_ENV === 'production' ? 'https://filiphric.com' : 'http://localhost:3000'
 
 export default defineNuxtConfig({
   app: {
@@ -30,8 +31,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/plausible'
   ],
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml', '/rss.xml']
+    }
+  },
   plausible: {
-    apiHost: 'https://filiphric.com/stats'
+    apiHost: `${hostname}/stats'`
   },
   postcss: {
     plugins: {
