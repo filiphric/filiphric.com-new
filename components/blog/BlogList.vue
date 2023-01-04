@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="query.length" class="baseline grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+    <div v-if="query.length" class="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="{ item } in results" :key="item.slug">
         <BlogItem
           :item="item"
