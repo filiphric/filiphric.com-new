@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     }
   },
   plausible: {
-    apiHost: `${hostname}/stats'`
+    apiHost: `${hostname}/stats/`
   },
   postcss: {
     plugins: {
