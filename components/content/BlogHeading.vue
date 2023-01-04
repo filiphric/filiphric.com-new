@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 place-content-center md:mb-3 md:grid-cols-2">
+  <div class="grid grid-cols-1 place-content-center md:mb-3 md:grid-cols-2" data-cy="blog-heading">
     <div class="self-center" :class="image ? '' : 'col-span-2'">
       <h1 class="mt-14 mb-7 max-w-5xl text-center text-5xl font-extrabold md:text-left md:text-6xl lg:text-7xl">
         {{ title }}

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <div class="code-block" :class="color">
+  <div class="code-block" :class="color" data-cy="code-block">
     <div class="flex h-10 justify-between rounded-t-2xl bg-white px-6 py-1.5 font-mono text-black dark:bg-black-light dark:text-gray-100">
       <div class="grid grow-0 grid-cols-3 items-center gap-2">
         <!-- three dots -->
