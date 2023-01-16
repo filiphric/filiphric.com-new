@@ -3,5 +3,10 @@
   <NuxtLayout>
     <HomeHero />
     <HomeAboutMe />
+    <HomeWorkshops />
+    <HomeConsultations />
+    <HomeConferences />
+    <HomeTutoring />
+    <HomeUpcomingWorkshop />
   </NuxtLayout>
 </template>

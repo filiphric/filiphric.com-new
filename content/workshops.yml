@@ -3,6 +3,7 @@ body:
     description: 4 session workshop, packed with real-life examples and coding challenges. Suitable for beginner or intermediate Cypress users. 
     slug: cypress-core-january-2023
     image: core_workshop_2_q9fzxv.png
+    startDate: 2023-01-16
     date: 'from 16th to 25th January 2023'
     time: 'from 8PM to 11PM'
     days: 'Mondays and Wednesdays'
@@ -11,6 +12,7 @@ body:
     description: Learn how to expand your testing suite with powerful API tests using Cypress
     slug: cypress-api
     image: api-workshop_axjhrw.png
+    startDate: ''
     date: ''
     time: ''
     days: ''
@@ -19,6 +21,7 @@ body:
     description: Learn how to take your Cypress test suite to the next level with TypeScript
     slug: cypress-typescript
     image: ts-workshop_kibeky.png
+    startDate: ''
     date: ''
     time: ''
     days: ''
