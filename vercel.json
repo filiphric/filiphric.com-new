@@ -57,7 +57,9 @@
     {
       "destination": "https://calendly.com/filip_hric/tutoring",
       "source": "/tutoring"
-    },
+    }
+  ],
+  "rewrites": [
     {
       "source": "/stats/js/script.js",
       "destination": "https://plausible.io/js/script.js"
