@@ -121,3 +121,7 @@ pre span.highlight {
 .line-number {
   @apply select-none contents align-top text-gray-500;
 }
+
+.language-yml .token.key {
+  @apply text-punch
+}

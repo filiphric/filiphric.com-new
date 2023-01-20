@@ -37,6 +37,7 @@ import * as Prism from 'prismjs'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-yaml'
 import { randomColor } from '@/helpers/randomColor'
 import { punctuation } from '@/helpers/punctuation'
 

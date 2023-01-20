@@ -14,13 +14,27 @@
       </div>
       <div class="col-span-2 mt-5 hidden lg:block">
         <h2 class="text-2xl font-bold">
-          Upcoming workshops
+          Table of contents:
         </h2>
+        <ul>
+          <NuxtLink
+            v-for="link in doc.body.toc.links"
+            :key="link.id"
+            :to="'#' + link.id"
+            class="prettyLink inline-block"
+          >
+            {{ link.text }}
+          </NuxtLink>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+type Link = {
+  id: string,
+  text: string
+}
 const props = defineProps<{
   doc: {
     title: string,
@@ -30,6 +44,11 @@ const props = defineProps<{
     date: string,
     readingTime: {
       text: string
+    },
+    body: {
+      toc: {
+        links: Link[]
+      }
     },
     description: string
   }
