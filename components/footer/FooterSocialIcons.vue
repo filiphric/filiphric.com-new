@@ -20,7 +20,7 @@
           Discord
         </p>
       </a>
-      <a class="prettyLink h-8 max-w-fit" href="https://github.com/makenotion">
+      <a class="prettyLink h-8 max-w-fit" href="https://github.com/filiphric">
         <IconGithub class="mr-2 inline w-5 pb-1" /><p class="inline text-left">
           GitHub
         </p>
