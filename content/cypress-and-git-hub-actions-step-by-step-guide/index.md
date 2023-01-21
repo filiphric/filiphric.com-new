@@ -4,6 +4,7 @@ date: 2023-01-16
 published: true
 slug: "cypress-and-git-hub-actions-step-by-step-guide"
 description: "GitHub Actions are a powerful and easy-to-learn tool that can help you quite a lot, In this blogpost we‘ll take a look into how they can be used to run your Cypress tests."
+image: github_exhcny.png
 tags: ['cypress', 'ci', 'github', 'actions']
 ---
 You might have wondered about GitHub Actions. They seem like an advanced concept, but in reality they are a powerful and easy-to-learn tool that can help you quite a lot. Let’s look at how to use them to run your Cypress tests.
