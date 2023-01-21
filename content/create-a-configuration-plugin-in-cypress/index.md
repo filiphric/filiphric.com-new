@@ -4,7 +4,8 @@ date: 2020-11-23
 title: 'Create a configuration plugin in Cypress'
 published: true
 description: 'There are several different ways to configure how your Cypress tests can be configured. In this post, I’m describing these ways and explain how you can view them in Cypress GUI.'
-tags: ['cypress', 'configuration', 'plugins', 'headless']
+tags: ['cypress', 'configuration', 'plugins', 'headless']c
+cypressVersion: 12.3.0
 ---
 Last week I have been playing with configuration in Cypress. I find configuring different environments to be especially hard topic. Especially for people that are beginning. In this blog, I would like to break configuration into small steps, that will help you navigate this topic.
 
