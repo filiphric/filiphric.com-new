@@ -114,6 +114,12 @@ if (props.doc) {
       property: 'article:author',
       content: 'Filip Hric'
     }
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: `https://filiphric.com/${props.doc.slug}`
+      }
     ]
   })
 }
