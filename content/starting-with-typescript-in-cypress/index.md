@@ -102,7 +102,7 @@ const addBoard = (input: 'new board' | 'my board') => {
 ```
 By adding this, I can specify which types of input will my function take. What’s even nicer, VS Code provides me with autocomplete:
 
-![Autocompleting function arguments](autocomplete.png)
+![Autocompleting function arguments](autocomplete_uua3td.png)
 
 I can imagine there might be some very cool use cases for this. Not sure why, but `data-cy` attribute selectors come to mind immediately. I have this `getDataCy` command,that is just a simple wrapper around Cypress `.get()` command. It will select element based on `data-cy` attribute so I don’t have to type the whole `[data-cy=selector]` text all the time. What if I could autocomplete my selectors? 🤔 If I find out this would be something useful, I’ll let you know on this blog, subscribe down at the bottom of the page if you are interested.
 
