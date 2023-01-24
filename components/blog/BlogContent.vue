@@ -21,7 +21,7 @@
             v-for="link in doc.body.toc.links"
             :key="link.id"
             :to="'#' + link.id"
-            class="prettyLink inline-block"
+            class="prettyLink block max-w-fit"
           >
             {{ link.text }}
           </NuxtLink>
