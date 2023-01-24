@@ -4,22 +4,22 @@
       What I do
     </h2>
     <div class="my-7 grid grid-flow-row gap-1">
-      <NuxtLink to="/" class="prettyLink max-w-fit">
+      <NuxtLink to="/about" class="prettyLink max-w-fit">
         About me
       </NuxtLink>
-      <NuxtLink to="/" class="prettyLink max-w-fit">
+      <NuxtLink to="/talks-webinars" class="prettyLink max-w-fit">
         Talks & webinars
       </NuxtLink>
-      <NuxtLink to="/" class="prettyLink max-w-fit">
+      <NuxtLink to="/private-workshops" class="prettyLink max-w-fit">
         Private workshops
       </NuxtLink>
-      <NuxtLink to="/" class="prettyLink max-w-fit">
+      <NuxtLink to="/company-consulting" class="prettyLink max-w-fit">
         Company consulting
       </NuxtLink>
-      <NuxtLink to="/" class="prettyLink max-w-fit">
+      <NuxtLink to="/individual-tutoring" class="prettyLink max-w-fit">
         Individual tutoring
       </NuxtLink>
-      <NuxtLink to="/" class="prettyLink max-w-fit">
+      <NuxtLink to="/content-authoring" class="prettyLink max-w-fit">
         Video & blog authoring
       </NuxtLink>
     </div>
