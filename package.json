@@ -11,7 +11,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "start-server": "vercel dev",
-    "test": "cypress open"
+    "test": "cypress open",
+    "new-blog": "node scripts/generateBlog.js"
   },
   "keywords": [],
   "author": "Filip Hric (https://filiphric.com/)",
@@ -29,6 +30,7 @@
     "@nuxtjs/plausible": "^0.2.0",
     "@pinia/nuxt": "^0.4.6",
     "@types/prismjs": "^1.26.0",
+    "@types/prompts": "^2.4.2",
     "@types/rss": "^0.0.29",
     "@vueuse/core": "^9.9.0",
     "@vueuse/integrations": "^9.9.0",
@@ -39,6 +41,7 @@
     "eslint": "^8.30.0",
     "eslint-plugin-tailwindcss": "^3.7.1",
     "postcss": "^8.4.19",
+    "prompts": "^2.4.2",
     "remark-reading-time": "^2.0.1",
     "rss": "^1.2.2",
     "sitemap": "^7.1.1",
