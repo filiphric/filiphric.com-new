@@ -2,6 +2,7 @@
 title: 'Cypress basics: check if element exists'
 date: 2021-02-01
 published: true
+visible: true
 slug: "cypress-basics-check-if-element-exists"
 description: "In this article we are exploring ways to assert visibility of an element on a page. There are couple of gotchas that may be confusing at times. All explained in the blog"
 tags: ['cypress', 'basics', 'assertions']

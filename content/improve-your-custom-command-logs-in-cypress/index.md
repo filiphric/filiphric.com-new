@@ -2,6 +2,7 @@
 title: "Improve your custom command logs in Cypress"
 date: 2021-03-16
 published: true
+visible: true
 slug: "improve-your-custom-command-logs-in-cypress"
 description: "How to take your custom commands to another level with custom logging, snapshots and many more."
 tags: ['cypress', 'custom commands', 'logging']

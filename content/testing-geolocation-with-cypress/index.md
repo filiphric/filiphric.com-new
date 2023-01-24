@@ -2,6 +2,7 @@
 title: "Testing geolocation with Cypress"
 date: 2022-08-02
 published: true
+visible: true
 slug: "testing-geolocation-with-cypress"
 description: "Explanation on how to test a page that can locate its users either via API call or using browser’s Geolocation API capabilities "
 tags: ['cypress', 'geolocation', 'location', 'gps', "api"]

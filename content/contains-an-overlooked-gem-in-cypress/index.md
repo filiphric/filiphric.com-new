@@ -2,6 +2,7 @@
 title: ".contains() - an overlooked gem in Cypress"
 date: 2021-04-05
 published: true
+visible: true
 slug: "contains-an-overlooked-gem-in-cypress"
 description: "Although the name of this command sounds like an assertion, it is actually a selecting command. Let’s look into what makes this command great."
 tags: ['cypress', 'selectors', 'contains', 'text', 'assertions']

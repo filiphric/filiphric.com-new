@@ -2,6 +2,7 @@
 title: "Hover in Cypress"
 date: 2021-01-11
 published: true
+visible: true
 slug: "hover-in-cypress"
 description: "Short guide on how to hover over elements in Cypress. As there are multiple ways hover actions work, there are multiple ways of achieving hover."
 tags: ['cypress', 'basics', 'tricks']

@@ -2,6 +2,7 @@
 title: "Testing links with Cypress"
 date: 2021-04-26
 published: true
+visible: true
 slug: "testing-links-with-cypress"
 description: "Let’s say you want to test all the links in a navigation bar, ideally in most effective way. In this article I show you some of the most effective ways"
 tags: ['cypress', 'links', 'loop', 'href']

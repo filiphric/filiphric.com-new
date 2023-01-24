@@ -2,6 +2,7 @@
 title: "Generating a random user in Cypress test"
 date: 2021-05-24
 published: true
+visible: true
 slug: "generating-random-user-in-cypress-test"
 description: "Article on how to randomly generate a user and various ways how to use its data"
 tags: ["cypress", "faker", "random"]

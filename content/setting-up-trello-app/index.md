@@ -1,7 +1,8 @@
 ---
 title: "Setting up trello app"
 date: 2022-10-18
-published: false
+published: true
+visible: false
 slug: "setting-up-trello-app"
 description: ""
 tags: ['cypress']

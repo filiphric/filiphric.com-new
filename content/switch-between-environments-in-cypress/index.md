@@ -2,6 +2,7 @@
 title: "Switch between environments in Cypress"
 date: 2022-01-24
 published: true
+visible: true
 slug: "switch-between-environments-in-cypress"
 description: "There are multiple ways you can switch to different environments in Cypress. In this blogpost, I explain which ones you can use and show some examples."
 tags: ['cypress', 'environment', 'config', 'configuration', 'baseUrl']

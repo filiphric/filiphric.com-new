@@ -2,6 +2,7 @@
 title: "8 common mistakes in Cypress (and how to avoid them)"
 date: 2022-07-14
 published: true
+visible: true
 slug: "8-common-mistakes-in-cypress-and-how-to-avoid-them"
 description: "In this blogpost I’m sharing a couple of testing antipatterns that can make your test flaky, hard to read or slow."
 tags: ['cypress', 'best practices', 'flakiness']

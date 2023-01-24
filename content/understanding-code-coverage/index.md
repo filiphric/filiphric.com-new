@@ -4,6 +4,7 @@ date: 2021-01-18
 title: 'Understanding code coverage in Cypress'
 description: 'It’s pretty awesome that you can use e2e tests to generate your coverage data. In this blog I’m describing how the whole process works.'
 published: true
+visible: true
 author: 'Filip Hric'
 tags: ['testing', 'advanced', 'code coverage']
 ---

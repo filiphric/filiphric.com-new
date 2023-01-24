@@ -2,6 +2,7 @@
 title: "Reading and testing JSON object in Cypress"
 date: 2021-04-19
 published: true
+visible: true
 slug: "reading-and-testing-json-object-in-cypress"
 description: "Ever got that frustrating Cannot read property 'x' of undefined error? If you are starting with JSON objects, it is easy to get lost. In this article I hope to shed some light into how to read and test them with Cypress"
 tags: ['cypress', 'json', 'data', 'fixtures', 'object']

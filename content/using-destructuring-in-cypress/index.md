@@ -3,6 +3,7 @@ slug: using-destructuring-in-cypress
 date: 2020-11-02
 title: 'Using destructuring in Cypress'
 published: true
+visible: true
 description: 'Short explanation on destructuring in JavaScript and its application in your Cypress tests.'
 tags: ['basics', 'javascript', 'cypress', 'beginner']
 ---

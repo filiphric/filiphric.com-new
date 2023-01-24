@@ -3,6 +3,7 @@ slug: test-grepping-in-cypress-using-module-api
 date: 2020-11-09
 title: 'Test grepping in Cypress using Module API'
 published: true
+visible: true
 description: 'Sometimes you want to run just a subset of your tests. With Module API, you can achieve just that. Showcasing how you can grep your tests by folder.'
 tags: ['ci', 'headless', 'cypress']
 ---

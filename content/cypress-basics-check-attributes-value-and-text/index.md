@@ -2,6 +2,7 @@
 title: "Cypress basics: Check attributes, value and text"
 date: 2021-04-12
 published: true
+visible: true
 slug: "cypress-basics-check-attributes-value-and-text"
 description: "Short explanation of how to test and access different properties of a given element using .invok() function"
 tags: ['cypress', 'basics', 'attributes', 'value', 'text']

@@ -5,6 +5,7 @@ title: 'Opening a new tab in Cypress'
 description: 'Spoiler alert: you don’t. But there are tons of things you can do to test your link redirects properly.'
 tags: ['tabs', 'cypress']
 published: true
+visible: true
 ---
 Cypress has its [trade-offs](https://docs.cypress.io/guides/references/trade-offs.html#Multiple-tabs). Lack of multiple tabs support may be annoying, especially when you are starting to test an application that opens stuff in new tabs all the time. In this article, I would like to show you how I work around this limitation. Although, is it a limitation? Let’s look at the solutions and you’ll see for yourself.
 

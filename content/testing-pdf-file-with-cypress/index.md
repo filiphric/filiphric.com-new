@@ -2,6 +2,7 @@
 title: "Testing a PDF file with Cypress"
 date: 2022-08-08
 published: true
+visible: true
 slug: "testing-pdf-file-with-cypress"
 description: "How to download a PDF file, check the download and parse out the content of the file for further testing"
 tags: ['cypress', 'pdf', 'download']

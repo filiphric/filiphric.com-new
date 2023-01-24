@@ -2,6 +2,7 @@
 title: "Cypress basics: Uploading a file"
 date: 2022-07-27
 published: true
+visible: true
 slug: "cypress-basics-uploading-file"
 description: "How to upload a file with drag and drop elements, inputs or directly by calling your API"
 tags: ['cypress', 'upload', 'dropzone', 'file']

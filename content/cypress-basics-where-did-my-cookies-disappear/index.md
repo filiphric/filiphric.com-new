@@ -5,6 +5,7 @@ title: 'Cypress basics: Where did my cookies disappear?'
 description: 'Cypress clears the browser state before each of your tests. This means that sometimes you might need to think about how you need to handle cookies.'
 tags: ['cypress', 'cookies', 'basics', 'beginner']
 published: true
+visible: true
 ---
 Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
 

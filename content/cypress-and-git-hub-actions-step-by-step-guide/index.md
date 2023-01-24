@@ -2,6 +2,7 @@
 title: "Cypress.io and GitHub Actions: A step by step guide"
 date: 2023-01-16
 published: true
+visible: true
 slug: "cypress-and-git-hub-actions-step-by-step-guide"
 description: "GitHub Actions are a powerful and easy-to-learn tool that can help you quite a lot, In this blogpost we‘ll take a look into how they can be used to run your Cypress tests."
 image: github_exhcny.png

@@ -2,6 +2,7 @@
 title: 'Cypress basics: Selecting elements'
 date: 2020-10-05
 published: true
+visible: true
 slug: "cypress-basics-selecting-elements"
 description: "Cypress is using query selectors to find elements on your page. But there are couple of really powerful ways to select elements on page using Cypress commands"
 tags: ['cypress', 'selectors', 'custom commands']

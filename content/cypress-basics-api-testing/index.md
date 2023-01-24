@@ -2,6 +2,7 @@
 title: "Cypress basics: API testing"
 date: 2022-01-17
 published: true
+visible: true
 slug: "cypress-basics-api-testing"
 description: "Cypress is a great testing tool that can be also very helpful when testing API. In this post, I’ll go over some basics on how to write an API test in Cypress."
 tags: ['cypress', 'api', 'request']

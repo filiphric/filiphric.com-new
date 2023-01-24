@@ -2,6 +2,7 @@
 title: "Autocompleting selectors in Cypress with TypeScript"
 date: 2021-11-15
 published: true
+visible: true
 slug: "autocompleting-selectors-in-cypress-with-typescript"
 description: "Using TypeScript, we can make our lives with custom selectors easier. Our editor can autocomplete our selectors and check if we aren’t using any that were already deleted"
 tags: ['cypress', 'selectors', 'typescript', 'custom command', 'scripts']

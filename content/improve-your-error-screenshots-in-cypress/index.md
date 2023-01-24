@@ -2,6 +2,7 @@
 title: "Improve your error screenshots in Cypress"
 date: 2020-03-09
 published: true
+visible: true
 slug: "improve-your-error-screenshots-in-cypress"
 description: "Explanation of how you can use cy.log() command to make your screenshots more readable and your debugging experience even faster."
 tags: ['cypress', 'tricks', 'screenshots', 'errors']

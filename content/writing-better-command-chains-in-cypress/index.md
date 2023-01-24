@@ -2,6 +2,7 @@
 title: "Writing better command chains in Cypress"
 date: 2022-02-15
 published: true
+visible: true
 slug: "writing-better-command-chains-in-cypress"
 description: "Understanding how command chaining in Cypress works is essential for writing stable tests. In this week’s explainer we’ll take a look on how we can make our tests more stable with writing proper command chains"
 cypressVersion: "v11.0.0"

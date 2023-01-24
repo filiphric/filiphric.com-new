@@ -2,6 +2,7 @@
 title: "Google Sign in with Cypress"
 date: 2022-02-07
 published: true
+visible: true
 slug: "google-sign-in-with-cypress"
 description: "Explanation on how to log in to Google SSO enabled app programmatically and how does the process actually work."
 tags: ['cypress', 'google', 'login', 'sso', 'third party']

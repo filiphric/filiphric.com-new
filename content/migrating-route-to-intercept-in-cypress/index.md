@@ -2,6 +2,7 @@
 title: "Migrating .route() to .intercept() in Cypress"
 date: 2020-12-07
 published: true
+visible: true
 slug: "migrating-route-to-intercept-in-cypress"
 description: "With version 6.0.0 of Cypress.io, the network layer was completely rewritten. This post will guide you through the process of migration to the new experience."
 tags: ['network', 'guides', 'testing', 'cypress']

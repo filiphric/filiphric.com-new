@@ -2,6 +2,7 @@
 title: "Cypress basics: Variables"
 date: 2021-12-07
 published: true
+visible: true
 slug: "cypress-basics-variables"
 description: "How to store variables in Cypress tests and use variables and aliases inside the test and between tests."
 tags: ['cypress', 'variables', 'basics']

@@ -2,6 +2,7 @@
 title: "Testing frontend performance with Cypress"
 date: 2022-05-09
 published: true
+visible: true
 slug: "testing-frontend-performance-with-cypress"
 description: "How to measure loading of elements appearing on page using browser performance API and creating a custom command out of it."
 tags: ['cypress', 'performance', 'speed', 'metrics']

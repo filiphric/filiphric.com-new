@@ -2,6 +2,7 @@
 title: "I did a Cypress workshop and this is what I learned"
 date: 2019-10-29
 published: true
+visible: true
 slug: "i-did-a-cypress-workshop-and-this-is-what-i-learned"
 description: "Describing my workshop experience of teaching Cypress.io on conference in Brno."
 tags: ['learnings', 'personal', 'workshop']

@@ -3,6 +3,7 @@ slug: starting-with-typescript-in-cypress
 date: 2021-02-22
 title: 'Starting with TypeScript in Cypress'
 published: true
+visible: true
 description: "TypeScript has been gaining popularity over last couple of years, and for good reason. Learn how you can implement TypeScript features in your tests."
 tags: ['typescript', 'cypress']
 ---

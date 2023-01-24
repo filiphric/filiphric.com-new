@@ -2,6 +2,7 @@
 title: "Waiting in Cypress and how to avoid it"
 date: 2022-01-10
 published: true
+visible: true
 slug: "waiting-in-cypress-and-how-to-avoid-it"
 description: "Adding a wait to your test is something people like to avoid. Luckily, with Cypress, there are several ways of how to avoid waiting for a static period of time and simply move a test forward once the application is in a state we desire."
 tags: ['cypress', 'waiting', 'cy.wait', 'timeout']

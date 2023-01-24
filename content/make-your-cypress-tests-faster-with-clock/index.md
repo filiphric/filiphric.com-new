@@ -2,6 +2,7 @@
 title: "Make your Cypress tests faster with .clock()"
 date: 2021-03-01
 published: true
+visible: true
 slug: "make-your-cypress-tests-faster-with-clock"
 description: "With .clock() and .tick() functions, it is possible to manipulate app’s time and make your test faster by skipping waits of setTimeout() and setInterval() functions."
 tags: ['cypress', 'date', 'time', 'clock']

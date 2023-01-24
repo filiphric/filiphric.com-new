@@ -2,6 +2,7 @@
 title: "Playing with experimental network stubbing feature in Cypress"
 date: 2020-09-28
 published: true
+visible: true
 slug: "playing-with-experimental-network-stubbing"
 description: "Exploring the capabilities of new .route2() command that was released with Cypress version 5.1.0"
 author: "Filip Hric"

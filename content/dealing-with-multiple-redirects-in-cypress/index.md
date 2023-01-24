@@ -2,6 +2,7 @@
 title: "Dealing with multiple redirects in Cypress"
 date: 2021-01-25
 published: true
+visible: true
 slug: "dealing-with-multiple-redirects-in-cypress"
 description: "There are cases where you might deal app quickly redirecting through multiple pages. Chances are that Cypress will not register the page in the middle of redirect chain. In this post I will show you ways you can deal with this."
 tags: ['cypress', 'tricks']

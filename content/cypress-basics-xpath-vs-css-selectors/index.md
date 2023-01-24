@@ -2,6 +2,7 @@
 title: "Cypress basics: xpath vs. CSS selectors"
 date: 2021-11-22
 published: true
+visible: true
 slug: "cypress-basics-xpath-vs-css-selectors"
 description: "Using xpath with Cypress is possible through a plugin. In this post I show you how to install this plugin and show you some examples how to use xpath and compare it to Cypress commands."
 tags: ['cypress', 'selectors', 'xpath', 'locators']

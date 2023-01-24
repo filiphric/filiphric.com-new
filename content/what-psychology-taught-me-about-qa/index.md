@@ -2,6 +2,7 @@
 title: "What psychology taught me about QA"
 date: 2019-03-26
 published: true
+visible: true
 slug: "what-psychology-taught-me-about-qa"
 description: "Some of my psychology background has translated to my tech career. I hope to provide some principles which I hope to be valuable to you as well."
 tags: ['personal', 'psychology']
