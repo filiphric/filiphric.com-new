@@ -8,7 +8,7 @@
     </h2>
     <div class="grid grid-flow-row place-content-end">
       <p class="mt-4 text-gray-400">
-        {{ item.readingTime.text }}
+        {{ item.readingTime?.text }}
       </p>
       <p>
         {{ item.description }}
@@ -20,7 +20,7 @@
 import { randomColor } from '@/helpers/randomColor'
 
 defineProps<{
-  item: {
+  item: Partial<{
     title: string,
     slug: string,
     image: string,
@@ -29,7 +29,7 @@ defineProps<{
       text: string
     },
     description: string
-  }
+  }>
 }>()
 
 const randomizedColor = randomColor()
