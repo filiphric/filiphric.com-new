@@ -1,10 +1,11 @@
 <template>
   <div class="text-center md:text-left">
-    <div class=" text-gray-500 dark:text-gray-400 md:text-left">
-      {{ formatDate(date) }} <div v-if="cypressVersion" class="inline-block">
+    <div v-if="date" class=" text-gray-500 dark:text-gray-400 md:text-left">
+      {{ formatDate(date) }}
+      <div v-if="cypressVersion" class="inline-block">
         <span class="mx-2">|</span><IconCypress class="mr-0.5 inline-block w-6" /> {{ cypressVersion }}
       </div>
-      <div class="text-sm">
+      <div v-if="readingTime" class="text-sm">
         {{ readingTime }}
       </div>
     </div>

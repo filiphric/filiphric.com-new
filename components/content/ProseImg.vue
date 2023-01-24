@@ -11,7 +11,7 @@
     :alt="alt"
     :width="width"
     :height="height"
-    class="mt-10 mb-14"
+    class="mt-10 mb-14 block"
   />
 </template>
 <script setup lang="ts">
