@@ -67,6 +67,10 @@
     {
       "source": "/stats/api/event",
       "destination": "https://plausible.io/api/event"
+    },
+    {
+      "source": "/analytics",
+      "destination": "https://plausible.io/filiphric.com"
     }
   ]
 }
