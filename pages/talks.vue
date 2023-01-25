@@ -2,7 +2,7 @@
   <NuxtLayout>
     <ContentBlock image="/construction_gdzxj0.png" alt="Site under construction">
       <template #heading>
-        Company consulting
+        Talks
       </template>
       <template #description>
         Still working on this page, it will be up soon.

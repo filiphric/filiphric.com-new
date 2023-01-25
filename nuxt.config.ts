@@ -59,10 +59,6 @@ export default defineNuxtConfig({
       ],
       link: [
         {
-          rel: 'canonical',
-          href: 'https://filiphric.com'
-        },
-        {
           rel: 'icon',
           type: 'image/x-icon',
           href: '/favicon.ico'

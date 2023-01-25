@@ -7,7 +7,7 @@
     </div>
     <div class="place-self-center self-center p-7">
       <div :class="styleClasses" class="overflow-hidden rounded-3xl bg-white md:w-full">
-        <nuxt-picture src="/filip_lap2mw.png" />
+        <NuxtPicture src="/filip_lap2mw.png" alt="Filip Hric" />
       </div>
     </div>
   </div>

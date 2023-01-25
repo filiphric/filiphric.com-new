@@ -5,7 +5,7 @@
     loop
     :src="data + '/' + src"
   />
-  <nuxt-picture
+  <NuxtPicture
     v-else
     :src="'/' + src"
     :alt="alt"
@@ -15,7 +15,8 @@
   />
 </template>
 <script setup lang="ts">
-defineProps({
+
+const props = defineProps({
   src: {
     type: String,
     default: ''

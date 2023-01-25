@@ -1,7 +1,7 @@
 <template>
   <div class="mx-2 grid items-center rounded-3xl p-9 md:mx-0" :class="styleClasses" data-cy="workshop-item">
     <NuxtLink :to="'/workshop/' + item.slug">
-      <nuxt-picture :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" />
+      <NuxtPicture :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" :alt="item.title" />
     </NuxtLink>
     <div>
       <NuxtLink :to="'/workshop/' + item.slug">

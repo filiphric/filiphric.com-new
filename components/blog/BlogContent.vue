@@ -57,63 +57,59 @@ const props = defineProps<{
 if (props.doc) {
   useHead({
     title: props.doc.title || 'Filip Hric',
-    meta: [{
-      hid: 'description',
-      name: 'description',
-      content: props.doc.description
-    },
-    {
-      name: 'image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(props.doc.image)}&title=${encodeURIComponent(props.doc.title)}&readingTime=${encodeURIComponent(props.doc.readingTime.text)}`
-    },
-    {
-      property: 'og:url',
-      content: `https://filiphric.com/${props.doc.slug}`
-    },
-    {
-      property: 'og:type',
-      content: 'article'
-    },
-    {
-      property: 'og:title',
-      content: props.doc.title
-    },
-    {
-      property: 'og:description',
-      content: props.doc.description
-    },
-    {
-      property: 'og:image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(props.doc.image)}&title=${encodeURIComponent(props.doc.title)}&readingTime=${encodeURIComponent(props.doc.readingTime.text)}`
-    },
-    {
-      property: 'twitter:card',
-      content: 'summary_large_image'
-    },
-    {
-      property: 'twitter:creator',
-      content: '@filip_hric'
-    },
-    {
-      property: 'twitter:title',
-      content: props.doc.title
-    },
-    {
-      property: 'twitter:description',
-      content: props.doc.description
-    },
-    {
-      property: 'twitter:image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(props.doc.image)}&title=${encodeURIComponent(props.doc.title)}&readingTime=${encodeURIComponent(props.doc.readingTime.text)}`
-    },
-    {
-      property: 'article:published_time',
-      content: props.doc.date
-    },
-    {
-      property: 'article:author',
-      content: 'Filip Hric'
-    }
+    meta: [
+      {
+        name: 'image',
+        content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(props.doc.image)}&title=${encodeURIComponent(props.doc.title)}&readingTime=${encodeURIComponent(props.doc.readingTime.text)}`
+      },
+      {
+        property: 'og:url',
+        content: `https://filiphric.com/${props.doc.slug}`
+      },
+      {
+        property: 'og:type',
+        content: 'article'
+      },
+      {
+        property: 'og:title',
+        content: props.doc.title
+      },
+      {
+        property: 'og:description',
+        content: props.doc.description
+      },
+      {
+        property: 'og:image',
+        content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(props.doc.image)}&title=${encodeURIComponent(props.doc.title)}&readingTime=${encodeURIComponent(props.doc.readingTime.text)}`
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        property: 'twitter:creator',
+        content: '@filip_hric'
+      },
+      {
+        property: 'twitter:title',
+        content: props.doc.title
+      },
+      {
+        property: 'twitter:description',
+        content: props.doc.description
+      },
+      {
+        property: 'twitter:image',
+        content: `https://filiphric-com-og.vercel.app/api/og?image=${encodeURIComponent(props.doc.image)}&title=${encodeURIComponent(props.doc.title)}&readingTime=${encodeURIComponent(props.doc.readingTime.text)}`
+      },
+      {
+        property: 'article:published_time',
+        content: props.doc.date
+      },
+      {
+        property: 'article:author',
+        content: 'Filip Hric'
+      }
     ],
     link: [
       {
