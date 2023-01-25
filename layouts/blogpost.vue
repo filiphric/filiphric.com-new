@@ -23,14 +23,4 @@ watchEffect(() => {
   if (escape.value) { searchOn.value = false }
 })
 
-useHead({
-  meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: 'Filip Hric personal blog and Cypress.io courses and workshops'
-    }
-  ]
-})
-
 </script>

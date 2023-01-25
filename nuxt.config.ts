@@ -24,11 +24,6 @@ export default defineNuxtConfig({
           name: 'viewport', content: 'width=device-width, initial-scale=1'
         },
         {
-          hid: 'description',
-          name: 'description',
-          content: 'Filip Hric personal blog and Cypress.io courses and workshops'
-        },
-        {
           name: 'keywords',
           content: 'cypress, cypress.io, Filip Hric, course, workshop, how to, tutorial'
         },
