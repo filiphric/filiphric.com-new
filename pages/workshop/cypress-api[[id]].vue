@@ -1,5 +1,5 @@
 <template>
-  <ContentBlock image="/construction_gdzxj0.png">
+  <ContentBlock image="/construction_gdzxj0.png" alt="Site under construction">
     <template #heading>
       Cypress API workshop
     </template>

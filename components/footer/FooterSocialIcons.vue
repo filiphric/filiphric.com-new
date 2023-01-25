@@ -10,7 +10,7 @@
           Twitter
         </p>
       </a>
-      <a class="prettyLink h-8 max-w-fit" href="http://www.linkedin.com/in/filip-hric">
+      <a class="prettyLink h-8 max-w-fit" href="https://www.linkedin.com/in/filip-hric">
         <IconLinkedin class="mr-2 inline w-5 pb-1" /><p class="inline text-left">
           LinkedIn
         </p>
