@@ -76,19 +76,14 @@ const errorFirstName = ref(false)
 
 const submit = () => {
   if (emailAddress.value && firstName.value) {
-    useFetch('https://app.convertkit.com/forms/1673359/subscriptions', {
+    useFetch('/api/subscribe', {
       method: 'POST',
       body: {
-        id: 1673359,
         email_address: emailAddress.value,
         first_name: firstName.value
       }
-    }).then(({ data }) => {
+    }).then(() => {
       firstStep.value = false
-      // @ts-ignore
-      if (data.value.status !== 'success') {
-        errorPage.value = true
-      }
     }).catch(() => {
       firstStep.value = false
       errorPage.value = true
