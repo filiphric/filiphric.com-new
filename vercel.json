@@ -35,20 +35,12 @@
       "source": "/workshop-zoom"
     },
     {
-      "destination": "/cypress-core-workshop-january-2023",
+      "destination": "/workshops",
       "source": "/workshop"
     },
     {
-      "destination": "/cypress-core-workshop-january-2023",
-      "source": "/cypress-core-workshop"
-    },
-    {
-      "destination": "/cypress-api-testing-workshop-december-2022",
+      "destination": "/workshops",
       "source": "/workshop-api"
-    },
-    {
-      "destination": "/cypress-api-testing-workshop-december-2022",
-      "source": "/cypress-api-testing-workshop"
     },
     {
       "destination": "/cypress-ts-workshop-december-2022",
@@ -57,6 +49,10 @@
     {
       "destination": "https://calendly.com/filip_hric/tutoring",
       "source": "/tutoring"
+    },
+    {
+      "destination": "https://plausible.io/filiphric.com",
+      "source": "/analytics"
     }
   ],
   "rewrites": [
