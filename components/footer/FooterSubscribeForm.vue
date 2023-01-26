@@ -77,7 +77,7 @@ const config = useRuntimeConfig()
 
 const submit = () => {
   if (emailAddress.value && firstName.value) {
-    useFetch('/subscribe', {
+    useFetch('https://api.convertkit.com/v3/forms/1673359/subscribe', {
       method: 'POST',
       query: {
         api_key: config.public.convertkitApiKey,

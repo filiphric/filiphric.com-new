@@ -63,10 +63,6 @@
     {
       "source": "/stats/api/event",
       "destination": "https://plausible.io/api/event"
-    },
-    {
-      "source": "/subscribe",
-      "destination": "https://api.convertkit.com/v3/forms/1673359/subscribe"
     }
   ]
 }
