@@ -73,20 +73,23 @@ const emailAddress = ref('')
 const errors: Ref<string[]> = ref([])
 const errorEmail = ref(false)
 const errorFirstName = ref(false)
+const config = useRuntimeConfig()
 
 const submit = () => {
   if (emailAddress.value && firstName.value) {
-    useFetch('/api/subscribe', {
+    useFetch('/subscribe', {
       method: 'POST',
-      body: {
-        email_address: emailAddress.value,
+      query: {
+        api_key: config.public.convertkitApiKey,
+        email: emailAddress.value,
         first_name: firstName.value
       }
-    }).then(() => {
+    }).then(({ data }) => {
+      // @ts-ignore
+      if (!data.value?.subscription) {
+        errorPage.value = true
+      }
       firstStep.value = false
-    }).catch(() => {
-      firstStep.value = false
-      errorPage.value = true
     })
     errorEmail.value = false
     errorFirstName.value = false
