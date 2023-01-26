@@ -110,6 +110,11 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
+  runtimeConfig: {
+    public: {
+      convertkitApiKey: 'WtEuO8Nrmgh8k5YuNpyfiQ'
+    }
+  },
   vite: {
     plugins: [
       svgLoader()
