@@ -52,7 +52,7 @@ In this case, it is possible you don’t have node.js installed. Please go to 
 ### `npm start` throws an error 
 There are two possible errors here:
 1. if you see an error similar to `Error: Cannot find module 'worker_threads'` then it is possible you have an older version of Node.js installed. Try checking that by typing the `node -v` command into your terminal. If it returns version older than v14, please go to [https://nodejs.org](https://nodejs.org) and install latest version of Node.js 
-2. if you see an error like `'vite' is not recognized as an internal or external command` it may be that the installationn didn’t go properly for Trello app. Use your terminal to go to `trelloapp` folder and trigger installation from that folder by using following commands:
+2. if you see an error like `'vite' is not recognized as an internal or external command` it may be that the installation didn’t go properly for Trello app. Use your terminal to go to `trelloapp` folder and trigger installation from that folder by using following commands:
 ```plaintext
 cd trelloapp
 npm install
