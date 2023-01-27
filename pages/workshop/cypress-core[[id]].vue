@@ -1,11 +1,11 @@
 <template>
   <NuxtLayout>
-    <ContentBlock image="/construction_gdzxj0.png" alt="Site under construction">
+    <ContentBlock image="/core_workshop_2_q9fzxv.png" alt="Cypress core workshop">
       <template #heading>
         Cypress core workshop
       </template>
       <template #description>
-        Still working on this page, it will be up soon.
+        Next date will be announced soon. Subscribe to newlstter if you want to be notified.
       </template>
     </ContentBlock>
   </NuxtLayout>

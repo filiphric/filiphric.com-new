@@ -1,11 +1,11 @@
 <template>
   <NuxtLayout>
-    <ContentBlock image="/construction_gdzxj0.png" alt="Site under construction">
+    <ContentBlock image="/ts-workshop_kibeky.png" alt="Cypress TypeScript workshop">
       <template #heading>
         Cypress TypeScript workshop
       </template>
       <template #description>
-        Still working on this page, it will be up soon.
+        Next date will be announced soon. Subscribe to newlstter if you want to be notified.
       </template>
     </ContentBlock>
   </NuxtLayout>

@@ -15,7 +15,7 @@
       <div class="mt-5 text-xs">
         Next workshop date:
       </div>
-      <div>{{ item.days }} {{ item.date || 'Coming soon' }}</div>
+      <span v-if="upcomingWorkshop">{{ item.days }} {{ item.date }}</span><span v-else>Coming soon</span>
       <div class="mt-7">
         {{ item.description }}
       </div>
@@ -27,6 +27,7 @@
 </template>
 <script setup lang="ts">
 import { randomColor } from '@/helpers/randomColor'
+import { isGreaterThanToday } from '@/helpers/isGreaterThanToday'
 
 const props = defineProps<{
   item: {
@@ -35,11 +36,16 @@ const props = defineProps<{
     image: string,
     description: string,
     featured: boolean,
+    startDate: string
     date: string
     time: string
     days: string
   }
 }>()
+
+const upcomingWorkshop = computed(() => {
+  return isGreaterThanToday(props.item.startDate)
+})
 
 const randomizedColor = randomColor()
 const featuredItem = props.item.featured ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'
