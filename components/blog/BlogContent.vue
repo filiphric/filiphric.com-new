@@ -9,7 +9,7 @@
     />
     <div class="grid max-w-2xl grid-cols-1 gap-14 lg:max-w-none lg:grid-cols-7">
       <div class="col-span-5">
-        <ContentRenderer :value="doc" class=" text-base font-light md:text-lg" />
+        <ContentRenderer :value="doc" class=" text-base font-light md:text-lg" data-cy="blog-content" />
         <BlogShareLinks :blog-info="doc" />
       </div>
       <div class="col-span-2 mt-5 hidden lg:block">
