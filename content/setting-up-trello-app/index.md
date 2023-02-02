@@ -5,16 +5,17 @@ slug: "setting-up-trello-app"
 image: "trello_hck6rp.png"
 tags: ['cypress']
 ---
-## About Trello app
-This application is a project to help drive my workshops. It is a simplified real-world app, through which you can explore different testing problems. I usually add this project as a submodule in my workshops, but you can [take a look into it on GitHub](https://github.com/filiphric/trelloapp-vue-vite-ts). Trello app is written in Vue 3, TypeScript and uses a json-server as a backend.
 
-## Installation
-Once you cloned the repository and used `npm install` to install the app, you should be able to run `npm start` command. Here is a step by step guid on how to run the app and troubleshoot it.
+## Check the installation
 
-It’s best if you use a text editor for this. I will be using VS Code for the workshop, [which you can download here](https://code.visualstudio.com/download). 
+Once you cloned the repository and used `npm install` to install the app, you should be able to run `npm start` command. It’s best if you use a text editor for this. I will be using VS Code for the workshop, [which you can download here](https://code.visualstudio.com/download). 
 
-## Making sure the application is running
 Open the workshop repository folder and in the top bar click on "Terminal" and choose "New Terminal".
+
+> 💡 TIP: You can drag and drop your folder into VS Code to open it 
+
+![Opening terminal](terminal_n1djsl.gif)
+
 If you have gone through the initial steps (clone, install), you should be able to run the app with `npm start` command. Make sure you are opening the terminal in the workshop folder (you can check that by typing "pwd" into your command line). You should see the following message and be able to see the application in your browser on url http://localhost:3000 
 ![Application running](vite.png)
 You should see a running application that looks something like this:
@@ -67,3 +68,6 @@ You can also try to run the command like this: `CYPRESS_VERIFY_TIMEOUT=60000 np
 
 ## Contact me
 If for any reason something is not working, feel free to contact me via email, or DM me through [LinkedIn](http://www.linkedin.com/in/filip-hric), [Twitter](https://twitter.com/filip_hric/) or [Discord](https://discord.com/invite/3MdvPfT)
+
+## About Trello app
+This application is a project to help drive my workshops. It is a simplified real-world app, through which you can explore different testing problems. I usually add this project as a submodule in my workshops, but you can [take a look into it on GitHub](https://github.com/filiphric/trelloapp-vue-vite-ts). Trello app is written in Vue 3, TypeScript and uses a json-server as a backend.
