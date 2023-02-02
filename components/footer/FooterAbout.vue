@@ -22,6 +22,9 @@
       <NuxtLink to="/content-authoring" class="prettyLink max-w-fit">
         Video & blog authoring
       </NuxtLink>
+      <NuxtLink to="/setting-up-trello-app" class="prettyLink max-w-fit">
+        My Trello app project
+      </NuxtLink>
     </div>
   </div>
 </template>

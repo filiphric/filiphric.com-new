@@ -11,7 +11,7 @@
             <div class="col-span-5">
               <ContentRenderer :value="data" class=" text-base font-light md:text-lg" />
             </div>
-            <div class="col-span-2 mt-5 hidden lg:block">
+            <div class="col-span-2 mt-5 hidden md:block">
               <h2 class="text-2xl font-bold">
                 Table of contents:
               </h2>

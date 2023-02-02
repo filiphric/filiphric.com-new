@@ -1,10 +1,13 @@
 ---
 title: "Setting up trello app"
-date: 2022-10-18
 published: false
 slug: "setting-up-trello-app"
+image: "trello_hck6rp.png"
 tags: ['cypress']
 ---
+## About Trello app
+This application is a project to help drive my workshops. It is a simplified real-world app, through which you can explore different testing problems. I usually add this project as a submodule in my workshops, but you can [take a look into it on GitHub](https://github.com/filiphric/trelloapp-vue-vite-ts). Trello app is written in Vue 3, TypeScript and uses a json-server as a backend.
+
 ## Installation
 Once you cloned the repository and used `npm install` to install the app, you should be able to run `npm start` command. Here is a step by step guid on how to run the app and troubleshoot it.
 
