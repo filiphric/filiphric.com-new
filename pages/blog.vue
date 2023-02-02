@@ -11,4 +11,13 @@ const query = ref()
 const updateQuery = (q: string) => {
   query.value = q
 }
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://filiphric.com/blog'
+    }
+  ]
+})
 </script>

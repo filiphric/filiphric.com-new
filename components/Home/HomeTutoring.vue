@@ -11,7 +11,7 @@
         I help individuals grow and improve their test automation game. Together we solve obscure testing problems, brainstorm solutions or prepare for technical interviews.
       </p>
       <div class="pt-7 text-2xl">
-        <NuxtLink to="/tutoring" class="prettyLink inline-block font-bold">
+        <NuxtLink to="/individual-tutoring" class="prettyLink inline-block font-bold">
           Learn more <IconArrowForward class="inline transition-all ease-in-out" />
         </NuxtLink>
       </div>

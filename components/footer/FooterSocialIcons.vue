@@ -15,7 +15,7 @@
           LinkedIn
         </p>
       </a>
-      <a class="prettyLink h-8 max-w-fit" href="https://filiphric.com/discord">
+      <a class="prettyLink h-8 max-w-fit" href="https://discord.com/invite/3MdvPfT">
         <IconDiscord class="mr-2 inline w-5 pb-1" /><p class="inline text-left">
           Discord
         </p>

@@ -103,4 +103,4 @@ cypress.run({
 ```
 After this, things can get even more complex. You can customize a logic that will resolve your `baseUrl` based on multiple conditions. 
 
-Hope you’ve enjoyed this. You can share or retweet ths blogpost if you feel like it might help someone. If you have questions, you can find me on [Twitter](https://twitter.com/filip_hric/), [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/) or join the [Discord server](https://filiphric.com/discord).
+Hope you’ve enjoyed this. You can share or retweet ths blogpost if you feel like it might help someone. If you have questions, you can find me on [Twitter](https://twitter.com/filip_hric/), [LinkedIn](https://www.linkedin.com/in/filip-hric-11a5b1126/) or join the [Discord server](https://discord.com/invite/3MdvPfT).

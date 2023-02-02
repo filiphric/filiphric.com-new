@@ -66,4 +66,4 @@ You see something like: `Command timed out after 30000 milliseconds` - in this c
 You can also try to run the command like this: `CYPRESS_VERIFY_TIMEOUT=60000 npx cypress open` and increase the timeout
 
 ## Contact me
-If for any reason something is not working, feel free to contact me via email, or DM me through [LinkedIn](http://www.linkedin.com/in/filip-hric), [Twitter](https://twitter.com/filip_hric/) or [Discord](https://filiphric.com/discord)
+If for any reason something is not working, feel free to contact me via email, or DM me through [LinkedIn](http://www.linkedin.com/in/filip-hric), [Twitter](https://twitter.com/filip_hric/) or [Discord](https://discord.com/invite/3MdvPfT)

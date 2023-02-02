@@ -14,7 +14,7 @@ cypressVersion: v10.0.0
 - how to grep selectors from your app
 - how to create warning if there are selectors in your app that you are not using
 
-Cypress advises to use data-cy selectors as a best practice for selecting your elements on page. Recently, we had a great discussion on our [discord server](https://filiphric.com/discord) about whether this is a good practice. Personally I strongly lean to "yes". If you are in this camp as well, I have some nice tips for you today.
+Cypress advises to use data-cy selectors as a best practice for selecting your elements on page. Recently, we had a great discussion on our [discord server](https://discord.com/invite/3MdvPfT) about whether this is a good practice. Personally I strongly lean to "yes". If you are in this camp as well, I have some nice tips for you today.
 
 ## Using data-* selectors with custom commands
 If you are using `data-*` selectors a lot, chances are you want to create a custom command.
