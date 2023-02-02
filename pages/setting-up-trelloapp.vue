@@ -9,6 +9,7 @@
           />
           <div class="grid max-w-2xl grid-cols-1 gap-14 lg:max-w-none lg:grid-cols-7">
             <div class="col-span-5">
+              <TrelloappIntro />
               <ContentRenderer :value="data" class=" text-base font-light md:text-lg" />
             </div>
             <div class="col-span-2 mt-5 hidden md:block">
@@ -19,7 +20,7 @@
                 <NuxtLink
                   v-for="link in data.body.toc.links"
                   :key="link.id"
-                  :to="'#' + link.id"
+                  :to="`${route.fullPath}#${link.id}`"
                   class="prettyLink block max-w-fit"
                 >
                   {{ link.text }}
@@ -34,5 +35,15 @@
 </template>
 
 <script setup>
+
 const { data } = await useAsyncData('trelloapp', () => queryContent('/setting-up-trello-app').findOne())
+
+const route = useRoute()
+
+useHead({
+  meta: [{
+    name: 'robots',
+    content: 'noindex'
+  }]
+})
 </script>
