@@ -211,7 +211,7 @@ Cypress.Commands.addAll({ login })
 
 ```
 
-Notice on line 17, we are giving our session the same name as the email we pass into the `cy.login()` function. This means that every user wi log in with is going to create their own session. In other words, no matter how many logins we do with different users, each of them will get logged in just once.
+Notice on line 17, we are giving our session the same name as the email we pass into the `cy.login()` function. This means that every user we log in with is going to create their own session. In other words, no matter how many logins we do with different users, each of them will get logged in just once.
 
 ## Why use a custom command instead of page object - opinion
 You may have heard me saying contradicting things on page object model in the past. I critisize page object model for how it’s being used, but also say that it is not an antipattern. While it makes sense to make abstractions, it really matters how you do them. There’s a big push for using page object model in order to create abstractions and DRY code (DRY = don’t repeat yourself). While I’m all for DRY code, I think as testers we should aim for DRY test execution as well.
