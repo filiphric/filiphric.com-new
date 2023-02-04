@@ -56,7 +56,7 @@ const props = defineProps<{
 
 if (props.doc) {
   useHead({
-    title: props.doc.title || 'Filip Hric',
+    title: props.doc.title + ' - Filip Hric',
     meta: [
       {
         name: 'image',
