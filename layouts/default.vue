@@ -28,7 +28,7 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: 'Filip Hric personal blog and Cypress.io courses and workshops'
+      content: 'I teach testers about web development and developers about testing. Blog about Cypress.io full of articles courses and workshops'
     }
   ]
 })

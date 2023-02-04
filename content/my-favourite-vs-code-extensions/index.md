@@ -3,7 +3,7 @@ title: "My favourite VS Code extensions for writing tests in Cypress"
 date: 2020-09-11
 published: true
 slug: "my-favourite-vs-code-extensions"
-description: "Couple of cool VS code extensions that have proven to be useful for my workflow."
+description: "VS Code provides a variety of cool exenstions. Here are some of those that have proven to be useful for my workflow when writin tests in Cypress."
 tags: ['cypress', 'plugins', 'extensions', 'tips']
 image: plugins_viwxh9.png
 cypressVersion: 'v10.0.0'

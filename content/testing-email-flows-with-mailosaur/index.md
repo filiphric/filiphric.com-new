@@ -3,12 +3,12 @@ title: "Testing email flows with Mailosaur"
 date: 2019-09-13
 published: true
 slug: "testing-email-flows-with-mailosaur"
-description: "How to test e2e flows that require email to be opened. Code demonstration using Mailosaur."
+description: "A short giude on how to test e2e flows that require an email to be opened. Code demonstration using Mailosaur."
 tags: ['cypress', 'email testing']
 ---
 <tweet id="977018512689455106" class="grid justify-center my-8"></tweet>
 
-In this second Cypress tip I would like to give you a glimpse of how we use Cypress with a tool called [Mailosaur](https://mailosaur.com/).
+I would like to give you a glimpse of how we use Cypress with a tool called [Mailosaur](https://mailosaur.com/).
 
 ## Telling the whole story
 

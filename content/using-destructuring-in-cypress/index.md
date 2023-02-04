@@ -3,7 +3,7 @@ slug: using-destructuring-in-cypress
 date: 2020-11-02
 title: 'Using destructuring in Cypress'
 published: true
-description: 'Short explanation on destructuring in JavaScript and its application in your Cypress tests.'
+description: 'Short explanation on how to do destructuring in JavaScript and how you can use it to simplify your Cypress tests.'
 tags: ['basics', 'javascript', 'cypress', 'beginner']
 ---
 I often learn something new because I need to solve some kind of problem. Once that is solved, I move on to the next one. I spend a lot of time reading, thinking, trying stuff and trying to make sense of it all. One downside of my learning style is that sometimes I miss some basic stuff. This is a blog about one particular topic. Destructuring.

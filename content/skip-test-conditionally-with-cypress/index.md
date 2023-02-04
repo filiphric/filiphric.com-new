@@ -3,8 +3,9 @@ title: "Skip test conditionally with Cypress"
 date: 2021-02-08
 published: true
 slug: "skip-test-conditionally-with-cypress"
-description: "This article explains various ways of skipping and filtering your tests in Cypress."
+description: "Description of various ways of how you can filter your tests, run them based on a given condition or skip them altogether in Cypress."
 author: "Filip Hric"
+cypressVersion: v9.6.0
 tags: ['skip', 'grep', 'cypress', 'conditional']
 ---
 In this blog, I’d like to show you various strategies and tools how you can skip your test and run them conditionally. In the past, I wrote a blogpost on how you can [grep your tests using module API.](/test-grepping-in-cypress-using-module-api) You might like that as well.

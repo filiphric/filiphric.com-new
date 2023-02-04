@@ -3,7 +3,7 @@ title: "Improve your custom command logs in Cypress"
 date: 2021-03-16
 published: true
 slug: "improve-your-custom-command-logs-in-cypress"
-description: "How to take your custom commands to another level with custom logging, snapshots and many more."
+description: "Short explanation on how to take your custom commands to another level with custom logging, snapshots and many more."
 tags: ['cypress', 'custom commands', 'logging']
 ---
 In the past, I wrote about custom commands and how you [leverage TypeScript](/starting-with-typescript-in-cypress) to give you some great autocomplete capabilities. Using TypeScript is definitely worth it when working on a bigger project with multiple collaborators. In this blog, I’d like to take our custom commands one level further and enable custom logging. This will improve the experience in test runner.

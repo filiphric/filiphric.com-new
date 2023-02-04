@@ -3,12 +3,11 @@ title: "Generating a random user in Cypress test"
 date: 2021-05-24
 published: true
 slug: "generating-random-user-in-cypress-test"
-description: "Article on how to randomly generate a user and various ways how to use its data"
+description: "Quick guide on how to generate a random user in Cypress and an explanation of various ways on how to integrate that data into Cypress test."
 tags: ["cypress", "faker", "random"]
 image: random_uctegd.png
 cypressVersion: v10.0.0
 ---
-
 Most of web applications under test require some kind of authentication. What I like to do when testing such application is to create a testing user. This is usually a randomly generated user, which I then use for most of my tests. In this blogpost I explore a couple of ways how to generate a user an then use that user in Cypress tests. 
 
 As is usual on this blog, I use my Trello clone app in a repository that you can check out and follow along. I tried to keep this blogpost simple, so the creating of user in my app is just a single http request. But in principle, you should be able to apply this into your test efforts as well.
