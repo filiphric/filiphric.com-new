@@ -12,7 +12,7 @@
     </div>
     <NuxtPicture v-if="image" :src="image" class="place-self-center self-center md:w-full" />
   </div>
-  <hr class="mx-auto mb-14 w-28 border-gray-400 md:hidden">
+  <hr class="mx-auto my-14 w-28 border-gray-400 md:hidden">
 </template>
 <script setup lang="ts">
 defineProps({

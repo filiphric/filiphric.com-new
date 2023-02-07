@@ -6,7 +6,7 @@ slug: "testing-email-flows-with-mailosaur"
 description: "A short giude on how to test e2e flows that require an email to be opened. Code demonstration using Mailosaur."
 tags: ['cypress', 'email testing']
 ---
-<tweet id="977018512689455106" class="grid justify-center my-8"></tweet>
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">The more your tests resemble the way your software is used, the more confidence they can give you.</p>&mdash; Kent C. Dodds 🌌 (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/977018512689455106">March 23, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I would like to give you a glimpse of how we use Cypress with a tool called [Mailosaur](https://mailosaur.com/).
 

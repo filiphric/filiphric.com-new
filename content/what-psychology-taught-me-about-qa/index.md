@@ -20,7 +20,7 @@ Looking at a new feature, **I listen carefully to what the product intention is,
 
 I love to demonstrate this via this joke:
 
-<tweet id="1068615953989087232" class="grid justify-center my-8"></tweet>
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">A QA engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 99999999999 beers. Orders a lizard. Orders -1 beers. Orders a ueicbksjdhd. <br><br>First real customer walks in and asks where the bathroom is. The bar bursts into flames, killing everyone.</p>&mdash; Brenan Keller (@brenankeller) <a href="https://twitter.com/brenankeller/status/1068615953989087232?ref_src=twsrc%5Etfw">November 30, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Some of us know the feeling of when this happens. Users’ needs are often different from our intentions. Those needs, however, need to be taken into account when testing. As testers we should make our best effort not to be blind to those needs. If we try to focus solely on making a product that is “perfect” in our own view, we risk that it may not be so great in the eyes of our users.
 

@@ -11,12 +11,13 @@
     :alt="alt"
     :width="width"
     :height="height"
+    :class="customClass"
     class="mt-10 mb-14 block"
   />
 </template>
 <script setup lang="ts">
 
-const props = defineProps({
+defineProps({
   src: {
     type: String,
     default: ''
@@ -31,6 +32,10 @@ const props = defineProps({
   },
   height: {
     type: [String, Number],
+    default: undefined
+  },
+  customClass: {
+    type: String,
     default: undefined
   }
 })

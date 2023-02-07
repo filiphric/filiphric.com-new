@@ -105,4 +105,4 @@ cy
 ```
 ## Bonus tip: Make your DevTools open automatically in Cypress GUI:
 
-<tweet id="1240700715854487553" class="grid justify-center my-8"></tweet>
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">I don’t think I have ever used Chrome without opened devtools when writing <a href="https://twitter.com/hashtag/cypress?src=hash&amp;ref_src=twsrc%5Etfw">#cypress</a> tests. I have them auto-open for me via plugins/index.js file, instead of hitting keyboard shortcut every time. <a href="https://twitter.com/hashtag/cypresstips?src=hash&amp;ref_src=twsrc%5Etfw">#cypresstips</a> <a href="https://t.co/PhE0frhC9Q">pic.twitter.com/PhE0frhC9Q</a></p>&mdash; Filip Hric 🇸🇰❤️🇺🇦 (@filip_hric) <a href="https://twitter.com/filip_hric/status/1240700715854487553?ref_src=twsrc%5Etfw">March 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
