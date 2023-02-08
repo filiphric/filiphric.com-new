@@ -112,7 +112,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      convertkitApiKey: 'WtEuO8Nrmgh8k5YuNpyfiQ'
+      convertkitApiKey: 'WtEuO8Nrmgh8k5YuNpyfiQ',
+      stripeApiKey: 'pk_test_51KefBzBnBECxBVfm1vTgllxVJpoU0bdU4sHAsZiio5SDFZLmdZTQYfTbfOR1rfRzA382bpL125RUkSGWvmocmOdq00a1b8UHfB'
     }
   },
   vite: {
