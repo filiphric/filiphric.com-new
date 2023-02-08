@@ -1,13 +1,20 @@
 <template>
   <button @click="pay">
-    Pay
+    Register for {{ info?.title }}
   </button>
+  <span>You will be redirected to Stripe checkout page</span>
 </template>
 <script setup lang="ts">
 import { loadStripe } from '@stripe/stripe-js'
 const config = useRuntimeConfig()
-
 const stripe = await loadStripe(config.public.stripeApiKey)
+
+const props = defineProps({
+  info: {
+    type: Object,
+    default: undefined
+  }
+})
 
 const pay = () => {
   useFetch('/api/checkout', {
@@ -15,16 +22,17 @@ const pay = () => {
     body: {
       order: {
         quantity: 1,
-        price: 'price_1Ki1KFBnBECxBVfmYxtw6qd5'
+        price: props.info?.priceId
       },
       metadata: {
-        date: 'from 16th to 25th January 2023',
-        item: 'Cypress core workshop',
-        redirectPath: '/cypress-core-workshop-january-2023'
+        date: props.info?.date,
+        item: props.info?.title,
+        redirectPath: `/workshop/${props.info?.slug}`
       }
     }
   }).then(({ data }) => {
-    stripe?.redirectToCheckout({ sessionId: data.id })
+    // @ts-ignore
+    stripe?.redirectToCheckout({ sessionId: data?.value?.id })
   })
 }
 
