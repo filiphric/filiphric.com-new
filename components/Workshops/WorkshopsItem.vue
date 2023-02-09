@@ -15,7 +15,7 @@
       <div class="mt-5 text-xs">
         Next workshop date:
       </div>
-      <span v-if="upcomingWorkshop">{{ item.days }} {{ item.date }}</span><span v-else>Coming soon</span>
+      <span v-if="upcomingWorkshop">{{ item.days }}, starting {{ item.date }}</span><span v-else>Coming soon</span>
       <div class="mt-7">
         {{ item.description }}
       </div>

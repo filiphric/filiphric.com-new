@@ -1,14 +1,15 @@
 body:
   - title: Cypress core workshop
-    description: Four-session long workshop, packed with real-life examples and coding challenges. Suitable for beginner or intermediate Cypress users. 
+    description: Four-session hands-on workshop designed to teach you the principles and effective patterns of successful test automation in Cypress.
     slug: cypress-core-february-2023
     image: core_workshop_2_q9fzxv.png
     startDate: 2023-02-27
-    date: 'from 27th February to 7th March 2023'
-    time: 'from 8PM to 11PM (CET)'
+    date: '27th February to 7th March 2023'
+    time: '8PM to 11PM (CET)'
     days: 'Mondays and Tuesdays'
     type: 'core_workshop'
     priceId: 'price_1Kka73BnBECxBVfmbYvERoid'
+    # priceId: 'price_1Ki1KFBnBECxBVfmYxtw6qd5' # test
     featured: true
   - title: Testing API with Cypress
     description: Learn how to expand your testing suite with powerful API tests using Cypress

@@ -1,19 +1,18 @@
 <template>
   <NuxtLayout>
-    <ContentBlock image="/core_workshop_2_q9fzxv.png" alt="Cypress core workshop">
-      <template #heading>
-        Cypress core workshop
-      </template>
-      <template v-if="!workshopInfo" #description>
-        Next date will be announced soon. Subscribe to newsletter if you want to be notified.
-      </template>
-      <template v-else #description>
-        {{ workshopInfo.description }}
-      </template>
-    </ContentBlock>
-    <div v-if="workshopInfo">
-      <WorkshopsRegister :info="workshopInfo" />
-    </div>
+    <CypressCoreHeader
+      :description="workshopInfo.description"
+      :days="workshopInfo.days"
+      :date="workshopInfo.date"
+      :time="workshopInfo.time"
+    />
+    <CypressCoreEndorsment />
+    <CypressCoreOnTheRise />
+    <CypressCoreImportance />
+    <CypressCoreForm />
+    <CypressCoreAbout />
+    <CypressCoreContent />
+    <CypressCoreRegistration :workshop-info="workshopInfo" />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
