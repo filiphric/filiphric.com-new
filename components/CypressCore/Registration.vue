@@ -1,8 +1,27 @@
 <template>
-  <div class=" bg-ivory-dark p-7 dark:bg-black">
-    <h2 class="mt-7 mb-14 text-center text-6xl font-extrabold">
-      Registration
+  <div class="mt-14">
+    <h2 class=" mb-14 text-center text-6xl font-extrabold">
+      Get ready to up your Cypress game
     </h2>
+    <div class="mx-auto my-14 grid w-full grid-cols-2 gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark md:w-10/12">
+      <div>
+        <NuxtPicture src="core_workshop_2_q9fzxv.png" class="mx-auto block w-64" />
+        <div class="text-center text-2xl">
+          Cypress core workshop
+        </div>
+      </div>
+      <div class="self-center">
+        <div class="mb-7 text-6xl font-extrabold">
+          400 €
+        </div>
+        <span class="my-2 block text-sm font-normal italic">You will get:</span>
+        <div><IconCheckmarkRound class="mr-2 inline-block w-5 fill-lime pb-1" />Certificate endorsed by Cypress DX team</div>
+        <div><IconCheckmarkRound class="mr-2 inline-block w-5 fill-lime pb-1" />Lifetime access to Discord support channel</div>
+        <div><IconCheckmarkRound class="mr-2 inline-block w-5 fill-lime pb-1" />Repository with real application</div>
+        <div><IconCheckmarkRound class="mr-2 inline-block w-5 fill-lime pb-1" />Coding challenges and learning materials</div>
+        <div><IconCheckmarkRound class="mr-2 inline-block w-5 fill-lime pb-1" />Discount for spreading the word (info in FAQ)</div>
+      </div>
+    </div>
     <div class="grid grid-cols-1 gap-7 md:grid-cols-2">
       <div class="w-full px-4">
         <ol class="relative border-l border-gray-700">
@@ -13,7 +32,7 @@
               Sign up for the workshop
             </h3>
             <p class="mb-7 text-base font-normal">
-              Fill in the name and email of the workshop attendee. Clicking on the button below will take you to the payment page. You’ll receive a receipt and invoice for the payment to your email.
+              Fill in the name and email of the workshop attendee. Clicking on the "Register" button will take you to the payment page. You’ll receive a receipt and invoice for the payment to your email.
             </p>
           </li>
           <li class="ml-4">

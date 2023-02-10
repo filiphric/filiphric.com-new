@@ -5,7 +5,7 @@
         Tweet this article
       </p>
     </a>
-    <a class="prettyLink mr-7 pb-2" :href="`https://twitter.com/intent/tweet?url=${tweetText}`">
+    <a class="prettyLink mr-7 pb-2" :href="`https://www.linkedin.com/sharing/share-offsite/?url=${props.blogInfo?.slug}`">
       <IconLinkedin class="mr-2 inline w-5 fill-white" /><p class="inline text-left">
         Share on LinkedIn
       </p>

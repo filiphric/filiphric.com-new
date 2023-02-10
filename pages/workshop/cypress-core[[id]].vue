@@ -13,6 +13,7 @@
     <CypressCoreAbout />
     <CypressCoreContent />
     <CypressCoreRegistration :workshop-info="workshopInfo" />
+    <CypressCoreFaq />
   </NuxtLayout>
 </template>
 <script setup lang="ts">

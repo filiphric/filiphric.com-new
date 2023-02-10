@@ -3,7 +3,7 @@
     <div class="w-full p-7">
       <div>
         <NuxtPicture src="blueprint_zmke74.png" class="mx-auto mb-7 block w-52" />
-        <span class="block pb-14 text-center text-3xl font-bold">Session #4<br>Work on Cypress Project</span>
+        <span class="block pb-14 text-center text-3xl font-bold">Session #4<br>Managing Cypress Project</span>
         <!-- items -->
         <div class="mb-2 flex">
           <div class="w-1/12">
