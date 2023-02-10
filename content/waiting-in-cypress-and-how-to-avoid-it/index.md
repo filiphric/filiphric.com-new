@@ -6,7 +6,7 @@ slug: "waiting-in-cypress-and-how-to-avoid-it"
 description: "Adding a wait to your test is something people like to avoid. Luckily, with Cypress, there are several ways of how to avoid waiting for a static period of time and simply move a test forward once the application is in a state we desire."
 tags: ['cypress', 'waiting', 'cy.wait', 'timeout']
 image: 'waiting2_xp9byj.png'
-cypressVersion: 'v10.0.0'
+cypressVersion: 'v12.0.0'
 ---
 There are many perfectionists among testers. Almost everyone I have met has this itch when they use the `.wait()` command in Cypress and halt the test for a couple of seconds. If this applies to you as well, then you know well that using `.wait()` like this is not exactly the best solution and try to look for an alternative. The test simply does nothing for a couple of seconds. Those couple of seconds may be enough. But sometimes, the wait is not long enough.
 
@@ -71,7 +71,7 @@ Prolonging the timeout for the whole test might not always be the best way. Some
 cy.get('#myElement', { timeout: 10000 })
   .should('be.visible')
 ```
-Notice how we are adding the `timeout` into our `.get()` command, not the `.should()`. The intuitive approach might be to wait for the element to pass our assertion. But our assertion is tied to the querying of the element. That’s why if an assertion is not fulfilled, it [will make the previous command retry as well](https://docs.cypress.io/guides/core-concepts/retry-ability#Only-the-last-command-is-retried).
+Notice how we are adding the `timeout` into our `.get()` command, not the `.should()`. The intuitive approach might be to wait for the element to pass our assertion. But our assertion is tied to the querying of the element. That’s why if an assertion is not fulfilled, it [will make the whole query as well](https://docs.cypress.io/guides/core-concepts/retry-ability#Only-the-last-command-is-retried).
 
 This can also be useful if you want to wait for the element to disappear or be removed from the DOM before you move on to the next step of your test.
 
