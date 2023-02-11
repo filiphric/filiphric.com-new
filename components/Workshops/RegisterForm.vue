@@ -93,10 +93,11 @@ const pay = () => {
         metadata: {
           date: props.info?.date,
           item: props.info?.title,
+          type: props.info?.type,
           attendeeFirstName: attendeeFirstName.value,
           attendeeLastName: attendeeLastName.value,
           attendeeEmail: attendeeEmail.value,
-          redirectPath: `/workshop/${props.info?.slug}`
+          redirectPath: '/workshop/registration'
         }
       }
     }).then(({ data }) => {

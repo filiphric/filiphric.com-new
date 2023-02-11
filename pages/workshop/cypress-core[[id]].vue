@@ -22,7 +22,7 @@ import { MaybeComputedRef } from '@vueuse/core'
 const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
 
 const workshopInfo = computed(() => {
-  const result = data.value.body.filter((item: any) => item.type === 'core_workshop')[0]
+  const result = data.value.body.filter((item: any) => item.type === 'core-workshop')[0]
   return result
 })
 
