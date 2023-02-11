@@ -103,23 +103,24 @@ const pay = () => {
     // @ts-ignore
       stripe?.redirectToCheckout({ sessionId: data?.value?.id })
     })
-  }
-  errors.value = []
+  } else {
+    errors.value = []
 
-  if (!attendeeFirstName.value) {
-    errorAttendeeFirstName.value = true
-    errors.value.push('first name')
-  }
-  if (!attendeeLastName.value) {
-    errorAttendeeLastName.value = true
-    errors.value.push('last name')
-  }
-  if (!attendeeEmail.value) {
-    errorAttendeeEmail.value = true
-    errors.value.push('email')
-  }
+    if (!attendeeFirstName.value) {
+      errorAttendeeFirstName.value = true
+      errors.value.push('first name')
+    }
+    if (!attendeeLastName.value) {
+      errorAttendeeLastName.value = true
+      errors.value.push('last name')
+    }
+    if (!attendeeEmail.value) {
+      errorAttendeeEmail.value = true
+      errors.value.push('email')
+    }
 
-  errorMessage.value = requiredFields(errors.value)
+    errorMessage.value = requiredFields(errors.value)
+  }
 }
 
 </script>
