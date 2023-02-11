@@ -26,6 +26,8 @@ const workshopInfo = computed(() => {
   return result
 })
 
+const route = useRoute()
+
 useHead({
   meta: [
     {
@@ -51,6 +53,12 @@ useHead({
     {
       property: 'twitter:image',
       content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: `https://filiphric.com${route.path}`
     }
   ]
 })
