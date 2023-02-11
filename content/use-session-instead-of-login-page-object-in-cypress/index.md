@@ -20,7 +20,7 @@ cy.get('[data-cy=login-submit]').click()
 cy.location('pathname').should('eq', '/')
 ```
 
-Cypress tries to clear browser data inbetween tests, which leads to the need of logging in before every rest. We can either do this by using `beforeEach()` hook or [by using cookies api](/cypress-basics-where-did-my-cookies-disappear) to ignore deleting certain cookies from our app.
+Cypress tries to clear browser data in between tests, which leads to the need of logging in before every rest. We can either do this by using `beforeEach()` hook or [by using cookies api](/cypress-basics-where-did-my-cookies-disappear) to ignore deleting certain cookies from our app.
 
 ## Abstracting login into page object
 It makes sense to abstract the login sequence into a separate entity. A go to solution is a page object. In many cases it might look something like this:
