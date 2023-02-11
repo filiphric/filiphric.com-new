@@ -26,4 +26,33 @@ const workshopInfo = computed(() => {
   return result
 })
 
+useHead({
+  meta: [
+    {
+      name: 'image',
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+    },
+    {
+      property: 'og:url',
+      content: 'https://filiphric.com/'
+    },
+    {
+      property: 'og:image',
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'twitter:creator',
+      content: '@filip_hric'
+    },
+    {
+      property: 'twitter:image',
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+    }
+  ]
+})
+
 </script>
