@@ -12,21 +12,7 @@
         <ContentRenderer :value="doc" class=" text-base font-light md:text-lg" data-cy="blog-content" />
         <BlogShareLinks :blog-info="doc" />
       </div>
-      <div class="col-span-2 mt-5 hidden lg:block">
-        <h2 class="text-2xl font-bold">
-          Table of contents:
-        </h2>
-        <ul>
-          <NuxtLink
-            v-for="link in doc.body.toc.links"
-            :key="link.id"
-            :to="'#' + link.id"
-            class="prettyLink block max-w-fit"
-          >
-            {{ link.text }}
-          </NuxtLink>
-        </ul>
-      </div>
+      <BlogSidebar :links="doc.body.toc.links" />
     </div>
   </div>
 </template>

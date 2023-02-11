@@ -15,7 +15,7 @@
               always from {{ time }}
             </div>
             <div class="prettyLink mt-6 inline-block cursor-pointer">
-              <span class="pr-3">🗓️</span>Download the calendar event to check your timezone
+              <a href="/core-workshop.ics" download><span class="pr-3">🗓️</span>Download the calendar event to check your timezone</a>
             </div>
           </div>
         </div>

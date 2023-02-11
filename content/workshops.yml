@@ -7,7 +7,7 @@ body:
     date: '27th February to 7th March 2023'
     time: '8PM to 11PM (CET)'
     days: 'Mondays and Tuesdays'
-    type: 'core_workshop'
+    type: 'core-workshop'
     priceId: 'price_1Kka73BnBECxBVfmbYvERoid'
     # priceId: 'price_1Ki1KFBnBECxBVfmYxtw6qd5' # test
     featured: true
