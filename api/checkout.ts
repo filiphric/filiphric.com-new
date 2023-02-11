@@ -14,8 +14,8 @@ export default async (req: any, res: any) => {
     allow_promotion_codes: true,
     billing_address_collection: 'required',
     invoice_creation: { enabled: true },
-    success_url: `${hostUrl}/${req.body.metadata.redirectPath}?success=true&workshop=${req.body.metadata.type}`,
-    cancel_url: `${hostUrl}/${req.body.metadata.redirectPath}?success=false&workshop=${req.body.metadata.type}`
+    success_url: `${hostUrl}${req.body.metadata.redirectPath}?success=true&workshop=${req.body.metadata.type}`,
+    cancel_url: `${hostUrl}${req.body.metadata.redirectPath}?success=false&workshop=${req.body.metadata.type}`
   })
 
   return res.status(200).json(session)
