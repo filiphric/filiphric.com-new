@@ -36,7 +36,7 @@ useHead({
     },
     {
       property: 'og:url',
-      content: 'https://filiphric.com/'
+      content: `https://filiphric.com${route.path}`
     },
     {
       property: 'og:image',
@@ -53,6 +53,14 @@ useHead({
     {
       property: 'twitter:image',
       content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+    },
+    {
+      property: 'article:published_time',
+      content: workshopInfo.value.date
+    },
+    {
+      property: 'article:author',
+      content: 'Filip Hric'
     }
   ],
   link: [
