@@ -1,6 +1,6 @@
 <template>
   <div class="my-14 grid justify-items-center text-center">
-    <h2 class="my-7 text-6xl font-extrabold">
+    <h2 class="my-7 text-5xl font-extrabold md:text-left lg:text-6xl">
       Importance of understanding<br>the core concepts
     </h2>
     <div class="text-xl md:w-3/5">

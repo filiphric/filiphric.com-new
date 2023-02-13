@@ -1,9 +1,9 @@
 <template>
   <div class="mt-14">
-    <h2 class=" mb-14 text-center text-6xl font-extrabold">
+    <h2 class=" mb-14 text-center text-5xl font-extrabold md:text-left lg:text-6xl">
       Get ready to up your Cypress game
     </h2>
-    <div class="mx-auto my-14 grid w-full grid-cols-2 gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark md:w-10/12">
+    <div class="mx-auto my-14 grid w-full gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark md:w-10/12 md:grid-cols-2">
       <div>
         <NuxtPicture src="core_workshop_2_q9fzxv.png" class="mx-auto block w-64" />
         <div class="text-center text-2xl">
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="self-center">
-        <div class="mb-7 text-6xl font-extrabold">
+        <div class="mb-7 text-center text-6xl font-extrabold md:text-left">
           400 €
         </div>
         <span class="my-2 block text-sm font-normal italic">You will get:</span>
