@@ -61,6 +61,19 @@ useHead({
     {
       property: 'article:author',
       content: 'Filip Hric'
+    },
+    {
+      property: 'og:title',
+      content: workshopInfo.value.title
+    },
+    {
+      property: 'og:description',
+      content: workshopInfo.value.description
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content: workshopInfo.value.description
     }
   ],
   link: [
