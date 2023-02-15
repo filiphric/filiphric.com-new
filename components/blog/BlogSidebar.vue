@@ -49,6 +49,4 @@ const upcomingWorkshop = computed(() => {
   return result
 })
 
-console.log(upcomingWorkshop.value)
-
 </script>

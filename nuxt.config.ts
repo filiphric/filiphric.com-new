@@ -87,6 +87,15 @@ export default defineNuxtConfig({
   image: {
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/dcnwsgh7c/image/upload/v1671966368'
+    },
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 768,
+      xl: 768,
+      xxl: 768,
+      '2xl': 768
     }
   },
   modules: [
