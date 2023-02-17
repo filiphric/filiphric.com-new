@@ -10,7 +10,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-lime" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Creating a Cypress project</span>
+            <span class="block text-xl font-extrabold">Creating your first Cypress project</span>
             <span class="text-md font-normal">Installation and project structure, running Cypress GUI</span>
           </div>
         </div>
@@ -19,7 +19,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-blueberry" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Opening a page</span>
+            <span class="block text-xl font-extrabold">Opening the application</span>
             <span class="text-md font-normal">.visit() command, basic configuration, effective work with browser</span>
           </div>
         </div>
@@ -28,8 +28,8 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-punch" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Selecting elements</span>
-            <span class="text-md font-normal">CSS selectors, data selectors, relative selectors</span>
+            <span class="block text-xl font-extrabold">Selecting elements on page</span>
+            <span class="text-md font-normal">Ways of selecting elements on page and selector strategies</span>
           </div>
         </div>
         <div class="mb-2 flex">
@@ -37,7 +37,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-tangerine" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Interaction with the app</span>
+            <span class="block text-xl font-extrabold">Writing your first test</span>
             <span class="text-md font-normal">Basic scenario automation, debugging and reading error messages</span>
           </div>
         </div>
@@ -46,7 +46,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-cheese" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Simple assertions</span>
+            <span class="block text-xl font-extrabold">Writing assertions</span>
             <span class="text-md font-normal">Using .should() command, best practices for writing tests</span>
           </div>
         </div>
