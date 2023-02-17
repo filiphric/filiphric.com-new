@@ -53,6 +53,10 @@
     {
       "destination": "https://plausible.io/filiphric.com",
       "source": "/analytics"
+    },
+    {
+      "destination": "/workshop/cypress-core",
+      "source": "/cypress-core-workshop"
     }
   ],
   "rewrites": [
