@@ -38,7 +38,7 @@ module.exports = {
           dark: '#B84600'
         },
         lime: {
-          DEFAULT: '#bad761',
+          DEFAULT: '#bada55',
           dark: '#9FC431'
         },
         mint: {
