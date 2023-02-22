@@ -5,7 +5,7 @@
     loop
     :src="data + '/' + src"
   />
-  <NuxtPicture
+  <NuxtImg
     v-else
     :src="'/' + src"
     :alt="alt"

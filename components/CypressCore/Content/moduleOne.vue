@@ -2,7 +2,7 @@
   <div class="dark:bg-black-darkrounded-lg flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-lime dark:bg-black-dark dark:shadow-block-dark-lime">
     <div class="w-full p-7">
       <div>
-        <NuxtPicture src="tricycle_whgyxo.png" class="mx-auto mb-7 block w-52" />
+        <NuxtImg src="tricycle_whgyxo.png" class="mx-auto mb-7 block w-52" />
         <span class="block pb-14 text-center text-3xl font-bold">Session #1<br>Understanding basics</span>
         <!-- items -->
         <div class="mb-2 flex">

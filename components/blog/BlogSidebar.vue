@@ -21,7 +21,7 @@
       </h2>
       <div v-for="workshop in upcomingWorkshop" :key="workshop.slug">
         <NuxtLink :to="`/workshop/${workshop.slug}`" class="mt-5 block bg-ivory-dark p-5 dark:bg-black-dark">
-          <NuxtPicture :src="workshop.image" />
+          <NuxtImg :src="workshop.image" />
           <h2 class="text-2xl font-extrabold">
             {{ workshop.title }}
           </h2>

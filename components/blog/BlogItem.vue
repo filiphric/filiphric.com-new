@@ -1,7 +1,7 @@
 <template>
   <NuxtLink :to="item.slug" class="col-span-1 mx-2 grid min-h-blog-item grid-flow-row place-content-between rounded-3xl p-9 md:mx-0 md:max-w-md" :class="styleClasses" data-cy="blog-item">
     <div v-if="item.image" class="mb-7 grid place-items-center">
-      <NuxtPicture :src="item.image" class="w-10/12" :alt="item.title" />
+      <NuxtImg :src="item.image" class="w-10/12" :alt="item.title" />
     </div>
     <h2 class="text-3xl font-bold">
       {{ item.title }}

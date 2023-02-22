@@ -14,7 +14,7 @@
       </div>
     </div>
     <div :class="styleClasses" class="overflow-hidden rounded-3xl bg-white dark:rounded-none md:w-full">
-      <NuxtPicture src="/qbVORmN8_ukrn1u.png" />
+      <NuxtImg src="/qbVORmN8_ukrn1u.png" />
     </div>
   </div>
 </template>

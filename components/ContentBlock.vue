@@ -5,7 +5,7 @@
         <slot name="heading" />
       </h1>
       <div v-if="image" :class="hidingEnabled && 'hidden'" class="w-3/4 place-self-center self-center p-8 dark:mix-blend-lighten md:hidden">
-        <NuxtPicture :src="image" />
+        <NuxtImg :src="image" />
       </div>
       <p class="my-5 text-2xl font-semibold text-gray-400 md:text-left lg:text-3xl">
         <slot name="description" />
@@ -13,7 +13,7 @@
       <slot name="paragraph" />
     </div>
     <div v-if="image" class="hidden place-self-center self-center p-8 dark:mix-blend-lighten md:block md:w-full">
-      <NuxtPicture :src="image" />
+      <NuxtImg :src="image" />
     </div>
   </div>
 </template>

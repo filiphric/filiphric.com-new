@@ -2,7 +2,7 @@
   <div class="dark:bg-black-darkrounded-lg flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-tangerine dark:bg-black-dark dark:shadow-block-dark-tangerine">
     <div class="w-full p-7">
       <div>
-        <NuxtPicture src="rocket_cxeqeq.png" class="mx-auto mb-7 block w-52" />
+        <NuxtImg src="rocket_cxeqeq.png" class="mx-auto mb-7 block w-52" />
         <span class="block pb-14 text-center text-3xl font-bold">Session #3<br>Working with network</span>
         <!-- items -->
         <div class="mb-2 flex">
