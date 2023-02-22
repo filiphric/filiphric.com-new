@@ -10,8 +10,8 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-lime" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Command chaining</span>
-            <span class="text-md font-normal">Explanation of how information is passed through commands</span>
+            <span class="block text-xl font-extrabold">Effective command chaining</span>
+            <span class="text-md font-normal">Writing effective command chains and understand how information is passed through commands</span>
           </div>
         </div>
         <div class="mb-2 flex">
@@ -19,8 +19,8 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-blueberry" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Retryability</span>
-            <span class="text-md font-normal">Testing a dynamic, always re-rendering site and applying retryability principles</span>
+            <span class="block text-xl font-extrabold">Testing dynamic pages</span>
+            <span class="text-md font-normal">Using built-in retryability to test a dynamic, always re-rendering site</span>
           </div>
         </div>
         <div class="mb-2 flex">
@@ -28,7 +28,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-punch" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Saving and using aliases</span>
+            <span class="block text-xl font-extrabold">Handling data within a test</span>
             <span class="text-md font-normal">How to save and alias information, and pass it around your test</span>
           </div>
         </div>

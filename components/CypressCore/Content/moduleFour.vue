@@ -10,7 +10,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-lime" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Setting up node events</span>
+            <span class="block text-xl font-extrabold">Running Node.js scripts in test</span>
             <span class="text-md font-normal">Seeding database using a predefined script and connecting it to the test flow</span>
           </div>
         </div>
@@ -20,7 +20,7 @@
           </div>
           <div class="w-11/12">
             <span class="block text-xl font-extrabold">Switching configuration</span>
-            <span class="text-md font-normal">Recipe on how to switch between different environments</span>
+            <span class="text-md font-normal">Learn how to switch between different environments</span>
           </div>
         </div>
         <div class="mb-2 flex">
@@ -28,7 +28,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-punch" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Headless mode</span>
+            <span class="block text-xl font-extrabold">Testing in headless mode</span>
             <span class="text-md font-normal">Running tests in headless mode and explanation of its functionality</span>
           </div>
         </div>
