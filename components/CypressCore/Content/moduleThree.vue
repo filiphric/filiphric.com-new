@@ -19,8 +19,8 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-blueberry" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Sending requests</span>
-            <span class="text-md font-normal">Preparing data with cy.request() and testing responses from API</span>
+            <span class="block text-xl font-extrabold">API testing</span>
+            <span class="text-md font-normal">Testing data from API and using cy.request() to prepare and handle test data</span>
           </div>
         </div>
         <div class="mb-2 flex">
@@ -28,7 +28,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-punch" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Installing plugins</span>
+            <span class="block text-xl font-extrabold">Installing useful plugins</span>
             <span class="text-md font-normal">Solving common problems with resources from open-source community</span>
           </div>
         </div>
@@ -37,7 +37,7 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-tangerine" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Authentication</span>
+            <span class="block text-xl font-extrabold">Handling authentication flow</span>
             <span class="text-md font-normal">Caching a logged in state of browser and managing backend authentication</span>
           </div>
         </div>

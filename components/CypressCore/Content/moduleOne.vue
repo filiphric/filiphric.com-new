@@ -46,8 +46,8 @@
             <span class="mt-2 block h-2 w-2 rounded-full bg-cheese" />
           </div>
           <div class="w-11/12">
-            <span class="block text-xl font-extrabold">Writing assertions</span>
-            <span class="text-md font-normal">Using .should() command, best practices for writing tests</span>
+            <span class="block text-xl font-extrabold">Making assertions</span>
+            <span class="text-md font-normal">Best practices for writing assertions in end-to-end tests</span>
           </div>
         </div>
       </div>

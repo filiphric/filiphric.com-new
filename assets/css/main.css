@@ -6,8 +6,12 @@
 
 html {
   @apply bg-ivory text-black-light;
-  @apply dark:bg-black-light dark:text-gray-200;
 }
+
+html.dark {
+  @apply bg-black-light text-gray-200;
+}
+
 
 .prettyLink {
   text-decoration: none;
