@@ -6,7 +6,7 @@ slug: "how-to-structure-a-big-project-in-cypress"
 description: "Opinion on how a project with +2000 tests should be structured in order to achieve good maintainability, speed and lower the risk of introducing regressions."
 tags: ["cypress","project","structuring","library"]
 image: big_project_nqcsts.png
-cypressVersion:
+cypressVersion: v10.0.0
 ---
 Cypress will give you a project structure out of the box, but as the project grows, there are different files introduced into it that need their place. Also, there’s an ever-lasting debate on whether use page-objects, and if not, what should be the alternative. In this blogpost I would like to share my view on how a successful project should be created and structured. This is based on my almost 7 years of experience building different projects with Cypress.
 
@@ -47,8 +47,17 @@ That being said, BDD approach has brought a focus on user behavior, which I defi
   cy.get('#element').click()
 ```
 
+## Arrange, Act, Assert
+Rather than going with "Given-When-Then" approach, I like to go with Arrange-Act-Assert. They are very similar in their fundamentals, but I feel like the latter approach defines the testing goal more clearly.
+
+Usually, the "Arrange" part happens via API calls, or database setup and rarely via UI. More often than not, this step takes place in `before()` or `beforeEach()` hook.
+
+When it is hard to decide whether a part of test should be done via UI or API, the Arrange-Act-Assert pattern helps on deciding. Everything that is done via UI is part of "Act" step. Everything before that goes into "Arrange" part and is not done via UI.
+
+"Act" and "Assert" steps can happen multiple times during end-to-end test.
+
 ## Test annotation
-As mention at the beginning, readability is really important. This helps navigation through tests simple. While it may seem like a small detail, it is actually really valuable when you need to debug a test. When writing an `it()` block, the name of the test should give you enough information about what is the test scenario. Some good and bad examples:
+As mentioned at the beginning, readability is really important. This helps navigation through tests simple. While it may seem like a small detail, it is actually really valuable when you need to debug a test. When writing an `it()` block, the name of the test should give you enough information about what is the test scenario. Some good and bad examples:
 
 ```js [❌ don’t do it like this]
 it('board is visible', () => {})
@@ -79,7 +88,6 @@ Every spec file should contain just a handful of tests. End to end tests tend to
 I also rarely decide to use `describe()` blocks, as the real value of these blocks comes in when you have at least two in a single spec file. `describe()` blocks help group together tests that have something in common. Most of the time it’s `before()`or `beforeEach()` hooks. This is why in cases when I need to split the groups, I usually split them with a new spec instead of new `describe()` block.
 
 However, there is a problem with this approach when you try to use "Run all specs" button in Cypress open mode. This mode basically creates a single spec out of multiple files, which means that all your `before()` and `beforeEach()` hooks get concatenated causing unexpected results. This is something to be aware of. When working on a big project however, I practically never run all specs through open mode.
-
 
 ## Selectors
 I have tried different approaches in the past, but I ended up going with [Cypress’ recommendation](https://docs.cypress.io/guides/references/best-practices#Selecting-Elements) and add `data-cy` selectors into the application. This has proven to be the most stable approach. Relying on class names has always led to random failures. This was especially true these days as developers rely on UI libraries such as material design or bootstrap. Updating these can often cause a change in classes, which breaks our tests.
@@ -139,12 +147,54 @@ My rule of thumb is to put every custom command into it’s own file and add the
 
 ![Commands folder in project](commands_tszoun.png){customClass=w-1/2}
 
-This structure feels right to me. Before version 10 came along, I used to put the my custom commands in `cypress/support/commands` folder. Having custom commands in a separate folder
+This structure feels right to me. Before version 10 came along, I used to put the my custom commands in `cypress/support/commands` folder. Having custom commands in a separate folder makes it easier to find each command and keeps the command clean. Since I’m using TypeScript in my projects, I keep the type definitions for each command inside the custom command file. This the looks something like this:
 
-* custom commandy
-* tagy
-* globálne hooky
-* config, seeding/account creation
-* utility
-* typescript
-* reporting
+```ts
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      addBoardApi: typeof addBoardApi;
+    }
+  }
+}
+
+/**
+ * Creates a new board using the API
+ * @param name name of the board
+ * @example
+ * cy.addBoardApi('new board')
+ *
+ */
+export const addBoardApi = function(this: any, name: string): Cypress.Chainable<any> {
+
+  return cy
+    .request('POST', '/api/boards', { name })
+    .its('body', { log: false }).as('board');
+    
+};
+```
+Each command is has a JSDoc annotation that explains to other team members what does the command do. TypeScript definition is done within the file instead of adding a general `index.d.ts` file as this is much easier to maintain. Instead of using `Cypress.Commands` API, each command is written as a function, and then imported into `cypress/support/e2e.ts` file. 
+```ts
+import { addBoardApi } from '../commands/addBoardApi'
+
+Cypress.Commands.addAll({ addBoardApi })
+```
+Another approach that I tend to use is to have an `index.ts` file that adds all the imports from `cypress/commands` folder and import that to `cypress/support/e2e.ts` instead. This is useful if you decide to move your app into monorepo and add your custom commands into separate library so that it can be reused across your projects.
+
+![Command library in a monorepo structure](lib_ippr9m.png)
+
+## TypeScript
+
+## Utilities
+
+## Global hooks
+
+## Tags
+
+## Config
+
+## Continuous integration 
+
+## Reporting
+
+## Documentation
