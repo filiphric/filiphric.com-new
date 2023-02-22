@@ -10,7 +10,7 @@
         Hey, I’m Filip Hric
       </h2>
       <p class="p-7 text-xl md:pr-7 md:pl-0">
-        I have conducted dozens of workshops worldwide and have been teaching how to use Cypress since version 4.4.0. I do my best to take complex conepts and break them down into simple explanartions. I make improvements and update this workshop regularly, so you will always get the latest and greatest. My goal is to provide attendees with a firm knowledge of the core principles that you can apply in your next job or next project.
+        I have conducted dozens of workshops worldwide and have been teaching how to use Cypress since version 4.4.0. I do my best to take complex concepts and break them down into simple explanations. I make improvements and update this workshop regularly, so you will always get the latest and greatest. My goal is to provide attendees with a firm knowledge of the core principles that you can apply in your next job or next project.
       </p>
     </div>
   </div>
