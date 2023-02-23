@@ -258,4 +258,4 @@ Cypress.Commands.add('login', () => {
 
 This will cause to run the sequence in your custom commands just once per spec. But if you want to cache it throughout your whole test run, you can do that by using [cypress-data-session plugin](https://www.npmjs.com/package/cypress-data-session). There are a lot more things you can do this, but caching your steps is probably the most valuable one, as it can easily shave off a couple of minutes from the whole test run. This will of course depend on the test itself. In my own tests, where I just ran 4 tests that logged in, I was able to cut the time in half.
 
-Hopefully, this helped. I’m teaching all this and more in my [upcoming workshop](/cypress-core-workshop-november-2022). Hope to see you there!
+Hopefully, this helped. I’m teaching all this and more in my [upcoming workshop](/workshop/cypress-core). Hope to see you there!
