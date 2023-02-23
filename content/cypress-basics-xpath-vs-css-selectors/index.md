@@ -104,6 +104,6 @@ cy.contains('.card', 'milk').next('.card')
 cy.xpath('//div[contains(@class, "card")][following::div[contains(., "bread")]]')
 cy.contains('.card', 'bread').next('.card')
 ```
-Hope this helps. I’ll be updating this post to sShare this with your friends if you feel like someone can learn from this, I’d greatly appreciate this.
+Hope this helps. Share this with your friends if you feel like someone can learn from this, I’d greatly appreciate this.
 
 If you want to learn more about selecting elements, I recommend checking out my other articles on [selecting elements](/cypress-basics-selecting-elements), [autocompleting selectors](/autocompleting-selectors-in-cypress-with-typescript) or a very powerful [.contains() command](/contains-an-overlooked-gem-in-cypress). Additionally, if you work with xpath, I recommend checking out [Sanjay Kumar’s SelectorsHub tool](https://selectorshub.com/testcase-studio/).
