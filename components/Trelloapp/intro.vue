@@ -13,7 +13,7 @@
       Installation
     </ProseH2>
     <ProseP>Open your terminal or the command line and type these commands:</ProseP>
-    <ProseCodeInline>https://github.com/filiphric/{{ repo }}.git</ProseCodeInline>
+    <ProseCodeInline>git clone https://github.com/filiphric/{{ repo }}.git</ProseCodeInline>
     <br>
     <ProseCodeInline>cd {{ repo }}</ProseCodeInline>
     <br>
