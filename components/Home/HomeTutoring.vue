@@ -1,7 +1,7 @@
 <template>
   <div class="mt-28 grid grid-cols-2 items-center gap-14">
     <div :class="styleClasses" class="overflow-hidden rounded-3xl bg-white dark:rounded-none md:w-full">
-      <NuxtImg src="/P9260361_bpzp0e.jpg" />
+      <NuxtPicture src="/P9260361_bpzp0e.jpg" />
     </div>
     <div>
       <h2 class="text-6xl font-bold">

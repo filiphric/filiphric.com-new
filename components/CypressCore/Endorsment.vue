@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center justify-center gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark">
-      <NuxtImg src="stamp_prflbz.png" class="block w-28" />
+      <NuxtPicture src="stamp_prflbz.png" class="block w-28" />
       <div>
         <div class=" text-xl">
           This workshop has been endorsed by Cypress DX team

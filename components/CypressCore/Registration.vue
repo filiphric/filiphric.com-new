@@ -5,7 +5,7 @@
     </h2>
     <div class="mx-auto my-14 grid w-full gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark md:w-10/12 md:grid-cols-2">
       <div>
-        <NuxtImg src="core_workshop_2_q9fzxv.png" class="mx-auto block w-64" />
+        <NuxtPicture src="core_workshop_2_q9fzxv.png" class="mx-auto block w-64" />
         <div class="text-center text-2xl">
           Cypress core workshop
         </div>
