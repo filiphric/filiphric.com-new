@@ -35,7 +35,7 @@ So why is this better? Because this way, we will wait maximum 10 seconds for tha
 ## #2: Using unreadable selectors
 I could write a whole article just on the topic of selectors ([in fact, I did](/cypress-basics-selecting-elements)), since this is one of the most dealt-with topics for testers. Selectors can be the first thing that can give us a clue as to what our test is doing. Because of that, it is worth making them readable.
 
-[Cypress has some recommendations](https://docs.cypress.io/guides/references/best-practices#Selecting-Elements) as to which selectors should be used. The main purpose of these recommendations is to provide stability for your tests. At the top of the recommendations is to use separate `data-`*` selectors. You should add these to your application.
+[Cypress has some recommendations](https://docs.cypress.io/guides/references/best-practices#Selecting-Elements) as to which selectors should be used. The main purpose of these recommendations is to provide stability for your tests. At the top of the recommendations is to use separate `data-*` selectors. You should add these to your application.
 
 However (and unfortunately IMHO), testers don’t always have the access to the tested application. This makes selecting elements quite a challenge, especially when the element we are searching for is obscure. Many that find themselves in this situation reach for various strategies for selecting elements.
 
