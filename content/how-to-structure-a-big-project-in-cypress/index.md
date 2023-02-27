@@ -185,6 +185,8 @@ Another approach that I tend to use is to have an `index.ts` file that adds all 
 
 ## TypeScript
 
+## Code coverage
+
 ## Utilities
 
 ## Global hooks
