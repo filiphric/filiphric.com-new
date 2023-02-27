@@ -72,7 +72,7 @@ I’ve seen a test like this fail a lot. There is a lot happening in between typ
 
 This is because Cypress will automatically retry an assertion + previous command. But it will only retry the previous command, not entire command chain. If you would hover over the `.eq()` command in our test, you would see that we are actually not getting the right element. If an item renders with a delay, you would get stuck with the state of your app as it was when `.get()` command was made. Example of what might be happening:
 
-![list.mp4](Failing assertion on .eq() command)
+![Failing assertion on .eq() command](list.mp4)
 
 I explore this topic a little more in one of my <nuxt-link to="testing-lists-of-items">previous blogs</nuxt-link>. While confusing at a first glance, looking at the timeline might shed some more light into what test did before it failed.
 
