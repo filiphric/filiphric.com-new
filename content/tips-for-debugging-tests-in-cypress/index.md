@@ -12,7 +12,7 @@ Debugging, right? Not sure if I love it or hate it. The part of me that loves it
 ## .pause() your test
 When using Cypress in GUI mode, you can use `.pause()` command to stop your test at a problematic spot. I usually do this to look at the test right before problematic assertion or action that caused the test to fail. After pausing your test, you can interact with your page, examine the state and then click play button to continue with the test.
 
-![pause.mp4](.pause() command in action)
+![.pause() command in action](pause.mp4)
 
 You don’t need to worry about leaving this command in your tests, since it is ignored when you run your tests in headless mode. Read more about `.pause()` in [Cypress docs](https://docs.cypress.io/api/commands/pause.html#Syntax).
 
