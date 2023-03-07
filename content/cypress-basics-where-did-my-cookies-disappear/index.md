@@ -38,7 +38,7 @@ it('opens a page', () => {
 });
 ```
 Once you’ll run this spec, you’ll see that our page shows "no cookies were found" on our second spec. See video from the test run:
-![two-cookie-tests.mp4](Cookies deleted in between tests)
+![Cookies deleted in between tests](two-cookie-tests.mp4)
 
 To make sure that our cookies are set in each test, you can set up your cookies before each test using `beforeEach` hook.
 ```js [/cypress/integration/beforeEach.ts] {1-3}

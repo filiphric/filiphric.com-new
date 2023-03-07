@@ -10,7 +10,7 @@ If you looked at [Cypress documentation](https://on.cypress.io/hover) and looked
 
 I will be using my Trello clone app, so make sure you [clone it on GitHub](https://github.com/filiphric/trelloapp) if you want to follow along. Let’s take a look onto our board list and see what happens when we hover over a board.
 
-![hovering-over-element.mp4](Hovering over element)
+![Hovering over element](hovering-over-element.mp4)
 
 Our board card gets darker and a star icon appears on top right corner. Upon further examination, you can see that these two changes are triggered differently. Looking at DevTools, you can see that the color change is handled by CSS, but our icon is not displayed when we force hover state via DevTools:
 
@@ -18,7 +18,7 @@ Our board card gets darker and a star icon appears on top right corner. Upon fur
 
 Instead, there is an event listener that will change the visibility of our star icon.
 
-![hover-javascript.mp4](Element hovered by JavaScript)
+![Element hovered by JavaScript](hover-javascript.mp4)
 
 User of course does not see this. The functionality here enables user to bookmark a board, so that’s what we need to focus on in our test. Let’s now try to write a test, in which we attempt to mimic this user behavior.
 ```ts

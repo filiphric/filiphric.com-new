@@ -38,7 +38,7 @@ it('has a board', () => {
 ```
 Our test does the exact thing we would expect. It will check the visibility of our element and pass our test.
 
-![element-visible.mp4](Check if element exists)
+![Check if element exists](element-visible.mp4)
 
 The interesting thing here is that although our element is rendered based on data from network, Cypress’ internal logic has automatic retries implemented, so it will actually wait for an element to render without us having to add any extra command. In other words, even if our element is not yet rendered at the moment of execution, Cypress will wait for it to render.
 
@@ -56,7 +56,7 @@ it('has a board', () => {
 
 });
 ```
-![element-not-visible.mp4](Check if element does not exist)
+![Check if element does not exist](element-not-visible.mp4)
 
 Surprisingly, our test has failed now. This is because Cypress actually verifies that element is hidden via css property like `display: none` or `visibility: hidden`. But in our case, the element we are trying to assert is not even present in our app. That is why our assertion fails. Instead of visibility check, we should be doing an assertion of non-existence, so `.should('not.exist')`
 

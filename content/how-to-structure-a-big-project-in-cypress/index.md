@@ -48,7 +48,21 @@ That being said, BDD approach has brought a focus on user behavior, which I defi
 ```
 
 ## Arrange, Act, Assert
-Rather than going with "Given-When-Then" approach, I like to go with Arrange-Act-Assert. They are very similar in their fundamentals, but I feel like the latter approach defines the testing goal more clearly.
+Rather than going with "Given-When-Then" approach, I like to go with Arrange-Act-Assert. They are very similar in their fundamentals, but I feel like the latter approach defines the testing goal more clearly. "When" keyword in the Gherkin-style syntax seems a little bit ambiguous as it is not always clear if it refers to an action or to a state. The "Arrange-Act-Assert" pattern makes it clearly.
+
+```ts
+before( () => {
+  // arrange
+  cy.request('POST', '/api/lists', { name: 'new list' })
+})
+it('creates an item', () => {
+  // act
+  cy.visit('/')
+  cy.get('#create').type('list item{enter}')
+  // assert
+  cy.get('[data-cy=item]').should('be.visible')
+})
+```
 
 Usually, the "Arrange" part happens via API calls, or database setup and rarely via UI. More often than not, this step takes place in `before()` or `beforeEach()` hook.
 
@@ -138,16 +152,41 @@ I have experimented with [mapping all of the selectors and making them autocompl
 
 ## Custom commands
 Custom commands are one of the most powerful features of Cypress. The fact that you can expand your library makes Cypress ecosystem exceptionaly versatile. I usually use three categories of custom commands:
-- utilities
+
+- utility commands
 - API calls
 - action sequences
 
+### Custom API actions
+With Cypress, you will often times find yourself calling an API to either set up your data or to do some action in your app. Since you may not always want to call `cy.request()` and provide needed authorization, headers or request body, creating custom command seems like a good idea. You can create a function that will take care of default values, or you can pass different arguments to alter the behavior. Data used from API call can be later used in test or can be processed within the test.
+
+### Utility commands
+If you use `data-*` selectors, creating a `cy.getByDataCy()` command might be useful. Utility commands usually take care of some niche case within an application. Some examples include `cy.getClipboard()`, `cy.getTooltip()` and so on.
+
+### Action sequences
+Action sequences resemble the traditional page object model the most. These are series of UI steps that cannot really be avoided by calling an API. Most of the time they deal with situations that take multiple steps and are essential for the test flow. An example might looks something like this:
+
+```ts
+Cypress.Commands.add('pickSidebarItem', (item: 'Settings' | 'Account' | 'My profile' | 'Log out') => {
+
+  cy.get('[data-cy=hamburger-menu]')
+    .click()
+
+  cy.contains('[data-cy=side-menu]', item)
+    .click()
+
+})
+```
+
+### Organizing custom commands
 
 My rule of thumb is to put every custom command into it’s own file and add them to their own folder in the Cypress project:
 
-![Commands folder in project](commands_tszoun.png){customClass=w-1/2}
+![Commands folder in project](commands_tszoun.png){customClass="w-1/2"}
 
-This structure feels right to me. Before version 10 came along, I used to put the my custom commands in `cypress/support/commands` folder. Having custom commands in a separate folder makes it easier to find each command and keeps the command clean. Since I’m using TypeScript in my projects, I keep the type definitions for each command inside the custom command file. This the looks something like this:
+The `commands` folder can contain categories of custom commands, but I am not strict on following this rule. Since custom commands usually have their own unique name there’s not really a big benefit for creating subfolder.
+
+Every command is in its own file and contains the command as well as the TypeScript definition. An example of such command looks like this:
 
 ```ts
 declare global {
@@ -173,8 +212,12 @@ export const addBoardApi = function(this: any, name: string): Cypress.Chainable<
     
 };
 ```
-Each command is has a JSDoc annotation that explains to other team members what does the command do. TypeScript definition is done within the file instead of adding a general `index.d.ts` file as this is much easier to maintain. Instead of using `Cypress.Commands` API, each command is written as a function, and then imported into `cypress/support/e2e.ts` file. 
-```ts
+[Cypress documentation recommends](https://docs.cypress.io/guides/tooling/typescript-support#Types-for-Custom-Commands) creating a central `index.d.ts` file which contains type definitions for all commands. I personally lean more to the approached shown above, as this way the type definition is contained in the same file as the command itself. This creates less confusions and it’s much easier to maintain. 
+
+Every command has its own JSDoc comment that provides additional information into what the command does. This is incredibly useful for anyone new who joins the team. It also keeps the code self-documented and can point to useful links e.g. to internal wiki.
+
+Instead of using `Cypress.Commands` API, each command is written as a function, and then imported into `cypress/support/e2e.ts` file. 
+```ts [cypress/support/e2e.ts]
 import { addBoardApi } from '../commands/addBoardApi'
 
 Cypress.Commands.addAll({ addBoardApi })
@@ -184,19 +227,216 @@ Another approach that I tend to use is to have an `index.ts` file that adds all 
 ![Command library in a monorepo structure](lib_ippr9m.png)
 
 ## TypeScript
+All my projects use TypeScript. The implementation of TypeScript into an existing JS project is super easy as it can be done gradually. TypeScript errors don’t actually affect your tests, but can help you find errors. TypeScript guides you while you are writing tests by providing autocompletion, checking of the parameters that you pass into your commands and much more.
+
+TypeScript also works really well with Custom Commands. One way of how you can use TypeScript in your custom commands is to reuse types from your source code in your tests:
+
+```ts
+import Board from '@/src/models'
+
+cy.request<Board>('POST', '/api/boards', { name: 'new board' })
+```
+
+The code example above shows `cy.request()` command that will return types from `Board` interface imported from source code. This means that if you have an interface like this:
+
+```ts
+interface Board {
+  id: number;
+  starred: boolean;
+  name: string;
+  created: string;
+  user: number;
+}
+
+export default Board;
+```
+
+You will be able to spot a TypeScript error if you decide to write a test for something that is not part of the `Board` interface.
+
+```ts
+import Board from '@/src/models'
+
+cy.request<Board>('POST', '/api/boards', { name: 'new board' })
+  .then(({ body }) => {
+    // the "key" will be underlined in editor
+    expect(body.key).to.be.a('number')
+  })
+```
+
+In addition to checking your code in your editor, you can set up a lint check that will make sure you don’t have any TypeScript errors in your codebase:
+
+```json [package.json]
+"scripts": {
+  "lint": "tsc --noEmit"
+}
+```
+
+Running `npm run lint` command will ensure that any TypeScript error introduced by latest changes will be caught early. You can make this `lint` step run as a pre-commit hook and even prevent commiting such code. This check will take just a couple of seconds.
+
+The biggest advantage though, is that it creates a two-way sync between source code and your tests. Not only it will make sure that your tests are typed correctly, but whenever a change is introduced on the source code side that changes types, it will affect the tests.
+
+A nice bonus in the TypeScript world is the ability to define paths. This remove the headache of resolving relative paths in your project. Let’s say you have a path defined in your `tsconfig.json`
+
+```json [tsconfig.json]
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress","node"],
+    "baseUrl": "./",
+    "paths": {
+      "@fixtures/*": [
+        "cypress/fixtures/*"
+      ]
+    },
+    "resolveJsonModule": true,
+  }  
+}
+```
+You can import a fixture file in your test like this:
+
+```ts
+import boardSchema from '@fixtures/boardSchema.json'
+
+it('board returns proper JSON schema', () => {
+
+  cy.api({
+    url: `/api/boards/1`
+  }).its('body')
+  .should('jsonSchema', boardSchema)
+  
+})
+```
 
 ## Code coverage
+I’ve explained how [code coverage works in the past](/understanding-code-coverage). It is a really powerful tool. While you may find some teams that aim for 100% code coverage, I don’t find this particularly useful. Code coverage report can serve as a map of of the applications "landscape" and can navigate you to unexplored areas. 
+
+Usually business cases are covered first, but there are many edge cases which often get forgotten and can cause our users’ disappointment. Code coverage helps finding those areas.
+
+Code coverage requires an instrumented version of the app, which requires a separate build. This can often be solved by creating a custom step in the pipeline and I find [worfkflow dispatch pipeline](/cypress-and-git-hub-actions-step-by-step-guide#trigger-test-run-manually) to be an ideal use case for that.
+
+The coverage reports can be saved as artifacts, or you can use [a service like Codecov](https://about.codecov.io/) that provides really beautiful insights into your code coverage. If you want to take a look at a living example of such report, you can take a look at [my example repository](https://github.com/filiphric/trelloapp-vue-vite-ts) with the Trello-clone app that I made.
+
 
 ## Utilities
+Every project is specific and comes with a bunch of common-pattern problems that need to be solved. To avoid solving the same problem multiple times, I put all my utilities into `cypress/utils` folder. This can by stuff like `generateRandomUser()`, `getAuthorization()` or some others. I usually import this right into my test instead of including them in support file. There’s usually not too many of these as Cypress comes with lodash library bundled in which is full of useful utilities.
+
+```ts
+// imports lodash from Cypress
+const { _ } = Cypress
+
+// generates number between 0 and 10
+const randomNumber = _.random(10)
+```
 
 ## Global hooks
+There are couple of global hooks usually set up in my projects. The usual use case is taking care of cookie consent message. Adding an global `beforeEach()` hook can set up all the important cookies and prevent the message from opening in your tests.
 
-## Tags
+```ts [cypress/e2e.ts]
+beforeEach(() => {
+  cy.setCookie('user_consents', '{"marketing":false,"essential":true}')
+})
+```
 
-## Config
+You can always use `cy.clearCookies()` command to remove cookies in the test that tests this consent message.
 
-## Continuous integration 
+## Tagging tests
+As soon as the project grows, it is pretty much impossible to run all tests on every commit. Splitting test into categories can be easily achievedy by using [@cypress/grep](https://www.npmjs.com/package/@cypress/grep) plugin. It enables you to run a subset of tests based on the test name or based on tags.
 
-## Reporting
+First and foremost, `@smoke` category is created that takes care of the most essential scenarios. The smoke set can sometimes be a separate folder, but I personally prefer for the tests to live in their own feature folders.
+
+```ts
+it('creates a new board', { tags: ['@smoke'] }, () => {
+  // test
+})
+```
+
+A single test can have multiple tags, so that test can be ran based on a certain testing goal. E.g. `@email` tag to run all tests that use email validations, `@mobile` for all mobile tests, or `@visual` for all tests containing visual validations. I like to think about different situations in which we want to target a certain area of the application. For example, if CSS has changed, we might want to run all `@visual` tests, or if our email testing service is not working currently, we may want to temoporarily omit `@email` test subset.
+
+In CLI, these can be ran by following command:
+```
+npx cypress run --env grepTags='@smoke'
+```
+
+## Configuration switching
+It is important that test work on multiple different environments. To make things easy, I usually create a `config` folder that contains `.json` files with all the environment-specific variables such as `baseUrl`, url of the API, or some other information that may be used during the test. These get fed into `env` object from the `.json` file and can easily be accessed by `Cypress.env()`
+
+The following setup will take care of adding the correct information to the project:
+
+```js [cypress.config.ts]
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  // other config attributes
+  setupNodeEvents(on, config) {
+    // if version not defined, use local
+    const version = config.env.version || 'local'
+    // load env from json
+    config.env = require(`./cypress/config/${version}.json`);
+    // change baseUrl
+    config.baseUrl = config.env.baseUrl
+
+    return config
+  }
+})
+```
+
+When running a test with a different configuration, all that’s needed is to run a test like this:
+```
+npx cypress open --env version="production"
+```
+and Cypress will load all the variables needed.
+
+Besides having the configuration set up in separate `.json`, there is information that should not be commited to the repositories, like passwords, api keys, etc. These are usually part of environment and are passed through CLI.
+
+To make things easier, I use [dotenv package](https://www.npmjs.com/package/dotenv) that takes care of management of env variables by using `.env` file.
+```[.env]
+ADMIN_KEY="1234-5678-abcd-efgh"
+```
+> ⚠️ Always make sure that `.env` file is added to `.gitignore` otherwise you risk commiting sensitive information out in the public
+
+To load the keys, dotenv package needs to be imported in `cypress.config.ts` so that env variables are loaded into Cypress and can be used during test. 
+
+```js [cypress.config.ts]{2}
+import { defineConfig } from 'cypress'
+import 'dotenv/config'
+
+export default defineConfig({
+  // other config attributes
+  setupNodeEvents(on, config) {
+    // read ADMIN_KEY from .env file
+    config.env.ADMIN_KEY = process.env.ADMIN_KEY
+    return config
+  }
+})
+```
+
+## Node scripts
+The `cypress.config.ts` file can get bloated pretty fast, especially when setting up tasks or resolving configurations. This is why I started splitting these into their own files and add them to `scripts` folder.
+
+![Cypress scripts folder](scripts_ni0k5s.png)
+
+This keeps the main config file clean and easy to read. It also makes it easier to maintain multiple `cy.task()` commands.
 
 ## Documentation
+Everytime a new member joins a team, they can either slow down the team, or make it more effective. That’s why having a good documentation is essential to successful onboarding.
+
+Usually the documentation contains 3 important parts:
+1. installation of the projects
+2. explanations, recommendations, examples
+3. pull request rules (these can be added to the platform you use)
+
+Installation needs to have all the information one needs in order to install and run project. This will be a living document, since changes introduced to the repository need to be reflected, but also because first version of the document is never sufficient enough. When an important information is missing, it may be useful for the newcomer to add that information to the docs and create their first commit.
+
+Since every project has its own specifics, it is important to have these explained. What are the conventions in the project? How do you solve common problems. What are the conventions used in this repository? All these questions should be answered in the docs. The main goal of this document is to make your life easier, so ideally it should be easy to read, and if needed, split into multiple files.
+
+I also find it useful to set some ground rules for pull requests. On many platforms, you can set rules on how many people should approve a pull request, add checklists and other requirements. While these may seem like too much, they are a great help that prevents you from forgetting something important when merging new code.
+
+![Cypress docs](docs_jjdz9g.png)
+
+## Final thoughts
+Big projects are rarely about just Cypress commands and they have much more to do with the test design and project design. While having some thoughts on what is the best way, most of my projects are living organisms that change and evolve as time progresses and needs shift. My current structure looks similar to something like this:
+
+![Big project structure](big-project_fuuicx.png)
+
+I hope you were able to get some inspiration from this. I share tips like this more often so consider subscribing to the newsletter, and following me on [Twitter](https://twitter.com/filip_hric/), [LinkedIn](http://www.linkedin.com/in/filip-hric) and [YouTube](https://www.youtube.com/@filip_hric).
