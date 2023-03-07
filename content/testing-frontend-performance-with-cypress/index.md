@@ -29,7 +29,7 @@ Our test may look something like this:
 
 This modal window may fetch some data from server, reorder or filter it. Additionally it may perform some other actions such as render images etc. All of these actions take some time and as testers, we want to make sure that the result will not take too long.
 
-![performance.mp4](performance)
+![performance](performance.mp4)
 
 ## performance.mark() API
 In [all of the current browsers](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark#browser_compatibility) a `performance` API is available on `window` object. We can access this API by using `cy.window()` function and then calling a method. To start measuring the performance, we can create a mark that will label the start of our measurement.

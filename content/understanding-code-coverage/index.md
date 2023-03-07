@@ -4,7 +4,7 @@ date: 2021-01-18
 title: 'Understanding code coverage in Cypress'
 description: 'It’s pretty awesome that you can use e2e tests to generate your coverage data. In this blog I’m describing how the whole process works.'
 published: true
-author: 'Filip Hric'
+image: 'coverage_kzyizx.png'
 tags: ['testing', 'advanced', 'code coverage']
 ---
 Code coverage is one of those few things that doesn’t come right out of the box with Cypress. To set up code coverage, there’s some web development knowledge that one must understand first. I struggled with this initially, but last couple of weeks I was finally able to wrap my head around it.
@@ -154,11 +154,11 @@ Believe it or not, our app is now instrumented. The data about which function ha
 We can now tell Cypress to collect this data and generate report for us. To do that, you need to install [Cypress code coverage plugin](https://github.com/cypress-io/code-coverage). Installation is pretty standard and readme page should be sufficient enough for explanation. As mentioned, this plugin does not instrument our code, but fortunately, we have already done that in Part 4.
 
 When we now open Cypress and run a simple test with `.visit()` command inside, you can see that there are multiple new commands present in our test.
-<v-img src="coverage-in-cypress.png" alt="Coverage commands in Cypress runner"></v-img>
+![Coverage commands in Cypress runner"](coverage-in-cypress.png)
 
 Not only that. After we ran our test, there’s a new folder called `coverage` in the root of our project. This contains a HTML report of our code coverage. Just by opening our app we were able to get to 50% coverage of our app. Notice that our coverage report also shows the original names of our files, `app.js` and `randomFact.js`, which makes our report very good to navigate through.
 
-<v-img src="coverage-report.png" alt="Coverage commands in Cypress runner"></v-img>
+![Coverage commands in Cypress runner"](coverage-report.png)
 
 Inside this report we can further look into each of our files and each of our lines. We can see if these lines of code were actually called by our e2e test. Since our test only opened our app, we need to add a click on our button too to cover the whole story. Adding this will make our app 100% covered, since there is not much else happening in our app.
 
