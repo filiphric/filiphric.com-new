@@ -1,0 +1,44 @@
+[
+  {
+    "amount": 0.25,
+    "country": "LC",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfmLS3Ln5Oe"
+  },
+  {
+    "amount": 0.3,
+    "country": "ES",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfmT9dZZdNv"
+  },
+  {
+    "amount": 0.35,
+    "country": "CY",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfmtKobZxy8"
+  },
+  {
+    "amount": 0.4,
+    "country": "IR",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfma87UhGK7"
+  },
+  {
+    "amount": 0.45,
+    "country": "CF",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfmsptKEgFK"
+  },
+  {
+    "amount": 0.5,
+    "country": "BH",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfmxWlx1ofL"
+  },
+  {
+    "amount": 0.55,
+    "country": "IN",
+    "eligible": true,
+    "priceId": "price_1MkwcQBnBECxBVfmX4VNzdba"
+  }
+]

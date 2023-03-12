@@ -15,14 +15,6 @@
     <p class="text-xl">
       It’s definitely NOT suitable dor people that have no prior experience with web applications. If CSS, HTML and JavaScript are still foreign terms for you, it’s better to first catch up on the basics of these.
     </p>
-    <h3
-      class="mt-7 text-2xl font-extrabold"
-    >
-      How do I get a discount?
-    </h3>
-    <p class="text-xl">
-      It’s simple! Post the link to this workshop on Twitter, LinkedIn or other social network sharing that you will attend. You are more than welcome to tag me in the post 🙂. You can then use the code CORE50 at checkout and apply the discount. I know there’s no real way for me to check if you really posted. But I trust you ❤️
-    </p>
     <h3 class="mt-7 text-2xl font-extrabold">
       The date of the workshop does not suit me, will there be other options?
     </h3>
