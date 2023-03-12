@@ -1,5 +1,5 @@
 import { geolocation } from '@vercel/edge'
-import { getPPPDiscountPercent } from '@/helpers/parityCoupon'
+import { getPPPDiscountPercent } from '../helpers/parityCoupon'
 
 export const config = {
   runtime: 'edge'
