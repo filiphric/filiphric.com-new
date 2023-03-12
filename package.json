@@ -6,7 +6,7 @@
   "scripts": {
     "build": "nuxt build",
     "start": "npm run dev",
-    "dev": "nuxt dev",
+    "dev": "nuxi dev --port 8000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -21,7 +21,7 @@
     "@stripe/stripe-js": "^1.46.0",
     "@vercel/edge": "^0.3.1",
     "fuse.js": "^6.6.2",
-    "nuxt": "^3.0.0",
+    "nuxt": "^3.2.3",
     "prismjs": "^1.29.0",
     "stripe": "^11.9.1"
   },

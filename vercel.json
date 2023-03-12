@@ -1,5 +1,5 @@
 {
-  "devCommand": "nuxi clean && npm run generate && serve .output/public",
+  "devCommand": "nuxi dev",
   "redirects": [
     {
       "destination": "https://www.youtube.com/channel/UCDOCAVIhSh5VpJMEfdak1OA",

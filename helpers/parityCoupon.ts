@@ -1,7 +1,7 @@
 import ppp from '@/constants/ppp.json'
 
-const DISCOUNT_UPPER_BOUND = 0.75
-const DISCOUNT_LOWER_BOUND = 0.4
+const DISCOUNT_UPPER_BOUND = 0.55
+const DISCOUNT_LOWER_BOUND = 0.25
 
 export const getPPPDiscountPercent = (countryCode: string) => {
   const ratio: number = ppp[countryCode as keyof typeof ppp]
