@@ -32,7 +32,7 @@ useHead({
   meta: [
     {
       name: 'image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURI(workshopInfo.value.title)}&description=${encodeURI(workshopInfo.value.description)}&date=${encodeURI(workshopInfo.value.date)}&days=${encodeURI(workshopInfo.value.days)}`
     },
     {
       property: 'og:url',
@@ -40,7 +40,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURI(workshopInfo.value.title)}&description=${encodeURI(workshopInfo.value.description)}&date=${encodeURI(workshopInfo.value.date)}&days=${encodeURI(workshopInfo.value.days)}`
     },
     {
       property: 'twitter:card',
@@ -52,7 +52,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURIComponent(workshopInfo.value.title)}&description=${encodeURIComponent(workshopInfo.value.description)}&date=${encodeURIComponent(workshopInfo.value.date)}&days=${encodeURIComponent(workshopInfo.value.days)}`
+      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${encodeURI(workshopInfo.value.title)}&description=${encodeURI(workshopInfo.value.description)}&date=${encodeURI(workshopInfo.value.date)}&days=${encodeURI(workshopInfo.value.days)}`
     },
     {
       property: 'article:published_time',
