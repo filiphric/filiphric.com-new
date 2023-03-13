@@ -106,6 +106,7 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible'
   ],
   nitro: {
+    preset: 'vercel-edge',
     prerender: {
       routes: ['/sitemap.xml', '/rss.xml']
     }
