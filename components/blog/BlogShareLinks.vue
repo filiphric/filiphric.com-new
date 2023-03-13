@@ -28,6 +28,6 @@ const props = defineProps({
 
 const githubLink = `https://github.com/filiphric/filiphric.com-new/blob/main/content/${props.blogInfo?._file}`
 
-const tweetText = `https://filiphric.com/${props.blogInfo?.slug}&text=${encodeURIComponent(`Hey I just read "${props.blogInfo?.title}`)}" by @filip_hric`
+const tweetText = `https://filiphric.com/${props.blogInfo?.slug}&text=${`Hey I just read "${props.blogInfo?.title}`}" by @filip_hric`
 
 </script>
