@@ -8,10 +8,12 @@
 const CODE_CSS_PROPERTIES = [
   'background-color',
   'font-size',
-  'color'
+  'color',
+  'padding',
+  'border-radius'
 ]
 
-const arr = document.querySelectorAll('pre, pre *, span, p code')
+const arr = document.querySelectorAll('pre, pre *, span, p code, li code')
 arr.forEach((el) => {
   // Grab computed styles
   const styles = getComputedStyle(el)
@@ -26,11 +28,31 @@ arr.forEach((el) => {
 })
 
 // remove unnecessary attributes from paragraph elements
-const p = document.querySelectorAll('p')
-p.forEach((el) => {
+const elem = document.querySelectorAll('*')
+elem.forEach((el) => {
   el.innerHTML = el.innerHTML.replaceAll('<!--[-->', '')
   el.innerHTML = el.innerHTML.replaceAll('<!--]-->', '')
   el.removeAttribute('class')
+})
+
+// remove unnecessary attributes from li elements
+const li = document.querySelectorAll('li')
+li.forEach((el) => {
+  el.removeAttribute('class')
+})
+
+// remove unnecessary attributes from paragraph elements
+const p = document.querySelectorAll('p')
+p.forEach((el) => {
+  el.removeAttribute('class')
+})
+
+// remove unnecessary attributes from paragraph elements
+const a = document.querySelectorAll('a')
+a.forEach((el) => {
+  el.removeAttribute('class')
+  el.removeAttribute('rel')
+  el.removeAttribute('target')
 })
 
 // remove code toolbar element
