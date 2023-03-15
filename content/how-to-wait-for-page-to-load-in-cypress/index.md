@@ -3,7 +3,7 @@ title: "How to wait for page to load in Cypress"
 date: 2023-03-15
 published: true
 slug: "how-to-wait-for-page-to-load-in-cypress"
-description: "WIP"
+description: "What if your page takes time to load and your first command fails because of this? In this blogpost I explain how to make sure that your page is fully loaded"
 tags: ["cypress","visit","loading"]
 image: "pageload_gncwtb.png"
 cypressVersion: v10.0.0
