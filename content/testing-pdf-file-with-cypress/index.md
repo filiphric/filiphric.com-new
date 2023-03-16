@@ -21,13 +21,13 @@ cy.visit('/')
 cy.contains('simple.pdf')
   .click()
 ```
-This test will finish right after we click on our button. But how do we know if anything happened? Well first of all, we can check that manually, by taking a look into `/cypress/downloads` folder, where all of our downloads from test run end up. The destination of downloads can be set up by changing `downloadsFolder` attribute in `cypress.config.ts` file. file:
+This test will finish right after we click on our button. But how do we know if anything happened? Well first of all, we can check that manually, by taking a look into `/cypress/downloads` folder, where all of our downloads from test run end up. The destination of downloads can be set up by changing `downloadsFolder` attribute in `cypress.config.ts` file:
 
 But how do we actually check whether the file was downloaded? The easiest way of doing so would be to use `cy.readFile()` command. This command will fail if a file is not found, so it’s perfect for our situation.
 
 However, it’s important to note that when we run our tests via `npx cypress open`, downloaded files will get overriden. This is also important, because we can get to a false positive situation when we use `cy.readFile()` command and a file with the same name was present in downloads folder prior to running the test.
 
-This is not the case with `npx cypress run` script as it will automatically delete contents of downloads folder before running. To change this behavior, you can set up `trashAssetsBeforeRuns` option in you `cypress.config.ts` file. file:
+This is not the case with `npx cypress run` script as it will automatically delete contents of downloads folder before running. To change this behavior, you can set up `trashAssetsBeforeRuns` option in you `cypress.config.ts` file:
 
 Also, while writing your tests, I’d recommend adding `cypress/downloads` folder into your `.gitignore` file so that it does not accidentally end up bloating your repository size.
 
