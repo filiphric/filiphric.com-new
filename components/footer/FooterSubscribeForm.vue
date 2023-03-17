@@ -5,7 +5,7 @@
         Let’s keep in touch
       </h2>
       <p class="mt-7">
-        From time to I send some useful tips to your inbox and let you know about upcoming events. Sign up if you want to stay in loop.
+        From time to time I send some useful tips to your inbox and let you know about upcoming events. Sign up if you want to stay in loop.
       </p>
       <form @submit.prevent="submit">
         <label for="firstName" class="mt-7 block" :class="errorFirstName && 'text-punch'">First name</label>

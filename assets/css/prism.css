@@ -113,7 +113,10 @@ pre span.highlight {
   @apply text-gray-200
 }
 
-.token.important,
+.token.important {
+  @apply text-cheese
+}
+
 .token.bold {
   font-weight: bold;
 }
@@ -124,4 +127,12 @@ pre span.highlight {
 
 .language-yml .token.key {
   @apply text-punch
+}
+
+.regex-delimiter {
+  @apply text-punch
+}
+
+.regex-source {
+  @apply text-cheese
 }

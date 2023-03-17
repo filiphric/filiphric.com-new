@@ -13,7 +13,7 @@
       Who is this workshop NOT for?
     </h3>
     <p class="text-xl">
-      It’s definitely NOT suitable dor people that have no prior experience with web applications. If CSS, HTML and JavaScript are still foreign terms for you, it’s better to first catch up on the basics of these.
+      It’s definitely NOT suitable for people that have no prior experience with web applications. If CSS, HTML and JavaScript are still foreign terms for you, it’s better to first catch up on the basics of these.
     </p>
     <h3 class="mt-7 text-2xl font-extrabold">
       The date of the workshop does not suit me, will there be other options?
