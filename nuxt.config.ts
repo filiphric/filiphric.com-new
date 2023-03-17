@@ -86,7 +86,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   image: {
     provider: 'vercel',
-    staticFilename: '[publicPath]/[name]-[hash][ext]',
+    // staticFilename: '[publicPath]/[name]-[hash][ext]',
     //   cloudinary: {
     //     baseURL: 'https://res.cloudinary.com/dcnwsgh7c/image/upload/v1671966368'
     //   },
