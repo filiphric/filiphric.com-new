@@ -11,13 +11,13 @@ cypressVersion: v10.0.0
 Cypress test can be pretty fast. Sometimes even faster than the application we are testing. If you find yourself in a situation where Cypress runs faster than you application loads, this blogpost is for you. 
 
 ## Page load event
-If you found this post via Google search, you might have started your search, because you saw a message that looks like this:
+If you found this post via Google search, you might have started your search, because you saw a message that says: "Timed out after waiting 60000ms for your remote page to load."
 
 ![Page timeout error in Cypress](pageLoadTimeout_error_mxm3ft.png)
 
 This message appears when your page does not trigger the `load` event. But what actually is that?
 
-According to [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event), load event is something that your browser triggers once it is downloading all page assets.
+According to [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event), load event is something that your browser triggers once has downloaded all page assets.
 
 So what does that mean?
 
