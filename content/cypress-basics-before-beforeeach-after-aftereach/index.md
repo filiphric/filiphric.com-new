@@ -53,9 +53,9 @@ it('test #2', () => {
   // rest of your test
 })
 ```
-Bear in mind that [Cypress clears out the state of browser](https://docs.cypress.io/api/commands/clearcookies.html#Syntax) in between tests. So if you e.g. do a login in `test #1`, you will be logged out in `test #2`. To read more about this, go check out my blog on cookies in [Cypress](/cypress-basics-where-did-my-cookies-disappear).
+Bear in mind that [Cypress clears out the state of browser](https://docs.cypress.io/guides/core-concepts/test-isolation) in between tests. Coming with version 12, it even visits an empty page so that there’s a firm test isolation. There are ways to configure this behavior.
 
-There’s one thing to note here - `test #2` might be dependent on the result of `test #1`. If the first test would fail, the second one might start in a different place in our app and create a domino effect for all the tests in that spec. It is a good practice to isolate your tests in such a way that tests don’t affect each other. For this, you might find `beforeEach()` hook more useful. This may require you to structure your tests in a certain way, but will help you gain overall test stability.
+> One thing to note here - `test #2` should be independent on the result of `test #1`. If this is not the case, you will create a domino effect for all the tests in that spec. It is a good practice to isolate your tests in such a way that tests don’t affect each other. For this, you might find `beforeEach()` hook more useful. This may require you to structure your tests in a certain way, but will help you gain overall test stability.
 
 ## after() and afterEach()
 Similarly to previous hooks, there’s a way to do an action before after your tests finish. It’s commonly used for doing a cleanup after your test is finish, which might look something like this:
@@ -78,7 +78,7 @@ This follows some good principles, as you clearly have a goal of cleaning up the
 
 First of all, when writing your test in GUI mode, after a test is finished, you can keep interacting with your page. With data deleted, you may lose that option as your data might no longer be available to you.
 
-Second, the action that is happening in `after()` or `afterEach()` log might error. In that case, you may face a similar domino effect as described couple of paragraphs later.
+Second, the action that is happening in `after()` or `afterEach()` log might error. In that case, you may face a similar domino effect as described couple of paragraphs earlier.
 
 There are of course situations where these hooks are very useful, like collecting data gathered from tests etc.
 
