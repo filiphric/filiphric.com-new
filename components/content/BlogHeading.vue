@@ -10,7 +10,7 @@
         :reading-time="readingTime"
       />
     </div>
-    <NuxtPicture v-if="image" :src="image" class="place-self-center self-center md:w-full" />
+    <NuxtPicture v-if="image" :src="image" class="place-self-center self-center md:w-full" :img-attrs="{alt: title}" />
   </div>
   <hr class="mx-auto my-14 w-28 border-gray-400 md:hidden">
 </template>
