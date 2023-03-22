@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="text-xl font-bold">
-      What I do
+      General
     </h2>
     <div class="my-7 grid grid-flow-row gap-1">
       <NuxtLink to="/about" class="prettyLink max-w-fit">
