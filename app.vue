@@ -6,7 +6,7 @@ import '@stripe/stripe-js'
 const route = useRoute()
 
 useHead({
-  title: 'Filip Hric - Teaching testers about development and developers about testing',
+  title: 'Teaching testers about development and developers about testing',
   link: [
     {
       rel: 'canonical',
