@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2 grid items-center rounded-3xl p-9 md:mx-0" :class="styleClasses" data-cy="workshop-item">
+  <div class="mx-2 grid items-center rounded-3xl bg-white p-9 dark:bg-black-lighter md:mx-0" :class="styleClasses" data-cy="workshop-item">
     <NuxtLink :to="'/workshop/' + item.slug" @click="useTrackEvent('Workshop - ' + item.title)">
       <NuxtPicture :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" :alt="item.title" />
     </NuxtLink>
@@ -9,7 +9,7 @@
           {{ item.title }}
         </h2>
       </NuxtLink>
-      <div v-if="item.featured" class="mt-5 inline-block rounded-md bg-white px-3 py-0.5 font-black uppercase shadow-block-lime dark:bg-transparent dark:shadow-block-dark-lime">
+      <div v-if="item.featured" class="dark:shadow-block-dark-lime mt-5 inline-block rounded-md bg-white px-3 py-0.5 font-black uppercase shadow-block-lime dark:bg-transparent">
         Featured
       </div>
       <div class="mt-5 text-xs">
@@ -50,5 +50,5 @@ const upcomingWorkshop = computed(() => {
 const randomizedColor = randomColor()
 const featuredItem = props.item.featured ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'
 
-const styleClasses = `shadow-block-${randomizedColor} hover:shadow-block-hover-${randomizedColor} dark:shadow-block-dark-${randomizedColor} dark:hover:shadow-block-dark-hover-${randomizedColor} transition ease-in-out hover:-translate-y-1 hover:-translate-x-1 dark:duration-300 dark:hover:translate-x-0 dark:hover:translate-y-0 ${featuredItem}`
+const styleClasses = `shadow-block-${randomizedColor} dark:shadow-block-dark-${randomizedColor} ${featuredItem}`
 </script>

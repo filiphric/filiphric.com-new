@@ -20,7 +20,7 @@
         {{ upcomingWorkshop.length > 1 ? `Upcoming workshops:` : 'Upcoming workshop:' }}
       </h2>
       <div v-for="workshop in upcomingWorkshop" :key="workshop.slug">
-        <NuxtLink :to="`/workshop/${workshop.slug}`" class="mt-5 block bg-ivory-dark p-5 dark:bg-black-dark" @click="useTrackEvent('sidebarWorkshopClick')">
+        <NuxtLink :to="`/workshop/${workshop.slug}`" class="mt-5 block bg-ivory-dark p-5 dark:bg-black-lighter" @click="useTrackEvent('sidebarWorkshopClick')">
           <NuxtPicture :src="workshop.image" />
           <h2 class="text-2xl font-extrabold">
             {{ workshop.title }}

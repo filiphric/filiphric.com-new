@@ -16,5 +16,5 @@
 import { randomColor } from '@/helpers/randomColor'
 const randomizedColor = randomColor()
 
-const styleClasses = `shadow-block-${randomizedColor} dark:bg-transparent dark:shadow-block-none`
+const styleClasses = `shadow-block-${randomizedColor}`
 </script>

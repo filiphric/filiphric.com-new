@@ -14,8 +14,8 @@ module.exports = {
     extend: {
       colors: {
         black: {
-          lighter: '#313549',
-          light: '#181B25',
+          lighter: '#414150',
+          light: '#33333F',
           DEFAULT: '#161821',
           dark: '#101218'
         },
@@ -130,56 +130,6 @@ module.exports = {
           12px 12px 0 ${theme('colors.punch.DEFAULT')},
           12px 12px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.punch.DEFAULT')}
-          `,
-        // dark  mode blocks used for code and blog list
-        'block-dark-cheese': `
-          1px 1px 0 ${theme('colors.cheese.DEFAULT')},
-          6px 6px 14px 0px ${theme('colors.cheese.DEFAULT')}b5
-          `,
-        'block-dark-blueberry': `
-          1px 1px 0 ${theme('colors.blueberry.DEFAULT')},
-          6px 6px 14px 0px ${theme('colors.blueberry.DEFAULT')}b5
-          `,
-        'block-dark-tangerine': `
-          1px 1px 0 ${theme('colors.tangerine.DEFAULT')},
-          6px 6px 14px 0px ${theme('colors.tangerine.DEFAULT')}b5
-          `,
-        'block-dark-lime': `
-          1px 1px 0 ${theme('colors.lime.DEFAULT')},
-          6px 6px 14px 0px ${theme('colors.lime.DEFAULT')}b5
-          `,
-        'block-dark-mint': `
-          1px 1px 0 ${theme('colors.mint.DEFAULT')},
-          6px 6px 14px 0px ${theme('colors.mint.DEFAULT')}b5
-          `,
-        'block-dark-punch': `
-          1px 1px 0 ${theme('colors.punch.DEFAULT')},
-          6px 6px 14px 0px ${theme('colors.punch.DEFAULT')}b5
-          `,
-        // dark mode blocks for hovered state
-        'block-dark-hover-cheese': `
-          1px 1px 0 ${theme('colors.cheese.DEFAULT')},
-          8px 8px 16px 0px ${theme('colors.cheese.DEFAULT')}b5
-          `,
-        'block-dark-hover-blueberry': `
-          1px 1px 0 ${theme('colors.blueberry.DEFAULT')},
-          8px 8px 16px 0px ${theme('colors.blueberry.DEFAULT')}b5
-          `,
-        'block-dark-hover-tangerine': `
-          1px 1px 0 ${theme('colors.tangerine.DEFAULT')},
-          8px 8px 16px 0px ${theme('colors.tangerine.DEFAULT')}b5
-          `,
-        'block-dark-hover-lime': `
-          1px 1px 0 ${theme('colors.lime.DEFAULT')},
-          8px 8px 16px 0px ${theme('colors.lime.DEFAULT')}b5
-          `,
-        'block-dark-hover-mint': `
-          1px 1px 0 ${theme('colors.mint.DEFAULT')},
-          8px 8px 16px 0px ${theme('colors.mint.DEFAULT')}b5
-          `,
-        'block-dark-hover-punch': `
-          1px 1px 0 ${theme('colors.punch.DEFAULT')},
-          8px 8px 16px 0px ${theme('colors.punch.DEFAULT')}b5
           `
       })
     },
@@ -201,19 +151,7 @@ module.exports = {
     'hover:shadow-block-hover-tangerine',
     'hover:shadow-block-hover-lime',
     'hover:shadow-block-hover-mint',
-    'hover:shadow-block-hover-punch',
-    'dark:shadow-block-dark-cheese',
-    'dark:shadow-block-dark-blueberry',
-    'dark:shadow-block-dark-tangerine',
-    'dark:shadow-block-dark-lime',
-    'dark:shadow-block-dark-mint',
-    'dark:shadow-block-dark-punch',
-    'dark:hover:shadow-block-dark-hover-cheese',
-    'dark:hover:shadow-block-dark-hover-blueberry',
-    'dark:hover:shadow-block-dark-hover-tangerine',
-    'dark:hover:shadow-block-dark-hover-lime',
-    'dark:hover:shadow-block-dark-hover-mint',
-    'dark:hover:shadow-block-dark-hover-punch'
+    'hover:shadow-block-hover-punch'
   ],
   plugins: []
 }
