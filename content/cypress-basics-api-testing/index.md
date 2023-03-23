@@ -10,16 +10,8 @@ cypressVersion: v10.0.0
 ---
 If you have ever tested API via Postman or some other tool, this one will be a piece of cake for you. Cypress is a great testing tool that can be also very helpful when testing API. In today’s post, I’ll go over some basics on how to write an API test in Cypress.
 
-This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
-
-- [Selecting elements](/cypress-basics-selecting-elements)
-- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
-- [Check if element exists](/cypress-basics-check-if-element-exists)
-- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
-- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
-- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
-- [Variables](/cypress-basics-variables)
-- [Uploading a file](/cypress-basics-uploading-file)
+>This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
+> :BasicsToc
 
 ## .request() command
 This command will be the center of it all. To send a simple request with a `GET` method, you can call it like this:

@@ -6,16 +6,8 @@ slug: "cypress-basics-selecting-elements"
 description: "Cypress is using query selectors to find elements on your page. But there are couple of really powerful ways to select elements on page using Cypress commands"
 tags: ['cypress', 'selectors', 'custom commands']
 ---
-Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
-
-- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
-- [Check if element exists](/cypress-basics-check-if-element-exists)
-- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
-- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
-- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
-- [Variables](/cypress-basics-variables)
-- [API testing](/cypress-basics-api-testing)
-- [Uploading a file](/cypress-basics-uploading-file)
+>This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
+> :BasicsToc
 
 Selectors can be painful. Especially when you are starting with test automation. During my recent Cypress workshop, I saw some people struggle with selectors and the reason was, that they were using a different approach for selecting elements on page. In this blog, I would like to showcase some basics on how to select elements on page using Cypress.
 

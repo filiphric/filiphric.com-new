@@ -6,16 +6,8 @@ description: 'Cypress clears the browser state before each of your tests. This m
 tags: ['cypress', 'cookies', 'basics', 'beginner']
 published: true
 ---
-Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
-
-- [Selecting elements](/cypress-basics-selecting-elements)
-- [Check if element exists](/cypress-basics-check-if-element-exists)
-- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
-- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
-- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
-- [Variables](/cypress-basics-variables)
-- [API testing](/cypress-basics-api-testing)
-- [Uploading a file](/cypress-basics-uploading-file)
+>This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
+> :BasicsToc
 
 You successfully logged into your application. You’ve got your first test! Now to the next one. Click! And now you are logged out. Why is Cypress logging you out after each test?!
 

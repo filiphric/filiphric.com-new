@@ -7,16 +7,8 @@ description: "How to store variables in Cypress tests and use variables and alia
 tags: ['cypress', 'variables', 'basics']
 image: variables_o9j7mz.png
 ---
-This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
-
-- [Selecting elements](/cypress-basics-selecting-elements)
-- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
-- [Check if element exists](/cypress-basics-check-if-element-exists)
-- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
-- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
-- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
-- [API testing](/cypress-basics-api-testing)
-- [Uploading a file](/cypress-basics-uploading-file)
+>This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
+> :BasicsToc
 
 If you came here via Google search, you are probably wondering why code like this does not work in Cypress:
 ```js
