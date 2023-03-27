@@ -6,6 +6,21 @@ image: "trello_hck6rp.png"
 tags: ['cypress']
 ---
 
+We are about to meet on **:WorkshopName** and I hope you are looking forward to it as much as I do 😃. These are preparation instructions that will help you out with preparation for the workshop. Please don’t delay this to the last minute, because if any problems occur, we’ll have more time to iron them out. If there’s anything that does not work, please contact me and I’m sure we’ll be able to solve it all.
+
+## Requirements
+- Node.js v16 or higher
+- git v2.3 or higher
+- Code editor (VS Code, Webstorm or any other)
+- Terminal or other Command line interface (Bash, Zsh)
+
+## Installation
+Open your terminal or the command line and type these commands:
+
+:WorkshopSlug
+
+If you have ever installed a project from GitHub, this should be easy. If not, I’m sure you’ll manage. But if any problems occur, check out the troubleshooting section of this article.
+
 ## Check the installation
 
 Once you cloned the repository and used `npm install` to install the app, you should be able to run `npm start` command. It’s best if you use a text editor for this. I will be using VS Code for the workshop, [which you can download here](https://code.visualstudio.com/download). 
