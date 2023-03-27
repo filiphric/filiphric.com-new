@@ -13,7 +13,7 @@
         </NuxtLink>
       </div>
     </div>
-    <div :class="styleClasses" class="overflow-hidden rounded-3xl bg-white dark:rounded-none md:w-full">
+    <div :class="styleClasses" class="overflow-hidden rounded-3xl bg-white md:w-full">
       <NuxtPicture src="/qbVORmN8_ukrn1u.png" />
     </div>
   </div>
