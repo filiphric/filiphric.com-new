@@ -9,16 +9,8 @@ image: visibility_vsmzla.png
 ---
 One of the first things you might want to test in your app with Cypress is element presence. In this article I’d like to take a look into how test if element exists, is visible and discuss some gotchas that might occur during some of these tests.
 
-This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
-
-- [Selecting elements](/cypress-basics-selecting-elements)
-- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
-- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
-- [Check attributes, value and text](/cypress-basics-check-attributes-value-and-text)
-- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
-- [Variables](/cypress-basics-variables)
-- [API testing](/cypress-basics-api-testing)
-- [Uploading a file](/cypress-basics-uploading-file)
+>This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
+> :BasicsToc
 
 During this blog, I will be using my Trello clone app. You can <a href="https://github.com/filiphric/trelloapp">clone it from GitHub</a> and follow along with this blog.
 

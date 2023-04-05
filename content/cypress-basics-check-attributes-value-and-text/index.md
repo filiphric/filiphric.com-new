@@ -9,16 +9,8 @@ image: attributes_n4tygd.png
 cypressVersion: v10.0.0
 ---
 
-Hey! Welcome to another episode of Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
-
-- [Selecting elements](/cypress-basics-selecting-elements)
-- [Where did my cookies disappear?](/cypress-basics-where-did-my-cookies-disappear)
-- [Check if element exists](/cypress-basics-check-if-element-exists)
-- [before(), beforeEach(), after() and afterEach()](/cypress-basics-before-beforeeach-after-aftereach)
-- [xpath vs. CSS selectors](/cypress-basics-xpath-vs-css-selectors)
-- [Variables](/cypress-basics-variables)
-- [API testing](/cypress-basics-api-testing)
-- [Uploading a file](/cypress-basics-uploading-file)
+>This article is a part of series on Cypress basics. You can check out some other articles on my blog where I provide step by step explanations of some Cypress basics + some extra tips on how you can take things one step further. So far, I wrote about:
+> :BasicsToc
 
 ## Get element text
 To get proper attributes of an element, it’s good to understand some basics of different HTML elements. Let me give you an example. Let’s say we have two elements:
