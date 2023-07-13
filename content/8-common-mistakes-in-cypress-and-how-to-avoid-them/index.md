@@ -209,7 +209,7 @@ Instead of checking your links like this, you can use `.request()` command to ma
 
 ```js
 cy.get('a').each( link => {
-  cy.request(page.prop('href'))
+  cy.request(link.prop('href'))
 })
 ```
 
