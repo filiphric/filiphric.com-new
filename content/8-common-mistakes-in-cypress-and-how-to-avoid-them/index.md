@@ -90,7 +90,7 @@ cy.get('[data-cy=card]')
   .eq(0)
   .should('contain.text', 'bugs')
 ```
-## 4#: Ignoring requests in your app
+## #4: Ignoring requests in your app
 Let’s take a look at this code example:
 ```js
 cy.visit('/board/1')
