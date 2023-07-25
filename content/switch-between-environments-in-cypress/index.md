@@ -40,7 +40,7 @@ This of course works for `cypress run` command as well.
 ## Passing a CLI flag
 If you don’t want to change the whole config, you can just change the `baseUrl` attribute by passing it through CLI:
 ```bash
-npx cypress open --baseUrl http://localhost:3000
+npx cypress open --config baseUrl http://localhost:3000
 ```
 
 ## Writing a plugin
