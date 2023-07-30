@@ -1,11 +1,11 @@
 ---
 title: "Time-travelling with Replay.io"
-date: 2023-07-19
+date: 2023-07-31 9:00:00
 published: true
 slug: "time-travelling-with-replayio"
 description: "WIP"
 tags: ["replay.io","debugging"]
-image: 
+image: time_machine_j5cbxj
 cypressVersion:
 ---
 
@@ -13,6 +13,102 @@ Couple of days ago I looked into a tool called Replay and I got a chance to play
 
 I think that Replay has the potential to become an inevitable part of development workflow as it can provide a bridge between developers, testers or anyone involved with the product
 
-## What is Replay? 
+If you ever got your bug report returned by a developer with a comment "can’t replicate" or debugged a pesky issue with a bunch of `console.log()`s, then you know how difficult the debugging process can get. Replay aims to make this process easier, and believe it or not - fun.
 
-[Replay.io](https://www.replay.io/) is a tool that records everything your app does and provides you with debugging superpowers. Okay so why would you want to use it you might ask. So have you ever as a tester tried to replicate a bug and then when you finally had narrowed down the series of steps to replicate it you send it to developer only for them to return it back to you with the dreaded words can't replicate. Or if you watch this as a developer have you ever tried to add a console log into your code then open the app and see what your app is doing but then realize the console log did not record the thing you wanted so then you add another console log open your app again hopefully go through the same steps again then try to replicate the behavior look into the console log and then try again and again until you finally get to the right one but then by that time you have so many console logs you don't even know which one to use or which one is doing what I mean I guess we've been there at least I have been there well that's exactly the problem Replay tries to solve. Remember how I said Replay records everything your app does well thanks to that you can start by just interacting with your application and then add a bunch of console logs after it almost sounds wrong like something that should not even be possible but that's exactly what Replay allows you to do so enough talking let me show you Replay in action alright so how does Replay actually record so Replay is actually a browser that you can download so here I'm on the home page of Replay I have this really nice landing page and up in the right corner you can download essentially what's a Replay browser which is built on Firefox with some additional capabilities and that's like exactly the recording capabilities that I'm talking about and as we speak the team is working on Chromium version as well so you will be able to use that as well so the absolutely simplest use case that you can use Replay for is to basically open Replay and then open a new tab and start using it as a browser now if you want to record in the top right corner there's a record button that you can press so first I need to enter a page so I have an application running on localhost so I'm going to open that and then I will start recording so as soon as I do that we are recording and now I can go ahead and interact with my application so I'll add a new to do hello world do a wave emoji enter one here I have a hello world then I can check this off maybe delete that add some other to do new to do and basically interact with my application as I normally would then after I'm finished I'm going to stop the recording and then I'm going to name the recording so if I'm a QA I can just replicate a bug and then name this recording let's say we actually have a bug the to do was checked off if you notice so to do is checked off after creation so when I save that as a tester now I have a recording so you can see that if I run it again I actually have a video of what I did I can see my cursor running and I can see me adding the to do and on the left side you will actually see all of the key presses and clicks and whatnot everything that I was doing during that recording so so far so good it's like a trace viewer in playwright or a timeline in cypress right so don't close the video just yet because replay is so much more than these tools we are just starting so besides this nice view we actually got dev tools in this application we can view everything that was happening during the recording so we have the usual console we got the elements so we can actually find elements and inspect everyone and we can do that during the whole recording so if I scroll back and go back where I don't have any to do's then I can just go ahead and find this input let me find if I can make this a little bit bigger here we go that's a little more cramped but the fonts are bigger but now we can actually see the input we can see how that is in here we also got the network panel so we can actually see all of the communication that we were doing as we were interacting with the application we see the HTTP requests like post and get and we can actually see all of the details so let me see if I can arrange this a little bit so it's more visible here we go we see the request and response and the stack trace and all of the details so this is like having dev tools open at all time but also you might see that we have this react panel we can actually examine all of the components that we have here so if I take a look into the to-do list we can actually see the state of that to-do list component so if I scroll further in my video wherein I already had my to-do item created I can see the key and since this is using atom we can also see the state of the atom so that's all of the information that a developer might find really useful when they want to debug an application but you as a tester if you replicate this bug using replay you can just go ahead and click on this share button and share this with your developer also as a good tester you can go ahead and add some comments so if I go back to viewer when I can just see my application I can add a comment right here so let's add a comment and I'm going to say the to-do item is completed it should not be and now when I share this with anyone they will see my comment in there so this can really become like a team debugging experience where you get all of the people involved whoever found the bug whoever is responsible for fixing the bug having like all of the information and all of the context whether that is the code that is running or the context which we are putting through comments okay so this is the part of replay that anyone can use you open the browser you will replicate the bug you will add some annotations and then share it to whoever might need this but what makes replay really powerful is all of the information you get so let's take a look at how a developer will look at this output and what kind of information you can get from that so I mentioned playwright and cypress and how they sort of allow you to travel back in time but I think it might be a little bit of an overstatement at their part if I would show you a time machine that would allow you to go back in time but it would not allow you to actually physically enter that time you would say that's just a TV right the best part about traveling back in time is that you can actually take an action so I think replay is a time machine so I will show you now so let's go back to the dev tools and actually explore what's going on here so as I mentioned we have actually have this comment the to-do item is completed when we create it it has the checked off state which is not a very good to-do app so if I go command P I can actually take a look into all of the files that are included in my application so I can for example take a look at the component that is responsible for adding my to-do so I'm going to search for that add to-do and I can see it over here let me just hide this side panel so we have some more space and as you can see replay is using source maps so we can actually see the source code properly now in my add to-do file what I can do now is hit any of these plus symbols so for example I'm going to click it here and as soon as I do that replay is going to add this print statement so during my recording as I was adding to-dos I actually added to-do twice so there's one print statement for each function call now what I can do with this is I can add my own print statement so if I'm going to say hello world that's going to be printed out to my console this actually tells me how many times this function was called but not only that I can actually take a look into the data that was passed through this function so over here you can see this new to-do which is going to be the variable that holds the value of our input so if I'm going to add this one here new to-do in my console log you will see the values that were inputted into this component so when we added hello world and the wave emoji and then new to-do all of that information will be available for us here and that's going to help us immensely when we are debugging now since we are in react we have this react tab which we can use so for example after we create our to-do we are going to have that to-do item present so if I scroll over to the timeline click somewhere over here and then click on my to-do item component I'm going to see all the details of that component so you'll see the text of the component which is hello world and then we can also examine the properties so we can see the completed is true id is 67 and then we have the title so if we put our debugging hat back on we'll see that these attributes completed true is actually inside our component so the component is rendering properly but there's probably some problem with the data in our add to-do component we're using atom so we can examine this add to-do function what it does and how it does it so let's go to our atoms and in here we can see different actions so for example this add to-do atom is responsible for creating our to-do now we can see over here that we are sending the title new to-do and then we are sending the attribute completed set to false so we can go ahead and add a print statement over here as well and let's take a look for example at the new to-do so add my print statement go back to console and I can see that both from the component and the atoms file everything looks pretty much the same now after we sent the API request using Axios we get the response data so we could actually print that but if I just hover over the data I can actually get an insight into what that response data was so over here I see that the completed is true which means that my server is not giving me the correct information back so here we followed the data by adding a bunch of print statements to essentially get to the source of the error which coincidentally is at our server there's one more thing I want to show you having all the information recorded is very useful as you can see but it gets even better you can use replay browser in your cypress or playwright tests and get a recording right from your test run so let me show you how that's done I am now in my to-do app project so to use replay with my cypress tests there's just two things I need to be doing the first one is to add replay.io.cypress to my project and then add it as a plugin so I'm importing that to my cypress config TS file as well as in my support E2E file so once I set up my cypress project all I need to do is to set up my workflow so in github workflow I have this replay.yaml which already contains my checkout step and my github action and I'm using the replay chromium browser to run my tests in cypress will then do its usual thing where it's going to run my tests but it's going to use the replay chromium browser there's also a replay firefox available and then after it's done testing I add an additional step to basically upload the recordings to the replay server there's also a record API key which you need to set up in order to have that communication established with the server so it's a couple of fairly easy steps now what happens if you run those tests and add your recordings the test run is going to get recorded into my replay browser so I can see this in this react things project and if I click on this last test I can see how many tests have failed and how many have passed so I can see I have a failed test so let's go and examine it in here the basics look pretty much the same I can play my recording I see the video and I can see the test interacting with my application the interesting part is of course coming when I click on these dev tools because this is where all of the information is if I open the side panel what I have here is all of the tests that are inside my spec file so I can see the successful tests and I can see each and every command as I would see those in Cypress I'll see the details of what the command has yielded what it has done and I even see the before and after state I can look into the detail of the test so I can actually examine what's going on in here and I have my elements panel through which I can select any of my elements and then also a network panel where I can see all of my requests so if I go back to my failed test and see where it is actually failing I can scroll down to the assertion take a look at what exactly happened and I see that it is failing on the checked state right so when I create a to-do it should not be checked by default it should be unchecked and that's exactly the assertion that's failing since I have my network panel and all of the Cypress logs I can just click on this post request that was triggered right after I typed in the text of my to-do and take a look at the details this will actually print out over here in the network panel and I can see the request where we're sending buy milk and completed false and I can take a look at a response and as you can see over here the server has responded with completed true which is the source of our error so to wrap up replay can be a helpful companion for recording bugs and providing that information to your developers it can help you debug your application by adding print statements traveling backwards or forward in time and it can help you debug your tests by providing all of the information right from your test run I think it's a tool that can save you a tons of time it will make debugging a smoother faster and quite frankly an enjoyable experience so if you want to learn more I've put some link in the description of this video and you can also expect me to create some more cool examples in the near future so if you are up for that you can either subscribe follow me on socials or check out my blog. See ya!
+## What is Replay? 
+In short, [Replay.io](https://www.replay.io/) is a tool that records everything your app does and provides you with debugging superpowers. The recording is a combination of video, source code of your application, DOM snapshots and a timetravel-enabled devtools that allow you to retroactively add print statements to your app’s execution. The best way to explain its capabilities, is by seeing it in action. Replay.io can be used in different ways, so let’s start with the simplest one first.
+
+## Creating a recording
+To create a recording, download Replay.io browser, open it and hit the record button. After you do so, you can start interacting with your application as you would with a normal browser. For example, you can replicate a bug that you are experiencing in your app.
+
+![Replay.io first screen](replay_io_first_screen_pxuxg1)
+
+After you are done with interacting with your application, you will have your recording available. You can rewind or fast forward recording and look at different keystrokes, mouse clicks or other interactions. If you are in a process of replicating a bug, you can add comments to the recording and share it with developers in your team. This is where the real magic begins.
+
+![Replay.io viewer screen](viewer_bs89i9)
+
+## Time travelling with DevTools
+The fact that this recording can be done by anyone can lift a lot of weight developer’s shoulders. But creating the recording is just the beginning of the journey. Replay.io provides you with a set of devtools, that look very similar to Chrome or Firefox devtools.
+
+But these are now attached to your recording. You can retroactively inspect elements, review API calls in the network panel, look at console logs and so much more.
+
+![Replay.io devtools](replay-io_devtools_cmyswj)
+
+## Examining app code
+At a first glance, this may seem quite similar to Playwright’s trace-viewer or Cypress’ timeline. They both alow you to travel back in time in their own way. But what Replay.io does is actually much more powerful.
+
+Besides snapshots and network activity you can access full source code of your application. For example, I can further examine the component of my application that is responsible for creating a to-do item in my application.
+
+In the code viewer, I can click on a "+" button to add a print statement. This will now show the name of the component in our console, essentially giving us information on how many times was the function call being made during the interaction that was recorded.
+
+![Print statement](print_statement_ijzi3y)
+
+But this print statement is actually much more powerful. We can pass a variable from our application into it. That way the information that has been passed through the application becomes visible to us. Notice how we see "Hello world 👋" and "new todo" in the console, after we use `newTodo` variable inside the print statement.
+
+![Custom print statement](custom_print_statement_jlsxh1)
+
+This allows us to follow the flow of the information and debug the application much more effectively. Not only we can see that something happened, but we can find out more about *why* it happened.
+
+If you are using React with a state manager such as Jotai or Redux, Replay.io allows you to take a look inside each component’s state. The React panel in Replay.io devtools will allow you to view component’s state throghout the whole timeline.
+
+![React panel](react_panel_brh2oe)
+
+## Debugging your tests
+The recorded information is very useful, but it gets even better. As I mentioned in the beginning, Replay.io is actually a browser. Instead of replicating a bug manually, you can use your test run to create these recordings for you. This can be integrated to both Cypress and Playwright.
+
+The setup is pretty simple. Replay has a Cypress plugin that works exactly like any other plugin. You install it as a package and include it in your `support/e2e.ts` file and in yout `cypress.config.ts`.
+
+```bash
+npm i @replayio/cypress
+```
+
+```ts [support/e2e.ts]
+require('@replayio/cypress/support');
+```
+
+```ts [cypress.config.ts]
+import { defineConfig } from "cypress";
+import replay from "@replayio/cypress";
+
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      replay(on, config);
+      return config
+    },
+  },
+});
+```
+
+After that, Replay.io needs to be set in your CI. I’m using GitHub Actions, but this can be set up in pretty much any CI provider.
+
+```yml
+name: Replay test
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: replay-chromium
+          start: npm run dev
+      - name: Upload replays
+        if: always()
+        uses: replayio/action-upload@v0.5.0
+        with:
+          api-key: ${{ secrets.RECORD_REPLAY_API_KEY }}
+```
+
+The API key can be obtained right from Replay.io browser and needs to be added as a secret to your GitHub project. If you are unfamiliar with how to set up GitHub Actions, I suggest you check out [my blog on this](/cypress-and-git-hub-actions-step-by-step-guide).
+
+With this setup, you can run your test and you’ll get all the information you would get before. But in addition to that, Replay.io will record information from your test run as well. These recordings are available right inside Replay.io browser.
+
+To wrap it up, Replay.io can be a helpful companion for recording bugs and providing that information to your developers. It can help you debug your application by adding print statements traveling backwards or forwards in time and it can help you debug your tests by providing all of the information right from your test run.
+
+I think it's a tool that can save you a tons of time it will make debugging a smoother faster and quite frankly an enjoyable experience.
+
+You can expect me to create some more cool examples in the near future so if you are up for that you can either subscribe to the newsletter (form is at the bottom of this page) or follow me on [Twitter](https://twitter.com/filip_hric/) or [LinkedIn](http://www.linkedin.com/in/filip-hric).

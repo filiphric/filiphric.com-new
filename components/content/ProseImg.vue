@@ -12,6 +12,7 @@
     :width="width"
     :height="height"
     :class="customClass"
+    :quality="quality"
     class="mt-10 mb-14 block"
   />
 </template>
@@ -28,11 +29,15 @@ defineProps({
   },
   width: {
     type: [String, Number],
-    default: undefined
+    default: 900
   },
   height: {
     type: [String, Number],
     default: undefined
+  },
+  quality: {
+    type: [String, Number],
+    default: 60
   },
   customClass: {
     type: String,

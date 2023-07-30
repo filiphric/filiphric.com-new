@@ -86,19 +86,16 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   image: {
     cloudinary: {
-      baseURL: 'https://res.cloudinary.com/dcnwsgh7c/image/upload/v1671966368',
-      modifiers: {
-        quality: '60'
-      }
+      baseURL: 'https://res.cloudinary.com/dcnwsgh7c/image/upload/v1671966368'
     },
     screens: {
-      xs: 550,
-      sm: 550,
-      md: 320,
-      lg: 320,
-      xl: 320,
-      xxl: 320,
-      '2xl': 320
+      xs: 1000,
+      sm: 1000,
+      md: 1000,
+      lg: 1000,
+      xl: 1000,
+      xxl: 1000,
+      '2xl': 1000
     }
   },
   modules: [
