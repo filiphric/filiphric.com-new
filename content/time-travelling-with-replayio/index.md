@@ -105,10 +105,14 @@ jobs:
 
 The API key can be obtained right from Replay.io browser and needs to be added as a secret to your GitHub project. If you are unfamiliar with how to set up GitHub Actions, I suggest you check out [my blog on this](/cypress-and-git-hub-actions-step-by-step-guide).
 
-With this setup, you can run your test and you’ll get all the information you would get before. But in addition to that, Replay.io will record information from your test run as well. These recordings are available right inside Replay.io browser.
+With this setup, you can run your test and you’ll get all the information you would get before. But in addition to that, Replay.io will record information from your test run as well. These recordings are available right inside Replay.io browser. You can treavel through them in a similar way as you would in the Cypress timeline in open mode.
+
+But remember - since Replay records everything, you can examine not only your test but also your application. If a test becomes flaky for whatever reason, you no longer need to replicate that flakiness locally, but can use Replay.io to get an insight into what is happening inside both your test and your app.
+
+![Cypress test replay](cypress_replay_ktuzio)
 
 To wrap it up, Replay.io can be a helpful companion for recording bugs and providing that information to your developers. It can help you debug your application by adding print statements traveling backwards or forwards in time and it can help you debug your tests by providing all of the information right from your test run.
 
 I think it's a tool that can save you a tons of time it will make debugging a smoother faster and quite frankly an enjoyable experience.
 
-You can expect me to create some more cool examples in the near future so if you are up for that you can either subscribe to the newsletter (form is at the bottom of this page) or follow me on [Twitter](https://twitter.com/filip_hric/) or [LinkedIn](http://www.linkedin.com/in/filip-hric).
+If you are curious about Replay.io, I’ve created a project where I’m planning on creating some flakiness examples with links to recordings. I plan to couple them with short YouTube video explanations on what the bug is and how it can be fixed either on test’s side or on applications side. Subscribe to the YouTube channel to never miss a new video. You can also subscribe to my newsletter (form is at the bottom of this page) or follow me on [Twitter](https://twitter.com/filip_hric/) or [LinkedIn](http://www.linkedin.com/in/filip-hric).
