@@ -82,13 +82,13 @@ Using our plugin, we are now adding some more variables to our env. When we look
 
 This helps demonstrate how creating a configuration plugin works. Let’s now say that our configuration paths are stored in separate json files, for which we created a separate `config` folder in our Cypress project:
 
-```
+```treeview
 cypress/
-├── config/
-│   ├── local.json
-│   ├── staging.json
-│   ├── preprod.json
-│   └── prod.json
+└── config/
+    ├── local.json
+    ├── staging.json
+    ├── preprod.json
+    └── prod.json
 ```
 Let’s now say, that for each `version` flag, we want to load a different file and pass it into Cypress as our config and environment. In order to do this, we can rewrite our plugin file like this:
 ```js [cypress/plugins/index.js]

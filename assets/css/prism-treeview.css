@@ -1,0 +1,55 @@
+.treeview-part .entry-line {
+	position: relative;
+	text-indent: -99em;
+	display: inline-block;
+	vertical-align: top;
+	width: 1.2em;
+}
+.treeview-part .entry-line:before,
+.treeview-part .line-h:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+}
+.treeview-part .line-h:before,
+.treeview-part .line-v:before {
+	border-left: 1px solid #ccc;
+}
+.treeview-part .line-v-last:before {
+	height: 50%;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.treeview-part .line-h:after {
+	height: 50%;
+	border-bottom: 1px solid #ccc;
+}
+.treeview-part .filename {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 0 0 1.5em;
+}
+
+.treeview-part .filename.dotfile {
+	color: #9c9c9c;
+}
+
+.treeview-part .comment {
+	color: #9c9c9c;
+	padding-left: 14px;
+}
+
+.filename:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0.25em;
+	height: 100%;
+	width: 1em;
+	background: no-repeat 50% 50% / contain;
+}
+
