@@ -28,7 +28,7 @@ After you are done with interacting with your application, you will have your re
 ![Replay.io viewer screen](viewer_bs89i9)
 
 ## Time travelling with DevTools
-The fact that this recording can be done by anyone can lift a lot of weight developer’s shoulders. But creating the recording is just the beginning of the journey. Replay.io provides you with a set of devtools, that look very similar to Chrome or Firefox devtools.
+The fact that this recording can be done by anyone can lift a lot of weight off of developer’s shoulders. But creating the recording is just the beginning of the journey. Replay.io provides you with a set of devtools, that look very similar to Chrome or Firefox devtools.
 
 But these are now attached to your recording. You can retroactively inspect elements, review API calls in the network panel, look at console logs and so much more.
 
@@ -49,7 +49,7 @@ But this print statement is actually much more powerful. We can pass a variable 
 
 This allows us to follow the flow of the information and debug the application much more effectively. Not only we can see that something happened, but we can find out more about *why* it happened.
 
-If you are using React with a state manager such as Jotai or Redux, Replay.io allows you to take a look inside each component’s state. The React panel in Replay.io devtools will allow you to view component’s state throghout the whole timeline.
+If you are using React with a state manager such as Jotai or Redux, Replay.io allows you to take a look inside each component’s state. The React panel in Replay.io devtools will allow you to view component’s state throughout the whole timeline.
 
 ![React panel](react_panel_brh2oe)
 
