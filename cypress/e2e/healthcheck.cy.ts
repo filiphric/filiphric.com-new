@@ -18,12 +18,12 @@ describe('basic functionality', () => {
   })
   it('blogs', () => {
     cy.visit('/blog')
-    cy.get('[data-cy=blog-item]')
-      .eq(0)
+    cy.contains('[data-cy=blog-item]', 'How to structure a big project in Cypress')
       .click()
 
     cy.get('[data-cy=blog-heading]')
       .should('be.visible')
+      .and('contain.text', 'How to structure a big project in Cypress')
 
     cy.get('[data-cy=code-block]')
   })

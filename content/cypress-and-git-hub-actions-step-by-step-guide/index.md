@@ -22,7 +22,11 @@ In order to do this on GitHub action server, I first need to spin up my project,
 ## Creating a workflow
 Let’s now create a workflow file. Its place is in `.github/workflows` folder:
 
-![GitHub workflows folder](github-workflow.png)
+```treeview
+.github/
+`-- workflows/
+    `-- tests.yml
+```
 
 This is where GitHub Actions will look for your workflow files. These files are in YAML format and you can think of them as recipes for what GitHub actions should do. They tend to be quite linear, although [there are ways to write conditional logic](https://docs.github.com/en/actions/using-jobs/using-conditions-to-control-job-execution) in them.
 
