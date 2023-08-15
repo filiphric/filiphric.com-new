@@ -1,0 +1,132 @@
+/* file extensions */
+.filename {
+  position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+.filename.ext-vue:before {
+	background-image: url('../icons/file_vue.svg');
+}
+.filename.ext-ts:before {
+	background-image: url('../icons/file_ts.svg');
+}
+.filename.ext-d-ts:before {
+	background-image: url('../icons/file_d-ts.svg');
+}
+.filename.ext-html:before  {
+	background-image: url('../icons/file_html.svg');
+}
+.filename.ext-md:before  {
+	background-image: url('../icons/file_md.svg');
+}
+.filename.ext-gitignore:before  {
+	background-image: url('../icons/file_git.svg');
+}
+.filename.ext-svg:before  {
+	background-image: url('../icons/file_svg.svg');
+}
+.filename.ext-css:before  {
+	background-image: url('../icons/file_css.svg');
+}
+.filename.ext-js:before  {
+	background-image: url('../icons/file_js.svg');
+}
+.filename.ext-json:before  {
+	background-image: url('../icons/file_json.svg');
+}
+.filename.ext-feature:before  {
+	background-image: url('../icons/file_cucumber.svg');
+}
+.filename.ext-env:before  {
+	background-image: url('../icons/file_env.svg');
+}
+.filename.ext-editorconfig:before  {
+	background-image: url('../icons/file_editorconfig.svg');
+}
+.filename.ext-eslintrc-json:before  {
+	background-image: url('../icons/file_eslint.svg');
+}
+.filename.ext-yml:before  {
+	background-image: url('../icons/file_yaml.svg');
+}
+.filename.ext-prettierignore:before, .filename.ext-prettierrc:before  {
+	background-image: url('../icons/file_prettier.svg');
+}
+
+/* special files */
+.filename.package:before  {
+	background-image: url('../icons/file_npm.svg');
+}
+.filename.postcssconfig:before  {
+	background-image: url('../icons/file_postcssconfig.svg');
+}
+.filename.tsconfig:before  {
+	background-image: url('../icons/file_tsconfig.svg');
+}
+.filename.viteconfig:before  {
+	background-image: url('../icons/file_vite.svg');
+}
+.filename.cypressconfig:before  {
+	background-image: url('../icons/file_cypress.svg');
+}
+.filename.cypress_spec:before  {
+	background-image: url('../icons/file_cypress_spec.svg');
+}
+.filename.nx:before  {
+	background-image: url('../icons/file_nx.svg');
+}
+
+
+/* directory icons */
+.filename.dir:before {
+	background-image: url('../icons/dir.svg');
+}
+.filename.dir.src:before  {
+	background-image: url('../icons/dir_src.svg');
+}
+.filename.dir.public:before  {
+	background-image: url('../icons/dir_public.svg');
+}
+.filename.dir.node:before  {
+	background-image: url('../icons/dir_node.svg');
+}
+.filename.dir.components:before  {
+	background-image: url('../icons/dir_components.svg');
+}
+.filename.dir.assets:before  {
+	background-image: url('../icons/dir_assets.svg');
+}
+.filename.dir.cypress:before  {
+	background-image: url('../icons/dir_cypress.svg');
+}
+.filename.dir.config:before  {
+	background-image: url('../icons/dir_config.svg');
+}
+.filename.dir.e2e:before  {
+	background-image: url('../icons/dir_e2e.svg');
+}
+.filename.dir.commands:before  {
+	background-image: url('../icons/dir_commands.svg');
+}
+.filename.dir.package:before  {
+	background-image: url('../icons/dir_package.svg');
+}
+.filename.dir.tools:before  {
+	background-image: url('../icons/dir_tools.svg');
+}
+.filename.dir.scripts:before  {
+	background-image: url('../icons/dir_scripts.svg');
+}
+.filename.dir.docs:before  {
+	background-image: url('../icons/dir_docs.svg');
+}
+.filename.dir.images:before  {
+	background-image: url('../icons/dir_images.svg');
+}
+.filename.dir.videos:before  {
+	background-image: url('../icons/dir_video.svg');
+}
+.filename.dir.github:before  {
+	background-image: url('../icons/dir_github.svg');
+}
+

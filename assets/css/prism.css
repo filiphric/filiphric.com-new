@@ -69,7 +69,7 @@ pre span.highlight {
   font-style: italic
 }
 
-.token.string, .token.changed {
+.token.string, .token.changed, .language-html .token.attr-value, .token.important, .regex-source {
   @apply text-cheese
 }
 
@@ -77,7 +77,7 @@ pre span.highlight {
   @apply text-blueberry
 }
 
-.token.symbol {
+.token.symbol, .token.attr-value, .language-ts .token.variable, .language-js .token.variable, .token.parameter {
   @apply text-tangerine
 }
 
@@ -85,24 +85,12 @@ pre span.highlight {
   @apply text-lime
 }
 
-.token.namespace, .token.class-name {
+.token.namespace, .token.class-name, .token.attr-name, .token.selector, .language-ts .builtin {
   @apply text-mint
 }
 
-.token.tag, .token.keyword, .token.operator, .token.deleted, .token.template-punctuation, .token.interpolation > .token.interpolation-punctuation {
+.token.tag, .token.keyword, .token.operator, .token.deleted, .token.template-punctuation, .token.interpolation > .token.interpolation-punctuation, .language-yml .token.key, .regex-delimiter {
   @apply text-punch
-}
-
-.token.attr-name, .token.selector {
-  @apply text-mint;
-}
-
-.token.attr-value {
-  @apply text-tangerine;
-}
-
-.token.variable {
-  @apply text-gray-400
 }
 
 .token.punctuation {
@@ -113,26 +101,10 @@ pre span.highlight {
   @apply text-gray-200
 }
 
-.token.important {
-  @apply text-cheese
-}
-
 .token.bold {
   font-weight: bold;
 }
 
 .line-number {
   @apply select-none contents align-top text-gray-500;
-}
-
-.language-yml .token.key {
-  @apply text-punch
-}
-
-.regex-delimiter {
-  @apply text-punch
-}
-
-.regex-source {
-  @apply text-cheese
 }

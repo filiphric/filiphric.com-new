@@ -67,7 +67,7 @@ it('second test', () => {
 Instead of using the api within out spec, I’d recommend declaring this in `support/index.js` file in Cypress project. This way you’ll make sure that your cookie is preserved throughout all of your tests. But maybe you don’t want to do that. Instead of keeping the cookie for the whole test suite, you might just want to preserve it for a single spec file.
 
 For this, you can use Cookies API too. Using `Cypress.Cookies.preserveOnce` will enable you to keep your cookies for your spec. In our following test, we are using `before()` hook to set up our cookie and then `beforeEach()` hook to call our `preserveOnce` function to keep that cookie present for each test:
-```js {7-9}
+```js {5-7}
 before(() => {
   cy.setCookie('authentication', 'top_secret');
 });

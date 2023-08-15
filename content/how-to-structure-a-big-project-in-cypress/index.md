@@ -34,7 +34,14 @@ This has basically made our test automation behavior driven, although we have ne
 
 This meant we wanted our tests to follow a certain scenario and then grouped scenarios into features. A result of such test structure looked something like this:
 
-![Folder structure](e2e_gjcomh.png){customClass="w-1/2"}
+```treeview
+cypress/
+|-- e2e/
+|    |-- board/
+|    `-- list/
+|-- fixtures/
+`-- support/
+```
 
 Folders represent a certain feature and spec files inside those folders would represent a behavior or a user story that this scenario would cover. As mentioned, these scenarios represent real user behavior, but are not written in Gherkin syntax (Given, When, Then) or using Cucumber framework. Although open source community around Cypress [has created a Cucumber preprocessor](https://www.npmjs.com/package/@badeball/cypress-cucumber-preprocessor) that allows you to write your test like this, I generally lean away from this solution. 
 
@@ -182,7 +189,16 @@ Cypress.Commands.add('pickSidebarItem', (item: 'Settings' | 'Account' | 'My prof
 
 My rule of thumb is to put every custom command into it’s own file and add them to their own folder in the Cypress project:
 
-![Commands folder in project](commands_tszoun.png){customClass="w-1/2"}
+```treeview {3}
+big-project/
+|-- cypress/
+|   |-- commands/
+|   |-- e2e/
+|   |-- fixtures/
+|   `-- support/
+|-- .gitignore
+`-- cypress.config.ts
+```
 
 The `commands` folder can contain categories of custom commands, but I am not strict on following this rule. Since custom commands usually have their own unique name there’s not really a big benefit for creating subfolder.
 
@@ -224,7 +240,23 @@ Cypress.Commands.addAll({ addBoardApi })
 ```
 Another approach that I tend to use is to have an `index.ts` file that adds all the imports from `cypress/commands` folder and import that to `cypress/support/e2e.ts` instead. This is useful if you decide to move your app into monorepo and add your custom commands into separate library so that it can be reused across your projects.
 
-![Command library in a monorepo structure](lib_ippr9m.png)
+```treeview {4-6}
+monorepo-project/
+|-- node_modules/
+|-- packages/
+|   |-- commands/       // library
+|   |-- trelloapp/      // app
+|   `-- trelloapp-e2e/  // tests
+|-- tools/
+|-- .editorconfig
+|-- .eslintrc.json
+|-- .gitignore
+|-- .prettierignore
+|-- .prettierrc
+|-- nx.json
+|-- package-lock.json
+`-- package.jso
+```
 
 ## TypeScript
 All my projects use TypeScript. The implementation of TypeScript into an existing JS project is super easy as it can be done gradually. TypeScript errors don’t actually affect your tests, but can help you find errors. TypeScript guides you while you are writing tests by providing autocompletion, checking of the parameters that you pass into your commands and much more.
@@ -414,7 +446,11 @@ export default defineConfig({
 ## Node scripts
 The `cypress.config.ts` file can get bloated pretty fast, especially when setting up tasks or resolving configurations. This is why I started splitting these into their own files and add them to `scripts` folder.
 
-![Cypress scripts folder](scripts_ni0k5s.png)
+```treeview
+scripts/
+|-- codeCoverage.ts
+`-- resolveGoogleVars.ts
+```
 
 This keeps the main config file clean and easy to read. It also makes it easier to maintain multiple `cy.task()` commands.
 
@@ -432,11 +468,33 @@ Since every project has its own specifics, it is important to have these explain
 
 I also find it useful to set some ground rules for pull requests. On many platforms, you can set rules on how many people should approve a pull request, add checklists and other requirements. While these may seem like too much, they are a great help that prevents you from forgetting something important when merging new code.
 
-![Cypress docs](docs_jjdz9g.png)
+```treeview
+cypress/
+|-- commands/
+|-- config/
+`-- docs/
+    |-- best-practices.md
+    `-- installation.md
+```
 
 ## Final thoughts
 Big projects are rarely about just Cypress commands and they have much more to do with the test design and project design. While having some thoughts on what is the best way, most of my projects are living organisms that change and evolve as time progresses and needs shift. My current structure looks similar to something like this:
 
-![Big project structure](big-project_fuuicx.png)
+```treeview
+big-project/
+|-- cypress/
+|   |-- commands/
+|   |-- config/
+|   |-- docs/
+|   |-- downloads/
+|   |-- e2e/
+|   |-- fixtures/
+|   |-- screenshots/
+|   |-- scripts/
+|   |-- support/
+|   |-- utils/
+|   `-- videos/
+`-- cypress.config.ts
+```
 
 I hope you were able to get some inspiration from this. I share tips like this more often so consider subscribing to the newsletter, and following me on [Twitter](https://twitter.com/filip_hric/), [LinkedIn](http://www.linkedin.com/in/filip-hric) and [YouTube](https://www.youtube.com/@filip_hric).
