@@ -98,7 +98,7 @@ export default defineNuxtConfig({
   ],
 
   nitro: {
-    preset: 'vercel',
+    preset: 'vercel-static',
     prerender: {
       routes: ['/sitemap.xml', '/rss.xml']
     }
