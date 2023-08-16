@@ -8,7 +8,7 @@
       </div>
     </div>
     <div v-else class="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
-      <div v-for="item in articles.data" :key="item.slug">
+      <div v-for="item in data" :key="item.slug">
         <BlogItem
           :item="item"
         />
@@ -27,12 +27,12 @@ const props = defineProps({
   }
 })
 
-const articles = await useAsyncData(() => queryContent<MaybeComputedRef<any>>('/').where({ published: true }).only(['title', 'description', 'slug', 'image', 'readingTime', 'date']).sort({ date: -1 }).find())
+const { data } = await useAsyncData(() => queryContent<MaybeComputedRef<any>>('/').where({ published: true }).only(['title', 'description', 'slug', 'image', 'readingTime', 'date']).sort({ date: -1 }).find())
 
 const searchQuery = toRefs(props)
 
 // @ts-ignore
-const { results } = useFuse(searchQuery.query, articles.data, {
+const { results } = useFuse(searchQuery.query, data, {
   matchAllWhenSearchEmpty: true,
   fuseOptions: {
     keys: ['title', 'description']
