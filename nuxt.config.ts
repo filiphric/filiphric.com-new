@@ -83,6 +83,7 @@ export default defineNuxtConfig({
     documentDriven: false
   },
 
+  ssr: true,
   css: ['~/assets/css/main.css'],
 
   cloudinary: {
