@@ -3,6 +3,7 @@ const isProdutcion = process.env.NODE_ENV === 'production'
 const hostname = isProdutcion ? 'https://filiphric.com' : 'http://localhost:3000'
 
 export default defineNuxtConfig({
+  sourcemap: true,
   app: {
     head: {
       htmlAttrs: {
