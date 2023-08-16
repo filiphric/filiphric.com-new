@@ -80,17 +80,17 @@ export default defineNuxtConfig({
     markdown: {
       remarkPlugins: ['remark-reading-time']
     },
-    documentDriven: false,
-    experimental: {
-      clientDb: true
-    }
+    documentDriven: false
   },
 
-  ssr: false,
   css: ['~/assets/css/main.css'],
 
   cloudinary: {
     cloudName: 'dcnwsgh7c'
+  },
+
+  generate: {
+    routes: ['/content']
   },
 
   modules: [
