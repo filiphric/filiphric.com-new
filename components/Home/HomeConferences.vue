@@ -14,7 +14,7 @@
       </div>
     </div>
     <div :class="styleClasses" class="overflow-hidden rounded-3xl bg-white md:w-full">
-      <NuxtPicture src="/qbVORmN8_ukrn1u.png" />
+      <Image src="/qbVORmN8_ukrn1u.png" alt="Filip Hric on conference stage" />
     </div>
   </div>
 </template>

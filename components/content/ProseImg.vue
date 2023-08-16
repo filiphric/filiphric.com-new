@@ -5,7 +5,7 @@
     loop
     :src="data + '/' + src"
   />
-  <NuxtPicture
+  <Image
     v-else
     :src="'/' + src"
     :alt="alt"
@@ -13,7 +13,7 @@
     :height="height"
     :class="customClass"
     :quality="quality"
-    class="mt-10 mb-14 block"
+    class="mb-14 mt-10 block"
   />
 </template>
 <script setup lang="ts">

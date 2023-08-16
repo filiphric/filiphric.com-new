@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto my-14 grid w-full gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark md:w-10/12">
     <div>
-      <NuxtPicture src="core_workshop_2_q9fzxv.png" class="mx-auto block w-1/2" />
+      <Image src="core_workshop_2_q9fzxv.png" class="mx-auto block w-1/2" alt="Cypress core workshop" />
       <div class="text-center text-3xl font-extrabold">
         Cypress core workshop
       </div>

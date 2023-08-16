@@ -9,6 +9,6 @@
       </p>
       <slot />
     </div>
-    <NuxtPicture src="/blog_ideas_lqj3qe.png" alt="Filip Hric blog" class="hidden place-self-center self-center p-8 dark:mix-blend-lighten md:block md:w-full" />
+    <Image src="/blog_ideas_lqj3qe.png" alt="Filip Hric blog" class="hidden place-self-center self-center p-8 dark:mix-blend-lighten md:block md:w-full" />
   </div>
 </template>
