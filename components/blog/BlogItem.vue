@@ -1,7 +1,7 @@
 <template>
-  <NuxtLink :to="item.slug" class="col-span-1 mx-2 grid min-h-blog-item grid-flow-row place-content-between rounded-3xl bg-white p-9 dark:bg-black-lighter md:mx-0 md:max-w-md" :class="styleClasses" data-cy="blog-item">
+  <NuxtLink :to="item.slug" class="grid min-h-blog-item grid-flow-row place-content-between rounded-3xl bg-white p-9 dark:bg-black-lighter md:max-w-md" :class="styleClasses" data-cy="blog-item">
     <div v-if="item.image" class="mb-7 grid place-items-center">
-      <NuxtPicture :src="item.image" class="w-10/12" :alt="item.title" />
+      <Image :src="item.image" class="w-10/12" :alt="item.title" />
     </div>
     <h2 class="text-3xl font-bold">
       {{ item.title }}
@@ -20,7 +20,7 @@
 import { randomColor } from '@/helpers/randomColor'
 
 defineProps<{
-  item: Partial<{
+  item: {
     title: string,
     slug: string,
     image: string,
@@ -29,7 +29,7 @@ defineProps<{
       text: string
     },
     description: string
-  }>
+  }
 }>()
 
 const randomizedColor = randomColor()

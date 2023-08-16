@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 place-content-center md:mb-3 md:grid-cols-2" data-cy="blog-heading">
     <div class="self-center" :class="image ? '' : 'col-span-2'">
-      <h1 class="mt-14 mb-7 max-w-5xl text-center text-5xl font-extrabold md:text-left md:text-6xl lg:text-7xl">
+      <h1 class="mb-7 mt-14 max-w-5xl text-center text-5xl font-extrabold md:text-left md:text-6xl lg:text-7xl">
         {{ title }}
       </h1>
       <BlogInfo
@@ -10,7 +10,7 @@
         :reading-time="readingTime"
       />
     </div>
-    <NuxtPicture v-if="image" :src="image" class="place-self-center self-center md:w-full" :img-attrs="{alt: title}" />
+    <Image v-if="image" :src="image" class="place-self-center self-center md:w-full" :alt="title" />
   </div>
   <hr class="mx-auto my-14 w-28 border-gray-400 md:hidden">
 </template>

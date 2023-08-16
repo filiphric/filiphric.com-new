@@ -1,16 +1,10 @@
 import svgLoader from 'vite-svg-loader'
-const hostname = process.env.NODE_ENV === 'production' ? 'https://filiphric.com' : 'http://localhost:3000'
+const isProduction = process.env.NODE_ENV === 'production'
+const hostname = isProduction ? 'https://filiphric.com' : 'http://localhost:3000'
 
 export default defineNuxtConfig({
+  sourcemap: true,
   app: {
-    pageTransition: {
-      name: 'page',
-      mode: 'out-in'
-    },
-    layoutTransition: {
-      name: 'layout',
-      mode: 'out-in'
-    },
     head: {
       htmlAttrs: {
         lang: 'en'
@@ -77,49 +71,50 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  alias: {
+    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs'
+  },
+
   content: {
     markdown: {
       remarkPlugins: ['remark-reading-time']
     },
     documentDriven: false
   },
+
   css: ['~/assets/css/main.css'],
-  image: {
-    cloudinary: {
-      baseURL: 'https://res.cloudinary.com/dcnwsgh7c/image/upload/v1671966368'
-    },
-    screens: {
-      xs: 1000,
-      sm: 1000,
-      md: 1000,
-      lg: 1000,
-      xl: 1000,
-      xxl: 1000,
-      '2xl': 1000
-    }
+
+  cloudinary: {
+    cloudName: 'dcnwsgh7c'
   },
+
   modules: [
     '@nuxt/content',
-    '@nuxt/image-edge',
+    '@nuxtjs/cloudinary',
     '@pinia/nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/plausible'
   ],
+
   nitro: {
-    preset: 'vercel-edge',
+    preset: 'vercel-static',
     prerender: {
       routes: ['/sitemap.xml', '/rss.xml']
     }
   },
+
   plausible: {
     apiHost: `${hostname}/stats`
   },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {}
     }
   },
+
   runtimeConfig: {
     public: {
       convertkitApiKey: 'WtEuO8Nrmgh8k5YuNpyfiQ',
@@ -128,9 +123,14 @@ export default defineNuxtConfig({
       stripeApiKey: 'pk_live_51KefBzBnBECxBVfmEylMMx3HYzX4uzLsuxiG5M56wvvg9cJOiiFm96WwLeYVNvj2vlAC9phbDWeLP151bZhXGxcF00Yxg9Yq3s'
     }
   },
+
   vite: {
     plugins: [
       svgLoader()
     ]
+  },
+
+  devtools: {
+    enabled: !isProduction && true
   }
 })

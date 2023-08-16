@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center justify-center gap-7 rounded-lg bg-ivory-dark p-7 font-bold dark:bg-black-dark">
-      <NuxtPicture src="stamp_prflbz.png" class="block w-28" />
+      <Image src="stamp_prflbz.png" class="block w-28" alt="Cypress stamp of approval" />
       <div>
         <div class=" text-xl">
           This workshop has been endorsed by Cypress DX team

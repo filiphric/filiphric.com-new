@@ -9,6 +9,7 @@
 <script setup lang="ts">
 import { MaybeComputedRef } from '@vueuse/core'
 import { isGreaterThanToday } from '@/helpers/isGreaterThanToday'
+
 const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
 
 const upcomingWorkshop = computed(() => {

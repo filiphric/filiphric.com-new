@@ -1,8 +1,8 @@
 <template>
-  <div class="dark:bg-black-darkrounded-lg flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-punch dark:bg-black-dark dark:shadow-block-dark-punch">
+  <div class="dark:bg-black-darkrounded-lg dark:shadow-block-dark-punch flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-punch dark:bg-black-dark">
     <div class="w-full p-7">
       <div>
-        <NuxtPicture src="blueprint_zmke74.png" class="mx-auto mb-7 block w-52" />
+        <Image src="blueprint_zmke74.png" class="mx-auto mb-7 block w-52" alt="Managing Cypress Project" />
         <span class="block pb-14 text-center text-3xl font-bold">Session #4<br>Managing Cypress Project</span>
         <!-- items -->
         <div class="mb-2 flex">

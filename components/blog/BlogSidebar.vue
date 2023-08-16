@@ -21,7 +21,7 @@
       </h2>
       <div v-for="workshop in upcomingWorkshop" :key="workshop.slug">
         <NuxtLink :to="`/workshop/${workshop.slug}`" class="mt-5 block bg-ivory-dark p-5 dark:bg-black-lighter" @click="useTrackEvent('sidebarWorkshopClick')">
-          <NuxtPicture :src="workshop.image" />
+          <Image :src="workshop.image" :alt="workshop.title" />
           <h2 class="text-2xl font-extrabold">
             {{ workshop.title }}
           </h2>
@@ -42,6 +42,7 @@ defineProps<{ links: Array<{
   id: string,
   text: string
 }> }>()
+
 const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
 
 const upcomingWorkshop = computed(() => {

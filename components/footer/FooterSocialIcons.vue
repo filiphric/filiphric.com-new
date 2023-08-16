@@ -30,11 +30,11 @@
           YouTube
         </p>
       </a>
-      <NuxtLink class="prettyLink h-8 max-w-fit" to="/rss.xml">
+      <a class="prettyLink h-8 max-w-fit" href="/rss.xml">
         <IconRss class="mr-2 inline w-5 pb-1" /><p class="inline text-left">
           RSS feed
         </p>
-      </NuxtLink>
+      </a>
     </div>
   </div>
 </template>
