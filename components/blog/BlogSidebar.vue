@@ -42,6 +42,7 @@ defineProps<{ links: Array<{
   id: string,
   text: string
 }> }>()
+
 const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
 
 const upcomingWorkshop = computed(() => {

@@ -9,5 +9,6 @@
 </template>
 <script setup lang="ts">
 import { MaybeComputedRef } from '@vueuse/core'
+
 const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
 </script>
