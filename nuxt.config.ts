@@ -1,6 +1,6 @@
 import svgLoader from 'vite-svg-loader'
-const isProdutcion = process.env.NODE_ENV === 'production'
-const hostname = isProdutcion ? 'https://filiphric.com' : 'http://localhost:3000'
+const isProduction = process.env.NODE_ENV === 'production'
+const hostname = isProduction ? 'https://filiphric.com' : 'http://localhost:3000'
 
 export default defineNuxtConfig({
   sourcemap: true,
@@ -89,10 +89,6 @@ export default defineNuxtConfig({
     cloudName: 'dcnwsgh7c'
   },
 
-  generate: {
-    routes: ['/content']
-  },
-
   modules: [
     '@nuxt/content',
     '@nuxtjs/cloudinary',
@@ -102,7 +98,7 @@ export default defineNuxtConfig({
   ],
 
   nitro: {
-    preset: 'vercel-edge',
+    preset: 'vercel',
     prerender: {
       routes: ['/sitemap.xml', '/rss.xml']
     }
@@ -135,6 +131,6 @@ export default defineNuxtConfig({
   },
 
   devtools: {
-    enabled: !isProdutcion && true
+    enabled: !isProduction && true
   }
 })
