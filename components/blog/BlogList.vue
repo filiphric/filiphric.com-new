@@ -32,7 +32,7 @@ const articles = await useAsyncData(() => queryContent<MaybeComputedRef<any>>('/
 const searchQuery = toRefs(props)
 
 // @ts-ignore
-const { results } = useFuse(searchQuery.query, data, {
+const { results } = useFuse(searchQuery.query, articles.data, {
   matchAllWhenSearchEmpty: true,
   fuseOptions: {
     keys: ['title', 'description']
