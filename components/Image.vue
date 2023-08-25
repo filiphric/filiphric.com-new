@@ -11,13 +11,21 @@ const props = defineProps({
   alt: {
     required: true,
     type: String
+  },
+  width: {
+    default: 'full',
+    type: [String, Number]
+  },
+  height: {
+    default: 'auto',
+    type: [String, Number]
   }
 })
 
 const { url } = useCldImageUrl({
   options: {
-    width: 'full',
-    height: 'auto',
+    width: props.width,
+    height: props.height,
     src: props.src
   }
 })

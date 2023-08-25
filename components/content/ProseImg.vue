@@ -9,9 +9,6 @@
     v-else
     :src="'/' + src"
     :alt="alt"
-    :width="width"
-    :height="height"
-    :class="customClass"
     class="mb-14 mt-10 block"
   />
 </template>
@@ -25,18 +22,6 @@ defineProps({
   alt: {
     type: String,
     default: ''
-  },
-  width: {
-    type: [String, Number],
-    default: 'full'
-  },
-  height: {
-    type: [String, Number],
-    default: 'auto'
-  },
-  customClass: {
-    type: String,
-    default: undefined
   }
 })
 
