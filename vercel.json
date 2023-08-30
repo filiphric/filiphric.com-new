@@ -57,6 +57,10 @@
     {
       "destination": "/workshop/cypress-core",
       "source": "/cypress-core-workshop"
+    },
+    {
+      "destination": "https://calendly.com/filip_hric/konzultacia-gymbeam",
+      "source": "/gymbeam"
     }
   ],
   "rewrites": [
