@@ -6,7 +6,7 @@ export default async (req: any, res: any) => {
   const { body } = req
   const data = await resend.emails.send({
     from: 'Filip Hric <filip@filiphric.com>',
-    to: [body.attendeeEmail.value],
+    to: [body.attendeeEmail],
     cc: ['filip@filiphric.com'],
     subject: 'Hello world',
     html: `Hello ${body.attendeeFirstName}!
