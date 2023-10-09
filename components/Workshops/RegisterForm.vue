@@ -140,9 +140,9 @@ const pay = () => {
         price: props.price?.data.id
       }
     }).then(() => {
-      router.push('/workshop/registration?success=true')
+      router.push(`/workshop/registration?success=true&workshop=${props.info?.type}`)
     }).catch(() => {
-      router.push('/workshop/registration?success=false')
+      router.push(`/workshop/registration?success=false&workshop=${props.info?.type}`)
     })
   } else {
     errors.value = []

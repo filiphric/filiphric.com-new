@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <ContentBlock v-if="success === 'true'" :image="workshopInfo.image">
+    <ContentBlock v-if="success === 'true'" :image="workshopInfo.image" alt="workshop signup was successful">
       <template #heading>
         You are now registered!
       </template>
@@ -11,7 +11,7 @@
         Please check your inbox for confirmation email. I’ll send the workshop instructions three days before the start.
       </template>
     </ContentBlock>
-    <ContentBlock v-if="success === 'false'" :image="'card_b3crwd.png'">
+    <ContentBlock v-if="success === 'false'" :image="'card_b3crwd.png'" alt="workshop signup was not successful">
       <template #heading>
         Uh-oh, something went wrong
       </template>
