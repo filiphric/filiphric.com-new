@@ -25,6 +25,7 @@
     "fuse.js": "^6.6.2",
     "nuxt": "^3.6.5",
     "prismjs": "^1.29.0",
+    "resend": "^1.1.0",
     "stripe": "^11.18.0"
   },
   "devDependencies": {

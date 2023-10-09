@@ -8,7 +8,7 @@
           Sign up for the workshop
         </h3>
         <p class="mb-7 text-base font-normal">
-          Fill in the name and email of the workshop attendee. Clicking on the "Register" button will take you to the payment page. You’ll receive a receipt and invoice for the payment to your email.
+          Fill in the name and email of the workshop attendee. If registering multiple attendees, please fill this form individually for each attendee or reach out to me for details.
         </p>
       </li>
       <li class="ml-4">
@@ -18,7 +18,7 @@
           Receive confirmation email
         </h3>
         <p class="mb-7 text-base font-normal">
-          I’ll send you an email to let you know that I received the payment and that you are registered for the workshop. Feel free to reply or ask me anything.
+          I’ll send you an email to let you know that you are registered for the workshop. Feel free to reply or ask me anything. You will also receive details on how to make payment for the workshop.
         </p>
       </li>
       <li class="ml-4">
