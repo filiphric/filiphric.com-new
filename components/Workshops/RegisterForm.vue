@@ -137,7 +137,7 @@ const pay = () => {
         attendeeFirstName: attendeeFirstName.value,
         attendeeLastName: attendeeLastName.value,
         attendeeEmail: attendeeEmail.value,
-        price: props.price?.data.id
+        price: `${props.price?.data?.unit_amount / 100} €`
       }
     }).then(() => {
       router.push(`/workshop/registration?success=true&workshop=${props.info?.type}`)

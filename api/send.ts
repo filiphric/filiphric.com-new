@@ -5,9 +5,9 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export default async (req: any, res: any) => {
   const { body } = req
   const data = await resend.emails.send({
-    from: 'Filip Hric <filip@filiphric.com>',
+    from: 'Filip Hric <filip@filiphric.sk>',
     to: [body.attendeeEmail],
-    cc: ['filip@filiphric.com'],
+    cc: ['filip@filiphric.sk'],
     subject: 'Hello world',
     html: `Hello ${body.attendeeFirstName}!
     Thanks for your registration to Cypress core workshop, I hope you are as excited as I am 🙂
