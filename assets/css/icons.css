@@ -49,6 +49,9 @@
 .filename.ext-yml:before  {
 	background-image: url('../icons/file_yaml.svg');
 }
+.filename.ext-jsx:before, .filename.ext-tsx:before  {
+	background-image: url('../icons/file_jsx.svg');
+}
 .filename.ext-prettierignore:before, .filename.ext-prettierrc:before  {
 	background-image: url('../icons/file_prettier.svg');
 }
