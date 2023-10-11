@@ -100,7 +100,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel-static',
     prerender: {
-      routes: ['/sitemap.xml', '/rss.xml']
+      crawlLinks: true,
+      ignore: ['/sitemap.xml', '/robots.txt']
     }
   },
 
