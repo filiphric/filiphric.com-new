@@ -1,12 +1,12 @@
 body:
   - title: Cypress core workshop
     description: Four-session hands-on workshop designed to teach you the principles and effective patterns of successful test automation in Cypress.
-    slug: cypress-core-march-2023
+    slug: cypress-core-november-2023
     image: core_workshop_2_q9fzxv.png
-    startDate: 2023-03-27
-    date: '27th March to 4th April 2023'
-    time: '9AM to 12PM (CEST)'
-    days: 'Mondays and Tuesdays'
+    startDate: 2023-11-06
+    date: '6th to 15th November 2023'
+    time: '8PM to 11PM (CET)'
+    days: 'Mondays and Wednesdays'
     type: 'core-workshop'
     priceId: 'price_1MkwcQBnBECxBVfm82qvYyU5'
     featured: true
