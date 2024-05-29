@@ -61,7 +61,7 @@
     {
       "destination": "https://blink-and-you-will-miss-it.vercel.app",
       "source": "/jsheroes"
-    }
+    },
     {
       "destination": "https://how-to-start-unflaking-your-tests.vercel.app",
       "source": "/devtalks"
