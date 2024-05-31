@@ -65,6 +65,10 @@
     {
       "destination": "https://how-to-start-unflaking-your-tests.vercel.app",
       "source": "/devtalks"
+    },
+    {
+      "destination": "https://console-log-debugging-modern-web.vercel.app",
+      "source": "/dailydotdev"
     }
   ],
   "rewrites": [
