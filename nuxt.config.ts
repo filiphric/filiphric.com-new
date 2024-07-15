@@ -68,7 +68,16 @@ export default defineNuxtConfig({
           title: 'Blog RSS Feed',
           href: '/rss.xml'
         }
-      ]
+      ],
+      script: process.env.NODE_ENV === 'production'
+        ? []
+        : [
+            {
+              src: 'https://snippet.meticulous.ai/v1/meticulous.js',
+              'data-project-id': 'WIbouvaxQXemNrTZClOwR9txclqhhiGYe1ElU2Vi',
+              'data-is-production-environment': false
+            }
+          ]
     }
   },
 
