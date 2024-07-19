@@ -8,7 +8,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { MaybeComputedRef } from '@vueuse/core'
+import { type MaybeRefOrGetter } from '@vueuse/core'
 
-const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
+const { data } = await useAsyncData('workshops', () => queryContent<MaybeRefOrGetter<any>>('/workshops').findOne())
 </script>

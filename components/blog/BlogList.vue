@@ -17,7 +17,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { MaybeComputedRef } from '@vueuse/core'
+import { type MaybeRefOrGetter } from '@vueuse/core'
 import { useFuse } from '@vueuse/integrations/useFuse'
 
 const props = defineProps({
@@ -27,7 +27,7 @@ const props = defineProps({
   }
 })
 
-const { data } = await useAsyncData(() => queryContent<MaybeComputedRef<any>>('/').where({ published: true }).sort({ date: -1 }).find())
+const { data } = await useAsyncData(() => queryContent<MaybeRefOrGetter<any>>('/').where({ published: true }).sort({ date: -1 }).find())
 
 const searchQuery = toRefs(props)
 

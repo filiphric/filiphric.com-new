@@ -4,6 +4,7 @@ const hostname = isProduction ? 'https://filiphric.com' : 'http://localhost:3000
 
 export default defineNuxtConfig({
   sourcemap: true,
+
   app: {
     head: {
       htmlAttrs: {
@@ -132,5 +133,7 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: !isProduction && true
-  }
+  },
+
+  compatibilityDate: '2024-07-19'
 })
