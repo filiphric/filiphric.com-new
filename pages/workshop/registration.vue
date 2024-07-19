@@ -25,12 +25,12 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { MaybeComputedRef } from '@vueuse/core'
+import { type MaybeRefOrGetter } from '@vueuse/core'
 import { useRouteQuery } from '@vueuse/router'
 const workshop = useRouteQuery('workshop')
 const success = useRouteQuery('success')
 
-const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
+const { data } = await useAsyncData('workshops', () => queryContent<MaybeRefOrGetter<any>>('/workshops').findOne())
 
 const workshopInfo = computed(() => {
   const result = data.value.body.filter((item: any) => item.type === workshop.value)[0]

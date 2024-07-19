@@ -64,7 +64,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { Ref } from 'vue'
+import { type Ref } from 'vue'
 
 const firstStep = ref(true)
 const errorPage = ref(false)

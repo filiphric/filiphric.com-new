@@ -7,10 +7,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { MaybeComputedRef } from '@vueuse/core'
+import { type MaybeRefOrGetter } from '@vueuse/core'
 import { isGreaterThanToday } from '@/helpers/isGreaterThanToday'
 
-const { data } = await useAsyncData('workshops', () => queryContent<MaybeComputedRef<any>>('/workshops').findOne())
+const { data } = await useAsyncData('workshops', () => queryContent<MaybeRefOrGetter<any>>('/workshops').findOne())
 
 const upcomingWorkshop = computed(() => {
   const result = data.value.body.filter((item: any) => isGreaterThanToday(item.startDate))[0]

@@ -5,7 +5,7 @@ published: true
 slug: "testing-as-an-entry-gate-to-it"
 description: "Some people don’t like the phrase “testing can be a great entry gate into the world of IT”. I kinda disagree, I think testing can be a great entry into the world of IT. This post discusses some reasons why I think that."
 tags: ["testing","junior"]
-image: 
+image: entry_gate_fyc6oc.png
 cypressVersion:
 ---
 I’ve been hearing the phrase “testing can be a great entry gate into the world of IT” a lot during the years. Meaning - if you have no experience, (for example you come from non-technical field of work) then testing might be the craft that will make the transition much smoother. The expectation is, that the learning curve is less steep compared to for example Mobile app developer.
