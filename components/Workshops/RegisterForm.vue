@@ -40,7 +40,7 @@
         <span class="mt-5 block text-center text-sm text-gray-500">After clicking "Sign up" button, will be redirected to <IconStripe class="inline-block h-5 pb-0.5" /> checkout page</span>
       </div>
     </div>
-    <div v-else class="grid h-full place-items-center bg-ivory-dark p-7 text-xl font-semibold">
+    <div v-else class="grid h-full place-items-center bg-ivory-dark p-7 text-xl font-semibold dark:bg-black">
       <div>Registration to the workshop is currently closed. A new date will be released soon.</div>
     </div>
   </div>
@@ -48,7 +48,7 @@
 <script setup lang="ts">
 
 import { loadStripe } from '@stripe/stripe-js'
-import { Ref } from 'vue'
+import { type Ref } from 'vue'
 import { isGreaterThanToday } from '@/helpers/isGreaterThanToday'
 const config = useRuntimeConfig()
 const stripe = await loadStripe(config.public.stripeApiKey)

@@ -4,7 +4,7 @@
       Hey, I’m Filip! 👋
     </h2>
     <div class="text-2xl">
-      I am a tester at heart, with huge passion for testing in Cypress.io and teaching. I write blogs, conduct workshops and speak on testing all around the world. Glad to meet you!
+      I am a tester at heart, with huge passion for web testing in and teaching. I write blogs, conduct workshops and speak on testing all around the world. Glad to meet you!
       <div class="pt-7">
         <NuxtLink to="/about" class="prettyLink inline-block font-bold">
           Learn more <IconArrowForward class="inline transition-all ease-in-out" />

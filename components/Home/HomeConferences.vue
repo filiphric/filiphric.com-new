@@ -5,7 +5,7 @@
         Conference talks
       </h2>
       <p class="mt-7 text-2xl">
-        I have spoken on conferences, webinars and events around the world. I like to do live coding on stage and demonstrate real-life examples and problem solutions.
+        I am an international keynote speaker. I have spoken on conferences, webinars and events around the world. I like to do live coding on stage and demonstrate real-life examples and problem solutions.
       </p>
       <div class="pt-7 text-2xl">
         <NuxtLink to="/talks" class="prettyLink inline-block font-bold">
