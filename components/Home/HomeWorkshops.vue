@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-28 grid grid-cols-2 items-center gap-14">
+  <div class="mt-14 grid grid-cols-1 place-content-center gap-7 md:mb-3 md:grid-cols-2 mx-10">
     <div>
       <h2 class="text-6xl font-bold">
         Workshops
