@@ -69,6 +69,10 @@
     {
       "destination": "https://console-log-debugging-modern-web.vercel.app",
       "source": "/dailydotdev"
+    },
+    {
+      "destination": "https://things.filiphric.com",
+      "source": "/things"
     }
   ],
   "rewrites": [
