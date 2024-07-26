@@ -132,5 +132,13 @@ export default defineNuxtConfig({
     enabled: !isProduction && true
   },
 
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        verbatimModuleSyntax: true
+      }
+    }
+  },
+
   compatibilityDate: '2024-07-19'
 })

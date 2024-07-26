@@ -24,7 +24,6 @@
     "@stripe/stripe-js": "^4.1.0",
     "@vercel/edge": "^1.1.2",
     "fuse.js": "^7.0.0",
-    "nuxt": "^3.12.4",
     "prismjs": "^1.29.0",
     "resend": "^3.5.0",
     "stripe": "^16.2.0"
@@ -44,19 +43,22 @@
     "@vueuse/nuxt": "^10.11.0",
     "@vueuse/router": "^10.11.0",
     "autoprefixer": "^10.4.19",
+    "checkly": "latest",
     "cypress": "^13.13.1",
     "cypress-plugin-steps": "^1.1.1",
     "dotenv": "^16.3.1",
     "eslint": "^9.7.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "js-yaml": "^4.1.0",
+    "nuxt": "^3.12.4",
     "postcss": "^8.4.39",
     "prompts": "^2.4.2",
     "remark-reading-time": "^2.0.1",
     "rss": "^1.2.2",
     "sitemap": "^8.0.0",
     "tailwindcss": "^3.4.6",
-    "typescript": "^5.2.2",
+    "ts-node": "latest",
+    "typescript": "latest",
     "vite-svg-loader": "^5.1.0"
   }
 }
