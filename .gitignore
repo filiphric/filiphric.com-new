@@ -7,6 +7,7 @@ node_modules
 .env
 dist
 .vercel
+.data
 
 cypress/videos/*
 cypress/screenshots/*

@@ -91,7 +91,8 @@ export default defineNuxtConfig({
     '@nuxtjs/cloudinary',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/plausible'
+    '@nuxtjs/plausible',
+    '@nuxt/fonts',
   ],
 
   nitro: {

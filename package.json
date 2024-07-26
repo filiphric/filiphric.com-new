@@ -18,6 +18,7 @@
   "author": "Filip Hric (https://filiphric.com/)",
   "license": "ISC",
   "dependencies": {
+    "@nuxt/fonts": "^0.7.1",
     "@nuxtjs/cloudinary": "^3.0.1",
     "@pinia/nuxt": "^0.5.1",
     "@stripe/stripe-js": "^4.1.0",
