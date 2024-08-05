@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2015",
     "lib": [
-      "es5",
+      "ES2015",
       "dom"
     ],
     "types": [
@@ -11,8 +11,10 @@
     ],
     "baseUrl": "./",
     "allowJs": false,
-    "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true
   },
   "include": [
     "**/*.ts",
