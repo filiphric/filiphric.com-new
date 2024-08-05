@@ -4,6 +4,13 @@ import { getPPPDiscountPercent } from '../../helpers/parityCoupon'
 import { isGreaterThanToday } from '../../helpers/isGreaterThanToday'
 import ppp from '../../constants/ppp.json'
 
+interface StubModel {
+  amount: number
+  country: string
+  eligible: boolean
+  priceId: string
+}
+
 it('location endpoint has all attributes', () => {
   cy.request('GET', '/api/location')
     .then(({ body }) => {
@@ -75,7 +82,7 @@ it('fetching different discounts', () => {
     .each(({ startDate, slug }) => {
       if (isGreaterThanToday(startDate)) {
         cy.wrap(stubs)
-          .each((stub) => {
+          .each((stub: StubModel) => {
             const stubAmount = (499 - (stub.amount * 100 * 5)).toFixed(0)
             cy.section(`open workshop with ${stubAmount} € price`)
             cy.intercept('GET', '/api/location', stub).as('location')
