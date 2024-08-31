@@ -1,7 +1,7 @@
 <template>
   <input
     :value="query"
-    class="mt-4 h-4 w-96 rounded-full bg-white p-7 text-lg text-gray-400 outline-none dark:border-none dark:bg-transparent md:mt-8 md:h-8"
+    class="mt-4 h-4 w-96 rounded-full bg-white p-7 text-lg text-gray-400 outline-none dark:border-none dark:bg-black-lighter md:mt-8 md:h-8"
     :class="styleClasses"
     placeholder="Search articles"
     @input="updateValue"

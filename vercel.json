@@ -71,6 +71,10 @@
       "source": "/dailydotdev"
     },
     {
+      "destination": "https://how-to-write-a-flaky-test.vercel.app",
+      "source": "/cypressconf"
+    },
+    {
       "destination": "https://things.filiphric.com",
       "source": "/things"
     }
