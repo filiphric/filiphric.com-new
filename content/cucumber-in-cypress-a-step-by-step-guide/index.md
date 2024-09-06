@@ -31,13 +31,13 @@ That all said, I wanted to create this tutorial so that you can effectively set 
 
 To start off, you need to install the [cypress-cucumber-preprocessor plugin](https://www.npmjs.com/package/@badeball/cypress-cucumber-preprocessor). There are currently multiple different versions flowing, but I believe this one is the best and it is actively maintained. You can install it by running the following command:
 
-```
+```shell
 npm i @badeball/cypress-cucumber-preprocessor
 ```
 
 Besides installation of the preprocessor, [plugin docs](https://github.com/badeball/cypress-cucumber-preprocessor/blob/master/docs/quick-start.md) recommend installing the [esbuild bundler by Gleb Bahmutov](https://www.npmjs.com/package/@bahmutov/cypress-esbuild-preprocessor), which will make your run much faster.
 
-```
+```shell
 npm i @bahmutov/cypress-esbuild-preprocessor
 ```
 
