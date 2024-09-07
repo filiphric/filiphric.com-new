@@ -75,6 +75,10 @@
       "source": "/cypressconf"
     },
     {
+      "destination": "https://how-to-write-a-flaky-test.vercel.app",
+      "source": "/tester-day"
+    },
+    {
       "destination": "https://things.filiphric.com",
       "source": "/things"
     }
