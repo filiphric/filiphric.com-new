@@ -19,7 +19,7 @@ Jokes aside, it really seems that Cypress is working on making their customers h
 
 ## Internet drama
 Jordan Powell from Cypress tweeted this on the day this Cypress panic (if there even is one) started:
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It’s like Jr. High today on here with all these childish rumors going on. Just wanted to stop by and say love you all 👊</p>&mdash; JØRDAN PØWEŁŁ 🥑 🚀 (@JordanPowell88) <a href="https://twitter.com/JordanPowell88/status/1681362036494565376?ref_src=twsrc%5Etfw">July 18, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<Tweet id="1681362036494565376" />
 
 I have to agree with him on this one. Everything that has been said on that day was based on assumptions, mostly by people that have not been talking to the Cypress team nor had insight into the company during last couple of years. Let alone their financial state.
 
@@ -29,6 +29,7 @@ Many people have [used this as validation](https://twitter.com/bahmutov/status/1
 I am still confident about Cypress, both the company and the open source software. I don’t think they are perfect, and would really like to see some improvements being made in both Cypress App and Cypress Cloud. I do think Cypress has a very fierce competition in e2e testing with Playwright. I think it would be quite interesting to [merge these tools together](https://twitter.com/_jessicasachs/status/1681309404153675780). If that does not come into fruition, Cypress will still be a really cool solution for component testing.
 
 So what should you do? Migrate all your tests? Please don’t do that. Not based on a reddit post. At least not based on that one.
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Seriously, don’t make strategic technical decisions based on a dumb reddit post.</p>&mdash; Filip Hric 🇸🇰❤️🇺🇦 (@filip_hric) <a href="https://twitter.com/filip_hric/status/1681373989287886856?ref_src=twsrc%5Etfw">July 18, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<Tweet id="1681373989287886856" />
 
 > One more thing that I feel like needs to be said. Cypress ambassadors are not paid by Cypress. I never received a single dollar from Cypress. I have used Cypress for test automation since version 0.20.0 and I believe it’s genuinely a great tool. I have not been asked to write this blogpost, nor has anyone seen this text before I published it.

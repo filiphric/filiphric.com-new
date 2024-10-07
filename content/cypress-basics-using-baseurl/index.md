@@ -84,7 +84,7 @@ describe('Redirect Test', () => {
 ## Passing `baseUrl` through CLI
 You actually don’t need to set up your `baseUrl` in the `cypress.config.js` file at all. Instead, it is possible to resolve it when opening Cypress:
 
-```
+```sh
 npx cypress open --config baseUrl=https://staging.example.com
 ```
 

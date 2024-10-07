@@ -1,5 +1,5 @@
 <template>
-  <ContentBlock image="/workshops_ii41od.png">
+  <ContentBlock image="/workshops_ii41od.png" alt="Live online workshops">
     <template #heading>
       Live online workshops
     </template>

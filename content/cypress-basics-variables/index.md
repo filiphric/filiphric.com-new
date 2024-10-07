@@ -51,7 +51,7 @@ it('stores value in variable', () => {
 
 Maybe you guessed it right. But I guess you are curious why is this the answer:
 
-```
+```plaintext
 >>> first log
 >>> third log
 >>> second log

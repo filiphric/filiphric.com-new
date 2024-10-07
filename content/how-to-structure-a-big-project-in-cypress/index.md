@@ -30,7 +30,7 @@ Tests I write often reflect a certain behavior or describe how a certain feature
 
 This has basically made our test automation behavior driven, although we have never decided to go with Gherkin syntax or the Cucumber framework. The simplicity of Cypress commands was good enough solution for us and made it quite apparent what the test is doing. Early enough, I have found this tweet by [Kent C. Dodds](https://twitter.com/kentcdodds) that we decided to live by:
 
-<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">The more your tests resemble the way your software is used, the more confidence they can give you.</p>&mdash; Kent C. Dodds 🌌 (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/977018512689455106">March 23, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<Tweet id="977018512689455106" />
 
 This meant we wanted our tests to follow a certain scenario and then grouped scenarios into features. A result of such test structure looked something like this:
 
@@ -386,7 +386,7 @@ it('creates a new board', { tags: ['@smoke'] }, () => {
 A single test can have multiple tags, so that test can be ran based on a certain testing goal. E.g. `@email` tag to run all tests that use email validations, `@mobile` for all mobile tests, or `@visual` for all tests containing visual validations. I like to think about different situations in which we want to target a certain area of the application. For example, if CSS has changed, we might want to run all `@visual` tests, or if our email testing service is not working currently, we may want to temoporarily omit `@email` test subset.
 
 In CLI, these can be ran by following command:
-```
+```sh
 npx cypress run --env grepTags='@smoke'
 ```
 
@@ -414,7 +414,7 @@ export default defineConfig({
 ```
 
 When running a test with a different configuration, all that’s needed is to run a test like this:
-```
+```sh
 npx cypress open --env version="production"
 ```
 and Cypress will load all the variables needed.
@@ -422,7 +422,7 @@ and Cypress will load all the variables needed.
 Besides having the configuration set up in separate `.json`, there is information that should not be commited to the repositories, like passwords, api keys, etc. These are usually part of environment and are passed through CLI.
 
 To make things easier, I use [dotenv package](https://www.npmjs.com/package/dotenv) that takes care of management of env variables by using `.env` file.
-```[.env]
+```plaintext [.env]
 ADMIN_KEY="1234-5678-abcd-efgh"
 ```
 > ⚠️ Always make sure that `.env` file is added to `.gitignore` otherwise you risk commiting sensitive information out in the public

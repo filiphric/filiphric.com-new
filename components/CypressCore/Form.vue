@@ -3,7 +3,7 @@
     <h2 class="mt-21 text-center text-6xl font-extrabold">
       Learning experience
     </h2>
-    <ContentBlock image="knolling_vrhtct.png">
+    <ContentBlock image="knolling_vrhtct.png" alt="Learning experience">
       <template #paragraph>
         <ul class="list-inside list-disc text-xl">
           <li class="mb-3">
