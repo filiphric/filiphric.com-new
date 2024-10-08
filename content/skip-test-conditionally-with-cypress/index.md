@@ -55,7 +55,7 @@ describe('suite #2', () => {
 ```
 ## Config file
 In your `cypress.json` you can specify which tests you want to run or skip. You can use the name of your tests or use minimatch to pick which tests should run. Let’s say you have three tests:
-```
+```plaintext
 test1.ts
 test2.ts
 test.smoke.ts

@@ -15,5 +15,6 @@
 </template>
 <script setup lang="ts">
 import { useRouteQuery } from '@vueuse/router'
-const repo = useRouteQuery('repo')
+const repoQuery = useRouteQuery('repo')
+const repo = repoQuery.value?.length ? repoQuery.value : 'cypress-core-workshop'
 </script>

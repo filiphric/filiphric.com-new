@@ -6,7 +6,8 @@ slug: "testing-email-flows-with-mailosaur"
 description: "A short giude on how to test e2e flows that require an email to be opened. Code demonstration using Mailosaur."
 tags: ['cypress', 'email testing']
 ---
-<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">The more your tests resemble the way your software is used, the more confidence they can give you.</p>&mdash; Kent C. Dodds 🌌 (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/977018512689455106">March 23, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<Tweet id="977018512689455106" />
 
 I would like to give you a glimpse of how we use Cypress with a tool called [Mailosaur](https://mailosaur.com/).
 
@@ -34,7 +35,9 @@ My favourite part is the ability to [wait for a specific message to arrive](http
 
 With Mailosaur, you create an email server, where all emails with specific username land. You’ll end up with something like:
 
-    {{any string here}}.abcdefg@mailosaur.io
+```plaintext
+{{any string here}}.abcdefg@mailosaur.io
+```
 
 ## Integrating Mailosaur with Cypress
 

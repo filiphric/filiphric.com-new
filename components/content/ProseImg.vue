@@ -1,9 +1,10 @@
 <template>
   <CldVideoPlayer
     v-if="isVideo(src)"
-    width="full"
-    height="auto"
+    :width="640"
+    :height="360"
     :src="src"
+    :aspectRatio="16/9"
   />
   <Image
     v-else
@@ -12,9 +13,10 @@
     class="mb-14 mt-10 block"
   />
 </template>
+
 <script setup lang="ts">
 
-defineProps({
+const props = defineProps({
   src: {
     type: String,
     default: ''
@@ -27,7 +29,14 @@ defineProps({
 
 const isVideo = (src: string) => {
   const videoExtensions = ['.mp4', '.avi', '.mov']
-  return videoExtensions.some(ext => src.endsWith(ext))
+  return videoExtensions.some(ext => src.toLowerCase().endsWith(ext))
 }
 
 </script>
+
+<style>
+.cld-video-player {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+</style>

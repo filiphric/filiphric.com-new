@@ -15,7 +15,7 @@ I wrote this blog for those that are beginning to learn about how web apps are b
 As it’s almost usual on this blog, [there’s a repo you can clone](https://github.com/filiphric/understanding-coverage) and follow along this blog. Our app is super simple, it’s just a site with a button that generates a random and totally useless fact. Knowing these provides absolutely no value to your life. But pulling these facts in a conversation will certainly make you more annoying. So there’s that.
 
 This app, contains three files, as is usual for web apps:
-```
+```plaintext
 index.html
 app.js
 style.css

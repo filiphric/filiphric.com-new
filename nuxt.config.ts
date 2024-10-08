@@ -75,7 +75,7 @@ export default defineNuxtConfig({
 
   content: {
     markdown: {
-      remarkPlugins: ['remark-reading-time']
+      remarkPlugins: ['remark-reading-time'],
     },
     documentDriven: false
   },
@@ -93,6 +93,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/plausible',
     '@nuxt/fonts',
+    '@vueuse/nuxt',
   ],
 
   nitro: {
