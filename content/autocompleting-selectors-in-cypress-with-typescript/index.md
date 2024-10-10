@@ -5,14 +5,15 @@ published: true
 slug: "autocompleting-selectors-in-cypress-with-typescript"
 description: "Using TypeScript, we can make our lives with custom selectors easier. Our editor can autocomplete our selectors and check if we aren’t using any that were already deleted"
 tags: ['cypress', 'selectors', 'typescript', 'custom command', 'scripts']
-image: typescript_waabhq.png
+image: ts_fg8fjl.png
 cypressVersion: v10.0.0
 ---
-## You will learn:
-- how to create custom command that will autocomplete your selectors
-- how perform a check on your tests that are written in TypeScript
-- how to grep selectors from your app
-- how to create warning if there are selectors in your app that you are not using
+> ### You will learn:
+>
+> - how to create custom command that will autocomplete your selectors
+> - how perform a check on your tests that are written in TypeScript
+> - how to grep selectors from your app
+> - how to create warning if there are selectors in your app that you are not using
 
 Cypress advises to use data-cy selectors as a best practice for selecting your elements on page. Recently, we had a great discussion on our [discord server](https://discord.com/invite/3MdvPfT) about whether this is a good practice. Personally I strongly lean to "yes". If you are in this camp as well, I have some nice tips for you today.
 
