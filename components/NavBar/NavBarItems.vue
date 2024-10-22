@@ -3,7 +3,7 @@
     <NavBarItem title="Home" link="/" class="md:hidden" />
     <NavBarItem title="Blog" link="/blog" />
     <NavBarItem title="Workshops" link="/workshops" />
-    <!-- <NavBarItem title="Courses" link="/courses" /> -->
+    <NavBarItem title="Courses" link="/courses" />
     <NavBarItem title="Community" link="https://discord.com/invite/3MdvPfT" />
     <NavBarItem title="About" link="/about" />
     <button
