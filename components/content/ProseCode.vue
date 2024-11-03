@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-  <div class="code-block" :class="color" data-cy="code-block">
-    <div class="flex h-10 justify-between rounded-t-2xl bg-white px-6 py-1.5 font-mono text-black dark:bg-black-lighter dark:text-gray-100" data-cy="code-toolbar">
+  <div class="code-block shadow-block" data-cy="code-block">
+    <div class="flex h-10 justify-between bg-white px-6 py-1.5 font-mono text-black dark:bg-black-lighter dark:text-gray-100" data-cy="code-toolbar">
       <div class="grid grow-0 grid-cols-3 items-center gap-2">
         <!-- three dots -->
         <span class="h-3 w-3 rounded-full border border-punch-dark bg-punch" />
@@ -40,7 +40,6 @@ import 'prismjs/components/prism-bash'
 import 'prismjs/components/prism-yaml'
 import 'prismjs/components/prism-gherkin'
 import '@/helpers/prismjs/prism-treeview'
-import { randomColor } from '@/helpers/randomColor'
 import { resolveIcon } from '@/helpers/resolveIcon'
 import { punctuation } from '@/helpers/prismjs/punctuation'
 import { string } from '@/helpers/prismjs/string'
@@ -95,8 +94,6 @@ onMounted(() => {
   }
 })
 
-const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColor()}`
-
 </script>
 
 <style>
@@ -105,7 +102,7 @@ const color = `shadow-block-${randomColor()} dark:shadow-block-dark-${randomColo
 @import '~/assets/css/prism-treeview.css';
 
 .code-block {
-  @apply mt-10 mb-14 mr-2 rounded-2xl font-mono font-semibold text-sm md:text-base max-w-2xl;
+  @apply mt-10 mb-14 mr-2 font-mono font-semibold text-sm md:text-base max-w-2xl;
 }
 .copyToolbar:hover .copyLabel {
   opacity: 100%

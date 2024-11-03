@@ -1,4 +1,4 @@
-import { geolocation } from '@vercel/edge'
+import { geolocation } from '@vercel/functions'
 import { getPPPDiscountPercent } from '../helpers/parityCoupon'
 
 export const config = {

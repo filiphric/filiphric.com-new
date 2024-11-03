@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 place-content-center place-self-center md:mb-3 " :class="image && 'md:grid-cols-2'">
     <div class="my-14 grid place-items-center self-center md:place-items-start">
-      <h1 class="place-self-center text-5xl font-extrabold md:text-left lg:text-6xl">
+      <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl">
         <slot name="heading" />
       </h1>
       <div v-if="image" :class="hidingEnabled && 'hidden'" class="w-3/4 place-self-center self-center p-8 dark:mix-blend-lighten md:hidden">

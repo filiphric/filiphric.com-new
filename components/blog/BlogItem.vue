@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="item.slug" class="grid min-h-blog-item grid-flow-row place-content-between rounded-3xl bg-white p-9 dark:bg-black-lighter md:max-w-md" :class="styleClasses" data-cy="blog-item">
+  <NuxtLink :to="item.slug" class="grid min-h-blog-item grid-flow-row place-content-between bg-white p-9 dark:bg-black-lighter md:max-w-md shadow-block transition ease-in-out dark:duration-300" data-cy="blog-item">
     <div v-if="item.image" class="mb-7 grid place-items-center">
       <Image :src="item.image" class="w-10/12" :alt="item.title" />
     </div>
@@ -17,7 +17,6 @@
   </NuxtLink>
 </template>
 <script setup lang="ts">
-import { randomColor } from '@/helpers/randomColor'
 
 defineProps<{
   item: {
@@ -32,7 +31,4 @@ defineProps<{
   }
 }>()
 
-const randomizedColor = randomColor()
-
-const styleClasses = `shadow-block-${randomizedColor} dark:shadow-block-dark-${randomizedColor} transition ease-in-out dark:duration-300`
 </script>

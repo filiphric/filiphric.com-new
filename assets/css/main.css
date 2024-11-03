@@ -75,3 +75,41 @@ background-size: 100% 4px;
 .animatedIcon:hover > svg {
     transform: translate(6px)
 }
+
+/* Add these new styles */
+.shadow-block {
+  box-shadow: 
+    0px 0px 0 2px theme('colors.black.DEFAULT'),
+    8px 8px 0 var(--shadow-color),
+    8px 8px 0 2px theme('colors.black.DEFAULT');
+}
+
+/* Base shadow color */
+.shadow-block {
+  --shadow-color: theme('colors.cheese.DEFAULT');
+}
+
+/* Color cycling using nth-of-type */
+div:has(> .shadow-block):nth-of-type(6n+1) .shadow-block {
+  --shadow-color: theme('colors.cheese.DEFAULT');
+}
+
+div:has(> .shadow-block):nth-of-type(6n+2) .shadow-block {
+  --shadow-color: theme('colors.blueberry.DEFAULT');
+}
+
+div:has(> .shadow-block):nth-of-type(6n+3) .shadow-block {
+  --shadow-color: theme('colors.lime.DEFAULT');
+}
+
+div:has(> .shadow-block):nth-of-type(6n+4) .shadow-block {
+  --shadow-color: theme('colors.tangerine.DEFAULT');
+}
+
+div:has(> .shadow-block):nth-of-type(6n+5) .shadow-block {
+  --shadow-color: theme('colors.mint.DEFAULT');
+}
+
+div:has(> .shadow-block):nth-of-type(6n+6) .shadow-block {
+  --shadow-color: theme('colors.punch.DEFAULT');
+}

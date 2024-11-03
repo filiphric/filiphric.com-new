@@ -1,12 +1,13 @@
 <template>
   <NuxtLayout>
-    <ContentBlock image="/construction_gdzxj0.png" alt="Site under construction">
+    <ContentBlock image="/courses_p3h8ht.png" alt="Courses">
       <template #heading>
         Courses
       </template>
       <template #description>
-        Still working on this page, it will be up soon.
+        Explore the world of modern web testing with high quality courses.
       </template>
     </ContentBlock>
+    <CoursesList />
   </NuxtLayout>
 </template>
