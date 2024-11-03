@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2 grid items-center rounded-3xl bg-white p-9 dark:bg-black-lighter md:mx-0" :class="styleClasses" data-cy="course-item">
+  <div class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 shadow-block" data-cy="course-item">
     <div class="relative">
       <NuxtLink :to="item.comingSoon ? '#' : '/course/' + item.slug" @click="item.comingSoon ? null : useTrackEvent('Course - ' + item.title)">
         <Image 
@@ -7,7 +7,7 @@
           :class="['mb-7', { 'filter blur-md': item.comingSoon }]" 
           :alt="item.title" 
         />
-        <div v-if="item.comingSoon" class="absolute top-1/2 left-0 w-full transform -translate-y-1/2 text-white text-center py-2 font-bold uppercase text-5xl shadow-md bg-black bg-opacity-85" style="transform: rotate(-5deg);">
+        <div v-if="item.comingSoon" class="absolute top-[40%] left-0 w-full transform -translate-y-1/2 text-white text-center py-2 font-bold uppercase text-2xl shadow-md bg-black bg-opacity-85" style="transform: rotate(-5deg);">
           Coming Soon
         </div>
       </NuxtLink>
@@ -28,7 +28,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { randomColor } from '@/helpers/randomColor'
 
 const props = defineProps<{
   item: {
@@ -41,6 +40,4 @@ const props = defineProps<{
   }
 }>()
 
-const randomizedColor = randomColor()
-const styleClasses = `shadow-block-${randomizedColor} dark:shadow-block-dark-${randomizedColor}`
 </script>

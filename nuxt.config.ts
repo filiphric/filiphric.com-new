@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from 'nuxt/config'
 import svgLoader from 'vite-svg-loader'
 const isProduction = process.env.NODE_ENV === 'production'
 const hostname = isProduction ? 'https://filiphric.com' : 'http://localhost:3000'
@@ -99,8 +100,10 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel-static',
     prerender: {
-      routes: ['/sitemap.xml', '/rss.xml']
-    }
+      routes: ['/sitemap.xml', '/rss.xml'],
+      concurrency: 1,
+      failOnError: false
+    },
   },
 
   plausible: {
@@ -116,9 +119,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      convertkitApiKey: 'WtEuO8Nrmgh8k5YuNpyfiQ',
-      // test
-      // stripeApiKey: 'pk_test_51KefBzBnBECxBVfm1vTgllxVJpoU0bdU4sHAsZiio5SDFZLmdZTQYfTbfOR1rfRzA382bpL125RUkSGWvmocmOdq00a1b8UHfB'
       stripeApiKey: 'pk_live_51KefBzBnBECxBVfmEylMMx3HYzX4uzLsuxiG5M56wvvg9cJOiiFm96WwLeYVNvj2vlAC9phbDWeLP151bZhXGxcF00Yxg9Yq3s'
     }
   },
@@ -134,9 +134,14 @@ export default defineNuxtConfig({
   },
 
   typescript: {
+    strict: true,
+    typeCheck: false,
     tsConfig: {
+      type: 'module',
       compilerOptions: {
-        verbatimModuleSyntax: true
+        module: 'ES2015',
+        moduleResolution: 'nodenext',
+        verbatimModuleSyntax: false
       }
     }
   },

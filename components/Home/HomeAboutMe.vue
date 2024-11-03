@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-14 grid place-items-center gap-14 rounded-xl bg-ivory-dark p-7 dark:bg-black md:grid-cols-2 md:p-14">
+  <div class="mt-14 grid place-items-center gap-14 bg-ivory-dark p-7 dark:bg-black md:grid-cols-2 md:p-14">
     <h2 class="text-4xl font-semibold md:text-5xl">
       Hey, I’m Filip! 👋
     </h2>

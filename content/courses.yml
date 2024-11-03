@@ -3,7 +3,8 @@ body:
     description: Bite-sized tips to help you become a Cypress master. From mastering configuration and API testing, through advanced networking and DOM manipulation, to enhancing performance and debugging, you'll elevate your end-to-end testing skills in no time.
     slug: 99-cypress-tips
     image: cypress_tips_no_text_f36hyj.png
-    priceId: 'price_1MkwcQBnBECxBVfm82qvYyU5'
+    priceId: 'price_1QCp0oBnBECxBVfmv7GBLYn9'
+    comingSoon: true
   - title: Successful web automation with Cursor
     description: AI assisted coding for anyone who’s been hesitant to combine AI and web test automation. In this course, you'll learn how to use Cursor to write, debug, and automate tests, enhance your AI model and save yourself hours of manual work.
     slug: successful-web-automation-with-cursor

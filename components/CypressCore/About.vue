@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 place-content-center gap-7 bg-ivory-dark py-14 dark:bg-black md:mb-3 md:grid-cols-2">
     <div class="place-self-center self-center">
-      <div class="overflow-hidden rounded-3xl bg-white shadow-block-lime dark:bg-transparent dark:shadow-block-none md:w-full">
+      <div class="overflow-hidden  bg-white shadow-block-lime dark:bg-transparent dark:shadow-block-none md:w-full">
         <Image src="/small_square_kdhln0.png" alt="Filip Hric" class="block w-64" />
       </div>
     </div>

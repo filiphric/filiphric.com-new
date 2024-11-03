@@ -13,15 +13,9 @@
         </NuxtLink>
       </div>
     </div>
-    <div :class="styleClasses" class="w-full md:w-1/2 overflow-hidden rounded-3xl bg-white dark:bg-transparent">
+    <div class="shadow-block w-full md:w-1/2 overflow-hidden  bg-white dark:bg-transparent">
       <Image src="/5461DD52-D854-4811-A697-511EA508E4B7_1_105_c_y2slsp.jpg" alt="Filip Hric a selfie from a workshop" class="w-full h-auto" />
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { randomColor } from '@/helpers/randomColor'
-const randomizedColor = randomColor()
-
-const styleClasses = `shadow-block-${randomizedColor} dark:shadow-block-dark-${randomizedColor} dark:bg-transparent`
-</script>

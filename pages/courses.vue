@@ -5,7 +5,7 @@
         Courses
       </template>
       <template #description>
-        Explore the world of testing with curated selection of courses.
+        Explore the world of modern web testing with high quality courses.
       </template>
     </ContentBlock>
     <CoursesList />

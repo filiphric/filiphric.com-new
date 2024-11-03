@@ -13,7 +13,7 @@ import { isGreaterThanToday } from '@/helpers/isGreaterThanToday'
 const { data } = await useAsyncData('workshops', () => queryContent<MaybeRefOrGetter<any>>('/workshops').findOne())
 
 const upcomingWorkshop = computed(() => {
-  const result = data.value.body.filter((item: any) => isGreaterThanToday(item.startDate))[0]
+  const result = data?.value?.body.filter((item: any) => isGreaterThanToday(item.startDate))[0]
   return result
 })
 

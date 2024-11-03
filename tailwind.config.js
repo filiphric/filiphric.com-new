@@ -56,7 +56,16 @@ module.exports = {
         'blog-item': '650px'
       },
       boxShadow: ({ theme }) => ({
-        'block-none': 'none',
+        'block-base': `
+          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
+          7px 7px 10px 1px
+        `,
+        'block-dark-base': `
+          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
+          7px 7px 10px 1px
+        `,
         // light mode blocks used for code and blog list
         'block-cheese': `
           0px 0px 0 2px ${theme('colors.black.DEFAULT')},
@@ -139,19 +148,5 @@ module.exports = {
     }
 
   },
-  safelist: [
-    'shadow-block-cheese',
-    'shadow-block-blueberry',
-    'shadow-block-tangerine',
-    'shadow-block-lime',
-    'shadow-block-mint',
-    'shadow-block-punch',
-    'hover:shadow-block-hover-cheese',
-    'hover:shadow-block-hover-blueberry',
-    'hover:shadow-block-hover-tangerine',
-    'hover:shadow-block-hover-lime',
-    'hover:shadow-block-hover-mint',
-    'hover:shadow-block-hover-punch'
-  ],
   plugins: []
 }
