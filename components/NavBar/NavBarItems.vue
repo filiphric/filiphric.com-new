@@ -6,32 +6,6 @@
     <NavBarItem title="Courses" link="/courses" />
     <NavBarItem title="Community" link="https://discord.com/invite/3MdvPfT" />
     <NavBarItem title="About" link="/about" />
-    <button
-      @click="toggleTheme()"
-    >
-      <IconSun v-if="dark" class="h-7 w-7 fill-current pb-1" />
-      <IconMoon v-else class="h-7 w-7 fill-current pb-1" />
-    </button>
+    <AuthState />
   </div>
 </template>
-<script setup lang="ts">
-
-const dark = ref()
-
-onMounted(() => {
-  dark.value = localStorage.getItem('theme') === 'dark'
-})
-
-const toggleTheme = () => {
-  if (dark.value) {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
-    dark.value = false
-  } else {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-    dark.value = true
-  }
-}
-
-</script>
