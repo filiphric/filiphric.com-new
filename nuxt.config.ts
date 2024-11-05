@@ -95,6 +95,7 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible',
     '@nuxt/fonts',
     '@vueuse/nuxt',
+    '@nuxtjs/supabase'
   ],
 
   nitro: {
@@ -119,7 +120,12 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      stripeApiKey: 'pk_live_51KefBzBnBECxBVfmEylMMx3HYzX4uzLsuxiG5M56wvvg9cJOiiFm96WwLeYVNvj2vlAC9phbDWeLP151bZhXGxcF00Yxg9Yq3s'
+      stripeApiKey: 
+      'pk_live_51KefBzBnBECxBVfmEylMMx3HYzX4uzLsuxiG5M56wvvg9cJOiiFm96WwLeYVNvj2vlAC9phbDWeLP151bZhXGxcF00Yxg9Yq3s',
+      supabase: {
+        url: process.env.NUXT_PUBLIC_SUPABASE_URL,
+        key: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY
+      }
     }
   },
 
@@ -146,5 +152,14 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-07-19'
+  compatibilityDate: '2024-07-19',
+
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm'
+    }
+  }
 })
