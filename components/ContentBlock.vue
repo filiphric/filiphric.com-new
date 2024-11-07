@@ -4,7 +4,7 @@
       <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl">
         <slot name="heading" />
       </h1>
-      <div v-if="image" :class="hidingEnabled && 'hidden'" class="w-3/4 place-self-center self-center p-8 dark:mix-blend-lighten md:hidden">
+      <div v-if="image" :class="hidingEnabled && 'hidden'" class="w-3/4 place-self-center self-center p-8 dark:mix-blend md:hidden">
         <Image :src="image" :alt="alt" />
       </div>
       <p class="my-5 text-2xl font-semibold text-gray-400 md:text-left lg:text-3xl">
@@ -12,7 +12,7 @@
       </p>
       <slot name="paragraph" />
     </div>
-    <div v-if="image" class="hidden place-self-center self-center p-8 dark:mix-blend-lighten md:block md:w-full">
+    <div v-if="image" class="hidden place-self-center self-center p-8 dark:mix-blend md:block md:w-full">
       <Image :src="image" :alt="alt" />
     </div>
   </div>

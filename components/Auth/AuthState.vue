@@ -20,7 +20,7 @@
       <!-- Dropdown Menu -->
       <div 
         v-if="isOpen"
-        class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime"
+        class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-10"
       >
         <div class="py-2">
           <NuxtLink 
