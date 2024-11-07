@@ -10,6 +10,9 @@
       <NuxtLink to="/workshops" class="prettyLink max-w-fit">
         Workshops
       </NuxtLink>
+      <NuxtLink to="/courses" class="prettyLink max-w-fit">
+        Courses
+      </NuxtLink>
       <NuxtLink to="/setting-up-trelloapp" class="prettyLink max-w-fit">
         Trello app installation
       </NuxtLink>

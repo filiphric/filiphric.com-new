@@ -68,19 +68,16 @@ module.exports = {
         `,
         // light mode blocks used for code and blog list
         'block-cheese': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
           8px 8px 0 ${theme('colors.cheese.DEFAULT')},
           8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.cheese.DEFAULT')}
           `,
         'block-blueberry': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
           8px 8px 0 ${theme('colors.blueberry.DEFAULT')},
           8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.blueberry.DEFAULT')}
           `,
         'block-tangerine': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
           8px 8px 0 ${theme('colors.tangerine.DEFAULT')},
           8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.tangerine.DEFAULT')}

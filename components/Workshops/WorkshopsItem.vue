@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2 grid items-center  bg-white p-9 dark:bg-black-lighter md:mx-0" :class="styleClasses" data-cy="workshop-item">
+  <div class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 border-2 border-black" :class="styleClasses" data-cy="workshop-item">
     <NuxtLink :to="'/workshop/' + item.slug" @click="useTrackEvent('Workshop - ' + item.title)">
       <Image :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" :alt="item.title" />
     </NuxtLink>

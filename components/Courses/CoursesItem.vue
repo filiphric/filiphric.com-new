@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 shadow-block" data-cy="course-item">
+  <div class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 shadow-block border-2 border-black" data-cy="course-item">
     <div class="relative">
       <NuxtLink :to="item.comingSoon ? '#' : '/course/' + item.slug" @click="item.comingSoon ? null : useTrackEvent('Course - ' + item.title)">
         <Image 
