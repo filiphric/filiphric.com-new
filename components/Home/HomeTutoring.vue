@@ -11,7 +11,7 @@
         I help individuals grow and improve their test automation game. Together we solve obscure testing problems, brainstorm solutions or prepare for technical interviews.
       </p>
       <div class="text-lg md:text-xl lg:text-2xl">
-        <ActionButton to="/tutoring" class="-rotate-1">
+        <ActionButton to="/individual-tutoring" class="-rotate-1">
           Learn more
         </ActionButton>
       </div>

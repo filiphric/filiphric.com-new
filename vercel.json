@@ -46,10 +46,6 @@
       "source": "/cypress-ts-workshop"
     },
     {
-      "destination": "https://calendly.com/filip_hric/tutoring",
-      "source": "/tutoring"
-    },
-    {
       "destination": "https://plausible.io/filiphric.com",
       "source": "/analytics"
     },
