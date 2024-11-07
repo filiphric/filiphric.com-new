@@ -46,7 +46,8 @@ const signInWithGithub = async () => {
     const { error: err } = await client.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`
+        redirectTo: `${window.location.origin}/auth/callback`,
+        scopes: 'read:user user:email'
       }
     })
     if (err) throw err

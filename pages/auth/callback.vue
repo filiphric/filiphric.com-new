@@ -26,28 +26,32 @@
 
 <script setup lang="ts">
 const client = useSupabaseClient()
-const user = useSupabaseUser()
 const error = ref('')
 
-// Watch for user auth state
-watch(user, (newUser) => {
-  if (newUser) {
-    navigateTo('/profile')
-  }
-}, { immediate: true })
-
-// Handle the hash fragment from OAuth
-onMounted(() => {
-  const handleCallback = async () => {
-    try {
+onMounted(async () => {
+  try {
+    // Get the URL hash
+    const hash = window.location.hash
+    
+    if (hash) {
+      // Exchange the token
       const { error: err } = await client.auth.getSession()
       if (err) throw err
-    } catch (err) {
-      error.value = 'Error completing login. Please try again.'
-      console.error('Auth callback error:', err)
     }
-  }
 
-  handleCallback()
+    // Check if we have a valid session
+    const { data: { session } } = await client.auth.getSession()
+    
+    if (session) {
+      // Wait a moment to show loading state
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      navigateTo('/profile')
+    } else {
+      throw new Error('No session found')
+    }
+  } catch (err) {
+    console.error('Auth callback error:', err)
+    error.value = 'Error completing login. Please try again.'
+  }
 })
 </script> 

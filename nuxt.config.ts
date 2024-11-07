@@ -151,7 +151,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-07-19',
 
   supabase: {
-    redirect: false
+    redirectOptions: {
+      login: '/auth',
+      callback: '/auth/callback',
+      exclude: ['/*'],
+    }
   }
 
 })
