@@ -7,15 +7,15 @@
         <button 
           @click="signInWithGithub"
           :disabled="loading"
-          class="w-full bg-white px-7 py-3 text-xl font-black uppercase shadow-block-lime transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-block-hover-lime dark:bg-black-light flex items-center justify-center gap-3 disabled:opacity-50"
+          class="w-full bg-white px-7 py-3 text-xl font-black uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 hover:shadow-block-hover-lime dark:bg-black-lighter flex items-center justify-center gap-3 disabled:opacity-50 border-2 border-black"
         >
           <IconGithub class="w-6 h-6" />
           {{ loading ? 'Connecting...' : 'Continue with GitHub' }}
         </button>
 
         <p class="text-center text-sm text-gray-500 mt-5">
-          By continuing, you agree to create an account and accept our 
-          <NuxtLink to="/privacy-policy" class="prettyLink">privacy policy</NuxtLink>.
+          By continuing, you agree to create an account and accept the 
+          <NuxtLink to="/privacy-policy" class="prettyLink font-extrabold">privacy policy</NuxtLink>.
         </p>
       </div>
 

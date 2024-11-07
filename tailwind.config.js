@@ -86,7 +86,6 @@ module.exports = {
           7px 7px 10px 1px ${theme('colors.tangerine.DEFAULT')}
           `,
         'block-lime': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
           8px 8px 0 ${theme('colors.lime.DEFAULT')},
           8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.lime.DEFAULT')}
