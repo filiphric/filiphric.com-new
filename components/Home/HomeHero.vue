@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="place-self-center self-center p-7">
-      <div class="shadow-block overflow-hidden  bg-white md:w-full">
+      <div class="shadow-block overflow-hidden rotate-1 bg-white md:w-full">
         <Image src="/small_square_kdhln0.png" alt="Filip Hric" />
       </div>
     </div>

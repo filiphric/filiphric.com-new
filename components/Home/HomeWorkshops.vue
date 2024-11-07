@@ -8,12 +8,12 @@
         I conduct live and online workshops on Cypress.io. I am a big believer of learning by doing. This is why you can expect hands-on experience instead of lengthy lecture. Over the years, I have taught hundreds of participants on how to effectively use Cypress.io and helped them apply best practices.
       </p>
       <div class="text-lg md:text-xl lg:text-2xl">
-        <NuxtLink to="/workshops" class="prettyLink inline-block font-bold">
-          Learn more <IconArrowForward class="inline transition-all ease-in-out" />
-        </NuxtLink>
+        <ActionButton to="/workshops" class="rotate-1">
+          Learn more
+        </ActionButton>
       </div>
     </div>
-    <div class="shadow-block w-full md:w-1/2 overflow-hidden  bg-white dark:bg-transparent">
+    <div class="shadow-block w-full md:w-1/2 overflow-hidden  bg-white dark:bg-transparent -rotate-1">
       <Image src="/5461DD52-D854-4811-A697-511EA508E4B7_1_105_c_y2slsp.jpg" alt="Filip Hric a selfie from a workshop" class="w-full h-auto" />
     </div>
   </div>

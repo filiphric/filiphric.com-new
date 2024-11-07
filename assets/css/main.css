@@ -78,6 +78,7 @@ background-size: 100% 4px;
 
 /* Add these new styles */
 .shadow-block {
+  @apply border-2 border-black dark:border-black-lighter;
   box-shadow: 
     8px 8px 0 var(--shadow-color),
     8px 8px 0 2px theme('colors.black.DEFAULT');
@@ -89,26 +90,26 @@ background-size: 100% 4px;
 }
 
 /* Color cycling using nth-of-type */
-div:has(> .shadow-block):nth-of-type(6n+1) .shadow-block {
+.shadow-block:nth-of-type(6n+1)  {
   --shadow-color: theme('colors.cheese.DEFAULT');
 }
 
-div:has(> .shadow-block):nth-of-type(6n+2) .shadow-block {
+.shadow-block:nth-of-type(6n+2)  {
   --shadow-color: theme('colors.blueberry.DEFAULT');
 }
 
-div:has(> .shadow-block):nth-of-type(6n+3) .shadow-block {
+.shadow-block:nth-of-type(6n+3)  {
   --shadow-color: theme('colors.lime.DEFAULT');
 }
 
-div:has(> .shadow-block):nth-of-type(6n+4) .shadow-block {
+.shadow-block:nth-of-type(6n+4)  {
   --shadow-color: theme('colors.tangerine.DEFAULT');
 }
 
-div:has(> .shadow-block):nth-of-type(6n+5) .shadow-block {
+.shadow-block:nth-of-type(6n+5)  {
   --shadow-color: theme('colors.mint.DEFAULT');
 }
 
-div:has(> .shadow-block):nth-of-type(6n+6) .shadow-block {
+.shadow-block:nth-of-type(6n+6)  {
   --shadow-color: theme('colors.punch.DEFAULT');
 }

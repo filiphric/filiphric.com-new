@@ -59,7 +59,7 @@ const profile = ref<any>(null)
 // Close dropdown when clicking outside
 onMounted(() => {
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.relative')) {
+    if (!(e.target as HTMLElement).closest('.relative')) {
       isOpen.value = false
     }
   })

@@ -5,16 +5,16 @@
         Conference talks
       </h2>
       <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
-        I am an international keynote speaker. I have spoken on conferences, webinars and events around the world. I like to do live coding on stage and demonstrate real-life examples and problem solutions.
+        I am an international keynote speaker. I like to do live coding on stage and demonstrate real-life examples and problem solutions.
       </p>
       <div class="text-lg md:text-xl lg:text-2xl">
-        <NuxtLink to="/talks" class="prettyLink inline-block font-bold">
-          Learn more <IconArrowForward class="inline transition-all ease-in-out" />
-        </NuxtLink>
+        <ActionButton to="/talks" class="rotate-1">
+          Learn more
+        </ActionButton>
       </div>
     </div>
-    <div class="shadow-block w-full md:w-1/2 overflow-hidden  bg-white dark:bg-transparent">
-      <Image src="/qbVORmN8_ukrn1u.png" alt="Filip Hric on conference stage" class="w-full h-auto" />
+    <div class="shadow-block w-full md:w-1/2 overflow-hidden  bg-white dark:bg-transparent -rotate-1">
+      <Image src="/conference_ryhkey.png" alt="Filip Hric on conference stage" class="w-full h-auto" />
     </div>
   </div>
 </template>

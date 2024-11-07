@@ -13,7 +13,7 @@
           v-model="firstName"
           type="text"
           name="firstName"
-          class="mt-1 h-10 w-full bg-white px-5 text-lg border-2 border-black-light outline-none transition-all   dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
+          class="mt-1 h-10 w-full bg-white px-5 text-lg border-2 border-black dark:border-black-lightest outline-none transition-all   dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
           :class="errorEmail && 'border border-punch'"
         >
         <label for="email" class="mt-3 block" :class="errorEmail && 'text-punch'">Email</label>
@@ -21,7 +21,7 @@
           v-model="emailAddress"
           name="email"
           type="email"
-          class="mt-1 h-10 w-full bg-white px-5 text-lg border-2 border-black-light outline-none transition-all dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
+          class="mt-1 h-10 w-full bg-white px-5 text-lg border-2 border-black dark:border-black-lightest  outline-none transition-all dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
           :class="errorFirstName && 'border border-punch'"
         >
         <div>

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="item.slug" class="grid min-h-blog-item grid-flow-row place-content-between bg-white p-9 dark:bg-black-lighter md:max-w-md shadow-block transition ease-in-out duration-200 border-2 border-black" data-cy="blog-item">
+  <NuxtLink :to="item.slug" class="grid min-h-blog-item grid-flow-row place-content-between bg-white p-9 dark:bg-black-lighter md:max-w-md shadow-block transition ease-in-out duration-200" data-cy="blog-item">
     <div v-if="item.image" class="mb-7 grid place-items-center">
       <Image :src="item.image" class="w-10/12" :alt="item.title" />
     </div>
