@@ -13,7 +13,7 @@
           @keydown.down.prevent="navigateResults(1)"
           @keydown.up.prevent="navigateResults(-1)"
         >
-        <div v-if="searchQuery.length" class="mt-8 space-y-4">
+        <div v-if="searchQuery.length && results" class="mt-8 space-y-4">
           <div 
             v-for="(result, index) in results" 
             :key="result.item.slug" 
@@ -21,11 +21,11 @@
           >
             <div @click="handleClick(result.item.slug)" class="cursor-pointer">
               <div class="text-lg" v-html="highlightMatch(result.item.title)"></div>
-            <div v-if="result.item.description" class="mt-2 text-sm text-gray-600 dark:text-gray-400" v-html="highlightMatch(result.item.description)"></div>
-            <div v-if="result.item.tags" class="mt-2 text-sm">
-              <span v-for="tag in result.item.tags" :key="tag" class="mr-2 text-gray-600 dark:text-gray-400" v-html="highlightMatch('#' + tag)"></span>
+              <div v-if="result.item.description" class="mt-2 text-sm text-gray-600 dark:text-gray-400" v-html="highlightMatch(result.item.description)"></div>
+              <div v-if="result.item.tags" class="mt-2 text-sm">
+                <span v-for="tag in result.item.tags" :key="tag" class="mr-2 text-gray-600 dark:text-gray-400" v-html="highlightMatch('#' + tag)"></span>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -35,32 +35,58 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useFuse } from '@vueuse/integrations/useFuse'
-import { useAsyncData, useRouter } from '#app'
-import { type MaybeRefOrGetter } from '@vueuse/core'
+import Fuse from 'fuse.js'
+import { useRouter } from '#app'
 
 const emit = defineEmits(['hide'])
 const router = useRouter()
 
 const props = defineProps({
   show: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 
 const searchQuery = ref('')
 const searchInput = ref<HTMLInputElement | null>(null)
 const selectedIndex = ref(0)
+const results = ref<any[]>([])
+const searchData = ref<any[]>([])
 
-const { data } = await useAsyncData(() => queryContent<MaybeRefOrGetter<any>>('/').where({ published: true }).sort({ date: -1 }).find())
+// Fetch search data
+const { data } = await useAsyncData<any[]>('search-content', () => 
+  queryContent('/')
+    .where({ published: true })
+    .sort({ date: -1 })
+    .find()
+)
 
-const { results } = useFuse(searchQuery, data as Ref<any[]>, {
-  matchAllWhenSearchEmpty: true,
-  fuseOptions: {
-    keys: ['title', 'description', 'tags']
+// Initialize Fuse instance
+const fuse = ref<Fuse<any> | null>(null)
+
+watch(data, (newData) => {
+  if (newData) {
+    searchData.value = newData
+    fuse.value = new Fuse(newData, {
+      keys: ['title', 'description', 'tags'],
+      threshold: 0.3,
+      includeMatches: true
+    })
   }
+}, { immediate: true })
+
+// Search when query changes
+watch(searchQuery, (query) => {
+  if (query && fuse.value) {
+    results.value = fuse.value.search(query)
+  } else {
+    results.value = []
+  }
+  selectedIndex.value = 0
 })
 
+// Handle show/hide
 watch(() => props.show, (newValue) => {
   if (newValue) {
     nextTick(() => {
@@ -69,15 +95,8 @@ watch(() => props.show, (newValue) => {
   } else {
     searchQuery.value = ''
     selectedIndex.value = 0
+    results.value = []
   }
-})
-
-watch(searchQuery, () => {
-  selectedIndex.value = 0
-})
-
-watch(results, (newResults) => {
-  selectedIndex.value = newResults.length > 0 ? 0 : -1
 })
 
 const handleEnter = () => {
@@ -89,8 +108,8 @@ const handleEnter = () => {
 }
 
 const handleClick = (slug: string) => {
-    router.push(slug)
-    emit('hide')
+  router.push(slug)
+  emit('hide')
 }
 
 const navigateResults = (direction: number) => {
@@ -100,7 +119,7 @@ const navigateResults = (direction: number) => {
 }
 
 const highlightMatch = (text: string) => {
-  if (!searchQuery.value) return text
+  if (!searchQuery.value || !text) return text
   const regex = new RegExp(`(${searchQuery.value})`, 'gi')
   return text.replace(regex, '<mark class="bg-cheese dark:bg-cheese">$1</mark>')
 }
