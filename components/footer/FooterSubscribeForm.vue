@@ -13,16 +13,16 @@
           v-model="firstName"
           type="text"
           name="firstName"
-          class="mt-1 h-10 w-full bg-white px-5 text-lg shadow-block-tangerine outline-none transition-all   dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
-          :class="errorEmail && 'dark:border dark:border-punch shadow-block-punch'"
+          class="mt-1 h-10 w-full bg-white px-5 text-lg border-2 border-black-light outline-none transition-all   dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
+          :class="errorEmail && 'border border-punch'"
         >
         <label for="email" class="mt-3 block" :class="errorEmail && 'text-punch'">Email</label>
         <input
           v-model="emailAddress"
           name="email"
           type="email"
-          class="mt-1 h-10 w-full bg-white px-5 text-lg shadow-block-tangerine outline-none transition-all dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
-          :class="errorFirstName && 'dark:border dark:border-punch shadow-block-punch'"
+          class="mt-1 h-10 w-full bg-white px-5 text-lg border-2 border-black-light outline-none transition-all dark:bg-black-light dark:shadow-block-none dark:focus:bg-black-lighter"
+          :class="errorFirstName && 'border border-punch'"
         >
         <div>
           <p
@@ -34,7 +34,7 @@
         </div>
         <button
           type="submit"
-          class="mt-5 bg-white px-7 py-3 font-bold uppercase shadow-block-lime transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-block-hover-lime dark:bg-black-light dark:shadow-block-dark-blueberry dark:duration-300 dark:hover:translate-x-0 dark:hover:translate-y-0 dark:hover:bg-black-lighter dark:hover:shadow-block-dark-hover-blueberry"
+          class="mt-5 border-black border-2 bg-white px-7 py-3 font-bold uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 hover:shadow-block-hover-lime dark:bg-black-lighter dark:duration-300"
         >
           Subscribe
         </button>

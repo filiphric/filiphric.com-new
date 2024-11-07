@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-black-darkrounded-lg dark:shadow-block-dark-cheese flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-cheese dark:bg-black-dark">
+    <div class="flex justify-center bg-white p-7 py-4 font-bold shadow-block dark:bg-black-dark">
     <div class="w-full p-7">
       <div>
         <Image src="magnifying_glas_zpnzd9.png" class="mx-auto mb-7 block w-52" alt="Get to know Cypress" />

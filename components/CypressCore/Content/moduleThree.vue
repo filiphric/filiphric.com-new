@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-black-darkrounded-lg dark:shadow-block-dark-tangerine flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-tangerine dark:bg-black-dark">
+  <div class="flex justify-center bg-white p-7 py-4 font-bold shadow-block dark:bg-black-dark">
     <div class="w-full p-7">
       <div>
         <Image src="rocket_cxeqeq.png" class="mx-auto mb-7 block w-52" alt="Working with network" />

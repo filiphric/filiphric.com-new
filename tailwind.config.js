@@ -91,18 +91,7 @@ module.exports = {
           8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.lime.DEFAULT')}
           `,
-        'block-mint': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          8px 8px 0 ${theme('colors.mint.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.mint.DEFAULT')}
-          `,
-        'block-punch': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          8px 8px 0 ${theme('colors.punch.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.punch.DEFAULT')}
-          `,
+
         // light mode blocks for hovered state
         'block-hover-cheese': `
           0px 0px 0 2px ${theme('colors.black.DEFAULT')},
@@ -123,9 +112,8 @@ module.exports = {
           7px 7px 10px 1px ${theme('colors.tangerine.DEFAULT')}
           `,
         'block-hover-lime': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          12px 12px 0 ${theme('colors.lime.DEFAULT')},
-          12px 12px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 ${theme('colors.lime.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.lime.DEFAULT')}
           `,
         'block-hover-mint': `

@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-black-darkrounded-lg dark:shadow-block-dark-lime flex justify-center rounded-lg bg-white p-7 py-4 font-bold shadow-block-lime dark:bg-black-dark">
+    <div class="flex justify-center bg-white p-7 py-4 font-bold shadow-block dark:bg-black-dark">
     <div class="w-full p-7">
       <div>
         <Image src="tricycle_whgyxo.png" class="mx-auto mb-7 block w-52" alt="Understanding basics" />

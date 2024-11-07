@@ -151,6 +151,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-07-19',
 
   supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
     redirectOptions: {
       login: '/auth',
       callback: '/auth/callback',
