@@ -20,7 +20,7 @@
       <!-- Dropdown Menu -->
       <div 
         v-if="isOpen"
-        class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-10"
+        class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-10 border-2 border-black"
       >
         <div class="py-2">
           <NuxtLink 
@@ -41,7 +41,7 @@
     </template>
     <template v-else>
       <NuxtLink 
-        to="/auth"
+        to="/login"
         class="prettyLink"
       >
         Login
