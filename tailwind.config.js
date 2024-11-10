@@ -96,32 +96,28 @@ module.exports = {
 
         // light mode blocks for hovered state
         'block-hover-cheese': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          12px 12px 0 ${theme('colors.cheese.DEFAULT')},
-          12px 12px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 ${theme('colors.cheese.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.cheese.DEFAULT')}
           `,
         'block-hover-blueberry': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          12px 12px 0 ${theme('colors.blueberry.DEFAULT')},
-          12px 12px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 ${theme('colors.blueberry.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.blueberry.DEFAULT')}
           `,
         'block-hover-tangerine': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          12px 12px 0 ${theme('colors.tangerine.DEFAULT')},
-          12px 12px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 ${theme('colors.tangerine.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.tangerine.DEFAULT')}
           `,
         'block-hover-lime': `
-          8px 8px 0 2px ${theme('colors.lime.DEFAULT')},
+          8px 8px 0 ${theme('colors.lime.DEFAULT')},
           8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.lime.DEFAULT')}
           `,
         'block-hover-mint': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          12px 12px 0 ${theme('colors.mint.DEFAULT')},
-          12px 12px 0 2px ${theme('colors.black.DEFAULT')},
+          8px 8px 0 ${theme('colors.mint.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
           7px 7px 10px 1px ${theme('colors.mint.DEFAULT')}
           `,
         'block-hover-punch': `
