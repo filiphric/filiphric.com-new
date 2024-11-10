@@ -1,17 +1,18 @@
 <template>
-  <div class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 border-2 border-black" :class="styleClasses" data-cy="workshop-item">
+  <div 
+    class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 border-2 border-black" 
+    :class="blockClass" 
+    data-cy="workshop-item"
+  >
     <NuxtLink :to="'/workshop/' + item.slug" @click="useTrackEvent('Workshop - ' + item.title)">
-      <Image :src="item.image" :class="item.featured ? 'mb-0 md:mb-7' : 'mb-7'" :alt="item.title" />
+      <Image :src="item.image" class="mb-7" :alt="item.title" />
     </NuxtLink>
     <div>
       <NuxtLink :to="'/workshop/' + item.slug">
-        <h2 class="font-black" :class="item.featured ?'md:text-5xl text-3xl' : 'text-3xl'">
+        <h2 class="font-black text-3xl">
           {{ item.title }}
         </h2>
       </NuxtLink>
-      <div v-if="item.featured" class="dark:shadow-block-dark-lime mt-5 inline-block bg-white px-3 py-0.5 font-black uppercase shadow-block-lime dark:bg-transparent">
-        Featured
-      </div>
       <div class="mt-5 text-xs">
         Next workshop date:
       </div>
@@ -39,14 +40,13 @@ const props = defineProps<{
     date: string
     time: string
     days: string
-  }
+  },
+  colorIndex: number
 }>()
 
 const upcomingWorkshop = computed(() => {
   return isGreaterThanToday(props.item.startDate)
 })
 
-const featuredItem = props.item.featured ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'
-
-const styleClasses = `shadow-block ${featuredItem}`
+const blockClass = computed(() => useColorCycle(props.colorIndex))
 </script>

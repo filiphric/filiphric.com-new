@@ -5,7 +5,7 @@
         Cypress TypeScript workshop
       </template>
       <template #description>
-        Next date will be announced soon. Subscribe to newlstter if you want to be notified.
+        Next date will be announced soon. Subscribe to the newsletter if you want to be notified.
       </template>
     </ContentBlock>
   </NuxtLayout>

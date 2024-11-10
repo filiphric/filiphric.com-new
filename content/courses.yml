@@ -4,6 +4,7 @@ body:
     slug: 99-cypress-tips
     image: 99-tips_w1obly.png
     priceId: 'price_1QCp0oBnBECxBVfmv7GBLYn9'
+    comingSoon: true
   - title: Successful web automation with Cursor
     description: AI assisted coding for anyone who’s been hesitant to combine AI and web test automation. In this course, you'll learn how to use Cursor to write, debug, and automate tests, enhance your AI model and save yourself hours of manual work.
     slug: successful-web-automation-with-cursor

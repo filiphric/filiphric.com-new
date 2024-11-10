@@ -57,81 +57,44 @@ module.exports = {
         'blog-item': '650px'
       },
       boxShadow: ({ theme }) => ({
-        'block-base': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px
-        `,
-        'block-dark-base': `
-          0px 0px 0 2px ${theme('colors.black.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px
-        `,
-        // light mode blocks used for code and blog list
         'block-cheese': `
           8px 8px 0 ${theme('colors.cheese.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.cheese.DEFAULT')}
-          `,
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')}
+        `,
         'block-blueberry': `
           8px 8px 0 ${theme('colors.blueberry.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.blueberry.DEFAULT')}
-          `,
-        'block-tangerine': `
-          8px 8px 0 ${theme('colors.tangerine.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.tangerine.DEFAULT')}
-          `,
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')}
+        `,
         'block-lime': `
           8px 8px 0 ${theme('colors.lime.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.lime.DEFAULT')}
-          `,
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')}
+        `,
+        'block-tangerine': `
+          8px 8px 0 ${theme('colors.tangerine.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')}
+        `,
+        'block-mint': `
+          8px 8px 0 ${theme('colors.mint.DEFAULT')},
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')}
+        `,
         'block-punch': `
           8px 8px 0 ${theme('colors.punch.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.punch.DEFAULT')}
-          `,
-
-        // light mode blocks for hovered state
-        'block-hover-cheese': `
-          8px 8px 0 ${theme('colors.cheese.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.cheese.DEFAULT')}
-          `,
-        'block-hover-blueberry': `
-          8px 8px 0 ${theme('colors.blueberry.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.blueberry.DEFAULT')}
-          `,
-        'block-hover-tangerine': `
-          8px 8px 0 ${theme('colors.tangerine.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.tangerine.DEFAULT')}
-          `,
-        'block-hover-lime': `
-          8px 8px 0 ${theme('colors.lime.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.lime.DEFAULT')}
-          `,
-        'block-hover-mint': `
-          8px 8px 0 ${theme('colors.mint.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.mint.DEFAULT')}
-          `,
-        'block-hover-punch': `
-          8px 8px 0 ${theme('colors.punch.DEFAULT')},
-          8px 8px 0 2px ${theme('colors.black.DEFAULT')},
-          7px 7px 10px 1px ${theme('colors.punch.DEFAULT')}
-          `,
+          8px 8px 0 2px ${theme('colors.black.DEFAULT')}
+        `
       })
     },
     fontFamily: {
       mono: ['Fira Code'],
       sans: ['Nunito Sans']
     }
-
   },
+  safelist: [
+    'shadow-block-cheese',
+    'shadow-block-blueberry',
+    'shadow-block-lime',
+    'shadow-block-tangerine',
+    'shadow-block-mint',
+    'shadow-block-punch'
+  ],
   plugins: []
 }

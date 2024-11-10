@@ -1,0 +1,35 @@
+- title: Test Network Edge Cases with .intercept() Command in Cypress
+  description: A focused course on how to use the .intercept() command to test network edge cases in Cypress. Shows a variety of practical applications of network interception.
+  image: cypress_dk7ilc.png
+  external: true
+  url: https://egghead.io/courses/test-network-edge-cases-with-cy-intercept-command-in-cypress-0fd94c68
+- title: Write, Test, and Debug Vue 3 Components in the Browser Using Cypress
+  description: A course on how to write, test, and debug Vue 3 components in the browser using Cypress.
+  external: true
+  image: egh_vue-cypress_2000_sru1si.png
+  url: https://egghead.io/courses/write-test-and-debug-vue-3-components-in-the-browser-using-cypress-3723fe80
+- title: Introduction to Cypress
+  description: Completely free course hosted on Test automation University. This course will teach you the basics of Cypress and will give you a solid foundation to build on.
+  external: true
+  image: course88_qchyjc.png
+  url: https://testautomationu.applitools.com/cypress-getting-started/
+- title: Advanced Cypress
+  description: Free course hosted on Test automation University. This course will teach you the advanced features of Cypress and how to use them to their full potential.
+  external: true
+  image: course89_cltecz.png
+  url: https://testautomationu.applitools.com/cypress-advanced/
+- title: Cypress with TypeScript
+  description: Free course hosted on Test automation University. This course will teach you how to use Cypress with TypeScript and will give you a solid foundation to build on.
+  external: true
+  image: course76_vlucnj.png
+  url: https://testautomationu.applitools.com/cypress-with-typescript/
+- title: Automatizácia v Cypress.io v12 🇸🇰
+  description: Slovak course hosted on Skillmea. This course is a well-rounded overview of Cypress and will teach you the basics as well as some more advanced topics.
+  external: true
+  image: Screenshot_2024-11-10_at_09.15.38_sivqay.png
+  url: https://skillmea.sk/online-kurzy/automatizacia-v-cypress-io-v12
+- title: Cypress kurz Tesena 🇸🇰
+  description: Czech course hosted on Tesena. This course is a well-rounded overview of Cypress and will teach you the basics as well as some more advanced topics.
+  external: true
+  image: images_hhb1uw.png
+  url: https://www.tesena.com/sk-cypress-io/a-484/
