@@ -32,7 +32,7 @@ useHead({
   meta: [
     {
       name: 'image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${workshopInfo.value.title}&description=${workshopInfo.value.description}&date=${workshopInfo.value.date}&days=${workshopInfo.value.days}`
+      content: `https://og.filiphric.com/api/og?image=${workshopInfo.value.image}&title=${workshopInfo.value.title}&description=${workshopInfo.value.description}&date=${workshopInfo.value.date}&days=${workshopInfo.value.days}`
     },
     {
       property: 'og:url',
@@ -40,7 +40,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${workshopInfo.value.title}&description=${workshopInfo.value.description}&date=${workshopInfo.value.date}&days=${workshopInfo.value.days}`
+      content: `https://og.filiphric.com/api/og?image=${workshopInfo.value.image}&title=${workshopInfo.value.title}&description=${workshopInfo.value.description}&date=${workshopInfo.value.date}&days=${workshopInfo.value.days}`
     },
     {
       property: 'twitter:card',
@@ -52,7 +52,7 @@ useHead({
     },
     {
       property: 'twitter:image',
-      content: `https://filiphric-com-og.vercel.app/api/og?image=${workshopInfo.value.image}&title=${workshopInfo.value.title}&description=${workshopInfo.value.description}&date=${workshopInfo.value.date}&days=${workshopInfo.value.days}`
+      content: `https://og.filiphric.com/api/og?image=${workshopInfo.value.image}&title=${workshopInfo.value.title}&description=${workshopInfo.value.description}&date=${workshopInfo.value.date}&days=${workshopInfo.value.days}`
     },
     {
       property: 'article:published_time',

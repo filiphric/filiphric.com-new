@@ -25,7 +25,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'image',
-          content: 'https://filiphric-com-og.vercel.app/api/og?image'
+          content: 'https://og.filiphric.com/api/og?image'
         },
         {
           property: 'og:url',
@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:image',
-          content: 'https://filiphric-com-og.vercel.app/api/og?image'
+          content: 'https://og.filiphric.com/api/og?image'
         },
         {
           property: 'twitter:card',
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         },
         {
           property: 'twitter:image',
-          content: 'https://filiphric-com-og.vercel.app/api/og?image'
+          content: 'https://og.filiphric.com/api/og?image'
         }
       ],
       link: [

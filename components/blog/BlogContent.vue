@@ -46,7 +46,7 @@ if (props.doc) {
     meta: [
       {
         name: 'image',
-        content: `https://filiphric-com-og.vercel.app/api/og?image=${props.doc.image}&title=${props.doc.title}&readingTime=${props.doc.readingTime.text}`
+        content: `https://og.filiphric.com/api/og?image=${props.doc.image}&title=${props.doc.title}&readingTime=${props.doc.readingTime.text}`
       },
       {
         property: 'og:url',
@@ -66,7 +66,7 @@ if (props.doc) {
       },
       {
         property: 'og:image',
-        content: `https://filiphric-com-og.vercel.app/api/og?image=${props.doc.image}&title=${props.doc.title}&readingTime=${props.doc.readingTime.text}`
+        content: `https://og.filiphric.com/api/og?image=${props.doc.image}&title=${props.doc.title}&readingTime=${props.doc.readingTime.text}`
       },
       {
         property: 'twitter:card',
@@ -86,7 +86,7 @@ if (props.doc) {
       },
       {
         property: 'twitter:image',
-        content: `https://filiphric-com-og.vercel.app/api/og?image=${props.doc.image}&title=${props.doc.title}&readingTime=${props.doc.readingTime.text}`
+        content: `https://og.filiphric.com/api/og?image=${props.doc.image}&title=${props.doc.title}&readingTime=${props.doc.readingTime.text}`
       },
       {
         property: 'article:published_time',
