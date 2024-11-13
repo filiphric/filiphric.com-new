@@ -12,11 +12,6 @@
           <IconGithub class="w-6 h-6" />
           {{ loading ? 'Connecting...' : 'Continue with GitHub' }}
         </button>
-
-        <p class="text-center text-sm text-gray-500 mt-5">
-          By continuing, you agree to create an account and accept the 
-          <NuxtLink to="/privacy-policy" class="prettyLink font-extrabold">privacy policy</NuxtLink>.
-        </p>
       </div>
 
       <div v-if="error" class="mt-4 text-red-500 text-center">
@@ -28,31 +23,31 @@
 
 <script setup lang="ts">
 const client = useSupabaseClient()
-const user = useSupabaseUser()
 const error = ref('')
 const loading = ref(false)
+const route = useRoute()
 
-// Redirect if already logged in
-watch(user, (newUser) => {
-  if (newUser) {
-    navigateTo('/profile')
-  }
-}, { immediate: true })
+// Store redirect URL if present in query params
+if (route.query.redirectTo) {
+  const redirect = useCookie('authRedirect')
+  redirect.value = route.query.redirectTo as string
+}
 
 const signInWithGithub = async () => {
   try {
     loading.value = true
     error.value = ''
+    
     const { error: err } = await client.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-        scopes: 'read:user user:email'
+        redirectTo: `${window.location.origin}/auth/callback`
       }
     })
+    
     if (err) throw err
-  } catch (err) {
-    error.value = err.message
+  } catch (err: any) {
+    error.value = err?.message || 'An error occurred'
   } finally {
     loading.value = false
   }

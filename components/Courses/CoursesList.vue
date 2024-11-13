@@ -1,15 +1,23 @@
 <template>
   <div>
-    <div class="flex grow flex-wrap">
-      <div v-for="item in data?.body" :key="item.title" :class="item.featured ? 'md:basis-full md:flex-1' : 'md:flex-1'" class="p-7">
-        <CoursesItem :item="item" />
+    <div class="flex grow flex-wrap justify-start">
+      <div 
+        v-for="(item, index) in courses" 
+        :key="item.title" 
+        class="p-7 w-full md:w-1/2 lg:w-1/3"
+      >
+        <CoursesItem :item="item" :color-index="index" />
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { type MaybeRefOrGetter } from '@vueuse/core'
 
-const { data } = await useAsyncData('courses', () => queryContent<MaybeRefOrGetter<any>>('/courses').findOne())
+<script setup lang="ts">
+import { CourseItem } from '~/types/courses'
+
+defineProps<{
+  courses: CourseItem[]
+}>()
+
 </script>
 

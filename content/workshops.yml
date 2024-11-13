@@ -9,7 +9,6 @@ body:
     days: 'Mondays and Thursdays'
     type: 'core-workshop'
     priceId: 'price_1MkwcQBnBECxBVfm82qvYyU5'
-    featured: true
   - title: Testing API with Cypress
     description: Learn how to expand your testing suite with powerful API tests using Cypress
     slug: cypress-api
@@ -18,7 +17,6 @@ body:
     date: ''
     time: ''
     days: ''
-    featured: false
   - title: Using Cypress with TypeScript
     description: Learn how to take your Cypress test suite to the next level with TypeScript
     slug: cypress-typescript
@@ -27,4 +25,3 @@ body:
     date: ''
     time: ''
     days: ''
-    featured: false
