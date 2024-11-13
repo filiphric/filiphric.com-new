@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <div v-if="firstStep" class="pr-20">
-      <h2 class="text-xl font-bold">
-        Let’s keep in touch
-      </h2>
-      <p class="mt-7">
+  <NuxtLayout>
+    <ContentBlock image="/envelope_1_ssdhpx.png" alt="Newsletter">
+      <template #heading>
+        Sign up for my newsletter
+      </template>
+      <template #paragraph>
+        <div v-if="firstStep" class="pr-20">
+          <p class="mt-7">
         From time to time I send some useful tips to your inbox and let you know about upcoming events. Sign up if you want to stay in loop.
       </p>
       <form @submit.prevent="submit">
@@ -59,9 +61,11 @@
       </p>
       <div class="font-normal">
         Weeeeell what do you know. A tester with a bug on his page. If you feel like writing another bug report today, contact me on filip@filiphric.com or through the social networks.
-      </div>
-    </div>
-  </div>
+          </div>
+        </div>
+      </template>
+    </ContentBlock>
+  </NuxtLayout>
 </template>
 <script setup lang="ts">
 import { type Ref } from 'vue'

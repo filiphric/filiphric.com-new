@@ -19,6 +19,9 @@
       <NuxtLink to="/privacy-policy" class="prettyLink max-w-fit">
         Privacy policy
       </NuxtLink>
+      <NuxtLink to="/newsletter" class="prettyLink max-w-fit">
+        Newsletter
+      </NuxtLink>
     </div>
   </div>
 </template>

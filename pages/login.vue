@@ -7,7 +7,7 @@
         <button 
           @click="signInWithGithub"
           :disabled="loading"
-          class="w-full bg-white px-7 py-3 text-xl font-black uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 hover:shadow-block-hover-lime dark:bg-black-lighter flex items-center justify-center gap-3 disabled:opacity-50 border-2 border-black"
+          class="w-full bg-white px-7 py-3 text-xl font-black uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 hover:shadow-block-lime dark:bg-black-lighter flex items-center justify-center gap-3 disabled:opacity-50 border-2 border-black"
         >
           <IconGithub class="w-6 h-6" />
           {{ loading ? 'Connecting...' : 'Continue with GitHub' }}
