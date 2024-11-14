@@ -76,6 +76,10 @@
     {
       "destination": "https://things.filiphric.com",
       "source": "/things"
+    },
+    {
+      "destination": "https://cypress-presentation-qq8r.vercel.app/1",
+      "source": "/lets-gov"
     }
   ],
   "rewrites": [
