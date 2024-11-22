@@ -80,6 +80,10 @@
     {
       "destination": "https://cypress-presentation-qq8r.vercel.app/1",
       "source": "/lets-gov"
+    },
+    {
+      "destination": "https://test-like-developer-develop-like-tester.vercel.app",
+      "source": "/atd2024"
     }
   ],
   "rewrites": [
