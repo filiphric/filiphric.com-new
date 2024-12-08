@@ -6,6 +6,7 @@
       </h1>
       <BlogInfo
         :cypress-version="cypressVersion"
+        :playwright-version="playwrightVersion"
         :date="date"
         :reading-time="readingTime"
       />
@@ -21,6 +22,10 @@ defineProps({
     default: ''
   },
   cypressVersion: {
+    type: String,
+    default: ''
+  },
+  playwrightVersion: {
     type: String,
     default: ''
   },

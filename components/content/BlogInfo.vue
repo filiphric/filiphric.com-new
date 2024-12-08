@@ -5,6 +5,9 @@
       <div v-if="cypressVersion" class="inline-block">
         <span class="mx-2">|</span><IconCypress class="mr-0.5 inline-block w-6" /> {{ cypressVersion }}
       </div>
+      <div v-if="playwrightVersion" class="inline-block">
+        <span class="mx-2">|</span><IconPlaywright class="mr-0.5 inline-block w-6" /> {{ playwrightVersion }}
+      </div>
       <div v-if="readingTime" class="text-sm">
         {{ readingTime }}
       </div>
@@ -19,6 +22,10 @@ defineProps({
     default: ''
   },
   cypressVersion: {
+    type: String,
+    default: ''
+  },
+  playwrightVersion: {
     type: String,
     default: ''
   },

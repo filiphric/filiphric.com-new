@@ -25,7 +25,7 @@ const questions = [
     name: 'publishDate',
     message: 'When will be the blogpost released?',
     mask: 'YYYY-MM-DD',
-    initial: new Date(),
+    initial: new Date(Date.now() + 24 * 60 * 60 * 1000),
     validate: date => date > Date.now() ? true : 'Please use a date that’s in the future'
   },
   {
@@ -37,7 +37,12 @@ const questions = [
 ];
 
 (async () => {
-  const { blogTitle, description, tags, publishDate } = await prompts(questions)
+  const { blogTitle, description, tags, publishDate, confirm } = await prompts(questions)
+
+  if (!confirm) {
+    console.log('Exiting...')
+    return
+  }
 
   // convert the Title to the camel case and remove invalid characters
   const blogTitleSlug = blogTitle.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/ /g, '-')
