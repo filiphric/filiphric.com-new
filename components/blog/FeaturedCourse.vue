@@ -9,7 +9,7 @@
       @click="useTrackEvent('sidebarFeaturedCourseClick')"
     >
       <Image src="/99-tips_w1obly.png" alt="99 Cypress Tips" />
-      <h2 class="text-2xl font-extrabold">
+      <h2 class="text-2xl font-extrabold text-center">
         99 Cypress Tips
       </h2>
       <button class="text-lg mt-5 w-full bg-white dark:bg-black-lightest px-7 py-3 font-black uppercase hover:shadow-block-lime transition-all hover:-translate-y-2 border-2 border-black dark:border-black-dark hover:-translate-x-2">

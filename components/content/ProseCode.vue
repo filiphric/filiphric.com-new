@@ -102,7 +102,7 @@ onMounted(() => {
 @import '~/assets/css/prism-treeview.css';
 
 .code-block {
-  @apply mt-10 mb-14 mr-2 font-mono font-semibold text-sm md:text-base max-w-2xl;
+  @apply mt-10 mb-14 mr-2 font-mono font-semibold text-sm md:text-base;
 }
 .copyToolbar:hover .copyLabel {
   opacity: 100%

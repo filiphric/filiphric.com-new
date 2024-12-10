@@ -25,7 +25,7 @@ const questions = [
     name: 'publishDate',
     message: 'When will be the blogpost released?',
     mask: 'YYYY-MM-DD',
-    initial: new Date(),
+    initial: new Date(Date.now() + 24 * 60 * 60 * 1000),
     validate: date => date > Date.now() ? true : 'Please use a date that’s in the future'
   },
   {
@@ -37,7 +37,12 @@ const questions = [
 ];
 
 (async () => {
-  const { blogTitle, description, tags, publishDate } = await prompts(questions)
+  const { blogTitle, description, tags, publishDate, confirm } = await prompts(questions)
+
+  if (!confirm) {
+    console.log('Exiting...')
+    return
+  }
 
   // convert the Title to the camel case and remove invalid characters
   const blogTitleSlug = blogTitle.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/ /g, '-')
@@ -49,7 +54,6 @@ const questions = [
     if (err) { throw err }
   })
 
-  // let publishDate = new Date("2024-01-24 21:45:47");
   const date = publishDate.toISOString().substring(0, 10)
 
   // create index.md and add blogpost attributes
@@ -64,8 +68,28 @@ image:
 cypressVersion:
 ---`
 
-  fs.writeFile(`${blogPostPath}/index.md`, data, (err) => {
-    if (err) { throw err }
+  // Use promises to ensure operations happen in sequence
+  try {
+    // Write the file
+    await fs.promises.writeFile(`${blogPostPath}/index.md`, data)
     console.log('The file has been saved!')
-  })
+
+    // Create and checkout new branch using child_process
+    const { exec } = require('child_process')
+    const branchName = `blog/${blogTitleSlug}`
+    
+    exec(`git checkout -b ${branchName}`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error creating branch: ${error}`)
+        return
+      }
+      if (stderr) {
+        console.error(`Git stderr: ${stderr}`)
+        return
+      }
+      console.log(`Successfully created and checked out branch: ${branchName}`)
+    })
+  } catch (error) {
+    console.error('Error:', error)
+  }
 })()

@@ -8,7 +8,9 @@
       class="mt-5 block bg-ivory-dark p-5 dark:bg-black-lighter"
       @click="useTrackEvent('sidebarLatestBlogClick')"
     >
-      <Image :src="post.image" :alt="post.title" />
+      <div v-if="post.image">
+        <Image :src="post.image" :alt="post.title" />
+      </div>
       <h2 class="text-2xl font-extrabold">
         {{ post.title }}
       </h2>

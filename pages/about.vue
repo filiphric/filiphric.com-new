@@ -1,12 +1,16 @@
 <template>
   <NuxtLayout>
-    <ContentBlock image="/construction_gdzxj0.png" alt="Site under construction">
-      <template #heading>
-        About
-      </template>
-      <template #description>
-        Still working on this page, it will be up soon.
-      </template>
-    </ContentBlock>
+    <div class="mt-14 grid grid-cols-1 place-content-center gap-7 md:mb-3 md:grid-cols-2 mx-10" data-cy="hero-element">
+    <div class="self-center">
+      <h1 class="mb-7 mt-14 text-center text-5xl font-extrabold md:text-left xl:text-6xl">
+        Hey, I’m Filip
+      </h1>
+    </div>
+    <div class="place-self-center self-center p-7">
+      <div class="shadow-block rotate-1 md:w-full -z-10 relative">
+        <Image src="/small_square_kdhln0.png" alt="Filip Hric" />
+      </div>
+    </div>
+  </div>
   </NuxtLayout>
 </template>

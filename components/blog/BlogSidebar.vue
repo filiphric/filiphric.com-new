@@ -1,7 +1,7 @@
 <template>
-  <div class="col-span-2 hidden lg:block">
+  <div class="col-span-2 hidden lg:block sticky top-5 max-h-[calc(100vh-40px)] overflow-y-auto">
     <div v-if="links.length">
-      <h2 class="text-2xl font-bold">
+      <h2 class="text-2xl font-bold pt-5 pb-2">
         Table of contents:
       </h2>
       <ul>
@@ -15,9 +15,10 @@
         </NuxtLink>
       </ul>
     </div>
+    <hr class="my-5 opacity-20" />
     <!-- <BlogFeaturedCourse /> -->
-    <BlogLatestBlogPost :post="latestBlogPost" />
     <BlogUpcomingWorkshops :workshops="upcomingWorkshop" />
+    <BlogLatestBlogPost :post="latestBlogPost" />
   </div>
 </template>
 

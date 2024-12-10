@@ -22,8 +22,17 @@ export const resolveIcon = (filename: any) => {
   if (filename.includes('.cy.')) {
     classes.push('cypress_spec')
   }
+  if (filename.includes('.spec.ts')) {
+    classes.push('spec_ts')
+  }
+  if (filename.includes('.spec.js')) {
+    classes.push('spec_js')
+  }
   if (filename.includes('cypress.config.') || filename.includes('cypress.json')) {
     classes.push('cypressconfig')
+  }
+  if (filename.includes('playwright.config.')) {
+    classes.push('playwrightconfig')
   }
   if (filename.includes('nx.json')) {
     classes.push('nx')

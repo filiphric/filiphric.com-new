@@ -2,6 +2,7 @@
   <div class="mt-7">
     <BlogHeading
       :cypress-version="doc.cypressVersion"
+      :playwright-version="doc.playwrightVersion"
       :date="doc.date"
       :title="doc.title"
       :image="doc.image"
@@ -25,6 +26,7 @@ const props = defineProps<{
   doc: {
     title: string,
     cypressVersion: string,
+    playwrightVersion: string,
     image: string,
     slug: string,
     date: string,

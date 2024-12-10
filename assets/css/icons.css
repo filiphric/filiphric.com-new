@@ -75,7 +75,18 @@
 .filename.nx:before  {
 	background-image: url('../icons/file_nx.svg');
 }
-
+.filename.playwrightconfig:before  {
+	background-image: url('../icons/file_playwright.svg');
+}
+.filename.nx:before  {
+	background-image: url('../icons/file_nx.svg');
+}
+.filename.spec_ts:before {
+	background-image: url('../icons/file_spec_ts.svg');
+}
+.filename.spec_js:before {
+	background-image: url('../icons/file_spec_js.svg');
+}
 
 /* directory icons */
 .filename.dir:before {
