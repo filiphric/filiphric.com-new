@@ -78,7 +78,7 @@ background-size: 100% 4px;
 
 /* Add these new styles */
 .shadow-block {
-  @apply border-2 border-black dark:border-black-lighter;
+  @apply border-2 border-black dark:border-black;
   box-shadow: 
     8px 8px 0 var(--shadow-color),
     8px 8px 0 2px theme('colors.black.DEFAULT');
