@@ -13,7 +13,11 @@
         <ContentRenderer :value="doc" class=" text-base font-light md:text-lg" data-cy="blog-content" />
         <BlogShareLinks :blog-info="doc" />
       </div>
-      <BlogSidebar :links="doc.body.toc.links" />
+      <BlogSidebar :links="doc.body.toc.links">
+        <!-- <BlogFeaturedCourse /> -->
+        <BlogUpcomingWorkshops  />
+        <BlogLatestBlogPost  />
+      </BlogSidebar>
     </div>
   </div>
 </template>

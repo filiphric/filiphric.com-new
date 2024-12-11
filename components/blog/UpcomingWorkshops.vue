@@ -1,9 +1,9 @@
 <template>
-  <div v-if="workshops.length">
+  <div v-if="upcomingWorkshop.length">
     <h2 class="mt-7 text-2xl font-bold">
-      {{ workshops.length > 1 ? `Upcoming workshops:` : 'Upcoming workshop:' }}
+      {{ upcomingWorkshop.length > 1 ? `Upcoming workshops:` : 'Upcoming workshop:' }}
     </h2>
-    <div v-for="workshop in workshops" :key="workshop.slug">
+    <div v-for="workshop in upcomingWorkshop" :key="workshop.slug">
       <NuxtLink 
         :to="`/workshop/${workshop.slug}`" 
         class="mt-5 block bg-ivory-dark p-5 dark:bg-black-lighter" 
@@ -26,13 +26,17 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  workshops: Array<{
-    slug: string
-    image: string
-    title: string
-    days: string
-    date: string
-  }>
-}>()
+import { isGreaterThanToday } from '@/helpers/isGreaterThanToday'
+import { Workshop } from '~/types/workshop';
+
+const { data: workshopsData } = await useAsyncData('workshops', () => 
+  queryContent<Workshop>('/workshops').findOne()
+)
+
+const upcomingWorkshop = computed(() => {
+  const result = workshopsData.value?.body.filter((item: any) => isGreaterThanToday(item.startDate))
+  return result || []
+})
+
+
 </script> 

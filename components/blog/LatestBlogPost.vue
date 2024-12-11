@@ -24,7 +24,16 @@
 <script setup lang="ts">
 import { BlogPost } from '~/types/blog';
 
-defineProps<{
-  post: BlogPost | null
-}>()
+
+const { data: blogData } = await useAsyncData('latestBlog', () => 
+  queryContent<BlogPost>('/').where({ published: true }).sort({ date: -1 }).find()
+)
+
+const route = useRoute()
+const currentSlug = route.params.slug[0]
+
+const post = computed(() => {
+  if (blogData.value?.[0].slug === currentSlug) return blogData.value?.[1]
+  return blogData.value?.[0] || null
+})
 </script> 
