@@ -105,6 +105,16 @@ export default defineNuxtConfig({
       concurrency: 1,
       failOnError: false
     },
+    routeRules: {
+      '/robots.txt': {
+        headers: {
+          'Content-Type': 'text/plain'
+        }
+      }
+    },
+    plugins: [
+      '~/server/plugins/robots.ts'
+    ]
   },
 
   plausible: {
