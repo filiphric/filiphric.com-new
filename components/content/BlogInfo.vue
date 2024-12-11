@@ -11,11 +11,15 @@
       <div v-if="readingTime" class="text-sm">
         {{ readingTime }}
       </div>
+      <ViewCounter :slug="route.path" />
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { formatDate } from '@/helpers/formatDate'
+
+const route = useRoute()
+
 defineProps({
   date: {
     type: String,
