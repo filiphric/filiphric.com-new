@@ -100,7 +100,7 @@ test("login", async ({ page }) => {
   await page.context().storageState({ path: 'playwright/.auth.json' }); 
 });
 ```
-This will save the browser cookies, local storage and session storage state to a file in the `playwright/.auth.json` file.
+This will save the browser cookies and local storage state to a file in the `playwright/.auth.json` file.
 
 This file can then be reused in multiple tests. The `test.use` function is a hook that allows us to use the authentication state in our tests. 
 
