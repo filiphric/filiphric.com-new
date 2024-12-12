@@ -2,7 +2,7 @@
 title: "Setting up trello app"
 published: false
 slug: "setting-up-trello-app"
-image: "trello_hck6rp.png"
+image: "trelloapp_eeakvw.png"
 tags: ['cypress']
 ---
 
