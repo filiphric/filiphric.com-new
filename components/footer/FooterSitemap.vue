@@ -13,6 +13,9 @@
       <NuxtLink to="/courses" class="prettyLink max-w-fit">
         Courses
       </NuxtLink>
+      <NuxtLink to="/speaking-policy" class="prettyLink max-w-fit">
+        Speaking policy
+      </NuxtLink>
       <NuxtLink to="/setting-up-trelloapp" class="prettyLink max-w-fit">
         Trello app installation
       </NuxtLink>
