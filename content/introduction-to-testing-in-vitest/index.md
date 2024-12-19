@@ -17,7 +17,11 @@ Typically, you’d use Vitest for unit and component test testing, but there’s
 
 If you have a background mostly in e2e testing as I do, you’ll quickly notice the main difference in the testing approach with a tool like Vitest. In end-to-end testing, you start by opening the app in the browser and following a particular user story. With Vitest, your test focuses on a specific part of your app. This part can be a component, a function or something else. The approach is usually to import that chunk of your application into a test, and verify different scenarios in isolation.
 
-Let’s say I’m testing a status page application written in React. I have a function that returns a color based on the status of a service.
+As an example I will be using a [simple status page application](https://github.com/filiphric/status-page-example) written in Next.js. The application displays current status of a system and a list of historical statuses.
+
+![Status page application](status_page_example_suwgr2.png)
+
+Inside this application I have a function that returns a color based on the status of a service.
 
 ```ts [statusData.ts]
 export function getStatusColor(status: Status): string {
@@ -151,7 +155,9 @@ export default defineConfig({
 
 ## Components with managed state
 
-```tsx [current-status.tsx]
+Testing components that use state management can be a bit trickier. In this application, we're using Zustand for state management. The component displays system statuses taken from the store and displays it in a card layout:
+
+```tsx [current-status.tsx] {8,9}
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -187,33 +193,27 @@ export function CurrentStatus() {
 }
 ```
 
-```tsx [current-status.spec.ts]
+To test this component, we need to mock the store. We don't want to rely on the actual state management in our tests. In many real-life scenarios, the state might not even be easily accessible. This is where Vitest's mocking capabilities come in handy. 
+
+We can use `vi.mock()`, to intercept the store import and provide our own data. We are simply passing our own mock data to what the component would normally receive from the store. 
+
+Our component would normally fetch the store data using `useStatusStore` hook, but in this case, we use `vi.fn()` to basically tell our component that this is what the `useStatusStore` hook now returns.
+
+We then verify that all mocked data was properly rendered in the component.
+
+```tsx [current-status.spec.ts] {6-12}
 import { render, screen } from '@testing-library/react'
 import { CurrentStatus } from './current-status'
 import { expect, test, vi } from 'vitest'
-import { useStatusStore } from '../stores/statusStore'
-import { SystemStatus } from '@/utils/statusData'
 
 test('renders all system statuses', () => {
-
-  vi.mock('@/stores/statusStore', () => ({
-    useStatusStore: vi.fn()
+  vi.mock('store data', () => ({
+    useStatusStore: vi.fn((selector) => selector({ systems: [
+      { name: "API", status: "operational" },
+      { name: "Web App", status: "operational" },
+      { name: "Database", status: "operational" }
+    ]}))
   }))
-
-  const mockSystems: SystemStatus[] = [
-    { name: "API", status: "operational" },
-    { name: "Web App", status: "operational" },
-    { name: "Database", status: "operational" }
-  ]
-  
-  vi.mocked(useStatusStore).mockImplementation((selector) => 
-    selector({
-      systems: mockSystems,
-      history: [],
-      updateSystemStatus: vi.fn(),
-      addHistoricalEntry: vi.fn()
-    })
-  )
 
   render(<CurrentStatus />)
   
@@ -221,5 +221,89 @@ test('renders all system statuses', () => {
   expect(screen.getByText('Web App')).toBeInTheDocument()
   expect(screen.getByText('Database')).toBeInTheDocument()
 })
-
 ```
+
+This allows us to test how our component renders and behaves with different system states without needing to set up the entire state management infrastructure.
+
+## Browser mode
+
+Vitest has another cool feature called browser mode. This is currently in an experimental stage, but it’s already quite capable. This takes component to another level, since you can render your components right inside the browser - and environment where they are supposed to be used.
+
+You can even interact with the components using either Playwright or Webdriver.io. The instiallatioin is pretty straightforward and a nice CLI tool will guide you through the process after you run `npx vitest init browser`. This will install all the necessary dependencies and set up the config file for you.
+
+```ts [vitest.config.ts] {10-14}
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+import { resolve } from 'path'
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./vitest.setup.ts'],
+    browser: {
+      enabled: true,
+      name: 'chromium',
+      provider: 'playwright'
+    }
+  }
+})
+```
+
+Our test now needs a slight update so that it appears inside the browser page. We are simply locating the base element using `page.elementLocator()` and then using it to make assertions on the component.
+
+```tsx [current-status.spec.ts] {4,15,16}
+import { render } from '@testing-library/react'
+import { CurrentStatus } from './current-status'
+import { expect, test, vi } from 'vitest'
+import { page } from '@vitest/browser/context'
+
+test('renders all system statuses', async () => {
+  vi.mock('@/stores/statusStore', () => ({
+    useStatusStore: vi.fn((selector) => selector({ systems: [
+      { name: "API", status: "operational" },
+      { name: "Web App", status: "operational" },
+      { name: "Database", status: "operational" }
+    ]}))
+  }))
+
+  const { baseElement } = render(<CurrentStatus />)
+  const screen = page.elementLocator(baseElement)
+  
+  await expect.element(screen.getByText('API')).toBeInTheDocument()
+  await expect.element(screen.getByText('Web App')).toBeInTheDocument()
+  await expect.element(screen.getByText('Database')).toBeInTheDocument()
+})
+```
+
+When you now run Vitest in UI mode, you’ll now see a new section where you can view your component. 
+
+![Vitest browser mode](vitest_browser_mode_pk4fil.png)
+
+On first try, you might not see your styles, so updating your `vitest.setup.ts` file to include your css file might help.
+
+```ts [vitest.setup.ts]
+import '@testing-library/jest-dom/vitest' 
+import '@/app/globals.css'
+```
+
+## Code coverage
+I personally am a fan of code coverage. For me, code coverage is not about chasing numbers, but about revealing blind spots in your code. I’ve played quite a lot with code [coverage in Cypress](/understanding-code-coverage) in the past.
+
+The coolest thing about code coverage in Vitest is that there’s no app instrumentation needed. Vitest uses Chrome’s v8 coverage to generate the coverage report. 
+
+All you need to do is run your tests with the `--coverage` flag.
+
+```shell
+npx vitest --coverage
+```
+
+On first run this will prompt you to install `@vitest/coverage-v8` package. Once you run your test a coverage report will be generated. It’s saved in the `coverage` folder, but it can be viewed directly in the UI mode.
+
+![Vitest code coverage](vitest_code_coverage_sol1hz.png)
+
+## Conclusion
+
+I tried Vitest pretty much out of curiosity, but I was impressed by how easy it was to set up and how good the overall developer experience is. I’m really excited about the browser mode, which is blazingly fast. The fact that it uses Playwright to interact with the components carries a lot of potential in my view. The component and e2e testing gets a bit closer together. Combined with the code coverage, I think we might be looking at a very cool testing setup.
+
+I’m looking forward to playing more with Vitest and seeing how it evolves.
