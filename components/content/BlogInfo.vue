@@ -8,6 +8,9 @@
       <div v-if="playwrightVersion" class="inline-block">
         <span class="mx-2">|</span><IconPlaywright class="mr-0.5 inline-block w-6" /> {{ playwrightVersion }}
       </div>
+      <div v-if="vitestVersion" class="inline-block">
+        <span class="mx-2">|</span><IconVitest class="mr-0.5 inline-block w-6" /> {{ vitestVersion }}
+      </div>
       <div v-if="readingTime" class="text-sm">
         {{ readingTime }}
       </div>
@@ -30,6 +33,10 @@ defineProps({
     default: ''
   },
   playwrightVersion: {
+    type: String,
+    default: ''
+  },
+  vitestVersion: {
     type: String,
     default: ''
   },

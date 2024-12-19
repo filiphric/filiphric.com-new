@@ -3,6 +3,7 @@
     <BlogHeading
       :cypress-version="doc.cypressVersion"
       :playwright-version="doc.playwrightVersion"
+      :vitest-version="doc.vitestVersion"
       :date="doc.date"
       :title="doc.title"
       :image="doc.image"

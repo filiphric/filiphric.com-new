@@ -22,10 +22,10 @@ export const resolveIcon = (filename: any) => {
   if (filename.includes('.cy.')) {
     classes.push('cypress_spec')
   }
-  if (filename.includes('.spec.ts')) {
+  if (filename.includes('.spec.ts') || filename.includes('.test.ts')) {
     classes.push('spec_ts')
   }
-  if (filename.includes('.spec.js')) {
+  if (filename.includes('.spec.js') || filename.includes('.test.js')) {
     classes.push('spec_js')
   }
   if (filename.includes('cypress.config.') || filename.includes('cypress.json')) {
@@ -34,8 +34,14 @@ export const resolveIcon = (filename: any) => {
   if (filename.includes('playwright.config.')) {
     classes.push('playwrightconfig')
   }
+  if (filename.includes('vitest.config.')) {
+    classes.push('vitestconfig')
+  }
   if (filename.includes('nx.json')) {
     classes.push('nx')
+  }
+  if (filename.includes('.tsx')) {
+    classes.push('tsx')
   }
   if (filename.includes('tsconfig.json') || filename.includes('tsconfig.node.json') || filename.includes('tsconfig.base.json')) {
     classes.push('tsconfig')

@@ -66,6 +66,8 @@ description: "${description}"
 tags: ${JSON.stringify(tags)}
 image: 
 cypressVersion:
+playwrightVersion:
+vitestVersion:
 ---`
 
   // Use promises to ensure operations happen in sequence

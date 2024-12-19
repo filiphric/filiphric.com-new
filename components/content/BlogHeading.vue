@@ -7,6 +7,7 @@
       <BlogInfo
         :cypress-version="cypressVersion"
         :playwright-version="playwrightVersion"
+        :vitest-version="vitestVersion"
         :date="date"
         :reading-time="readingTime"
       />
@@ -38,6 +39,10 @@ defineProps({
     default: ''
   },
   readingTime: {
+    type: String,
+    default: ''
+  },
+  vitestVersion: {
     type: String,
     default: ''
   }
