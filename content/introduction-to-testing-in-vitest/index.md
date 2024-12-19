@@ -3,8 +3,8 @@ title: "Introduction to testing in Vitest"
 date: 2024-12-19
 published: true
 slug: "introduction-to-testing-in-vitest"
-description: "WIP"
-tags: ["unit testing","vitest","component"]
+description: "Basic walkthrough of Vitest testing framework, it’s capabilities and examples of how to use it"
+tags: ["unit testing","vitest","component", "code coverage"]
 image: vitest_vusbr3.png
 vitestVersion: "2.1.5"
 ---
