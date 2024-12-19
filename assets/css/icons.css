@@ -87,6 +87,12 @@
 .filename.spec_js:before {
 	background-image: url('../icons/file_spec_js.svg');
 }
+.filename.vitestconfig:before  {
+	background-image: url('../icons/file_vitest.svg');
+}
+.filename.tsx:before  {
+	background-image: url('../icons/file_tsx.svg');
+}
 
 /* directory icons */
 .filename.dir:before {
