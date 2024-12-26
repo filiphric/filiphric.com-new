@@ -26,7 +26,7 @@ Think about it - testers are usually jack of all trades:
 
 I find it important to write down your knowledge and really understand your own strengths, expertise and experience.
 
-Because here's the thing - in different companies, you can that same skill you posses may be framed in a different way! There might be a company out there looking for exactly your skills, but maybe they're not calling it a "tester" role. Maybe it's a product owner, or a scrum master, or a release manager, technical writer, developer experience engineer or something else.
+Because here's the thing - in different companies, you can find that the same skill you posses may be framed in a different way! There might be a company out there looking for exactly your skills, but maybe they're not calling it a "tester" role. Maybe it's a product owner, or a scrum master, or a release manager, technical writer, developer experience engineer or something else.
 
 ## Never too late to learn automation
 
