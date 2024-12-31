@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://filiphric.com/sitemap.xml
+
+# Block access to admin paths
+Disallow: /api/
