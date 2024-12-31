@@ -8,7 +8,7 @@ tags: ["speaking"]
 image: "speaker_utkj00.png"
 ---
 
-Speakinga at event worldwide is one of my favourite things to do. I love to share what I’ve learned an also learn from others.
+Speaking at events worldwide is one of my favourite things to do. I love to share what I’ve learned an also learn from others.
 
 Every year I attend more and more events, and while I appreciate being invited, I’m not able to say "yes" to every invitation. In this post I’d like to share some of the principles I follow when I decide on whether I accept the invitation.
 
