@@ -3,7 +3,7 @@ title: "Laid off as a tester. What now?"
 date: 2024-11-16
 published: true
 slug: "laid-off-as-a-tester-what-now"
-description: "Some thoughts on how to be prepared for turbulences in current QA job market."
+description: "Navigating the changing QA job market: tips for staying relevant, expanding your skillset, and preparing for potential layoffs in software testing"
 tags: ["testing","qa","job","layoff"]
 image: layoff_ttl1vl.png
 cypressVersion:

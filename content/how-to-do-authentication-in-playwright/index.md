@@ -4,7 +4,7 @@ date: 2024-12-10
 published: true
 slug: "how-to-do-authentication-in-playwright"
 image: "authentication_playwright_bzadai.png"
-description: "Overview of the different ways to handle authentication in Playwright."
+description: "Learn different approaches to handle authentication in Playwright, from basic login sequences to advanced techniques like session storage and API auth."
 tags: ["playwright", "authentication"]
 playwrightVersion: "1.49.0"
 ---
