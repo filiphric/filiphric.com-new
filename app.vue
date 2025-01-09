@@ -1,5 +1,5 @@
 <template>
-  <Search :show="searchOn" @hide="searchOn = false" />
+  <Search v-if="searchOn" @hide="searchOn = false" />
   <NuxtPage />
 </template>
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="course-payment" class="mt-1 place-self-center">
-      <ActionButton @click="pay(); useTrackEvent('PayButton - ' + info?.title)" class="h-14 w-64 text-lg text-center">
+      <ActionButton @click="pay()" class="h-14 w-64 text-lg text-center">
         Purchase course
       </ActionButton>
     </div>
@@ -30,6 +30,31 @@ const store = useStore()
 const user = computed(() => store.user as Profile | null)
 
 const pay = () => {
+  if (!user.value) {
+    // Store payment intent in cookie
+    const paymentCookie = useCookie('paymentIntent', {
+      maxAge: 3600,
+      sameSite: true
+    })
+    paymentCookie.value = JSON.stringify({
+      priceId: props.priceId,
+      courseInfo: {
+        title: props.info.title,
+        id: props.info.id
+      }
+    })
+    
+    // Redirect to login
+    const returnUrl = window.location.pathname
+    const authRedirectCookie = useCookie('authRedirect', {
+      maxAge: 3600,
+      sameSite: true
+    })
+    authRedirectCookie.value = returnUrl
+    navigateTo('/login')
+    return
+  }
+
   useFetch('/api/course-checkout', {
     method: 'POST',
     body: {
@@ -42,9 +67,9 @@ const pay = () => {
       customer_email: user.value?.email,
       metadata: {
         item: props.info.title,
-          type: 'course',
-          courseId: props.info.id
-        }
+        type: 'course',
+        courseId: props.info.id
+      }
     }
   }).then(({ data }) => {
     // @ts-ignore

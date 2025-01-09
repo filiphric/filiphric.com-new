@@ -3,10 +3,7 @@
     <div class="mx-auto mt-14 p-7">
       <div v-if="loading" class="text-center">
         <div class="mb-4">
-          <svg class="animate-spin h-8 w-8 text-gray-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
+          <LoaderAnimation />
         </div>
         <p class="text-xl">Loading profile...</p>
       </div>
@@ -27,8 +24,10 @@
             <div class="flex items-center gap-1">
               <p class="text-gray-500">{{ profile?.email }}</p>
               <p class="text-gray-500 mx-2">|</p>
-              <IconGithub class="w-4 h-4" />
-              <a href="https://github.com/{{ profile?.github_username }}" target="_blank" class="text-gray-500">{{ profile?.github_username }}</a>
+              <NuxtLink href="https://github.com/{{ profile?.github_username }}" target="_blank" class="text-gray-500 flex items-center gap-1">
+                <IconGithub class="w-4 h-4" />
+                <p>{{ profile?.github_username }}</p>
+              </NuxtLink>
             </div>
           </div>
         </div>

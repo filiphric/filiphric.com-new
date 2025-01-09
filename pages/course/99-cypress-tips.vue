@@ -11,21 +11,12 @@
             Level up your Cypress skills with bite-sized, practical tips that you can immediately apply to your testing workflow.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <div v-if="user && courseInfo">
-              <CoursesPaymentButton 
-                :info="courseInfo" 
-                :price-id="courseInfo?.price_id"
-                class="cursor-pointer"
-              />
-            </div>
-            <div v-else>
-              <ActionButton 
-                @click="navigateToLogin"
-                class="hover:shadow-block-hover-lime border-2 border-black bg-white dark:bg-black-lighter px-7 py-3 text-xl font-black uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 cursor-pointer"
-              >
-                Sign in to purchase
-              </ActionButton>
-            </div>
+            <CoursesPaymentButton 
+              v-if="courseInfo"
+              :info="courseInfo" 
+              :price-id="courseInfo.price_id"
+              class="cursor-pointer"
+            />
           </div>
         </div>
         <div class="w-full md:w-1/2 overflow-hidden rotate-1">
