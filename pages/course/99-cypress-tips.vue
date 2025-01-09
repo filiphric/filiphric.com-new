@@ -14,7 +14,7 @@
             <div v-if="user && courseInfo">
               <CoursesPaymentButton 
                 :info="courseInfo" 
-                :price-id="courseInfo.priceId"
+                :price-id="courseInfo?.price_id"
                 class="cursor-pointer"
               />
             </div>
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="w-full md:w-1/2 overflow-hidden rotate-1">
-          <Image :src="courseInfo?.image" alt="99 Cypress Tips Course" class="w-full h-auto" />
+          <Image :src="courseInfo?.image_url" alt="99 Cypress Tips Course" class="w-full h-auto" />
         </div>
       </div>
 
@@ -122,10 +122,11 @@
 </template>
 
 <script setup lang="ts">
-import { CourseItem, Courses } from '~/types/courses';
+import type { Course } from '~/types/courses';
 
 const user = useSupabaseUser()
 const router = useRouter()
+const client = useSupabaseClient()
 
 const navigateToLogin = () => {
   const returnUrl = window.location.pathname
@@ -133,14 +134,18 @@ const navigateToLogin = () => {
   router.push('/login')
 }
 
-const { data } = await useAsyncData<Courses>('courses', () => 
-  queryContent('/courses').findOne()
-)
-
-const courseInfo = computed(() => {
-  if (data.value?.body) {
-    return data.value.body.find((course: CourseItem) => course.slug === '99-cypress-tips')
+const { data: courseInfo } = await useAsyncData<Course | null>('course-info', async () => {
+  const { data, error } = await client
+    .from('courses')
+    .select('*')
+    .eq('slug', '99-cypress-tips')
+    .single()
+  
+  if (error) {
+    console.error('Error fetching course:', error)
+    return null
   }
-  return null
+  
+  return data
 })
 </script>

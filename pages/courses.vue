@@ -23,19 +23,30 @@
 </template>
 
 <script setup lang="ts">
-import { Courses, ExternalCourses } from '~/types/courses';
 
+const client = useSupabaseClient()
 
-const { data: internalData } = await useAsyncData<Courses>('courses', () => 
-  queryContent('/courses').findOne()
-)
+// Fetch internal courses from Supabase
+const { data: internalData } = await useAsyncData('courses', async () => {
+  const { data, error } = await client
+    .from('courses')
+    .select('*')
+    .order('created_at')
+  
+  if (error) {
+    console.error('Error fetching courses:', error)
+    return []
+  }
+  
+  return data
+})
 
 const { data: externalData } = await useAsyncData<ExternalCourses>('external-courses', () => 
   queryContent('/courses_external').findOne()
 )
 
 const internalCourses = computed(() => 
-  internalData.value?.body || []
+  internalData.value || []
 )
 
 const externalCourses = computed(() => 

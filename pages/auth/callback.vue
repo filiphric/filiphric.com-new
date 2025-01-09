@@ -1,20 +1,40 @@
 <script setup lang="ts">
+import type { Profile } from '~/types/supabase'
+
 const client = useSupabaseClient()
-const user = useSupabaseUser()
 const router = useRouter()
+const store = useStore()
 
 onMounted(() => {
   const { search } = window.location
   if (search && search.includes('code')) {
     // Handle the OAuth callback
-    client.auth.getUser().then(({ data: { user } }) => {
+    client.auth.getUser().then(async ({ data: { user } }) => {
       if (user) {
+        // Fetch profile data including stripe_customer
+        const { data: profile } = await client
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single() as { data: Profile | null }
+
+        store.setUser({
+          id: user.id,
+          email: user.email as string,
+          first_name: user.user_metadata?.first_name || null,
+          last_name: user.user_metadata?.last_name || null,
+          created_at: user.created_at,
+          updated_at: user.last_sign_in_at || user.created_at,
+          stripe_customer: profile?.stripe_customer || null
+        })
+        
         const redirect = useCookie('authRedirect')
         const returnUrl = redirect.value || '/profile'
-        redirect.value = null // Clear the cookie
+        redirect.value = null // Clear the redirect cookie
         router.push(returnUrl)
       } else {
-        router.push('/auth')
+        store.setUser(null)
+        router.push('/login')
       }
     })
   }

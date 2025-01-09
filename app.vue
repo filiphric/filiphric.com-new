@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import '@stripe/stripe-js'
 import { useMagicKeys } from '@vueuse/core'
+import { useStore } from '~/stores/useStore'
 
 const { meta, k, escape } = useMagicKeys()
 const searchOn = ref(false)
@@ -24,6 +25,13 @@ useHead({
       href: `https://filiphric.com${route.path}`
     }
   ]
+})
+
+const store = useStore()
+
+// Load user data on app initialization
+onMounted(async () => {
+  await store.loadUser()
 })
 
 onBeforeMount(() => {

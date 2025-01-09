@@ -2,37 +2,83 @@
   <NuxtLayout>
     <div class="min-h-[70vh] flex items-center justify-center">
       <div class="max-w-md mx-auto p-7 text-center">
-        <div class="mb-7">
-          <svg class="w-16 h-16 text-lime mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        
-        <h1 class="text-4xl font-bold mb-4">Payment Successful!</h1>
-        <p class="text-xl mb-7">Thank you for your purchase. You can now access your course in your profile.</p>
-        
-        <NuxtLink 
-          to="/profile" 
-          class="inline-block bg-white px-7 py-3 text-xl font-black uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 hover:shadow-block-hover-lime dark:bg-black-lighter border-2 border-black"
-        >
-          Go to Profile
-        </NuxtLink>
+        <!-- Success State -->
+        <template v-if="success">
+          <div v-if="loading">
+            <div class="w-16 h-16 mx-auto my-4">
+              <svg class="animate-spin h-8 w-8 text-gray-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+            <p class="text-xl">Please wait...</p>
+          </div>
+          <div v-if="course && !loading" class="mb-7">
+            
+            <div class="mb-7">
+              <svg class="w-16 h-16 text-lime mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            
+            <h1 class="text-4xl font-bold mb-4">Payment Successful!</h1>
+            <Image 
+              :src="course.image_url" 
+              :alt="course.title"
+              class="w-96 h-96 mx-auto my-12"
+            />
+            <p class="text-xl mb-7">You now have access to <strong>{{ course.title }}</strong></p>
+            <ActionButton :to="`/course/${course?.slug}`" class="h-14 w-64 text-lg">
+              Go to course
+            </ActionButton>
+          </div>
+        </template>
+
+        <!-- Error State -->
+        <template v-else>
+          <div class="mb-7">
+            <svg class="w-16 h-16 text-red-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          
+          <h1 class="text-4xl font-bold mb-4">Payment Failed</h1>
+          <p class="text-xl mb-7">Something went wrong with your payment. Please try again.</p>
+          <p class="text-xl mb-7">If you have any questions, please contact me at <a href="mailto:filip@filiphric.sk" class="font-bold">filip@filiphric.sk</a></p>
+          <ActionButton to="/courses" class="h-14 w-64 text-lg">
+            Back to Courses
+          </ActionButton>
+        </template>
       </div>
     </div>
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-const user = useSupabaseUser()
-const router = useRouter()
-
-// Redirect to login if not authenticated
-watchEffect(() => {
-  if (!user.value) {
-    router.push({
-      path: '/login',
-      query: { redirectTo: '/course/payment-confirmation' }
-    })
+const route = useRoute()
+const success = computed(() => route.query.success === 'true')
+const courseId = computed(() => route.query.course as string)
+const course = ref<any>(null)
+const loading = ref(true)
+// Fetch course data if courseId is present
+watchEffect(async () => {
+  if (courseId.value) {
+    const client = useSupabaseClient()
+    const { data } = await client
+      .from('courses')
+      .select('title, image_url, slug')
+      .eq('id', courseId.value)
+      .single()
+    
+    if (data) {
+      course.value = data
+      loading.value = false
+    }
   }
 })
+
+// Redirect if no query parameters
+if (!route.query.success) {
+  navigateTo('/courses')
+}
 </script> 

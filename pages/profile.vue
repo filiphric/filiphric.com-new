@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <div class="max-w-2xl mx-auto mt-14 p-7">
+    <div class="mx-auto mt-14 p-7">
       <div v-if="loading" class="text-center">
         <div class="mb-4">
           <svg class="animate-spin h-8 w-8 text-gray-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -20,11 +20,16 @@
           <img 
             :src="profile?.avatar_url" 
             :alt="profile?.full_name" 
-            class="w-20 h-20 rounded-full"
+            class="w-24 h-24 rounded-full"
           >
-          <div>
+          <div class="flex flex-col gap-1 justify-center">
             <h1 class="text-4xl font-bold">{{ profile?.full_name }}</h1>
-            <p class="text-gray-500">{{ profile?.email }}</p>
+            <div class="flex items-center gap-1">
+              <p class="text-gray-500">{{ profile?.email }}</p>
+              <p class="text-gray-500 mx-2">|</p>
+              <IconGithub class="w-4 h-4" />
+              <a href="https://github.com/{{ profile?.github_username }}" target="_blank" class="text-gray-500">{{ profile?.github_username }}</a>
+            </div>
           </div>
         </div>
 
@@ -34,15 +39,24 @@
             <div 
               v-for="course in purchasedCourses" 
               :key="course.id"
-              class="p-4 bg-white dark:bg-black-light shadow-block"
             >
-              <h3 class="text-xl font-bold">{{ course.title }}</h3>
-              <NuxtLink 
-                :to="`/course/${course.slug}/content`"
-                class="prettyLink mt-2 inline-block"
-              >
-                Continue Learning
-              </NuxtLink>
+              <div class="flex items-center justify-between bg-ivory-dark p-4 gap-7">
+                <Image 
+                  :src="course.image_url" 
+                  :alt="course.title"
+                  class="w-40 h-40"
+                />
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold">{{ course.title }}</h3>
+                  <p class="text-gray-500">{{ course.description }}</p>
+                </div>
+                  <ActionButton 
+                    :to="`/course/${course.slug}/content`"
+                  class="font-md"
+                >
+                  Continue Learning
+                </ActionButton>
+              </div>
             </div>
           </div>
           <div v-else class="text-gray-500">
@@ -70,15 +84,27 @@ interface ProfileData {
   full_name?: string
   avatar_url?: string
   email?: string
+  github_username?: string
+}
+
+interface UserCourse {
+  course_id: string
+  courses: {
+    id: string
+    title: string
+    slug: string
+    image_url: string
+    description: string
+  }
 }
 
 const profile = ref<ProfileData | null>(null)
-const purchasedCourses = ref<any[]>([])
+const purchasedCourses = ref<UserCourse['courses'][]>([])
 
 // Redirect if not logged in
 watchEffect(() => {
   if (!user.value) {
-    navigateTo('/auth')
+    navigateTo('/login')
   }
 })
 
@@ -113,10 +139,12 @@ onMounted(async () => {
           courses (
             id,
             title,
-            slug
+            slug,
+            image_url,
+            description
           )
         `)
-        .eq('user_id', user.value.id)
+        .eq('user_id', user.value.id) as { data: UserCourse[] | null, error: any }
       
       if (coursesError) throw coursesError
 
