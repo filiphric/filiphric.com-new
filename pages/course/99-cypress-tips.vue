@@ -115,9 +115,8 @@
 <script setup lang="ts">
 import type { Course } from '~/types/courses';
 
-const user = useSupabaseUser()
 const router = useRouter()
-const client = useSupabaseClient()
+const { getCourseBySlug } = useSupabaseCourses()
 
 const navigateToLogin = () => {
   const returnUrl = window.location.pathname
@@ -126,17 +125,13 @@ const navigateToLogin = () => {
 }
 
 const { data: courseInfo } = await useAsyncData<Course | null>('course-info', async () => {
-  const { data, error } = await client
-    .from('courses')
-    .select('*')
-    .eq('slug', '99-cypress-tips')
-    .single()
+  const { course, error } = await getCourseBySlug('99-cypress-tips')
   
   if (error) {
     console.error('Error fetching course:', error)
     return null
   }
   
-  return data
+  return course
 })
 </script>

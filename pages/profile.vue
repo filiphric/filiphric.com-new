@@ -36,7 +36,7 @@
           <h2 class="text-2xl font-bold">Your Courses</h2>
           <div v-if="purchasedCourses?.length" class="grid gap-4">
             <div 
-              v-for="course in purchasedCourses" 
+              v-for="{courses: course} in purchasedCourses" 
               :key="course.id"
             >
               <div class="flex items-center justify-between bg-ivory-dark p-4 gap-7">
@@ -71,10 +71,13 @@
 </template>
 
 <script setup lang="ts">
-const client = useSupabaseClient()
 const user = useSupabaseUser()
 const loading = ref(true)
 const error = ref('')
+const store = useStore()
+const { getCurrentUser } = useSupabaseAuth()
+const { getProfile } = useSupabaseProfile()
+const { getUserCourses } = useSupabaseCourses()
 
 interface ProfileData {
   id: string
@@ -98,7 +101,7 @@ interface UserCourse {
 }
 
 const profile = ref<ProfileData | null>(null)
-const purchasedCourses = ref<UserCourse['courses'][]>([])
+const purchasedCourses = ref<UserCourse[]>([])
 
 // Redirect if not logged in
 watchEffect(() => {
@@ -111,16 +114,11 @@ onMounted(async () => {
   try {
     if (user.value) {
       // Get profile data
-      const { data: profileData, error: profileError } = await client
-        .from('profiles')
-        .select('*')
-        .eq('id', user.value.id)
-        .single()
-      
+      const { profile: profileData, error: profileError } = await getProfile(user.value.id)
       if (profileError) throw profileError
 
       // Get GitHub profile data
-      const { data: { user: userData }, error: userError } = await client.auth.getUser()
+      const { user: userData, error: userError } = await getCurrentUser()
       if (userError) throw userError
       
       profile.value = {
@@ -131,23 +129,11 @@ onMounted(async () => {
       }
 
       // Get purchased courses
-      const { data: coursesData, error: coursesError } = await client
-        .from('user_courses')
-        .select(`
-          course_id,
-          courses (
-            id,
-            title,
-            slug,
-            image_url,
-            description
-          )
-        `)
-        .eq('user_id', user.value.id) as { data: UserCourse[] | null, error: any }
-      
+      const { courses: coursesData, error: coursesError } = await  getUserCourses(user.value.id)
       if (coursesError) throw coursesError
 
-      purchasedCourses.value = coursesData?.map(item => item.courses) || []
+      purchasedCourses.value = coursesData || []
+      store.setPurchasedCourses(coursesData || []) // Save to store
     }
   } catch (err) {
     console.error('Error fetching profile:', err)

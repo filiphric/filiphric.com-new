@@ -52,10 +52,10 @@
 </template>
 
 <script setup lang="ts">
-const client = useSupabaseClient()
 const user = useSupabaseUser()
 const store = useStore()
 const isOpen = ref(false)
+const { signOut } = useSupabaseAuth()
 
 const profile = computed(() => ({
   avatar_url: store.user?.avatar_url,
@@ -64,8 +64,7 @@ const profile = computed(() => ({
 
 const handleLogout = async () => {
   isOpen.value = false
-  await client.auth.signOut()
-  store.setUser(null)
+  await signOut()
   navigateTo('/login')
 }
 </script>

@@ -23,7 +23,7 @@
 import { loadStripe } from '@stripe/stripe-js'
 import type { Profile } from '~/types/supabase'
 
-const client = useSupabaseClient()
+const { signInWithProvider } = useSupabaseAuth()
 const error = ref('')
 const loading = ref(false)
 const route = useRoute()
@@ -76,12 +76,7 @@ const signInWithGithub = async () => {
     loading.value = true
     error.value = ''
     
-    const { error: err } = await client.auth.signInWithOAuth({
-      provider: 'github',
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`
-      }
-    })
+    const { error: err } = await signInWithProvider('github')
     
     if (err) throw err
   } catch (err: any) {

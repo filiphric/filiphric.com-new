@@ -2,11 +2,12 @@
 import type { Profile } from '~/types/supabase'
 import { loadStripe } from '@stripe/stripe-js'
 
-const client = useSupabaseClient()
 const router = useRouter()
 const store = useStore()
 const stripe = await loadStripe(useRuntimeConfig().public.stripeApiKey)
 const error = ref('')
+const { getCurrentUser } = useSupabaseAuth()
+const { getProfile } = useSupabaseProfile()
 
 onMounted(async () => {
   try {
@@ -19,17 +20,12 @@ onMounted(async () => {
       return
     }
 
-    const { data: { user }, error: userError } = await client.auth.getUser()
+    const { user, error: userError } = await getCurrentUser()
     if (userError) throw userError
 
     if (user) {
       // Fetch profile data including stripe_customer
-      const { data: profile, error: profileError } = await client
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single() as { data: Profile | null, error: any }
-
+      const { profile, error: profileError } = await getProfile(user.id)
       if (profileError) throw profileError
 
       const userData: Profile = {
