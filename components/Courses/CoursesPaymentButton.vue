@@ -1,19 +1,26 @@
 <template>
   <div>
-    <div id="course-payment" class="mt-1 place-self-center">
-      <ActionButton @click="pay()" class="h-14 w-64 text-lg text-center">
-        Purchase course
-      </ActionButton>
-    </div>
+    <form :action="checkoutUrl" method="POST" @submit.prevent="handleSubmit">
+      <div id="course-payment" class="mt-1 place-self-center">
+        <button type="submit">
+          <ActionButton 
+            :disabled="!props.info?.id"
+            class="h-14 w-64 text-lg text-center"
+          >
+            Purchase course
+          </ActionButton>
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { loadStripe } from '@stripe/stripe-js'
 import type { Profile } from '~/types/supabase'
 
-const config = useRuntimeConfig()
-const stripe = await loadStripe(config.public.stripeApiKey)
+const store = useStore()
+const user = computed(() => store.user as Profile | null)
+const checkoutUrl = '/api/course-checkout'
 
 const props = defineProps({
   info: {
@@ -26,10 +33,7 @@ const props = defineProps({
   }
 })
 
-const store = useStore()
-const user = computed(() => store.user as Profile | null)
-
-const pay = () => {
+const handleSubmit = async (event: Event) => {
   if (!user.value) {
     // Store payment intent in cookie
     const paymentCookie = useCookie('paymentIntent', {
@@ -55,7 +59,8 @@ const pay = () => {
     return
   }
 
-  useFetch('/api/course-checkout', {
+  // Submit checkout data
+  const { data } = await useFetch(checkoutUrl, {
     method: 'POST',
     body: {
       order: {
@@ -71,9 +76,11 @@ const pay = () => {
         courseId: props.info.id
       }
     }
-  }).then(({ data }) => {
-    // @ts-ignore
-    stripe?.redirectToCheckout({ sessionId: data?.value?.id })
   })
+
+  // Redirect to Stripe Checkout
+  if (data.value?.url) {
+    window.location.href = data.value.url
+  }
 }
 </script>

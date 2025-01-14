@@ -17,5 +17,5 @@ export default async (req: any, res: any) => {
     cancel_url: `${hostUrl}${req.body.redirectPath}?success=false&course=${req.body.metadata.courseId}`
   })
 
-  return res.status(200).json(session)
+  return res.status(200).json({ url: session.url })
 }

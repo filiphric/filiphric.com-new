@@ -2,6 +2,11 @@ import { useSupabaseClient } from '#imports'
 import { useStore } from '~/stores/useStore'
 import type { Course } from '~/types/courses'
 
+interface UserCourseJoin {
+  course_id: Course['id']
+  courses: Course
+}
+
 export const useSupabaseCourses = () => {
   const client = useSupabaseClient()
   const store = useStore()
@@ -11,6 +16,16 @@ export const useSupabaseCourses = () => {
       .from('courses')
       .select('*')
       .eq('slug', slug)
+      .single()
+
+    return { course: data as Course | null, error }
+  }
+
+  const getCourseById = async (id: string) => {
+    const { data, error } = await client
+      .from('courses')
+      .select('*')
+      .eq('id', id)
       .single()
 
     return { course: data as Course | null, error }
@@ -29,7 +44,7 @@ export const useSupabaseCourses = () => {
           description
         )
       `)
-      .eq('user_id', userId)
+      .eq('user_id', userId) as { data: UserCourseJoin[] | null, error: any }
 
     if (!error && data) {
       const courseDetails = data.map(item => item.courses)
@@ -41,6 +56,7 @@ export const useSupabaseCourses = () => {
 
   return {
     getCourseBySlug,
-    getUserCourses
+    getUserCourses,
+    getCourseById
   }
 } 

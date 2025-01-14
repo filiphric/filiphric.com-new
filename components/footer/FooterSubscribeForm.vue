@@ -72,7 +72,6 @@ const emailAddress = ref('')
 const errors: Ref<string[]> = ref([])
 const errorEmail = ref(false)
 const errorFirstName = ref(false)
-const config = useRuntimeConfig()
 
 const submit = async () => {
   if (emailAddress.value && firstName.value) {

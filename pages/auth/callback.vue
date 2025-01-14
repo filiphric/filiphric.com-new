@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import type { Profile } from '~/types/supabase'
-import { loadStripe } from '@stripe/stripe-js'
 
 const router = useRouter()
 const store = useStore()
-const stripe = await loadStripe(useRuntimeConfig().public.stripeApiKey)
 const error = ref('')
 const { getCurrentUser } = useSupabaseAuth()
 const { getProfile } = useSupabaseProfile()
+const paymentIntent = useCookie('paymentIntent').value
 
 onMounted(async () => {
   try {
@@ -45,10 +44,7 @@ onMounted(async () => {
       })
       
       // Check for payment intent before redirect
-      const paymentCookie = useCookie('paymentIntent', {
-        maxAge: 3600,
-        sameSite: true
-      })
+      const paymentCookie = useCookie('paymentIntent')
       const paymentIntent = paymentCookie.value
       
       if (paymentIntent) {
@@ -64,7 +60,7 @@ onMounted(async () => {
           const { priceId, courseInfo } = paymentData
           
           // Proceed with payment
-          const { data: checkoutData } = await useFetch('/api/course-checkout', {
+          const { data } = await useFetch('/api/course-checkout', {
             method: 'POST',
             body: {
               order: {
@@ -86,10 +82,10 @@ onMounted(async () => {
           useCookie('authRedirect').value = null
           
           // Redirect to Stripe
-          if (checkoutData.value?.id) {
-            await stripe?.redirectToCheckout({ sessionId: checkoutData.value.id })
+          if (data.value?.url) {
+            window.location.href = data.value.url
           } else {
-            throw new Error('No session ID returned from checkout')
+            throw new Error('No checkout URL returned')
           }
         } catch (e) {
           console.error('Payment flow error:', e)
@@ -123,7 +119,7 @@ onMounted(async () => {
           <div class="mb-4">
             <LoaderAnimation />
           </div>
-          <p class="text-xl">Completing login...</p>
+          <p class="text-xl">{{ paymentIntent ? 'Redirecting to checkout...' : 'Completing login...' }}</p>
         </div>
       </div>
     </div>

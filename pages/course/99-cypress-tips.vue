@@ -12,11 +12,18 @@
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <CoursesPaymentButton 
-              v-if="courseInfo"
+              v-if="courseInfo && !hasPurchased"
               :info="courseInfo" 
               :price-id="courseInfo.price_id"
               class="cursor-pointer"
             />
+            <ActionButton 
+              v-if="courseInfo && hasPurchased"
+              :to="`/course/${courseInfo.slug}/content`"
+              class="h-14 w-64 text-lg text-center"
+            >
+              Go to course
+            </ActionButton>
           </div>
         </div>
         <div class="w-full md:w-1/2 overflow-hidden rotate-1">
@@ -115,14 +122,20 @@
 <script setup lang="ts">
 import type { Course } from '~/types/courses';
 
-const router = useRouter()
 const { getCourseBySlug } = useSupabaseCourses()
+const store = useStore()
+const user = useSupabaseUser()
+const { getUserCourses } = useSupabaseCourses()
 
-const navigateToLogin = () => {
-  const returnUrl = window.location.pathname
-  useCookie('authRedirect').value = returnUrl
-  router.push('/login')
-}
+// Load purchased courses if user is logged in
+onMounted(async () => {
+  if (user.value) {
+    const { courses: coursesData, error: coursesError } = await getUserCourses(user.value.id)
+    if (coursesError) {
+      console.error('Error fetching user courses:', coursesError)
+    }
+  }
+})
 
 const { data: courseInfo } = await useAsyncData<Course | null>('course-info', async () => {
   const { course, error } = await getCourseBySlug('99-cypress-tips')
@@ -134,4 +147,9 @@ const { data: courseInfo } = await useAsyncData<Course | null>('course-info', as
   
   return course
 })
+
+const hasPurchased = computed(() => {
+  return store.purchasedCourses.some(course => course.id === courseInfo.value?.id)
+})
+
 </script>

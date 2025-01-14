@@ -39,7 +39,7 @@
           
           <h1 class="text-4xl font-bold mb-4">Payment Failed</h1>
           <p class="text-xl mb-7">Something went wrong with your payment. Please try again.</p>
-          <p class="text-xl mb-7">If you have any questions, please contact me at <a href="mailto:filip@filiphric.sk" class="font-bold">filip@filiphric.sk</a></p>
+          <p class="text-xl mb-7">If you have any questions, please contact me at <a href="mailto:filip@filiphric.sk" class="font-bold prettyLink">filip@filiphric.sk</a></p>
           <ActionButton to="/courses" class="h-14 w-64 text-lg">
             Back to Courses
           </ActionButton>
@@ -55,12 +55,12 @@ const success = computed(() => route.query.success === 'true')
 const courseId = computed(() => route.query.course as string)
 const course = ref<any>(null)
 const loading = ref(true)
-const { getCourseBySlug } = useSupabaseCourses()
+const { getCourseById } = useSupabaseCourses()
 
 // Fetch course data if courseId is present
 watchEffect(async () => {
   if (courseId.value) {
-    const { course: courseData } = await getCourseBySlug(courseId.value)
+    const { course: courseData } = await getCourseById(courseId.value)
     if (courseData) {
       course.value = courseData
       loading.value = false
