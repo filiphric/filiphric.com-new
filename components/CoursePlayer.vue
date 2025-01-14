@@ -10,8 +10,8 @@
 </script>
 
 <template>
-    <mux-player
-      :playback-id="props.playbackId"
-      theme="minimal"
-    />
+  <mux-player
+    :playback-id="props.playbackId"
+    theme="minimal"
+  />
 </template>

@@ -30,13 +30,35 @@
           <!-- Video Player Section (2/3) -->
           <div class="w-full md:w-2/3 bg-ivory-dark dark:bg-black">
             <div class="flex">
-              <CoursePlayer :playback-id="currentLesson?.mux_id || ''" />
+              <CoursePlayer 
+                :playback-id="currentLesson?.mux_id || ''" 
+                @ended="onVideoEnded"
+              />
             </div>
           </div>
 
           <div class="w-full md:w-1/3 bg-ivory-dark dark:bg-black">
-            <div class="bg-white dark:bg-black-dark p-4">
-              <h2 class="text-xl font-bold mb-4">Course Lessons</h2>
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Course Lessons</h2>
+                <div class="flex items-center gap-2">
+                  <span class="text-sm">Autoplay</span>
+                  <button 
+                    @click="toggleAutoplay"
+                    :class="[
+                      'w-12 h-6 rounded-full transition-colors relative',
+                      autoplay ? 'bg-lime' : 'bg-gray-300 dark:bg-gray-700'
+                    ]"
+                  >
+                    <span 
+                      :class="[
+                        'absolute top-0.5 w-5 h-5 rounded-full bg-white transition-transform border-2 border-black',
+                        autoplay ? 'translate-x-0.5' : '-translate-x-5'
+                      ]"
+                    />
+                  </button>
+                </div>
+              </div>
               <div class="space-y-2">
                 <div 
                   v-for="lesson in lessons" 
@@ -44,8 +66,8 @@
                   :class="[
                     'p-2 cursor-pointer transition-colors',
                     currentLesson?.id === lesson.id 
-                      ? 'bg-lime/20 dark:bg-lime/10' 
-                      : 'hover:bg-gray-100 dark:hover:bg-black-lighter'
+                      ? 'border-2 border-black bg-white cursor-default dark:text-black' 
+                      : 'hover:bg-lime dark:hover:bg-black-lighter'
                   ]"
                   @click="navigateToLesson(lesson.id)"
                 >
@@ -74,7 +96,14 @@
 const route = useRoute()
 const router = useRouter()
 const user = useSupabaseUser()
-const { getCourseIdFromSlug, checkCourseAccess, getCourseLessons } = useSupabaseCourseLessons()
+const { 
+  getCourseIdFromSlug, 
+  checkCourseAccess, 
+  getCourseLessons,
+  autoplay,
+  toggleAutoplay,
+  getNextLesson
+} = useSupabaseCourseLessons()
 
 interface Lesson {
   id: string
@@ -134,6 +163,16 @@ const fetchData = async () => {
 const navigateToLesson = (lessonId: string) => {
   router.push({ query: { id: lessonId } })
   currentLesson.value = lessons.value.find(l => l.id === lessonId) || null
+}
+
+// Handle video end event
+const onVideoEnded = () => {
+  if (!autoplay.value || !currentLesson.value) return
+  
+  const nextLesson = getNextLesson(lessons.value, currentLesson.value.id)
+  if (nextLesson) {
+    navigateToLesson(nextLesson.id)
+  }
 }
 
 // Watch for route changes

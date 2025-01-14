@@ -14,6 +14,16 @@ interface Course {
 
 export const useSupabaseCourseLessons = () => {
   const client = useSupabaseClient()
+  const autoplay = ref(false)
+
+  const toggleAutoplay = () => {
+    autoplay.value = !autoplay.value
+  }
+
+  const getNextLesson = (lessons: Lesson[], currentLessonId: string) => {
+    const currentIndex = lessons.findIndex(lesson => lesson.id === currentLessonId)
+    return currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null
+  }
 
   const getCourseIdFromSlug = async (slug: string) => {
     const { data: course, error } = await client
@@ -48,6 +58,9 @@ export const useSupabaseCourseLessons = () => {
   return {
     getCourseIdFromSlug,
     checkCourseAccess,
-    getCourseLessons
+    getCourseLessons,
+    autoplay,
+    toggleAutoplay,
+    getNextLesson
   }
 } 
