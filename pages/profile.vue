@@ -24,7 +24,7 @@
             <div class="flex items-center gap-1">
               <p class="text-gray-500">{{ profile?.email }}</p>
               <p class="text-gray-500 mx-2">|</p>
-              <NuxtLink href="https://github.com/{{ profile?.github_username }}" target="_blank" class="text-gray-500 flex items-center gap-1">
+              <NuxtLink href="https://github.com/{{ profile?.github_username }}" target="_blank" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">
                 <IconGithub class="w-4 h-4" />
                 <p>{{ profile?.github_username }}</p>
               </NuxtLink>
@@ -39,7 +39,7 @@
               v-for="{courses: course} in purchasedCourses" 
               :key="course.id"
             >
-              <div class="flex items-center justify-between bg-ivory-dark p-4 gap-7">
+              <div class="flex items-center justify-between bg-ivory-dark dark:bg-black-dark p-4 gap-7">
                 <Image 
                   :src="course.image_url" 
                   :alt="course.title"
@@ -50,7 +50,7 @@
                   <p class="text-gray-500">{{ course.description }}</p>
                 </div>
                   <ActionButton 
-                    :to="`/course/${course.slug}/content`"
+                    :to="`/course/${course.slug}/lesson`"
                   class="font-md"
                 >
                   Continue Learning
@@ -133,7 +133,7 @@ onMounted(async () => {
       if (coursesError) throw coursesError
 
       purchasedCourses.value = coursesData || []
-      store.setPurchasedCourses(coursesData || []) // Save to store
+      store.setPurchasedCourses(coursesData?.map(item => item.courses) || []) // Save to store
     }
   } catch (err) {
     console.error('Error fetching profile:', err)

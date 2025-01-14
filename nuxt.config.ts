@@ -95,7 +95,8 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible',
     '@nuxt/fonts',
     '@vueuse/nuxt',
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
+    '@nuxtjs/mdc'
   ],
 
   nitro: {
