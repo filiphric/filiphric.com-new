@@ -19,7 +19,7 @@
             />
             <ActionButton 
               v-if="courseInfo && hasPurchased"
-              :to="`/course/${courseInfo.slug}/content`"
+              :to="`/course/${courseInfo.slug}/lesson`"
               class="h-14 w-64 text-lg text-center"
             >
               Go to course

@@ -17,10 +17,10 @@
           <p class="mb-6 text-lg">Please <NuxtLink to="/login" class="font-extrabold prettyLink">log in</NuxtLink> to access this course content.</p>
           <div class="flex gap-4 justify-center">
             <ActionButton
-              :to="`/course/${route.params.slug}`"
+              :to="`/course/${route.params.slug}/lesson`"
               class="border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-black-lighter"
             >
-              Go to course page
+              Go to course
             </ActionButton>
           </div>
         </div>

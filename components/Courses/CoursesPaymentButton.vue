@@ -67,9 +67,8 @@ const handleSubmit = async (event: Event) => {
         quantity: 1,
         price: props.priceId,
       },
-      client_reference_id: user.value?.stripe_customer,
+      customer_id: user.value?.stripe_customer,
       redirectPath: '/course/payment-confirmation',
-      customer_email: user.value?.email,
       metadata: {
         item: props.info.title,
         type: 'course',

@@ -38,7 +38,7 @@ const handler = async (req: any, res: any) => {
     switch (event.type) {
       case 'checkout.session.completed':
         const session = event.data.object as Stripe.Checkout.Session;
-        const customerId = session.client_reference_id;
+        const customerId = session.customer;
         
         if (!customerId) {
           throw new Error('No customer ID found in session');

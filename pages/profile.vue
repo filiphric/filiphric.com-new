@@ -1,13 +1,13 @@
 <template>
   <NuxtLayout>
-    <div class="mx-auto mt-14 p-7">
+    <div class="mx-auto mt-14 p-7">      
       <div v-if="loading" class="text-center">
         <div class="mb-4">
           <LoaderAnimation />
         </div>
-        <p class="text-xl">Loading profile...</p>
+        <p class="text-xl">{{ loadingMessage }}</p>
       </div>
-      
+
       <div v-else-if="error" class="text-center text-red-500">
         {{ error }}
       </div>
@@ -33,36 +33,90 @@
         </div>
 
         <div class="space-y-4">
-          <h2 class="text-2xl font-bold">Your Courses</h2>
-          <div v-if="purchasedCourses?.length" class="grid gap-4">
-            <div 
-              v-for="{courses: course} in purchasedCourses" 
-              :key="course.id"
-            >
-              <div class="flex items-center justify-between bg-ivory-dark dark:bg-black-dark p-4 gap-7">
-                <Image 
-                  :src="course.image_url" 
-                  :alt="course.title"
-                  class="w-40 h-40"
-                />
-                <div class="flex-1">
-                  <h3 class="text-2xl font-bold">{{ course.title }}</h3>
-                  <p class="text-gray-500">{{ course.description }}</p>
-                </div>
+          <!-- Tabs Navigation -->
+          <div class="border-b border-gray-200 dark:border-gray-700">
+            <nav class="-mb-px flex space-x-8">
+              <button
+                @click="activeTab = 'courses'"
+                :class="[
+                  'py-4 px-1 border-b-2 font-medium whitespace-nowrap',
+                  activeTab === 'courses'
+                    ? 'border-black text-black dark:border-white dark:text-white'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
+                ]"
+              >
+                Your Courses
+              </button>
+              <button
+                @click="activeTab = 'certificates'"
+                :class="[
+                  'py-4 px-1 font-medium whitespace-nowrap',
+                  activeTab === 'certificates'
+                    ? 'border-black text-black dark:border-white dark:text-white'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
+                ]"
+              >
+                Certificates
+              </button>
+              <button
+                @click="activeTab = 'membership'"
+                :class="[
+                  'py-4 px-1 font-medium whitespace-nowrap',
+                  activeTab === 'membership'
+                    ? 'border-black text-black dark:border-white dark:text-white'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
+                ]"
+              >
+                Membership
+              </button>
+              <button
+                @click="handleBillingClick"
+                class="py-4 px-1 font-medium whitespace-nowrap text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300 flex items-center gap-1"
+              >
+                Billing & Invoices
+                <IconExternalLink class="w-4 h-4" />
+              </button>
+            </nav>
+          </div>
+
+          <!-- Tabs Content -->
+          <div v-if="activeTab === 'courses'">
+            <div v-if="purchasedCourses?.length" class="grid gap-4">
+              <div 
+                v-for="{courses: course} in purchasedCourses" 
+                :key="course.id"
+              >
+                <div class="flex items-center justify-between bg-ivory-dark dark:bg-black-dark p-4 gap-7">
+                  <Image 
+                    :src="course.image_url" 
+                    :alt="course.title"
+                    class="w-40 h-40"
+                  />
+                  <div class="flex-1">
+                    <h3 class="text-2xl font-bold">{{ course.title }}</h3>
+                    <p class="text-gray-500">{{ course.description }}</p>
+                  </div>
                   <ActionButton 
                     :to="`/course/${course.slug}/lesson`"
-                  class="font-md"
-                >
-                  Continue Learning
-                </ActionButton>
+                    class="font-md"
+                  >
+                    Continue Learning
+                  </ActionButton>
+                </div>
               </div>
             </div>
+            <div v-else class="text-gray-500">
+              You haven't purchased any courses yet.
+              <NuxtLink to="/courses" class="prettyLink ml-2">
+                Browse Courses
+              </NuxtLink>
+            </div>
           </div>
-          <div v-else class="text-gray-500">
-            You haven't purchased any courses yet.
-            <NuxtLink to="/courses" class="prettyLink ml-2">
-              Browse Courses
-            </NuxtLink>
+          <div v-if="activeTab === 'certificates'">
+            <p>Certificates are coming soon!</p>
+          </div>
+          <div v-if="activeTab === 'membership'">
+            <p>Membership is coming soon!</p>
           </div>
         </div>
       </div>
@@ -75,6 +129,8 @@ const user = useSupabaseUser()
 const loading = ref(true)
 const error = ref('')
 const store = useStore()
+const activeTab = ref('courses')
+const loadingMessage = ref('Loading profile...')
 const { getCurrentUser } = useSupabaseAuth()
 const { getProfile } = useSupabaseProfile()
 const { getUserCourses } = useSupabaseCourses()
@@ -142,4 +198,40 @@ onMounted(async () => {
     loading.value = false
   }
 })
+
+const handleBillingClick = async () => {
+  try {
+    if (!user.value?.id) {
+      throw new Error('You must be logged in to access billing')
+    }
+
+    if (!store.user?.stripe_customer) {
+      throw new Error('No customer account found')
+    }
+
+    const { data, error: apiError } = await useFetch('/api/billing-portal', {
+      method: 'POST',
+      body: { 
+        userId: user.value.id, 
+        customer: store.user.stripe_customer
+      }
+    })
+
+    if (apiError.value) {
+      throw apiError.value
+    }
+
+    if (!data.value?.url) {
+      throw new Error('No portal URL received')
+    }
+
+    loadingMessage.value = 'Redirecting to billing portal...'
+    loading.value = true
+    // Redirect to Stripe Customer Portal
+    window.location.href = data.value.url
+  } catch (err) {
+    console.error('Error accessing billing portal:', err)
+    error.value = err instanceof Error ? err.message : 'Error accessing billing portal. Please try again later.'
+  }
+}
 </script> 
