@@ -24,7 +24,7 @@
         </div>
 
         <!-- Main content only shown when user has access -->
-        <div v-else class="flex flex-col md:flex-row border-2 border-black shadow-block-tangerine">
+        <div v-else class="flex flex-col md:flex-row border-2 border-black shadow-block-tangerine mt-10">
           <!-- Video Player Section (2/3) -->
           <div class="w-full md:w-2/3 bg-ivory-dark dark:bg-black">
             <div class="flex">
