@@ -24,7 +24,7 @@
             <div class="flex items-center gap-1">
               <p class="text-gray-500">{{ profile?.email }}</p>
               <p class="text-gray-500 mx-2">|</p>
-              <NuxtLink href="https://github.com/{{ profile?.github_username }}" target="_blank" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">
+              <NuxtLink :to="`https://github.com/${profile?.github_username}`" target="_blank" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">
                 <IconGithub class="w-4 h-4" />
                 <p>{{ profile?.github_username }}</p>
               </NuxtLink>
