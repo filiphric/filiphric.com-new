@@ -151,6 +151,12 @@ export default defineNuxtConfig({
       callback: '/auth/callback',
       exclude: ['/*']
     }
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['mux-player'].includes(tag)
+    }
   }
 
 })

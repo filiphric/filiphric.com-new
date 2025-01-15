@@ -8,6 +8,9 @@ export interface Course {
   coming_soon: boolean
   created_at: string
   updated_at: string
+  course_lessons?: {
+    id: string
+  }[]
 }
 
 export type Courses = Course[]

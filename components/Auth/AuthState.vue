@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="relative"
+    class="relative z-50"
     @mouseenter="isOpen = true"
     @mouseleave="isOpen = false"
   >
@@ -21,7 +21,7 @@
       <!-- Dropdown Menu -->
       <div 
         v-if="isOpen"
-        class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-10 border-2 border-black"
+        class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-50 border-2 border-black"
       >
         <div class="absolute h-4 w-full -top-4"></div>
         <div class="py-2">
@@ -32,10 +32,22 @@
             Profile
           </NuxtLink>
           <NuxtLink 
-            to="/profile"
+            to="/profile?tab=courses"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-black-lighter"
           >
             Your Courses
+          </NuxtLink>
+          <NuxtLink 
+            to="/profile?tab=membership"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-black-lighter"
+          >
+            Membership
+          </NuxtLink>
+          <NuxtLink 
+            to="/profile?tab=certificates"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-black-lighter"
+          >
+            Your Certificates
           </NuxtLink>
           <button 
             @click="handleLogout"

@@ -37,7 +37,7 @@
           <div class="border-b border-gray-200 dark:border-gray-700">
             <nav class="-mb-px flex space-x-8">
               <button
-                @click="activeTab = 'courses'"
+                @click="navigateToTab('courses')"
                 :class="[
                   'py-4 px-1 border-b-2 font-medium whitespace-nowrap',
                   activeTab === 'courses'
@@ -48,18 +48,7 @@
                 Your Courses
               </button>
               <button
-                @click="activeTab = 'certificates'"
-                :class="[
-                  'py-4 px-1 font-medium whitespace-nowrap',
-                  activeTab === 'certificates'
-                    ? 'border-black text-black dark:border-white dark:text-white'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
-                ]"
-              >
-                Certificates
-              </button>
-              <button
-                @click="activeTab = 'membership'"
+                @click="navigateToTab('membership')"
                 :class="[
                   'py-4 px-1 font-medium whitespace-nowrap',
                   activeTab === 'membership'
@@ -68,6 +57,17 @@
                 ]"
               >
                 Membership
+              </button>
+              <button
+                @click="navigateToTab('certificates')"
+                :class="[
+                  'py-4 px-1 font-medium whitespace-nowrap',
+                  activeTab === 'certificates'
+                    ? 'border-black text-black dark:border-white dark:text-white'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
+                ]"
+              >
+                Your Certificates
               </button>
               <button
                 @click="handleBillingClick"
@@ -83,21 +83,32 @@
           <div v-if="activeTab === 'courses'">
             <div v-if="purchasedCourses?.length" class="grid gap-4">
               <div 
-                v-for="{courses: course} in purchasedCourses" 
-                :key="course.id"
+                v-for="item in purchasedCourses" 
+                :key="item.course_id"
               >
                 <div class="flex items-center justify-between bg-ivory-dark dark:bg-black-dark p-4 gap-7">
                   <Image 
-                    :src="course.image_url" 
-                    :alt="course.title"
+                    :src="item.courses.image_url" 
+                    :alt="item.courses.title"
                     class="w-40 h-40"
                   />
                   <div class="flex-1">
-                    <h3 class="text-2xl font-bold">{{ course.title }}</h3>
-                    <p class="text-gray-500">{{ course.description }}</p>
+                    <h3 class="text-2xl font-bold">{{ item.courses.title }}</h3>
+                    <p class="text-gray-500">{{ item.courses.description }}</p>
+                    <div class="mt-4">
+                      <div class="flex items-center gap-2">
+                        <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                          <div 
+                            class="bg-lime h-2.5 rounded-full transition-all duration-500"
+                            :style="{ width: calculateProgress(item.courses) + '%' }"
+                          />
+                        </div>
+                        <span class="text-sm text-gray-500">{{ calculateProgress(item.courses) }}%</span>
+                      </div>
+                    </div>
                   </div>
                   <ActionButton 
-                    :to="`/course/${course.slug}/lesson`"
+                    :to="`/course/${item.courses.slug}/lesson`"
                     class="font-md"
                   >
                     Continue Learning
@@ -125,15 +136,27 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 const user = useSupabaseUser()
 const loading = ref(true)
 const error = ref('')
 const store = useStore()
-const activeTab = ref('courses')
 const loadingMessage = ref('Loading profile...')
 const { getCurrentUser } = useSupabaseAuth()
 const { getProfile } = useSupabaseProfile()
 const { getUserCourses } = useSupabaseCourses()
+const { getWatchedLessons } = useSupabaseWatchedLessons()
+
+// Set active tab based on URL parameter
+const activeTab = computed({
+  get: () => (route.query.tab as string) || 'courses',
+  set: (value) => {
+    router.push({ query: { ...route.query, tab: value } })
+  }
+})
 
 interface ProfileData {
   id: string
@@ -153,11 +176,15 @@ interface UserCourse {
     slug: string
     image_url: string
     description: string
+    course_lessons?: {
+      id: string
+    }[]
   }
 }
 
 const profile = ref<ProfileData | null>(null)
 const purchasedCourses = ref<UserCourse[]>([])
+const watchedLessons = ref<string[]>([])
 
 // Redirect if not logged in
 watchEffect(() => {
@@ -185,11 +212,15 @@ onMounted(async () => {
       }
 
       // Get purchased courses
-      const { courses: coursesData, error: coursesError } = await  getUserCourses(user.value.id)
+      const { courses: coursesData, error: coursesError } = await getUserCourses(user.value.id)
       if (coursesError) throw coursesError
 
       purchasedCourses.value = coursesData || []
       store.setPurchasedCourses(coursesData?.map(item => item.courses) || []) // Save to store
+
+      // Get watched lessons
+      const { lessons: watched } = await getWatchedLessons(user.value.id)
+      watchedLessons.value = watched || []
     }
   } catch (err) {
     console.error('Error fetching profile:', err)
@@ -198,6 +229,14 @@ onMounted(async () => {
     loading.value = false
   }
 })
+
+const calculateProgress = (course: UserCourse['courses']) => {
+  if (!course.course_lessons?.length) return 0
+  const watchedCount = watchedLessons.value.filter(id => 
+    course.course_lessons?.some(lesson => lesson.id === id)
+  ).length
+  return Math.ceil((watchedCount / course.course_lessons.length) * 100)
+}
 
 const handleBillingClick = async () => {
   try {
@@ -233,5 +272,10 @@ const handleBillingClick = async () => {
     console.error('Error accessing billing portal:', err)
     error.value = err instanceof Error ? err.message : 'Error accessing billing portal. Please try again later.'
   }
+}
+
+// Add navigation methods
+const navigateToTab = (tab: string) => {
+  activeTab.value = tab
 }
 </script> 

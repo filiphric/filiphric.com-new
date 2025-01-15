@@ -41,13 +41,19 @@ export const useSupabaseCourses = () => {
           title,
           slug,
           image_url,
-          description
+          description,
+          course_lessons (
+            id
+          )
         )
       `)
       .eq('user_id', userId) as { data: UserCourseJoin[] | null, error: any }
 
     if (!error && data) {
-      const courseDetails = data.map(item => item.courses)
+      const courseDetails = data.map(item => ({
+        ...item.courses,
+        lessons: item.courses.course_lessons
+      }))
       store.setPurchasedCourses(courseDetails)
     }
 
