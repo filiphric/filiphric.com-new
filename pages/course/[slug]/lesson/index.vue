@@ -8,7 +8,6 @@
       </div>
 
       <template v-else>
- 
 
         <!-- Access message when user is not logged in -->
         <div v-if="showAccessAlert" class="w-full p-8 rounded-lg text-center">
@@ -95,7 +94,9 @@
         </div>
 
         <!-- Description section -->
-        <div v-if="!showAccessAlert" class="mt-4">
+        <div v-if="!showAccessAlert" class="mt-14">
+          <!-- Show course title if available -->
+          <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl my-7">{{ currentLesson?.video_title || '' }}</h1>
           <MDC :value="currentLesson?.video_description || ''" tag="article" />
         </div>
       </template>
