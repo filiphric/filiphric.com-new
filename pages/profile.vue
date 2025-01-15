@@ -107,12 +107,21 @@
                       </div>
                     </div>
                   </div>
-                  <ActionButton 
-                    :to="`/course/${item.courses.slug}/lesson`"
-                    class="font-md"
-                  >
-                    Continue Learning
-                  </ActionButton>
+                  <div class="flex flex-col gap-2">
+                    <ActionButton 
+                      :to="`/course/${item.courses.slug}/lesson`"
+                      class="font-md"
+                    >
+                      {{ completedCourses.length ? 'Go to course' : 'Continue Learning' }}
+                    </ActionButton>
+                    <NuxtLink 
+                      v-if="calculateProgress(item.courses) === 100"
+                      @click="navigateToTab('certificates')"
+                      class="pt-2 text-sm text-center text-lime hover:underline cursor-pointer"
+                    >
+                      Certificate available
+                    </NuxtLink>
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,11 +132,30 @@
               </NuxtLink>
             </div>
           </div>
-          <div v-if="activeTab === 'certificates'">
-            <p>Certificates are coming soon!</p>
+          <div v-if="activeTab === 'certificates'" class="space-y-6">
+            <div v-if="completedCourses.length">
+              <div v-for="course in completedCourses" :key="course.id" class="mb-6 p-4 bg-ivory-dark dark:bg-black-dark">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="text-xl font-bold">{{ course.title }}</h3>
+                    <p class="text-sm text-gray-500">Course completed</p>
+                  </div>
+                  <ActionButton>
+                    <button @click="downloadCertificate(course.slug)" class="uppercase flex items-center gap-2">
+                      <IconDownload class="w-5 h-5" />
+                      Download Certificate
+                    </button>
+                  </ActionButton>
+                </div>
+              </div>
+            </div>
+            <div v-else class="text-center py-7">
+              <p class="text-gray-500">After completing a course, your certificates will be here!</p>
+            </div>
           </div>
           <div v-if="activeTab === 'membership'">
-            <p>Membership is coming soon!</p>
+            <h2 class="font-extrabold text-4xl py-7">Membership is coming soon!</h2>
+            <p>Get exclusive access to private live streams, Q&A sessions and a discounts on all future courses and workshops.</p>
           </div>
         </div>
       </div>
@@ -277,5 +305,45 @@ const handleBillingClick = async () => {
 // Add navigation methods
 const navigateToTab = (tab: string) => {
   activeTab.value = tab
+}
+
+// Add computed property for completed courses
+const completedCourses = computed(() => {
+  return purchasedCourses.value
+    .filter(item => calculateProgress(item.courses) === 100)
+    .map(item => item.courses)
+})
+
+const downloadCertificate = async (courseSlug: string) => {
+  try {
+    loadingMessage.value = 'Generating certificate...'
+    loading.value = true
+    
+    const userName = profile.value?.full_name || user.value?.email
+    if (!userName) {
+      throw new Error('User name not found')
+    }
+
+    const response = await fetch(`/api/certificate?name=${encodeURIComponent(userName)}`)
+    if (!response.ok) {
+      throw new Error('Failed to generate certificate')
+    }
+    
+    const blob = await response.blob()
+    const link = document.createElement('a')
+    link.href = window.URL.createObjectURL(blob)
+    link.download = `certificate-${courseSlug}.png`
+    
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    
+    window.URL.revokeObjectURL(link.href)
+  } catch (err) {
+    console.error('Error downloading certificate:', err)
+    error.value = err instanceof Error ? err.message : 'Failed to download certificate. Please try again.'
+  } finally {
+    loading.value = false
+  }
 }
 </script> 

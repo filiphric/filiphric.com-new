@@ -31,6 +31,7 @@
               <CoursePlayer 
                 :playback-id="currentLesson?.mux_id || ''" 
                 :lesson-id="currentLesson?.id || ''"
+                :autoplay="autoplay"
                 @ended="onVideoEnded"
                 @lessonWatched="onLessonWatched"
               />
@@ -43,7 +44,16 @@
                 <div>
                   <h2 class="text-xl font-bold">{{ courseTitle }}</h2>
                   <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {{ watchedPercentage }}% complete
+                    <NuxtLink 
+                      v-if="watchedPercentage === 100"
+                      to="/profile?tab=certificates"
+                      class="text-lime hover:underline"
+                    >
+                      Certificate available
+                    </NuxtLink>
+                    <div v-else>
+                      {{ watchedPercentage }}% complete
+                    </div>
                   </p>
                 </div>
                 <div class="flex items-center gap-2">
@@ -78,9 +88,7 @@
                 >
                   <div class="flex items-center gap-3">
                     <span v-if="watchedLessons.includes(lesson.id)" class="text-lime group-hover:text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                      </svg>
+                      <IconCheckmarkRound class="w-5 fill-lime" />
                     </span>
                     <span v-else class="text-sm font-medium h-5 w-5 flex items-center justify-center">{{ lesson.video_order }}.</span>
                     <div>

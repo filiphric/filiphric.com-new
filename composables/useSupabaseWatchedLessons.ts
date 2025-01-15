@@ -22,7 +22,7 @@ interface Database {
 export const useSupabaseWatchedLessons = () => {
   const supabase = useSupabaseClient<Database>()
 
-  const getWatchedLessons = async (userId: string) => {
+  const getWatchedLessons = async (userId: string): Promise<{ lessons: string[], error: any }> => {
     try {
       const { data: lessons, error } = await supabase
         .from('watched_lessons')
