@@ -78,7 +78,7 @@
                   v-for="lesson in lessons" 
                   :key="lesson.id"
                   :class="[
-                    'py-1 px-4 cursor-pointer transition-colors text-sm',
+                    'py-1 px-4 cursor-pointer transition-colors text-sm min-h-10 flex',
                     currentLesson?.id === lesson.id 
                       ? 'border-y-2 border-black bg-white dark:bg-white cursor-default dark:text-black' 
                       : 'dark:hover:bg-black-lighter hover:bg-lime group course-item'
@@ -87,9 +87,9 @@
                 >
                   <div class="flex items-center gap-3">
                     <span v-if="watchedLessons.includes(lesson.id)" class="text-lime group-hover:text-white">
-                      <IconCheckmarkRound class="w-5 fill-lime dark:group-hover:fill-lime group-hover:fill-black" />
+                      <IconCheckmarkRound class="w-4 h-4 fill-lime dark:group-hover:fill-lime group-hover:fill-black" />
                     </span>
-                    <span v-else class="text-sm font-medium h-5 w-5 flex items-center justify-center">{{ lesson.video_order }}.</span>
+                    <span v-else class="text-sm font-medium h-4 w-4 flex items-center justify-center">{{ lesson.video_order }}.</span>
                     <div>
                       <h3 class="font-medium">{{ lesson.video_title }}</h3>
                     </div>

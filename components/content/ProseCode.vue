@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <pre :class="'language-' + language" v-html="transformedCode" />
+    <pre :class="'language-' + language" v-html="formattedCode" />
   </div>
 </template>
 
@@ -65,12 +65,12 @@ const props = defineProps({
   }
 })
 
-const source = ref(props.code)
+const source = computed(() => props.code)
 const { copy, copied } = useClipboard({ source })
 
-// transform code - add line numbers and highlights
-const transformedCode = ref()
-onMounted(() => {
+// Format code with Prism and add line numbers/highlights
+const formattedCode = computed(() => {
+  // Initialize Prism language extensions
   Prism.languages?.insertBefore('json', 'punctuation', punctuation)
   Prism.languages?.insertBefore('json', 'string', string)
   Prism.languages?.insertBefore('js', 'punctuation', punctuation)
@@ -81,21 +81,20 @@ onMounted(() => {
   const formatted = Prism.highlight(props.code, Prism.languages[props.language], props.language)
 
   if (props.language !== 'treeview') {
-    transformedCode.value = formatted.split('\n')
+    return formatted.split('\n')
       .map((line, num) => `<span ${props.highlights.includes(num + 1) ? 'class="highlight"' : ''}><span class="line-number">${(num + 1).toString().padStart(2, ' ')}  </span>${line}</span>`)
       .slice(0, -1)
       .join('\n')
   } else {
-    // don’t add numbering for treeview
-    transformedCode.value = formatted.split('<br /></span>')
+    // don't add numbering for treeview
+    return formatted.split('<br /></span>')
       .map((line, num) => {
         return `<span ${props.highlights.includes(num + 1) ? 'class="highlight"' : ''}>${line}</span></span>`
       })
-      .slice(0, -1) // remove last line
+      .slice(0, -1)
       .join('\n')
   }
 })
-
 </script>
 
 <style>
