@@ -24,25 +24,24 @@
         </div>
 
         <!-- Main content only shown when user has access -->
-        <div v-else class="flex flex-col md:flex-row border-2 border-black shadow-block-tangerine mt-10">
+        <div v-else class="grid md:grid-cols-3 border-2 border-black shadow-block-tangerine mt-10 mx-7 md:mx-0">
           <!-- Video Player Section (2/3) -->
-          <div class="w-full md:w-2/3 bg-ivory-dark dark:bg-black">
-            <div class="flex">
-              <CoursePlayer 
-                :playback-id="currentLesson?.mux_id || ''" 
-                :lesson-id="currentLesson?.id || ''"
-                :autoplay="autoplay"
-                @ended="onVideoEnded"
-                @lessonWatched="onLessonWatched"
-              />
-            </div>
+          <div class="col-span-3 md:col-span-2 bg-ivory-dark dark:bg-black aspect-video flex place-content-center">
+            <CoursePlayer 
+              :playback-id="currentLesson?.mux_id || ''" 
+              :lesson-id="currentLesson?.id || ''"
+              :autoplay="autoplay"
+              @ended="onVideoEnded"
+              @lessonWatched="onLessonWatched"
+            />
           </div>
 
-          <div class="w-full md:w-1/3 bg-ivory-dark dark:bg-black">
-            <div>
-              <div class="flex justify-between items-center mb-4 bg-white w-full h-full p-4 dark:bg-black-lighter">
+          <!-- Lesson List Section (1/3) -->
+          <div class="bg-ivory-dark dark:bg-black md:w-full md:aspect-[8/9] md:h-full col-span-3 md:col-span-1 max-h-96 md:max-h-none ">
+            <div class="h-full w-full grid grid-rows-[auto_1fr]">
+              <div class="bg-white w-full py-4 pl-4 pr-3 dark:bg-black-lighter grid grid-cols-2 content-between">
                 <div>
-                  <h2 class="text-xl font-bold">{{ courseTitle }}</h2>
+                  <h2 class="text-lg font-bold">{{ courseTitle }}</h2>
                   <p class="text-sm text-gray-600 dark:text-gray-400">
                     <NuxtLink 
                       v-if="watchedPercentage === 100"
@@ -56,7 +55,7 @@
                     </div>
                   </p>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 justify-self-end">
                   <span class="text-sm">Autoplay</span>
                   <button 
                     @click="toggleAutoplay"
@@ -74,12 +73,12 @@
                   </button>
                 </div>
               </div>
-              <div>
+              <div class="overflow-y-auto">
                 <div 
                   v-for="lesson in lessons" 
                   :key="lesson.id"
                   :class="[
-                    'py-2 px-4 cursor-pointer transition-colors',
+                    'py-1 px-4 cursor-pointer transition-colors text-sm',
                     currentLesson?.id === lesson.id 
                       ? 'border-y-2 border-black bg-white dark:bg-white cursor-default dark:text-black' 
                       : 'dark:hover:bg-black-lighter hover:bg-lime group course-item'
@@ -88,7 +87,7 @@
                 >
                   <div class="flex items-center gap-3">
                     <span v-if="watchedLessons.includes(lesson.id)" class="text-lime group-hover:text-white">
-                      <IconCheckmarkRound class="w-5 fill-lime" />
+                      <IconCheckmarkRound class="w-5 fill-lime dark:group-hover:fill-lime group-hover:fill-black" />
                     </span>
                     <span v-else class="text-sm font-medium h-5 w-5 flex items-center justify-center">{{ lesson.video_order }}.</span>
                     <div>
@@ -106,6 +105,8 @@
           <!-- Show course title if available -->
           <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl my-7">{{ currentLesson?.video_title || '' }}</h1>
           <MDC :value="currentLesson?.video_description || ''" tag="article" />
+          <hr class="pt-7" />
+          <div class="text-sm text-right">Found a problem? <NuxtLink to="https://discord.gg/6c2BqtWHsp" class="font-bold prettyLink cursor-pointer">Please contact me on Discord <IconDiscord class="w-6 h-6 inline-block ml-1 pb-1"/></NuxtLink></div>
         </div>
       </template>
     </div>
