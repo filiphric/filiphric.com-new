@@ -73,10 +73,11 @@
                   </button>
                 </div>
               </div>
-              <div class="overflow-y-auto">
+              <div class="overflow-y-auto" ref="lessonsContainer">
                 <div 
                   v-for="lesson in lessons" 
                   :key="lesson.id"
+                  :data-lesson-id="lesson.id"
                   :class="[
                     'py-1 px-4 cursor-pointer transition-colors text-sm min-h-10 flex',
                     currentLesson?.id === lesson.id 
@@ -152,6 +153,30 @@ const error = ref('')
 const showAccessAlert = ref(false)
 const courseTitle = ref('')
 const watchedLessons = ref<string[]>([])
+const lessonsContainer = ref<HTMLElement | null>(null)
+
+// Function to scroll to active lesson
+const scrollToActiveLesson = () => {
+  if (!lessonsContainer.value) return
+  
+  const lessonId = route.query.id as string
+  if (!lessonId) return
+
+  const activeLessonElement = lessonsContainer.value.querySelector(`[data-lesson-id="${lessonId}"]`)
+  if (activeLessonElement) {
+    const containerTop = lessonsContainer.value.getBoundingClientRect().top
+    const elementTop = (activeLessonElement as HTMLElement).getBoundingClientRect().top
+    const scrollOffset = elementTop - containerTop
+    lessonsContainer.value.scrollTop = scrollOffset
+  }
+}
+
+// Watch for both loading state and container existence
+watch([loading, lessonsContainer], ([isLoading, container]) => {
+  if (!isLoading && container) {
+    nextTick(scrollToActiveLesson)
+  }
+}, { immediate: true })
 
 // Fetch course and lessons data
 const fetchData = async () => {
