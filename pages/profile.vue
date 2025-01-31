@@ -215,11 +215,13 @@ const profile = ref<ProfileData | null>(null)
 const purchasedCourses = ref<UserCourse[]>([])
 const watchedLessons = ref<string[]>([])
 
-// Redirect if not logged in
-watchEffect(() => {
-  if (!user.value) {
-    navigateTo('/login')
-  }
+// Redirect if not logged in - wait for client-side hydration
+onMounted(() => {
+  watchEffect(() => {
+    if (!user.value) {
+      navigateTo('/login')
+    }
+  })
 })
 
 onMounted(async () => {

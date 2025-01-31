@@ -68,8 +68,10 @@ watchEffect(async () => {
   }
 })
 
-// Redirect if no query parameters
-if (!route.query.success) {
-  navigateTo('/courses')
-}
+// Move the redirect logic into onMounted hook
+onMounted(() => {
+  if (!route.query.success) {
+    navigateTo('/courses')
+  }
+})
 </script> 
