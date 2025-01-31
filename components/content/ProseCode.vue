@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
+  <ClientOnly>
   <div class="code-block shadow-block" data-cy="code-block">
     <div class="flex h-10 justify-between bg-white px-6 py-1.5 font-mono text-black dark:bg-black-lighter dark:text-gray-100" data-cy="code-toolbar">
       <div class="grid grow-0 grid-cols-3 items-center gap-2">
@@ -29,6 +30,7 @@
     </div>
     <pre :class="'language-' + language" v-html="formattedCode" />
   </div>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
