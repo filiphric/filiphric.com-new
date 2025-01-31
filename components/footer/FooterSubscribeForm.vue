@@ -32,11 +32,10 @@
             {{ errors.join('and ') }} {{ errors.length > 1 ? 'are' : 'is' }} required.
           </p>
         </div>
-        <button
-          type="submit"
-          class="mt-5 border-black border-2 bg-white px-7 py-3 font-bold uppercase transition-all hover:-translate-y-2 hover:-translate-x-2 hover:shadow-block-lime dark:bg-black-lighter dark:duration-300"
-        >
-          Subscribe
+        <button type="submit">
+          <ActionButton>
+            Subscribe
+          </ActionButton>
         </button>
         <p class=" mt-6 text-left text-xs">
           I treat your email address like I would my own. That means no ads. Just notifications of when I do cool stuff. Unsubscribe anytime. <NuxtLink to="/privacy-policy" class="prettyLink">
@@ -73,7 +72,6 @@ const emailAddress = ref('')
 const errors: Ref<string[]> = ref([])
 const errorEmail = ref(false)
 const errorFirstName = ref(false)
-const config = useRuntimeConfig()
 
 const submit = async () => {
   if (emailAddress.value && firstName.value) {

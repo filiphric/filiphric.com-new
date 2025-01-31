@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="fixed inset-0 w-full h-full flex bg-ivory/80 dark:bg-black/80 items-center justify-center backdrop-blur-xl z-50">
+  <div class="fixed inset-0 w-full h-full flex bg-ivory/80 dark:bg-black/80 items-center justify-center backdrop-blur-xl z-50">
     <div class="w-full h-full p-4 overflow-y-auto">
       <div class="container mx-auto">
         <div class="text-xs py-2 text-black-lighter dark:text-white opacity-50">Press esc to close</div>
@@ -41,13 +41,6 @@ import { useRouter } from '#app'
 const emit = defineEmits(['hide'])
 const router = useRouter()
 
-const props = defineProps({
-  show: {
-    type: Boolean,
-    default: false
-  }
-})
-
 const searchQuery = ref('')
 const searchInput = ref<HTMLInputElement | null>(null)
 const selectedIndex = ref(0)
@@ -84,19 +77,6 @@ watch(searchQuery, (query) => {
     results.value = []
   }
   selectedIndex.value = 0
-})
-
-// Handle show/hide
-watch(() => props.show, (newValue) => {
-  if (newValue) {
-    nextTick(() => {
-      searchInput.value?.focus()
-    })
-  } else {
-    searchQuery.value = ''
-    selectedIndex.value = 0
-    results.value = []
-  }
 })
 
 const handleEnter = () => {

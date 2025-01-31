@@ -32,6 +32,7 @@ const props = defineProps<{
     title: string,
     cypressVersion: string,
     playwrightVersion: string,
+    vitestVersion: string,
     image: string,
     slug: string,
     date: string,

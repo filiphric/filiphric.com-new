@@ -43,6 +43,9 @@ export const resolveIcon = (filename: any) => {
   if (filename.includes('.tsx')) {
     classes.push('tsx')
   }
+  if (filename.includes('eslint')) {
+    classes.push('eslint')
+  }
   if (filename.includes('tsconfig.json') || filename.includes('tsconfig.node.json') || filename.includes('tsconfig.base.json')) {
     classes.push('tsconfig')
   }

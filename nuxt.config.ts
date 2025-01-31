@@ -95,7 +95,8 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible',
     '@nuxt/fonts',
     '@vueuse/nuxt',
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
+    '@nuxtjs/mdc'
   ],
 
   nitro: {
@@ -115,13 +116,6 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {}
-    }
-  },
-
-  runtimeConfig: {
-    public: {
-      stripeApiKey: 
-      'pk_live_51KefBzBnBECxBVfmEylMMx3HYzX4uzLsuxiG5M56wvvg9cJOiiFm96WwLeYVNvj2vlAC9phbDWeLP151bZhXGxcF00Yxg9Yq3s',
     }
   },
 
@@ -156,6 +150,12 @@ export default defineNuxtConfig({
     redirectOptions: {
       callback: '/auth/callback',
       exclude: ['/*']
+    }
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['mux-player'].includes(tag)
     }
   }
 

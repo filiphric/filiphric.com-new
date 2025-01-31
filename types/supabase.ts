@@ -5,6 +5,9 @@ export interface Profile {
   last_name: string | null
   created_at: string
   updated_at: string
+  stripe_customer: string | null
+  avatar_url: string | null
+  full_name: string | null
 }
 
 export interface Database {

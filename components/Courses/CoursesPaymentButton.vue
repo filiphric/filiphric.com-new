@@ -1,21 +1,26 @@
 <template>
   <div>
-    <div id="course-payment" class="mt-1 place-self-center">
-      <ActionButton @click="pay(); useTrackEvent('PayButton - ' + info?.title)" class="w-80 h-14 uppercase flex items-center justify-center cursor-pointer">
-        Purchase course
-      </ActionButton>
-      <span class="mt-2 block text-left text-sm text-gray-500">
-        After clicking the button, you will be redirected<br /> to <IconStripe class="inline-block h-4 pb-0.5 -mx-1" /> checkout page
-      </span>
-    </div>
+    <form :action="checkoutUrl" method="POST" @submit.prevent="handleSubmit">
+      <div id="course-payment" class="mt-1 place-self-center">
+        <button type="submit">
+          <ActionButton 
+            :disabled="!props.info?.id"
+            class="h-14 text-lg text-center"
+          >
+            Limited time offer: 49 €
+          </ActionButton>
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { loadStripe } from '@stripe/stripe-js'
+import type { Profile } from '~/types/supabase'
 
-const config = useRuntimeConfig()
-const stripe = await loadStripe(config.public.stripeApiKey)
+const store = useStore()
+const user = computed(() => store.user as Profile | null)
+const checkoutUrl = '/api/course-checkout'
 
 const props = defineProps({
   info: {
@@ -28,23 +33,53 @@ const props = defineProps({
   }
 })
 
-const pay = () => {
-  useFetch('/api/checkout', {
+const handleSubmit = async (event: Event) => {
+  if (!user.value) {
+    // Store payment intent in cookie
+    const paymentCookie = useCookie('paymentIntent', {
+      maxAge: 3600,
+      sameSite: true
+    })
+    paymentCookie.value = JSON.stringify({
+      priceId: props.priceId,
+      courseInfo: {
+        title: props.info.title,
+        id: props.info.id
+      }
+    })
+    
+    // Redirect to login
+    const returnUrl = window.location.pathname
+    const authRedirectCookie = useCookie('authRedirect', {
+      maxAge: 3600,
+      sameSite: true
+    })
+    authRedirectCookie.value = returnUrl
+    navigateTo('/login')
+    return
+  }
+
+  // Submit checkout data
+  const { data } = await useFetch(checkoutUrl, {
     method: 'POST',
     body: {
       order: {
         quantity: 1,
-        price: props.priceId
+        price: props.priceId,
       },
+      customer_id: user.value?.stripe_customer,
+      redirectPath: '/course/payment-confirmation',
       metadata: {
         item: props.info.title,
         type: 'course',
-        redirectPath: '/course/payment-confirmation'
+        courseId: props.info.id
       }
     }
-  }).then(({ data }) => {
-    // @ts-ignore
-    stripe?.redirectToCheckout({ sessionId: data?.value?.id })
   })
+
+  // Redirect to Stripe Checkout
+  if (data.value?.url) {
+    window.location.href = data.value.url
+  }
 }
 </script>
