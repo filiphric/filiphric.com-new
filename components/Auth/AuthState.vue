@@ -14,7 +14,7 @@
         >
         <IconUser 
           v-else
-          class="w-6 h-6 pt-1" 
+          class="w-8 h-8 block" 
         />
       </button>
 

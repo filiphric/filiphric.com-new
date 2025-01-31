@@ -117,7 +117,7 @@
                     <NuxtLink 
                       v-if="calculateProgress(item.courses) === 100"
                       @click="navigateToTab('certificates')"
-                      class="pt-2 text-sm text-center text-lime hover:underline cursor-pointer"
+                      class="font-bold bg-lime text-white dark:text-black rounded-md px-1.5 py-0.5 mt-1 inline-block mx-auto max-w-fit cursor-pointer"
                     >
                       Certificate available
                     </NuxtLink>

@@ -31,6 +31,18 @@
         </div>
       </div>
 
+      <div class="mt-14 wrapper">
+        <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center">
+          <LoaderAnimation />
+          <p class="text-xl text-center mt-4">Loading video...</p>
+        </div>
+        <mux-player
+          playback-id="4aZqc4EvP5464v9vBvULOTlRYrs9SwkGR8fFG018izD00"
+          theme="minimal"
+          thumbnail-time="107"
+        />
+      </div>
+
       <!-- Course Modules -->
       <div class="mt-28">
         <h2 class="text-4xl font-bold mb-14 text-center">What You'll Learn</h2>
@@ -76,8 +88,8 @@
           <div>Practical Tips</div>
         </div>
         <div class="bg-white p-7 shadow-block dark:bg-black-dark text-center">
-          <div class="text-4xl font-bold mb-2">10+</div>
-          <div>Hours of Content</div>
+          <div class="text-4xl font-bold mb-2">2+</div>
+          <div>Hours of laser-focused content</div>
         </div>
         <div class="bg-white p-7 shadow-block dark:bg-black-dark text-center">
           <div class="text-4xl font-bold mb-2">∞</div>
@@ -94,7 +106,7 @@
         <div class="w-full md:w-1/2 text-center md:text-left">
           <h2 class="text-4xl font-bold mb-5 md:mb-7">About Your Instructor</h2>
           <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
-            I have a decade of experience with teaching hundreds of developers and testers. I specialize in helping people level up their testing practices. Whether you are starting with test automation or you are looking to level up, I'm ready to help.
+            I have a close to a decade of experience with teaching hundreds of developers and testers. I specialize in helping people level up their testing practices. Whether you are starting with test automation or you are looking to level up, I'm ready to help.
           </p>
           <div class="flex flex-wrap gap-4">
             <NuxtLink 
@@ -121,6 +133,8 @@
 
 <script setup lang="ts">
 import type { Course } from '~/types/courses';
+import "@mux/mux-player";
+import "@mux/mux-player/themes/minimal";
 
 const { getCourseBySlug } = useSupabaseCourses()
 const store = useStore()
@@ -153,3 +167,19 @@ const hasPurchased = computed(() => {
 })
 
 </script>
+
+<style scoped>
+.wrapper {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  position: relative;
+}
+mux-player, .placeholder {
+  position: absolute;
+  inset: 0;
+}
+.placeholder {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+</style>

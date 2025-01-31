@@ -93,6 +93,9 @@
 .filename.tsx:before  {
 	background-image: url('../icons/file_tsx.svg');
 }
+.filename.eslint:before  {
+	background-image: url('../icons/file_eslint.svg');
+}
 
 /* directory icons */
 .filename.dir:before {

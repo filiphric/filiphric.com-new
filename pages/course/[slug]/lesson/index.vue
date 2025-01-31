@@ -37,16 +37,16 @@
           </div>
 
           <!-- Lesson List Section (1/3) -->
-          <div class="bg-ivory-dark dark:bg-black md:w-full md:aspect-[8/9] md:h-full col-span-3 md:col-span-1 max-h-96 md:max-h-none ">
+          <div class="bg-ivory-dark dark:bg-black md:w-full md:aspect-[8/9] md:h-full col-span-3 md:col-span-1 max-h-96 md:max-h-none border-l-2 border-black">
             <div class="h-full w-full grid grid-rows-[auto_1fr]">
-              <div class="bg-white w-full py-4 pl-4 pr-3 dark:bg-black-lighter grid grid-cols-2 content-between">
+              <div class="bg-white w-full py-4 pl-4 pr-3 dark:bg-black-lighter grid grid-cols-2 content-between border-b-2 border-black">
                 <div>
                   <h2 class="text-lg font-bold">{{ courseTitle }}</h2>
                   <p class="text-sm text-gray-600 dark:text-gray-400">
                     <NuxtLink 
                       v-if="watchedPercentage === 100"
                       to="/profile?tab=certificates"
-                      class="text-lime hover:underline"
+                      class="font-bold bg-lime text-white rounded-md px-1.5 py-0.5 mt-1 dark:hover:underline inline-block"
                     >
                       Certificate available
                     </NuxtLink>
