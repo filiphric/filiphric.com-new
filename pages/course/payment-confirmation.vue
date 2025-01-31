@@ -23,7 +23,7 @@
               class="w-96 h-96 mx-auto my-12"
             />
             <p class="text-xl mb-7">You now have access to <strong>{{ course.title }}</strong></p>
-            <ActionButton :to="`/course/${course?.slug}/lesson`" class="h-14 w-64 text-lg">
+            <ActionButton :to="`/${course?.url}/lesson`" class="h-14 w-64 text-lg">
               Go to course
             </ActionButton>
           </div>

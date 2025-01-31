@@ -30,7 +30,7 @@ const { data: internalData } = await useAsyncData('courses', async () => {
   const { data, error } = await client
     .from('courses')
     .select('*')
-    .order('created_at')
+    .order('created_at', { ascending: false })
   
   if (error) {
     console.error('Error fetching courses:', error)

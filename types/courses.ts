@@ -1,13 +1,13 @@
 export interface Course {
   id: string
   title: string
-  slug: string
+  url: string
   description: string
-  price_id: string
+  price_id?: string
   image_url: string
   coming_soon: boolean
-  created_at: string
-  updated_at: string
+  created_at?: string
+  updated_at?: string
   course_lessons?: {
     id: string
   }[]

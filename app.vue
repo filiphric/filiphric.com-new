@@ -1,5 +1,6 @@
 <template>
   <Search v-if="searchOn" @hide="searchOn = false" />
+  <Banner />
   <NuxtPage />
 </template>
 <script setup lang="ts">

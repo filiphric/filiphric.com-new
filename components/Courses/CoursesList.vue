@@ -4,7 +4,7 @@
       <div 
         v-for="(item, index) in courses" 
         :key="item.title" 
-        class="p-7 w-full md:w-1/2 lg:w-1/3"
+        class="p-7 w-full"
       >
         <CoursesItem :item="item" :color-index="index" />
       </div>
@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { CourseItem } from '~/types/courses'
+import { Course } from '~/types/courses'
 
 defineProps<{
-  courses: CourseItem[]
+  courses: Course[]
 }>()
 
 </script>

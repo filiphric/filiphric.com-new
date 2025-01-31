@@ -11,16 +11,6 @@ export const useSupabaseCourses = () => {
   const client = useSupabaseClient()
   const store = useStore()
 
-  const getCourseBySlug = async (slug: string) => {
-    const { data, error } = await client
-      .from('courses')
-      .select('*')
-      .eq('slug', slug)
-      .single()
-
-    return { course: data as Course | null, error }
-  }
-
   const getCourseById = async (id: string) => {
     const { data, error } = await client
       .from('courses')
@@ -39,6 +29,7 @@ export const useSupabaseCourses = () => {
         courses (
           id,
           title,
+          url,
           slug,
           image_url,
           description,
@@ -61,7 +52,6 @@ export const useSupabaseCourses = () => {
   }
 
   return {
-    getCourseBySlug,
     getUserCourses,
     getCourseById
   }

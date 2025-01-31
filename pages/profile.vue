@@ -202,6 +202,7 @@ interface UserCourse {
     id: string
     title: string
     slug: string
+    url: string
     image_url: string
     description: string
     course_lessons?: {

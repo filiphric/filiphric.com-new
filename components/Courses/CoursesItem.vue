@@ -1,71 +1,62 @@
 <template>
   <div 
-    class="mx-2 grid items-center bg-white p-9 dark:bg-black-lighter md:mx-0 border-2 border-black" 
+    class="grid grid-cols-1 md:gap-14 md:grid-cols-3 items-center bg-white p-9 dark:bg-black-lighter md:mx-0 border-2 border-black" 
     :class="blockClass"
     data-cy="course-item"
   >
     <div class="relative">
-      <component :is="isExternal ? 'a' : 'NuxtLink'" 
-        :href="isExternal ? (item as ExternalCourseItem).url : undefined"
-        :to="!isExternal ? getInternalLink(item as InternalCourseItem) : undefined"
-        :target="isExternal ? '_blank' : undefined"
-        :rel="isExternal ? 'noopener' : undefined"
-        @click="!isExternal ? useTrackEvent('Course - ' + item.title) : null"
-      >
+      <NuxtLink 
+        :to="item.coming_soon ? undefined : item.url"
+        @click="useTrackEvent('Course - ' + item.title)"
+      >     
         <Image 
           :src="item.image_url" 
-          :class="['mb-7', { 'filter blur-md': isInternal && (item as InternalCourseItem).coming_soon }]" 
+          :class="['w-full', { 'filter blur-md': item.coming_soon }]" 
           :alt="item.title" 
         />
-        <div v-if="isInternal && (item as InternalCourseItem).coming_soon" class="absolute top-[40%] left-0 w-full transform -translate-y-1/2 text-white text-center py-2 font-bold uppercase text-2xl shadow-md bg-black bg-opacity-85" style="transform: rotate(-5deg);">
+        <div v-if="item.coming_soon" class="absolute top-[40%] left-0 w-full transform -translate-y-1/2 text-white text-center py-2 font-bold uppercase text-2xl shadow-md bg-black bg-opacity-85" style="transform: rotate(-5deg);">
           Coming Soon
         </div>
-      </component>
+      </NuxtLink>
     </div>
-    <div>
-      <div v-if="isExternal">
-        <a
-          :href="item.url"
-          target="_blank"
-          rel="noopener"
-        >
-        <h2 class="font-black text-3xl">
-          {{ item.title }}
-        </h2>
-        </a>
-      </div>
-      <div v-else>
+    <div class="col-span-2 grid grid-cols-1 h-full space-y-7">
+      <div>
         <NuxtLink
-          :to="'/course/' + (item as InternalCourseItem).slug"
-          class="animatedIcon prettyLink animatedIcon mt-7 inline-block font-bold cursor-pointer"
+          :to="item.coming_soon ? undefined : item.url"
+          class="animatedIcon animatedIcon inline-block font-bold"
         >
         <h2 class="font-black text-3xl">
           {{ item.title }}
         </h2>
         </NuxtLink>
       </div>
-      <div class="mt-7">
+      <div class="text-lg">
         {{ item.description }}
       </div>
-      
+      <div v-if="item.coming_soon" class="align-content-end">
+        <ActionButton
+          to="/newsletter"
+        >Get notified
+        </ActionButton>
+      </div>
+      <div v-else class="align-content-end">
+        <ActionButton
+          :to="item.url"
+        >Go to course page
+        </ActionButton>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CourseItem, ExternalCourseItem, InternalCourseItem } from '~/types/courses';
+import { Course } from '~/types/courses';
+import ActionButton from '../ActionButton.vue';
 
 const props = defineProps<{
-  item: CourseItem,
+  item: Course,
   colorIndex: number
 }>()
-
-const isExternal = computed(() => 'external' in props.item)
-const isInternal = computed(() => !isExternal.value)
-
-const getInternalLink = (item: InternalCourseItem) => {
-  return item.comingSoon ? '#' : '/course/' + item.slug
-}
 
 const blockClass = computed(() => useColorCycle(props.colorIndex))
 </script>

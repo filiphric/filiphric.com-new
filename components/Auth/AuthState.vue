@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="relative z-50"
+    class="relative z-30"
     @mouseenter="isOpen = true"
     @mouseleave="isOpen = false"
   >
