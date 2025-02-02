@@ -23,9 +23,29 @@ onMounted(async () => {
     if (userError) throw userError
 
     if (user) {
-      // Fetch profile data including stripe_customer
-      const { profile, error: profileError } = await getProfile(user.id)
-      if (profileError) throw profileError
+      // Fetch profile data including stripe_customer with retries
+      let profile
+      let profileError
+      let retryCount = 0
+      const maxRetries = 3
+      const retryDelay = 2000 // 2 seconds
+
+      while (retryCount < maxRetries) {
+        const result = await getProfile(user.id)
+        profile = result.profile
+        profileError = result.error
+
+        if (profileError) throw profileError
+        
+        // If we have stripe_customer, break the retry loop
+        if (profile?.stripe_customer) {
+          break
+        }
+
+        // Wait before next retry
+        await new Promise(resolve => setTimeout(resolve, retryDelay))
+        retryCount++
+      }
 
       const userData: Profile = {
         id: user.id,
