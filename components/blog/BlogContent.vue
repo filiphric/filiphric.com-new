@@ -15,7 +15,7 @@
         <BlogShareLinks :blog-info="doc" />
       </div>
       <BlogSidebar :links="doc.body.toc.links">
-        <!-- <BlogFeaturedCourse /> -->
+        <BlogFeaturedCourse />
         <BlogUpcomingWorkshops  />
         <BlogLatestBlogPost  />
       </BlogSidebar>
