@@ -67,7 +67,7 @@ onMounted(async () => {
       const paymentCookie = useCookie('paymentIntent')
       const paymentIntent = paymentCookie.value
       
-      if (paymentIntent) {
+      if (paymentIntent && userData.stripe_customer) {
         try {
           // Clear the stored payment intent
           paymentCookie.value = null
@@ -87,9 +87,8 @@ onMounted(async () => {
                 quantity: 1,
                 price: priceId,
               },
-              client_reference_id: userData.stripe_customer,
+              customer_id: userData.stripe_customer,
               redirectPath: '/course/payment-confirmation',
-              customer_email: userData.email,
               metadata: {
                 item: courseInfo.title,
                 type: 'course',
