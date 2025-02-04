@@ -105,7 +105,13 @@
         <div v-if="!showAccessAlert" class="mt-14">
           <!-- Show course title if available -->
           <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl my-7">{{ currentLesson?.video_title || '' }}</h1>
-          <MDC :value="currentLesson?.video_description || ''" tag="article" />
+          <Suspense>
+            <MDC
+              :key="currentLesson?.id"
+              :value="currentLesson?.video_description || ''"
+              tag="article"
+            />
+          </Suspense>
           <hr class="pt-7" />
           <div class="text-sm text-right">Found a problem? <NuxtLink to="https://discord.gg/6c2BqtWHsp" class="font-bold prettyLink cursor-pointer">Please contact me on Discord <IconDiscord class="w-6 h-6 inline-block ml-1 pb-1"/></NuxtLink></div>
         </div>
