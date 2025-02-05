@@ -8,6 +8,7 @@ export interface Profile {
   stripe_customer: string | null
   avatar_url: string | null
   full_name: string | null
+  github_username: string | null
 }
 
 export interface Database {

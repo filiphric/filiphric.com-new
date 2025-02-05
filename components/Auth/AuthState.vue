@@ -27,7 +27,7 @@
           <div class="absolute h-4 w-full -top-4"></div>
           <div class="py-2">
             <NuxtLink 
-              to="/profile"
+              to="/profile?tab=profile"
               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-black-lighter"
             >
               Profile

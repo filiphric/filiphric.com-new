@@ -1,9 +1,9 @@
 import { useSupabaseClient } from '#imports'
 import { useStore } from '~/stores/useStore'
-import type { Profile } from '~/types/supabase'
+import type { Profile, Database } from '~/types/supabase'
 
 export const useSupabaseProfile = () => {
-  const client = useSupabaseClient()
+  const client = useSupabaseClient<Database>()
   const store = useStore()
 
   const getProfile = async (userId: string) => {
@@ -20,16 +20,16 @@ export const useSupabaseProfile = () => {
     return { profile, error }
   }
 
-  const updateProfile = async (userId: string, updates: Partial<Profile>) => {
+  const updateProfile = async (userId: string, updates: Database['public']['Tables']['profiles']['Update']) => {
     const { data, error } = await client
       .from('profiles')
       .update(updates)
       .eq('id', userId)
       .select()
-      .single()
+      .single() as { data: Profile | null, error: any }
 
     if (!error && data) {
-      store.setUser(data as Profile)
+      store.setUser(data)
     }
 
     return { data, error }
