@@ -5,6 +5,10 @@
   import { useSupabaseWatchedLessons } from '~/composables/useSupabaseWatchedLessons'
   import { useStore } from '#imports'
 
+  // Media controller event constants
+  const SET_SUBTITLES_EVENT = "mediashowsubtitlesrequest"
+  const DISABLE_SUBTITLES_EVENT = "mediadisablesubtitlesrequest"
+
   const props = defineProps({
     playbackId: {
       type: String,
@@ -26,25 +30,63 @@
   const { markLessonAsWatched, getWatchedLessons } = useSupabaseWatchedLessons()
   const playerRef = ref<HTMLElement | null>(null)
   const shouldAutoplay = ref(false)
+  const mediaController = ref<any>(null)
+
+  const setupMediaController = () => {
+    if (!playerRef.value) return
+
+    mediaController.value = playerRef.value
+      .shadowRoot?.querySelector("media-theme")
+      ?.shadowRoot?.querySelector("media-controller")
+
+    if (mediaController.value) {
+      mediaController.value.addEventListener(SET_SUBTITLES_EVENT, (event: CustomEvent) => {
+        localStorage.setItem('subtitles', event.detail)
+      })
+    }
+  }
+
+  const setSubtitles = () => {
+    const value = localStorage.getItem('subtitles')
+    if (!value || !mediaController.value) return
+
+    const currentValue = mediaController.value.getAttribute("mediaSubtitlesShowing")
+    if (currentValue) {
+      const elements = currentValue.split(":")
+      mediaController.value.dispatchEvent(new CustomEvent(DISABLE_SUBTITLES_EVENT, {
+        detail: [{
+          kind: "subtitles",
+          language: elements[1],
+          label: elements[2],
+        }],
+        composed: true,
+        bubbles: true,
+      }))
+    }
+
+    mediaController.value.dispatchEvent(new CustomEvent(SET_SUBTITLES_EVENT, {
+      detail: value,
+      composed: true,
+      bubbles: true,
+    }))
+  }
 
   const onPlay = async () => {
     try {
       if (user.value?.id && store.user?.stripe_customer) {
-        // First check if lesson is already watched
         const { lessons: watchedLessons, error } = await getWatchedLessons(user.value.id)
         if (error) throw error
         
         if (watchedLessons.includes(props.lessonId)) {
-          // If already watched, just emit the event
           emit('lessonWatched', props.lessonId)
         } else {
-          // If not watched, mark it as watched
           const { watchedLesson } = await markLessonAsWatched(user.value.id, props.lessonId)
           if (watchedLesson) {
             emit('lessonWatched', props.lessonId)
           }
         }
       }
+      setSubtitles()
     } catch (err) {
       console.debug('Error marking lesson as watched:', err)
     }
@@ -55,11 +97,23 @@
   }
 
   const onLoadedMetadata = () => {
+    setupMediaController()
+    const savedRate = localStorage.getItem('playbackrate')
+    if (savedRate && playerRef.value) {
+      // @ts-ignore - mux-player has playbackRate property
+      playerRef.value.playbackRate = parseFloat(savedRate)
+    }
     if (shouldAutoplay.value) {
       // @ts-ignore - mux-player has play() method
       playerRef.value?.play()
       shouldAutoplay.value = false
     }
+  }
+
+  const onRateChange = (event: Event) => {
+    // @ts-ignore - mux-player has playbackRate property
+    const rate = (event.target as HTMLElement).playbackRate
+    localStorage.setItem('playbackrate', rate.toString())
   }
 
   // Watch for playbackId changes to handle autoplay
@@ -77,6 +131,7 @@
     @play="onPlay"
     @ended="onEnded"
     @loadedmetadata="onLoadedMetadata"
+    @ratechange="onRateChange"
     primary-color="black"
     secondary-color="white"
     accent-color="#bada55"
