@@ -11,6 +11,7 @@ export interface Course {
   course_lessons?: {
     id: string
   }[]
+  slug?: string
 }
 
 export type Courses = Course[]

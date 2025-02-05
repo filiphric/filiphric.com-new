@@ -15,8 +15,8 @@
       <div v-else class="space-y-7">
         <div class="flex items-center gap-5">
           <img 
-            :src="profile?.avatar_url" 
-            :alt="profile?.full_name" 
+            :src="profile?.avatar_url || ''" 
+            :alt="profile?.full_name || 'User'" 
             class="w-24 h-24 rounded-full"
           >
           <div class="flex flex-col gap-1 justify-center">
@@ -24,9 +24,14 @@
             <div class="flex items-center gap-1">
               <p class="text-gray-500">{{ profile?.email }}</p>
               <p class="text-gray-500 mx-2">|</p>
-              <NuxtLink :to="`https://github.com/${profile?.github_username}`" target="_blank" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">
+              <NuxtLink 
+                v-if="profile?.github_username"
+                :to="`https://github.com/${profile.github_username}`" 
+                target="_blank"
+                class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1"
+              >
                 <IconGithub class="w-4 h-4" />
-                <p>{{ profile?.github_username }}</p>
+                <p class="py-1.5">{{ profile.github_username }}</p>
               </NuxtLink>
             </div>
           </div>
@@ -36,6 +41,17 @@
           <!-- Tabs Navigation -->
           <div class="border-b border-gray-200 dark:border-gray-700">
             <nav class="-mb-px flex space-x-8">
+              <button
+                @click="navigateToTab('profile')"
+                :class="[
+                  'py-4 px-1 border-b-2 font-medium whitespace-nowrap',
+                  activeTab === 'profile'
+                    ? 'border-black text-black dark:border-white dark:text-white'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
+                ]"
+              >
+                Your Profile
+              </button>
               <button
                 @click="navigateToTab('courses')"
                 :class="[
@@ -80,6 +96,60 @@
           </div>
 
           <!-- Tabs Content -->
+          <div v-if="activeTab === 'profile'" class="space-y-6">
+            <div class="bg-ivory-dark dark:bg-black-dark p-6 rounded-lg">
+              <div class="space-y-5">
+                <div class="flex items-center gap-4">
+                  <p class="w-32 text-gray-500">Full Name:</p>
+                  <div v-if="isEditingName" class="flex items-center gap-2">
+                    <input
+                      v-model="editedName"
+                      type="text"
+                      class="border-2 border-black dark:border-black-lightest pr-2 pl-1.5 py-1 dark:bg-black-dark -ml-2 focus:outline-none"
+                      :placeholder="profile?.full_name || ''"
+                    >
+                    <button
+                      @click="saveProfileName"
+                      class="text-lime hover:text-lime-dark"
+                    >
+                      Save
+                    </button>
+                    <button
+                      @click="cancelEditName"
+                      class="text-gray-500 hover:text-gray-700"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <div v-else class="flex items-center gap-2">
+                    <p class="py-1.5">{{ profile?.full_name }}</p>
+                    <button
+                      @click="startEditName"
+                      class="text-gray-500 hover:text-gray-700"
+                    >
+                      <IconEdit class="ml-4 w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <p class="w-32 text-gray-500">Email:</p>
+                  <p class="py-1.5">{{ profile?.email }}</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <p class="w-32 text-gray-500">GitHub:</p>
+                  <NuxtLink 
+                    v-if="profile?.github_username"
+                    :to="`https://github.com/${profile.github_username}`" 
+                    target="_blank"
+                    class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1"
+                  >
+                    <IconGithub class="w-4 h-4" />
+                    <p class="py-1.5">{{ profile.github_username }}</p>
+                  </NuxtLink>
+                </div>
+              </div>
+            </div>
+          </div>
           <div v-if="activeTab === 'courses'">
             <div v-if="purchasedCourses?.length" class="grid gap-4">
               <div 
@@ -165,6 +235,8 @@
 
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
+import type { Course } from '~/types/courses'
+import type { Profile } from '~/types/supabase'
 
 const route = useRoute()
 const router = useRouter()
@@ -174,7 +246,7 @@ const error = ref('')
 const store = useStore()
 const loadingMessage = ref('Loading profile...')
 const { getCurrentUser } = useSupabaseAuth()
-const { getProfile } = useSupabaseProfile()
+const { getProfile, updateProfile } = useSupabaseProfile()
 const { getUserCourses } = useSupabaseCourses()
 const { getWatchedLessons } = useSupabaseWatchedLessons()
 
@@ -186,33 +258,17 @@ const activeTab = computed({
   }
 })
 
-interface ProfileData {
-  id: string
-  updated_at?: string
-  username?: string
-  full_name?: string
-  avatar_url?: string
-  email?: string
-  github_username?: string
-}
-
-interface UserCourse {
+interface UserCourseJoin {
   course_id: string
-  courses: {
-    id: string
-    title: string
-    slug: string
-    url: string
-    image_url: string
-    description: string
-    course_lessons?: {
-      id: string
-    }[]
-  }
+  courses: Course
 }
 
-const profile = ref<ProfileData | null>(null)
-const purchasedCourses = ref<UserCourse[]>([])
+interface StoreCourse extends Course {
+  slug: string
+}
+
+const profile = ref<Profile | null>(null)
+const purchasedCourses = ref<UserCourseJoin[]>([])
 const watchedLessons = ref<string[]>([])
 
 // Redirect if not logged in - wait for client-side hydration
@@ -235,11 +291,19 @@ onMounted(async () => {
       const { user: userData, error: userError } = await getCurrentUser()
       if (userError) throw userError
       
-      profile.value = {
-        ...(profileData as ProfileData),
-        avatar_url: userData?.user_metadata?.avatar_url,
-        full_name: userData?.user_metadata?.full_name,
-        email: userData?.email
+      if (profileData && userData) {
+        profile.value = {
+          id: profileData.id,
+          email: userData.email || profileData.email,
+          first_name: profileData.first_name,
+          last_name: profileData.last_name,
+          created_at: profileData.created_at,
+          updated_at: profileData.updated_at,
+          stripe_customer: profileData.stripe_customer,
+          avatar_url: userData.user_metadata?.avatar_url || profileData.avatar_url,
+          full_name: userData.user_metadata?.full_name || profileData.full_name,
+          github_username: userData.user_metadata?.github_username || profileData.github_username
+        }
       }
 
       // Get purchased courses
@@ -247,7 +311,13 @@ onMounted(async () => {
       if (coursesError) throw coursesError
 
       purchasedCourses.value = coursesData || []
-      store.setPurchasedCourses(coursesData?.map(item => item.courses) || []) // Save to store
+      store.setPurchasedCourses(coursesData?.map(item => {
+        const urlParts = (item.courses.url || '').split('/')
+        return {
+          ...item.courses,
+          slug: urlParts[urlParts.length - 1] || item.courses.id
+        }
+      }) || [])
 
       // Get watched lessons
       const { lessons: watched } = await getWatchedLessons(user.value.id)
@@ -261,7 +331,7 @@ onMounted(async () => {
   }
 })
 
-const calculateProgress = (course: UserCourse['courses']) => {
+const calculateProgress = (course: UserCourseJoin['courses']) => {
   if (!course.course_lessons?.length) return 0
   const watchedCount = watchedLessons.value.filter(id => 
     course.course_lessons?.some(lesson => lesson.id === id)
@@ -317,7 +387,9 @@ const completedCourses = computed(() => {
     .map(item => item.courses)
 })
 
-const downloadCertificate = async (courseSlug: string) => {
+const downloadCertificate = async (courseSlug: string | undefined) => {
+  if (!courseSlug) return
+  
   try {
     loadingMessage.value = 'Generating certificate...'
     loading.value = true
@@ -348,5 +420,41 @@ const downloadCertificate = async (courseSlug: string) => {
   } finally {
     loading.value = false
   }
+}
+
+const isEditingName = ref(false)
+const editedName = ref('')
+
+const startEditName = () => {
+  isEditingName.value = true
+  editedName.value = profile.value?.full_name || ''
+}
+
+const saveProfileName = async () => {
+  if (!profile.value?.id || !editedName.value.trim()) return
+
+  try {
+    loading.value = true
+    const { error: updateError } = await updateProfile(profile.value.id, {
+      full_name: editedName.value.trim()
+    })
+
+    if (updateError) {
+      throw updateError
+    }
+
+    profile.value.full_name = editedName.value.trim()
+    isEditingName.value = false
+  } catch (err) {
+    console.error('Error updating profile:', err)
+    error.value = err instanceof Error ? err.message : 'Error updating profile. Please try again later.'
+  } finally {
+    loading.value = false
+  }
+}
+
+const cancelEditName = () => {
+  isEditingName.value = false
+  editedName.value = profile.value?.full_name || ''
 }
 </script> 
