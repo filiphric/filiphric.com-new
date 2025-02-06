@@ -133,6 +133,37 @@
         </p>
         <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">Lessons span from 30 seconds to 7 minutes (I said no longer than 5 minutes in the video, oops) but are designed to be as information dense as possible.</p>
       </div>
+      
+      <div class="mt-28">
+        <h2 class="text-4xl font-bold mb-14 text-center">Translated into 23 languages</h2>
+        <p class="text-lg mb-5 md:mb-7 text-center">
+            Course main language is english, but contains subtitles for these languages:
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <span class="flag-tooltip" data-tooltip="Bosnian">🇧🇦</span>
+            <span class="flag-tooltip" data-tooltip="Brazilian Portuguese">🇧🇷</span>
+            <span class="flag-tooltip" data-tooltip="Croatian">🇭🇷</span>
+            <span class="flag-tooltip" data-tooltip="Czech">🇨🇿</span>
+            <span class="flag-tooltip" data-tooltip="Dutch (Belgium)">🇧🇪</span>
+            <span class="flag-tooltip" data-tooltip="Dutch (Netherlands)">🇳🇱</span>
+            <span class="flag-tooltip" data-tooltip="Filipino">🇵🇭</span>
+            <span class="flag-tooltip" data-tooltip="French">🇫🇷</span>
+            <span class="flag-tooltip" data-tooltip="German">🇩🇪</span>
+            <span class="flag-tooltip" data-tooltip="Hindi and Telugu">🇮🇳</span>
+            <span class="flag-tooltip" data-tooltip="Indonesian">🇮🇩</span>
+            <span class="flag-tooltip" data-tooltip="Macedonian">🇲🇰</span>
+            <span class="flag-tooltip" data-tooltip="Polish">🇵🇱</span>
+            <span class="flag-tooltip" data-tooltip="Portuguese">🇵🇹</span>
+            <span class="flag-tooltip" data-tooltip="Russian">🇷🇺</span>
+            <span class="flag-tooltip" data-tooltip="Serbian">🇷🇸</span>
+            <span class="flag-tooltip" data-tooltip="Slovak">🇸🇰</span>
+            <span class="flag-tooltip" data-tooltip="Spanish">🇪🇸</span>
+            <span class="flag-tooltip" data-tooltip="Swedish">🇸🇪</span>
+            <span class="flag-tooltip" data-tooltip="Ukrainian">🇺🇦</span>
+            <span class="flag-tooltip" data-tooltip="Urdu and Punjabi">🇵🇰</span>
+          </div>
+          <p class="my-5 md:my-7 text-center text-sm">(Some of these languages are still being reviewed.)</p>
+      </div>
 
       <!-- Course Stats -->
       <div class="mt-28 grid md:grid-cols-4 gap-7">
@@ -205,9 +236,9 @@
      <!-- Hero Section -->
      <div class="mt-14 md:mt-28 flex sm:mx-7">
         <div class="w-full text-center">
-          <p class="text-lg md:text-4xl  mb-5 md:mb-7">
+          <h2 class="text-4xl font-bold mb-5 md:mb-7">
             Ready to start learning?
-          </p>
+          </h2>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <CoursesPaymentButton 
               v-if="courseInfo && !hasPurchased"
@@ -223,25 +254,54 @@
               Go to course
             </ActionButton>
           </div>
-          <hr class="mt-14 mb-7" />
-          <p class="text-lg mb-5 md:mb-7">
-            Course is in english, but contains subtitles for these languages <sup class="text-sm">BETA</sup>
-          </p>
-          <div class="flex flex-wrap gap-4 justify-center">
-            <span class="flag-tooltip" data-tooltip="Czech">🇨🇿</span>
-            <span class="flag-tooltip" data-tooltip="German">🇩🇪</span>
-            <span class="flag-tooltip" data-tooltip="Spanish">🇪🇸</span>
-            <span class="flag-tooltip" data-tooltip="Slovak">🇸🇰</span>
-            <span class="flag-tooltip" data-tooltip="French">🇫🇷</span>
-            <span class="flag-tooltip" data-tooltip="Polish">🇵🇱</span>
-            <span class="flag-tooltip" data-tooltip="Portuguese">🇵🇹</span>
-            <span class="flag-tooltip" data-tooltip="Brazilian Portuguese">🇧🇷</span>
-            <span class="flag-tooltip" data-tooltip="Russian">🇷🇺</span>
-            <span class="flag-tooltip" data-tooltip="Swedish">🇸🇪</span>
-            <span class="flag-tooltip" data-tooltip="Ukrainian">🇺🇦</span>
-          </div>
         </div>
 
+      </div>
+      <div class="mt-14 md:mt-28 flex sm:mx-7">
+        <div class="w-full text-center">
+          <h2 class="text-4xl font-bold mb-5 md:mb-7">
+            Example lessons
+          </h2>
+          <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
+            Still not sure? Check out some example lessons from the course.
+          </p>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-lg font-bold mt-4">Cookies are set automatically</h3>
+              <div class="mt-7 wrapper shadow-block-blueberry">
+                <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center border-2 border-solid border-black">
+                  <LoaderAnimation />
+                  <p class="text-xl text-center mt-4">Loading video...</p>
+                </div>
+                <mux-player
+                  playback-id="nYZRh6VqK3NcFeD6VB02d2M602H02momd7xsHJrZcq3KTU"
+                  primary-color="black"
+                  secondary-color="white"
+                  accent-color="#bada55"
+                  style="border: 2px solid black;"
+                />
+              </div>
+              
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mt-4">Automatically open console when running Cypress</h3>
+              <div class="mt-7 wrapper shadow-block-mint">
+                <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center border-2 border-solid border-black">
+                  <LoaderAnimation />
+                  <p class="text-xl text-center mt-4">Loading video...</p>
+                </div>
+                <mux-player
+                  playback-id="ot84pHtV8zbyq1bvk1LDmvSioj01CXR9n6uozhw7uOXo"
+                  primary-color="black"
+                  secondary-color="white"
+                  accent-color="#bada55"
+                  style="border: 2px solid black;"
+                />
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </div>
   </NuxtLayout>
 </template>
@@ -354,7 +414,7 @@ mux-player, .placeholder {
   @apply absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1
          bg-white text-sm rounded-sm border-2 border-black
          opacity-0 invisible transition-all duration-200
-         whitespace-nowrap;
+         whitespace-nowrap text-black;
 }
 
 .flag-tooltip:hover::after {
