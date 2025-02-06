@@ -24,75 +24,80 @@
         </div>
 
         <!-- Main content only shown when user has access -->
-        <div v-else class="grid md:grid-cols-3 border-2 border-black shadow-block-tangerine mt-10 mx-7 md:mx-0">
-          <!-- Video Player Section (2/3) -->
-          <div class="col-span-3 md:col-span-2 bg-ivory-dark dark:bg-black aspect-video flex place-content-center">
-            <CoursePlayer 
-              :playback-id="currentLesson?.mux_id || ''" 
-              :lesson-id="currentLesson?.id || ''"
-              :autoplay="autoplay"
-              @ended="onVideoEnded"
-              @lessonWatched="onLessonWatched"
-            />
-          </div>
+        <div v-else>
+          <!-- Show course title if available -->
+          <span class="text-lg text-gray-600 dark:text-gray-400 mt-14 block">Lesson #{{ currentLesson?.video_order }}:</span>
+          <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl mb-14 mt-3">{{ currentLesson?.video_title || '' }}</h1>
+          <div class="grid md:grid-cols-3 border-2 border-black shadow-block-tangerine mt-10 mx-7 md:mx-0 cinema">
+            <!-- Video Player Section (2/3) -->
+            <div class="col-span-3 md:col-span-2 bg-ivory-dark dark:bg-black aspect-video flex place-content-center">
+              <CoursePlayer 
+                :playback-id="currentLesson?.mux_id || ''" 
+                :lesson-id="currentLesson?.id || ''"
+                :autoplay="autoplay"
+                @ended="onVideoEnded"
+                @lessonWatched="onLessonWatched"
+              />
+            </div>
 
-          <!-- Lesson List Section (1/3) -->
-          <div class="bg-ivory-dark dark:bg-black md:w-full md:aspect-[8/9] md:h-full col-span-3 md:col-span-1 max-h-96 md:max-h-none border-l-2 border-black">
-            <div class="h-full w-full grid grid-rows-[auto_1fr]">
-              <div class="bg-white w-full py-4 pl-4 pr-3 dark:bg-black-lighter grid grid-cols-2 content-between border-b-2 border-black">
-                <div>
-                  <h2 class="text-lg font-bold">{{ courseTitle }}</h2>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    <NuxtLink 
-                      v-if="watchedPercentage === 100"
-                      to="/profile?tab=certificates"
-                      class="font-bold bg-lime text-white rounded-md px-1.5 py-0.5 mt-1 dark:hover:underline inline-block"
-                    >
-                      Certificate available
-                    </NuxtLink>
-                    <div v-else>
-                      {{ watchedPercentage }}% complete
-                    </div>
-                  </p>
-                </div>
-                <div class="flex items-center gap-2 justify-self-end">
-                  <span class="text-sm">Autoplay</span>
-                  <button 
-                    @click="toggleAutoplay"
-                    :class="[
-                      'w-12 h-6 rounded-full transition-colors relative block',
-                      autoplay ? 'bg-lime' : 'bg-gray-200 dark:bg-gray-400'
-                    ]"
-                  >
-                    <span 
+            <!-- Lesson List Section (1/3) -->
+            <div class="bg-ivory-dark dark:bg-black md:w-full md:aspect-[8/9] md:h-full col-span-3 md:col-span-1 max-h-96 md:max-h-none border-l-2 border-black">
+              <div class="h-full w-full grid grid-rows-[auto_1fr]">
+                <div class="bg-white w-full py-4 pl-4 pr-3 dark:bg-black-lighter grid grid-cols-2 content-between border-b-2 border-black">
+                  <div>
+                    <h2 class="text-lg xl:text-xl font-bold">{{ courseTitle }}</h2>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                      <NuxtLink 
+                        v-if="watchedPercentage === 100"
+                        to="/profile?tab=certificates"
+                        class="font-bold bg-lime text-white rounded-md px-1.5 py-0.5 mt-1 dark:hover:underline inline-block"
+                      >
+                        Certificate available
+                      </NuxtLink>
+                      <div v-else>
+                        {{ watchedPercentage }}% complete
+                      </div>
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-2 justify-self-end">
+                    <span class="text-sm">Autoplay</span>
+                    <button 
+                      @click="toggleAutoplay"
                       :class="[
-                        'absolute top-0.5 w-5 h-5 rounded-full bg-white transition-transform border-2 border-black',
-                        autoplay ? 'translate-x-0' : '-translate-x-5'
+                        'w-14 h-7 rounded-full transition-colors relative block border-2 border-black',
+                        autoplay ? 'bg-lime' : 'bg-gray-200 dark:bg-gray-400'
                       ]"
-                    />
-                  </button>
+                    >
+                      <span 
+                        :class="[
+                          'absolute top-[1px] right-[1px] w-[22px] h-[22px] rounded-full bg-white transition-transform border-2 border-black',
+                          autoplay ? 'translate-x-0' : '-translate-x-7'
+                        ]"
+                      />
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="overflow-y-auto" ref="lessonsContainer">
-                <div 
-                  v-for="lesson in lessons" 
-                  :key="lesson.id"
-                  :data-lesson-id="lesson.id"
-                  :class="[
-                    'py-1 px-4 cursor-pointer transition-colors text-sm min-h-10 flex',
-                    currentLesson?.id === lesson.id 
-                      ? 'border-y-2 border-black bg-white dark:bg-white cursor-default dark:text-black' 
-                      : 'dark:hover:bg-black-lighter hover:bg-lime group course-item'
-                  ]"
-                  @click="navigateToLesson(lesson.id)"
-                >
-                  <div class="flex items-center gap-3">
-                    <span v-if="watchedLessons.includes(lesson.id)" class="text-lime group-hover:text-white">
-                      <IconCheckmarkRound class="w-4 h-4 fill-lime dark:group-hover:fill-lime group-hover:fill-black" />
-                    </span>
-                    <span v-else class="text-sm font-medium h-4 w-4 flex items-center justify-center">{{ lesson.video_order }}.</span>
-                    <div>
-                      <h3 class="font-medium">{{ lesson.video_title }}</h3>
+                <div class="overflow-y-auto" ref="lessonsContainer">
+                  <div 
+                    v-for="lesson in lessons" 
+                    :key="lesson.id"
+                    :data-lesson-id="lesson.id"
+                    :class="[
+                      'py-1 px-4 cursor-pointer transition-colors text-sm min-h-10 flex',
+                      currentLesson?.id === lesson.id 
+                        ? 'border-y-2 border-black bg-white dark:bg-white cursor-default dark:text-black' 
+                        : 'dark:hover:bg-black-lighter hover:bg-lime group course-item'
+                    ]"
+                    @click="navigateToLesson(lesson.id)"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span v-if="watchedLessons.includes(lesson.id)" class="text-lime group-hover:text-white">
+                        <IconCheckmarkRound class="w-4 h-4 fill-lime dark:group-hover:fill-lime group-hover:fill-black" />
+                      </span>
+                      <span v-else class="text-sm font-medium h-4 w-4 flex items-center justify-center">{{ lesson.video_order }}.</span>
+                      <div>
+                        <h3 class="font-medium">{{ lesson.video_title }}</h3>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -103,8 +108,6 @@
 
         <!-- Description section -->
         <div v-if="!showAccessAlert" class="mt-14">
-          <!-- Show course title if available -->
-          <h1 class="text-5xl font-extrabold md:text-left lg:text-6xl my-7">{{ currentLesson?.video_title || '' }}</h1>
           <Suspense>
             <MDC
               :key="currentLesson?.id"
@@ -263,3 +266,19 @@ const onLessonWatched = (lessonId: string) => {
 // Watch for route changes
 watch(() => route.params.slug, fetchData, { immediate: true })
 </script> 
+
+<style lang="css" scoped>
+.cinema {
+  width: calc(100vw - 200px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 1024px) {
+  .cinema {
+    width: 100%
+  }
+}
+
+
+</style>
