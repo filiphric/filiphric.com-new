@@ -191,6 +191,12 @@
                     >
                       Certificate available
                     </NuxtLink>
+                    <button
+                      @click="openReviewModal(item.courses)"
+                      class="text-sm font-bold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+                    >
+                      {{ courseReviews[item.courses.id] ? 'Edit my Review' : 'Add a Review' }}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -231,12 +237,22 @@
       </div>
     </div>
   </NuxtLayout>
+  <CoursesReviewModal
+    v-if="selectedCourse"
+    :is-open="showReviewModal"
+    :course-id="selectedCourse.id"
+    :existing-review="courseReviews[selectedCourse.id]"
+    @close="showReviewModal = false"
+    @submit="handleReviewSubmit"
+  />
 </template>
 
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import type { Course } from '~/types/courses'
 import type { Profile } from '~/types/supabase'
+import type { CourseReview } from '~/types/courses'
+import { useSupabaseReviews } from '~/composables/useSupabaseReviews'
 
 const route = useRoute()
 const router = useRouter()
@@ -249,6 +265,7 @@ const { getCurrentUser } = useSupabaseAuth()
 const { getProfile, updateProfile } = useSupabaseProfile()
 const { getUserCourses } = useSupabaseCourses()
 const { getWatchedLessons } = useSupabaseWatchedLessons()
+const { getUserReviewForCourse, createReview, updateReview } = useSupabaseReviews()
 
 // Set active tab based on URL parameter
 const activeTab = computed({
@@ -270,6 +287,9 @@ interface StoreCourse extends Course {
 const profile = ref<Profile | null>(null)
 const purchasedCourses = ref<UserCourseJoin[]>([])
 const watchedLessons = ref<string[]>([])
+const showReviewModal = ref(false)
+const selectedCourse = ref<Course | null>(null)
+const courseReviews = ref<Record<string, CourseReview>>({})
 
 // Redirect if not logged in - wait for client-side hydration
 onMounted(() => {
@@ -322,6 +342,16 @@ onMounted(async () => {
       // Get watched lessons
       const { lessons: watched } = await getWatchedLessons(user.value.id)
       watchedLessons.value = watched || []
+
+      // Load user's reviews for purchased courses
+      if (coursesData) {
+        for (const item of coursesData) {
+          const { review } = await getUserReviewForCourse(user.value.id, item.courses.id)
+          if (review) {
+            courseReviews.value[item.courses.id] = review
+          }
+        }
+      }
     }
   } catch (err) {
     console.error('Error fetching profile:', err)
@@ -456,5 +486,38 @@ const saveProfileName = async () => {
 const cancelEditName = () => {
   isEditingName.value = false
   editedName.value = profile.value?.full_name || ''
+}
+
+const openReviewModal = (course: Course) => {
+  selectedCourse.value = course
+  showReviewModal.value = true
+}
+
+const handleReviewSubmit = async (reviewData: { rating: number, review_text: string | null, is_anonymous: boolean }) => {
+  if (!selectedCourse.value || !user.value) return
+
+  try {
+    const existingReview = courseReviews.value[selectedCourse.value.id]
+    
+    if (existingReview) {
+      const { review } = await updateReview(existingReview.id, reviewData)
+      if (review) {
+        courseReviews.value[selectedCourse.value.id] = review
+      }
+    } else {
+      const { review } = await createReview({
+        course_id: selectedCourse.value.id,
+        user_id: user.value.id,
+        ...reviewData
+      })
+      if (review) {
+        courseReviews.value[selectedCourse.value.id] = review
+      }
+    }
+    showReviewModal.value = false
+  } catch (err) {
+    console.error('Error submitting review:', err)
+    error.value = 'Error submitting review. Please try again.'
+  }
 }
 </script> 

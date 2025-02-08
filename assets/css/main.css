@@ -184,3 +184,38 @@ mux-player::part(fullscreen button):hover {
   box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
   transition: box-shadow 0.1s ease-in-out;
 }
+
+.halftone {
+  --dotSize: 0.08rem;
+  --bgSize: 0.70rem;
+  --bgPosition: calc(var(--bgSize) / 2);
+  --stop1: 0.06rem;
+  --stop2: 0.65rem;
+
+  background: #000000bf;
+  backdrop-filter: blur(5px);
+
+  background-image: radial-gradient(
+      circle at center,
+      black var(--dotSize),
+      transparent 0
+    ), radial-gradient(circle at center, black var(--dotSize), transparent 0);
+  background-size: var(--bgSize) var(--bgSize);
+  background-position: 0 0, var(--bgPosition) var(--bgPosition);
+}
+
+.halftone::after {
+  /* Cover our element */
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  mask-image: linear-gradient(rgb(0 0 0), rgb(0 0 0 / 0));
+
+  background-image: radial-gradient(
+    circle at center,
+    black var(--stop1),
+    transparent var(--stop2)
+  );
+
+}
