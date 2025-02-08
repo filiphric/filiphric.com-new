@@ -31,7 +31,7 @@
     "fuse.js": "^7.0.0",
     "micro": "^10.0.1",
     "prismjs": "^1.29.0",
-    "resend": "^4.0.0",
+    "resend": "^4.1.2",
     "stripe": "^17.1.0"
   },
   "devDependencies": {
