@@ -14,4 +14,15 @@ export interface Course {
   slug?: string
 }
 
+export interface CourseReview {
+  id: string
+  course_id: string
+  user_id: string
+  rating: number
+  review_text: string | null
+  is_anonymous: boolean
+  created_at: string
+  updated_at: string
+}
+
 export type Courses = Course[]
