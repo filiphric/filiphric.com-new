@@ -40,11 +40,12 @@
           </div>
 
           <!-- Anonymous Toggle -->
-          <div class="mb-6">
+          <div class="mb-6 flex items-center gap-2">
             <ToggleSwitch
               v-model="isAnonymous"
-              label="Post anonymously"
+              class="inline-block"
             />
+            <p class="inline-block" :class="!isAnonymous ? 'line-through' : ''">I’m ok with my review being published</p>
           </div>
 
           <!-- Error Message -->
