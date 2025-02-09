@@ -49,7 +49,7 @@
             </ActionButton>
           </div>
           <p v-if="courseInfo && !hasPurchased" class="text-xs mt-2 text-gray-400">By purchasing this course, you agree to the <NuxtLink to="/terms-of-service" class="font-extrabold prettyLink">Terms of Service</NuxtLink>.</p>
-          <p class="text-md mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
+          <p class="text-md mt-4">Buying for a group? <NuxtLink to="/course/99-cypress-tips/group-pricing" class="font-extrabold prettyLink">Click here for details about discounts!</NuxtLink></p>
         </div> 
         <div class="w-full md:w-1/2 overflow-hidden rotate-1">
           <Image :src="courseInfo?.image_url" alt="99 Cypress Tips Course" class="w-full h-auto" />
