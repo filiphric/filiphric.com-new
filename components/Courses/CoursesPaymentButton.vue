@@ -7,7 +7,7 @@
             :disabled="!props.info?.id"
             class="h-14 text-lg text-center"
           >
-            Limited time offer: 49 €
+          Purchase course for 99 €
           </ActionButton>
         </button>
       </div>
