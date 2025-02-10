@@ -1,12 +1,8 @@
 <template>
   <ClientOnly>
-    <div 
-      class="relative z-30"
-      @mouseenter="isOpen = true"
-      @mouseleave="isOpen = false"
-    >
+    <div class="relative z-30 group">
       <template v-if="user">
-        <button class="flex items-center w-8 h-8">
+        <NuxtLink class="flex items-center w-8 h-8" to="/profile?tab=profile">
           <img 
             v-if="profile?.avatar_url"
             :src="profile.avatar_url" 
@@ -17,12 +13,11 @@
             v-else
             class="w-8 h-8 block" 
           />
-        </button>
+        </NuxtLink>
 
         <!-- Dropdown Menu -->
         <div 
-          v-if="isOpen"
-          class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-50 border-2 border-black"
+          class="absolute right-0 mt-2 w-48 bg-white dark:bg-black-light shadow-block-lime dark:shadow-block-dark-lime z-50 border-2 border-black invisible md:group-hover:visible"
         >
           <div class="absolute h-4 w-full -top-4"></div>
           <div class="py-2">
