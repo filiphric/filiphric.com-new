@@ -39,12 +39,12 @@
 
         <div class="space-y-4">
           <!-- Tabs Navigation -->
-          <div class="border-b border-gray-200 dark:border-gray-700">
-            <nav class="-mb-px flex space-x-8">
+          <div class="border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
+            <nav class="-mb-px flex space-x-8 min-w-max px-1">
               <button
                 @click="navigateToTab('profile')"
                 :class="[
-                  'py-4 px-1 border-b-2 font-medium whitespace-nowrap',
+                  'py-4 px-1 border-b-2 font-medium text-sm md:text-base whitespace-nowrap',
                   activeTab === 'profile'
                     ? 'border-black text-black dark:border-white dark:text-white'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
@@ -55,7 +55,7 @@
               <button
                 @click="navigateToTab('courses')"
                 :class="[
-                  'py-4 px-1 border-b-2 font-medium whitespace-nowrap',
+                  'py-4 px-1 border-b-2 font-medium text-sm md:text-base whitespace-nowrap',
                   activeTab === 'courses'
                     ? 'border-black text-black dark:border-white dark:text-white'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
@@ -66,7 +66,7 @@
               <button
                 @click="navigateToTab('membership')"
                 :class="[
-                  'py-4 px-1 font-medium whitespace-nowrap',
+                  'py-4 px-1 border-b-2 font-medium text-sm md:text-base whitespace-nowrap',
                   activeTab === 'membership'
                     ? 'border-black text-black dark:border-white dark:text-white'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
@@ -77,7 +77,7 @@
               <button
                 @click="navigateToTab('certificates')"
                 :class="[
-                  'py-4 px-1 font-medium whitespace-nowrap',
+                  'py-4 px-1 border-b-2 font-medium text-sm md:text-base whitespace-nowrap',
                   activeTab === 'certificates'
                     ? 'border-black text-black dark:border-white dark:text-white'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300'
@@ -87,7 +87,7 @@
               </button>
               <button
                 @click="handleBillingClick"
-                class="py-4 px-1 font-medium whitespace-nowrap text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300 flex items-center gap-1"
+                class="py-4 px-1 font-medium text-sm md:text-base whitespace-nowrap text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300 flex items-center gap-1"
               >
                 Billing & Invoices
                 <IconExternalLink class="w-4 h-4" />
@@ -156,47 +156,49 @@
                 v-for="item in purchasedCourses" 
                 :key="item.course_id"
               >
-                <div class="flex items-center justify-between bg-ivory-dark dark:bg-black-dark p-4 gap-7">
+                <div class="grid sm:grid-cols-2 lg:flex items-center justify-between bg-ivory-dark dark:bg-black-dark p-4 gap-7">
                   <Image 
                     :src="item.courses.image_url" 
                     :alt="item.courses.title"
-                    class="w-40 h-40"
+                    class="w-full lg:w-40 lg:h-40"
                   />
-                  <div class="flex-1">
-                    <h3 class="text-2xl font-bold">{{ item.courses.title }}</h3>
-                    <p class="text-gray-500">{{ item.courses.description }}</p>
-                    <div class="mt-4">
-                      <div class="flex items-center gap-2">
-                        <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                          <div 
-                            class="bg-lime h-2.5 rounded-full transition-all duration-500"
-                            :style="{ width: calculateProgress(item.courses) + '%' }"
-                          />
+                  <div class="lg:flex lg:gap-7 grid grid-cols-1 gap-7">
+                    <div class="flex-1">
+                      <h3 class="text-3xl lg:text-2xl font-bold py-7 lg:py-2">{{ item.courses.title }}</h3>
+                      <p class="text-gray-500">{{ item.courses.description }}</p>
+                      <div class="mt-4">
+                        <div class="flex items-center gap-2">
+                          <div class="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                            <div 
+                              class="bg-lime h-2.5 rounded-full transition-all duration-500"
+                              :style="{ width: calculateProgress(item.courses) + '%' }"
+                            />
+                          </div>
+                          <span class="text-sm text-gray-500">{{ calculateProgress(item.courses) }}%</span>
                         </div>
-                        <span class="text-sm text-gray-500">{{ calculateProgress(item.courses) }}%</span>
                       </div>
                     </div>
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    <ActionButton 
-                      :to="`/course/${item.courses.slug}/lesson`"
-                      class="font-md"
-                    >
-                      {{ completedCourses.length ? 'Go to course' : 'Continue Learning' }}
-                    </ActionButton>
-                    <NuxtLink 
-                      v-if="calculateProgress(item.courses) === 100"
-                      @click="navigateToTab('certificates')"
-                      class="font-bold bg-lime text-white dark:text-black rounded-md px-1.5 py-0.5 mt-1 inline-block mx-auto max-w-fit cursor-pointer"
-                    >
-                      Certificate available
-                    </NuxtLink>
-                    <button
-                      @click="openReviewModal(item.courses)"
-                      class="text-sm font-bold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
-                    >
-                      {{ courseReviews[item.courses.id] ? 'Edit my Review' : 'Add a Review' }}
-                    </button>
+                    <div class="flex flex-col gap-2 place-self-center">
+                      <ActionButton 
+                        :to="`/course/${item.courses.slug}/lesson`"
+                        class="font-md"
+                      >
+                        {{ completedCourses.length ? 'Go to course' : 'Continue Learning' }}
+                      </ActionButton>
+                      <NuxtLink 
+                        v-if="calculateProgress(item.courses) === 100"
+                        @click="navigateToTab('certificates')"
+                        class="font-bold bg-lime text-white dark:text-black rounded-md px-1.5 py-0.5 mt-1 inline-block mx-auto max-w-fit cursor-pointer"
+                      >
+                        Certificate available
+                      </NuxtLink>
+                      <button
+                        @click="openReviewModal(item.courses)"
+                        class="text-sm font-bold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+                      >
+                        {{ courseReviews[item.courses.id] ? 'Edit my Review' : 'Add a Review' }}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
