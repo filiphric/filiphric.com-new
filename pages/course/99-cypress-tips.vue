@@ -10,7 +10,7 @@
           <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
             Level up your Cypress skills with bite-sized, practical tips that you can immediately apply to your testing workflow.
           </p>
-          <div v-if="parityCoupon.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
+          <div v-if="parityCoupon?.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
               <p class="text-md font-bold">
                 {{ countryEmoji }} Hello to {{ countryName }} 👋
               </p>
@@ -33,7 +33,7 @@
                   v-if="courseInfo && !hasPurchased"
                   :info="courseInfo" 
                   :price-id="courseInfo.price_id || ''"
-                  :coupon-id="parityCoupon.couponId || ''"
+                  :coupon-id="parityCoupon?.couponId || ''"
                   :discount="discount"
                   class="cursor-pointer"
                 />
@@ -48,7 +48,7 @@
             </ActionButton>
           </div>
           <p class="text-sm mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
-        </div>
+        </div> 
         <div class="w-full md:w-1/2 overflow-hidden rotate-1">
           <Image :src="courseInfo?.image_url" alt="99 Cypress Tips Course" class="w-full h-auto" />
         </div>
@@ -307,7 +307,7 @@
           <h2 class="text-4xl font-bold mb-5 md:mb-7">
             Ready to start learning?
           </h2>
-          <div v-if="parityCoupon.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
+          <div v-if="parityCoupon?.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
               <p class="text-md font-bold">
                 {{ countryEmoji }} Hello to {{ countryName }} 👋
               </p>
@@ -330,7 +330,7 @@
                   v-if="courseInfo && !hasPurchased"
                   :info="courseInfo" 
                   :price-id="courseInfo.price_id || ''"
-                  :coupon-id="parityCoupon.couponId || ''"
+                  :coupon-id="parityCoupon?.couponId || ''"
                   :discount="discount"
                   class="cursor-pointer"
                 />
@@ -345,7 +345,7 @@
             </ActionButton>
           </div>
           <p class="text-sm mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
-        </div>
+        </div> 
       </div>
   </NuxtLayout>
 </template>

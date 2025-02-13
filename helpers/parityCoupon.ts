@@ -8,8 +8,6 @@ export const getPPPDiscountPercent = (countryCode: string, options: { lowerBound
 
   if (!ratio) { return 0 }
 
-  console.log(options)
-
   const percentOff = calculatePercentOff(ratio, options)
 
   if (percentOff === 0) { return 0 }
