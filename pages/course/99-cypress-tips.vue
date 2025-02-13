@@ -353,7 +353,6 @@
 <script setup lang="ts">
 import type { Course } from '~/types/courses';
 import "@mux/mux-player";
-import "@mux/mux-player/themes/minimal";
 import countries from '@/constants/countries.json'
 import ConfettiExplosion from "vue-confetti-explosion";
 
@@ -375,7 +374,7 @@ onMounted(async () => {
   }
 })
 
-const { data } = await useFetch('/api/parity-coupon')
+const { data } = await useFetch('/api/parity-coupon', { server: false })
 const parityCoupon = computed(() => data.value)
 
 const applyDiscount = () => {
