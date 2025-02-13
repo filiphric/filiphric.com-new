@@ -4,7 +4,8 @@ const hostUrl = process.env.NODE_ENV === 'production' ? 'https://filiphric.com' 
 
 export default async (req: any, res: any) => {
 
-  const couponApplied = req.body.discounts[0]?.coupon !== undefined
+  // Check if there's a valid coupon in the discounts array
+  const couponApplied = req.body.discounts?.[0]?.coupon && req.body.discounts[0].coupon !== ''
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
