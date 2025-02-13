@@ -33,7 +33,7 @@
                   v-if="courseInfo && !hasPurchased"
                   :info="courseInfo" 
                   :price-id="courseInfo.price_id || ''"
-                  :coupon-id="parityCoupon?.couponId || ''"
+                  :coupon-id="couponId"
                   :discount="discount"
                   class="cursor-pointer"
                 />
@@ -330,7 +330,7 @@
                   v-if="courseInfo && !hasPurchased"
                   :info="courseInfo" 
                   :price-id="courseInfo.price_id || ''"
-                  :coupon-id="parityCoupon?.couponId || ''"
+                  :coupon-id="couponId"
                   :discount="discount"
                   class="cursor-pointer"
                 />
