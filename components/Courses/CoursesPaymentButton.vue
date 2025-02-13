@@ -55,7 +55,12 @@ const handleSubmit = async (event: Event) => {
       courseInfo: {
         title: props.info.title,
         id: props.info.id
-      }
+      },
+      discounts: [
+        {
+          coupon: props.couponId
+        }
+      ],
     })
     
     // Redirect to login
