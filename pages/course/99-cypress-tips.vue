@@ -10,13 +10,35 @@
           <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
             Level up your Cypress skills with bite-sized, practical tips that you can immediately apply to your testing workflow.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <CoursesPaymentButton 
-              v-if="courseInfo && !hasPurchased"
-              :info="courseInfo" 
-              :price-id="courseInfo.price_id || ''"
-              class="cursor-pointer"
-            />
+          <div v-if="parityCoupon.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
+              <p class="text-md font-bold">
+                {{ countryEmoji }} Hello to {{ countryName }} 👋
+              </p>
+              <p class="text-sm">
+                To make this course more accessible I am offering purchasing power parity pricing.
+              </p>
+              <span v-if="!couponApplied" class="text-md text-lime font-bold cursor-pointer my-4" @click="applyDiscount">
+                Click here to activate {{ (parityCoupon.amount * 100).toFixed(0) }}% discount
+              </span>
+              <span v-else class="text-md text-lime font-bold my-4">
+                Discount activated 🎉
+                <span class="ml-2 text-sm cursor-pointer text-gray-400 font-normal" @click="cancelDiscount">
+                  (Click here to deactivate)
+                </span>
+              </span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div class="relative">
+                <CoursesPaymentButton 
+                  v-if="courseInfo && !hasPurchased"
+                  :info="courseInfo" 
+                  :price-id="courseInfo.price_id || ''"
+                  :coupon-id="parityCoupon.couponId || ''"
+                  :discount="discount"
+                  class="cursor-pointer"
+                />
+              <ConfettiExplosion v-if="couponApplied" :colors="['#9CD1BB', '#C39AC9', '#BAD761', '#FF9B5E', '#FF657A', '#FFD76D']" class="absolute -top-1/2 left-1/2" />
+            </div>
             <ActionButton 
               v-if="courseInfo && hasPurchased"
               :to="`${courseInfo.url}/lesson`"
@@ -233,19 +255,87 @@
       </div>
     </div>
 
-     <!-- Hero Section -->
-     <div class="mt-14 md:mt-28 flex sm:mx-7">
+    <div class="mt-14 md:mt-28 flex sm:mx-7">
+      <div class="w-full text-center">
+        <h2 class="text-4xl font-bold mb-5 md:mb-7">
+          Example lessons
+        </h2>
+        <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
+          Still not sure? Check out some example lessons from the course.
+        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-bold mt-4">Cookies are set automatically</h3>
+            <div class="mt-7 wrapper shadow-block-blueberry">
+              <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center border-2 border-solid border-black">
+                <LoaderAnimation />
+                <p class="text-xl text-center mt-4">Loading video...</p>
+              </div>
+              <mux-player
+                playback-id="nYZRh6VqK3NcFeD6VB02d2M602H02momd7xsHJrZcq3KTU"
+                primary-color="black"
+                secondary-color="white"
+                accent-color="#bada55"
+                style="border: 2px solid black;"
+              />
+            </div>
+            
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mt-4">Automatically open console when running Cypress</h3>
+            <div class="mt-7 wrapper shadow-block-mint">
+              <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center border-2 border-solid border-black">
+                <LoaderAnimation />
+                <p class="text-xl text-center mt-4">Loading video...</p>
+              </div>
+              <mux-player
+                playback-id="ot84pHtV8zbyq1bvk1LDmvSioj01CXR9n6uozhw7uOXo"
+                primary-color="black"
+                secondary-color="white"
+                accent-color="#bada55"
+                style="border: 2px solid black;"
+              />
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="my-14 md:my-28 flex sm:mx-7">
         <div class="w-full text-center">
           <h2 class="text-4xl font-bold mb-5 md:mb-7">
             Ready to start learning?
           </h2>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <CoursesPaymentButton 
-              v-if="courseInfo && !hasPurchased"
-              :info="courseInfo" 
-              :price-id="courseInfo.price_id || ''"
-              class="cursor-pointer"
-            />
+          <div v-if="parityCoupon.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
+              <p class="text-md font-bold">
+                {{ countryEmoji }} Hello to {{ countryName }} 👋
+              </p>
+              <p class="text-sm">
+                To make this course more accessible I am offering purchasing power parity pricing.
+              </p>
+              <span v-if="!couponApplied" class="text-md text-lime font-bold cursor-pointer my-4" @click="applyDiscount">
+                Click here to activate {{ (parityCoupon.amount * 100).toFixed(0) }}% discount
+              </span>
+              <span v-else class="text-md text-lime font-bold my-4">
+                Discount activated 🎉
+                <span class="ml-2 text-sm cursor-pointer text-gray-400 font-normal" @click="cancelDiscount">
+                  (Click here to deactivate)
+                </span>
+              </span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <div class="relative">
+                <CoursesPaymentButton 
+                  v-if="courseInfo && !hasPurchased"
+                  :info="courseInfo" 
+                  :price-id="courseInfo.price_id || ''"
+                  :coupon-id="parityCoupon.couponId || ''"
+                  :discount="discount"
+                  class="cursor-pointer"
+                />
+              <ConfettiExplosion v-if="couponApplied" :colors="['#9CD1BB', '#C39AC9', '#BAD761', '#FF9B5E', '#FF657A', '#FFD76D']" class="absolute -top-1/2 left-1/2" />
+            </div>
             <ActionButton 
               v-if="courseInfo && hasPurchased"
               :to="`${courseInfo.url}/lesson`"
@@ -254,53 +344,7 @@
               Go to course
             </ActionButton>
           </div>
-        </div>
-
-      </div>
-      <div class="mt-14 md:mt-28 flex sm:mx-7">
-        <div class="w-full text-center">
-          <h2 class="text-4xl font-bold mb-5 md:mb-7">
-            Example lessons
-          </h2>
-          <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
-            Still not sure? Check out some example lessons from the course.
-          </p>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-lg font-bold mt-4">Cookies are set automatically</h3>
-              <div class="mt-7 wrapper shadow-block-blueberry">
-                <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center border-2 border-solid border-black">
-                  <LoaderAnimation />
-                  <p class="text-xl text-center mt-4">Loading video...</p>
-                </div>
-                <mux-player
-                  playback-id="nYZRh6VqK3NcFeD6VB02d2M602H02momd7xsHJrZcq3KTU"
-                  primary-color="black"
-                  secondary-color="white"
-                  accent-color="#bada55"
-                  style="border: 2px solid black;"
-                />
-              </div>
-              
-            </div>
-            <div>
-              <h3 class="text-lg font-bold mt-4">Automatically open console when running Cypress</h3>
-              <div class="mt-7 wrapper shadow-block-mint">
-                <div class="mb-4 placeholder mx-auto flex flex-col items-center justify-center border-2 border-solid border-black">
-                  <LoaderAnimation />
-                  <p class="text-xl text-center mt-4">Loading video...</p>
-                </div>
-                <mux-player
-                  playback-id="ot84pHtV8zbyq1bvk1LDmvSioj01CXR9n6uozhw7uOXo"
-                  primary-color="black"
-                  secondary-color="white"
-                  accent-color="#bada55"
-                  style="border: 2px solid black;"
-                />
-              </div>
-            </div>
-          </div>
-          
+          <p class="text-sm mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
         </div>
       </div>
   </NuxtLayout>
@@ -310,12 +354,17 @@
 import type { Course } from '~/types/courses';
 import "@mux/mux-player";
 import "@mux/mux-player/themes/minimal";
+import countries from '@/constants/countries.json'
+import ConfettiExplosion from "vue-confetti-explosion";
 
 const { getCourseById } = useSupabaseCourses()
 const store = useStore()
 const user = useSupabaseUser()
 const { getUserCourses } = useSupabaseCourses()
 const route = useRoute()
+const couponId = ref('')
+const discount = ref(0)
+const couponApplied = ref(false)
 // Load purchased courses if user is logged in
 onMounted(async () => {
   if (user.value) {
@@ -324,6 +373,29 @@ onMounted(async () => {
       console.error('Error fetching user courses:', coursesError)
     }
   }
+})
+
+const { data } = await useFetch('/api/parity-coupon')
+const parityCoupon = computed(() => data.value)
+
+const applyDiscount = () => {
+  couponId.value = parityCoupon.value.couponId
+  discount.value = parityCoupon.value.amount
+  couponApplied.value = true
+}
+
+const cancelDiscount = () => {
+  couponId.value = ''
+  discount.value = 0
+  couponApplied.value = false
+}
+
+const countryName = computed(() => {
+  return countries.find(country => country.code === parityCoupon.value.country)?.name
+})
+
+const countryEmoji = computed(() => {
+  return countries.find(country => country.code === parityCoupon.value.country)?.emoji
 })
 
 const { data: courseInfo } = await useAsyncData<Course | null>('course-info', async () => {

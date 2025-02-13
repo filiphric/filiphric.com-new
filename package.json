@@ -32,7 +32,8 @@
     "micro": "^10.0.1",
     "prismjs": "^1.29.0",
     "resend": "^4.1.2",
-    "stripe": "^17.1.0"
+    "stripe": "^17.1.0",
+    "vue-confetti-explosion": "^1.0.2"
   },
   "devDependencies": {
     "@nuxt/content": "^2.13.2",
