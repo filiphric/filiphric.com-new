@@ -77,7 +77,7 @@ onMounted(async () => {
             ? JSON.parse(paymentIntent)
             : paymentIntent
             
-          const { priceId, courseInfo } = paymentData
+          const { priceId, courseInfo, discounts } = paymentData
           
           // Proceed with payment
           const { data } = await useFetch('/api/course-checkout', {
@@ -93,7 +93,8 @@ onMounted(async () => {
                 item: courseInfo.title,
                 type: 'course',
                 courseId: courseInfo.id
-              }
+              },
+              discounts
             }
           })
                     

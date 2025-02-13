@@ -2,12 +2,13 @@
   <div>
     <form :action="checkoutUrl" method="POST" @submit.prevent="handleSubmit">
       <div id="course-payment" class="mt-1 place-self-center">
+       
         <button type="submit">
           <ActionButton 
             :disabled="!props.info?.id"
             class="h-14 text-lg text-center"
           >
-          Purchase course for 99 €
+          Purchase course for {{ 99 - (props.discount * 100) }} €
           </ActionButton>
         </button>
       </div>
@@ -30,6 +31,15 @@ const props = defineProps({
   priceId: {
     type: String,
     required: true
+  },
+  couponId: {
+    type: String,
+    required: false
+  },
+  discount: {
+    type: Number,
+    required: false,
+    default: 0
   }
 })
 
@@ -45,7 +55,12 @@ const handleSubmit = async (event: Event) => {
       courseInfo: {
         title: props.info.title,
         id: props.info.id
-      }
+      },
+      discounts: [
+        {
+          coupon: props.couponId
+        }
+      ],
     })
     
     // Redirect to login
@@ -67,6 +82,11 @@ const handleSubmit = async (event: Event) => {
         quantity: 1,
         price: props.priceId,
       },
+      discounts: [
+        {
+          coupon: props.couponId
+        }
+      ],
       customer_id: user.value?.stripe_customer,
       redirectPath: '/course/payment-confirmation',
       metadata: {
