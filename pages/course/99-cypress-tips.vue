@@ -10,33 +10,34 @@
           <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
             Level up your Cypress skills with bite-sized, practical tips that you can immediately apply to your testing workflow.
           </p>
-          <div v-if="parityCoupon?.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
-              <p class="text-md font-bold">
-                {{ countryEmoji }} Hello to {{ countryName }} 👋
-              </p>
-              <p class="text-sm">
-                To make this course more accessible I am offering purchasing power parity pricing.
-              </p>
-              <span v-if="!couponApplied" class="text-md text-lime font-bold cursor-pointer my-4" @click="applyDiscount">
-                Click here to activate {{ (parityCoupon.amount * 100).toFixed(0) }}% discount
+          <!-- oarity coupon -->
+          <div v-if="parityCoupon?.eligible" class="flex flex-col gap-2 bg-ivory-dark dark:bg-black-dark p-5 mb-5">
+            <p class="text-md font-bold">
+              {{ countryEmoji }} Hello to {{ countryName }} 👋
+            </p>
+            <p class="text-sm">
+              To make this course more accessible I am offering purchasing power parity pricing.
+            </p>
+            <span v-if="!couponApplied" class="text-md text-lime font-bold cursor-pointer my-4" @click="applyDiscount">
+              Click here to activate {{ (parityCoupon.amount * 100).toFixed(0) }}% discount
+            </span>
+            <span v-else class="text-md text-lime font-bold my-4">
+              Discount activated 🎉
+              <span class="ml-2 text-sm cursor-pointer text-gray-400 font-normal" @click="cancelDiscount">
+                (Click here to deactivate)
               </span>
-              <span v-else class="text-md text-lime font-bold my-4">
-                Discount activated 🎉
-                <span class="ml-2 text-sm cursor-pointer text-gray-400 font-normal" @click="cancelDiscount">
-                  (Click here to deactivate)
-                </span>
-              </span>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <div class="relative">
-                <CoursesPaymentButton 
-                  v-if="courseInfo && !hasPurchased"
-                  :info="courseInfo" 
-                  :price-id="courseInfo.price_id || ''"
-                  :coupon-id="couponId"
-                  :discount="discount"
-                  class="cursor-pointer"
-                />
+            </span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div class="relative">
+              <CoursesPaymentButton 
+                v-if="courseInfo && !hasPurchased"
+                :info="courseInfo" 
+                :price-id="courseInfo.price_id || ''"
+                :coupon-id="couponId"
+                :discount="discount"
+                class="cursor-pointer"
+              />
               <ConfettiExplosion v-if="couponApplied" :colors="['#9CD1BB', '#C39AC9', '#BAD761', '#FF9B5E', '#FF657A', '#FFD76D']" class="absolute -top-1/2 left-1/2" />
             </div>
             <ActionButton 
@@ -303,50 +304,51 @@
     </div>
 
     <div class="my-14 md:my-28 flex sm:mx-7">
-        <div class="w-full text-center">
-          <h2 class="text-4xl font-bold mb-5 md:mb-7">
-            Ready to start learning?
-          </h2>
-          <div v-if="parityCoupon?.eligible" class="flex flex-col gap-2 bg-ivory-dark p-5 mb-5">
-              <p class="text-md font-bold">
-                {{ countryEmoji }} Hello to {{ countryName }} 👋
-              </p>
-              <p class="text-sm">
-                To make this course more accessible I am offering purchasing power parity pricing.
-              </p>
-              <span v-if="!couponApplied" class="text-md text-lime font-bold cursor-pointer my-4" @click="applyDiscount">
-                Click here to activate {{ (parityCoupon.amount * 100).toFixed(0) }}% discount
-              </span>
-              <span v-else class="text-md text-lime font-bold my-4">
-                Discount activated 🎉
-                <span class="ml-2 text-sm cursor-pointer text-gray-400 font-normal" @click="cancelDiscount">
-                  (Click here to deactivate)
-                </span>
-              </span>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <div class="relative">
-                <CoursesPaymentButton 
-                  v-if="courseInfo && !hasPurchased"
-                  :info="courseInfo" 
-                  :price-id="courseInfo.price_id || ''"
-                  :coupon-id="couponId"
-                  :discount="discount"
-                  class="cursor-pointer"
-                />
-              <ConfettiExplosion v-if="couponApplied" :colors="['#9CD1BB', '#C39AC9', '#BAD761', '#FF9B5E', '#FF657A', '#FFD76D']" class="absolute -top-1/2 left-1/2" />
-            </div>
-            <ActionButton 
-              v-if="courseInfo && hasPurchased"
-              :to="`${courseInfo.url}/lesson`"
-              class="h-14 w-64 text-lg text-center"
-            >
-              Go to course
-            </ActionButton>
+      <div class="w-full text-center">
+        <h2 class="text-4xl font-bold mb-5 md:mb-7">
+          Ready to start learning?
+        </h2>
+          <!-- oarity coupon -->
+        <div v-if="parityCoupon?.eligible" class="flex flex-col gap-2 bg-ivory-dark dark:bg-black-dark p-5 mb-5">
+          <p class="text-md font-bold">
+            {{ countryEmoji }} Hello to {{ countryName }} 👋
+          </p>
+          <p class="text-sm">
+            To make this course more accessible I am offering purchasing power parity pricing.
+          </p>
+          <span v-if="!couponApplied" class="text-md text-lime font-bold cursor-pointer my-4" @click="applyDiscount">
+            Click here to activate {{ (parityCoupon.amount * 100).toFixed(0) }}% discount
+          </span>
+          <span v-else class="text-md text-lime font-bold my-4">
+            Discount activated 🎉
+            <span class="ml-2 text-sm cursor-pointer text-gray-400 font-normal" @click="cancelDiscount">
+              (Click here to deactivate)
+            </span>
+          </span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <div class="relative">
+            <CoursesPaymentButton 
+              v-if="courseInfo && !hasPurchased"
+              :info="courseInfo" 
+              :price-id="courseInfo.price_id || ''"
+              :coupon-id="couponId"
+              :discount="discount"
+              class="cursor-pointer"
+            />
+            <ConfettiExplosion v-if="couponApplied" :colors="['#9CD1BB', '#C39AC9', '#BAD761', '#FF9B5E', '#FF657A', '#FFD76D']" class="absolute -top-1/2 left-1/2" />
           </div>
-          <p class="text-sm mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
-        </div> 
-      </div>
+          <ActionButton 
+            v-if="courseInfo && hasPurchased"
+            :to="`${courseInfo.url}/lesson`"
+            class="h-14 w-64 text-lg text-center"
+          >
+            Go to course
+          </ActionButton>
+        </div>
+        <p class="text-sm mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
+      </div> 
+    </div>
   </NuxtLayout>
 </template>
 
