@@ -42,10 +42,10 @@
           <!-- Anonymous Toggle -->
           <div class="mb-6 flex items-center gap-2">
             <ToggleSwitch
-              v-model="isAnonymous"
+              v-model="isPublic"
               class="inline-block"
             />
-            <p class="inline-block" :class="!isAnonymous ? 'line-through' : ''">I’m ok with my review being published</p>
+            <p class="inline-block" :class="!isPublic ? 'line-through' : ''">I’m ok with my review being published</p>
           </div>
 
           <!-- Error Message -->
@@ -93,14 +93,14 @@ const emit = defineEmits<{
 
 const rating = ref(props.existingReview?.rating || 0)
 const reviewText = ref(props.existingReview?.review_text || '')
-const isAnonymous = ref(props.existingReview?.is_anonymous || false)
+const isPublic = ref(!props.existingReview?.is_anonymous || false)
 const error = ref('')
 
 watch(() => props.existingReview, (newReview) => {
   if (newReview) {
     rating.value = newReview.rating
     reviewText.value = newReview.review_text || ''
-    isAnonymous.value = newReview.is_anonymous
+    isPublic.value = !newReview.is_anonymous
   }
 })
 
@@ -117,7 +117,7 @@ const handleSubmit = () => {
   emit('submit', {
     rating: rating.value,
     review_text: reviewText.value || null,
-    is_anonymous: isAnonymous.value
+    is_anonymous: !isPublic.value
   })
 }
 </script> 
