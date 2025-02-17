@@ -55,11 +55,12 @@ const handler = async (req: any, res: any) => {
       const { data: emailData, error: emailError } = await resend.emails.send({
         from: 'Course reviews <filip@filiphric.com>',
         to: ['filip@filiphric.com'],
-        subject: `New Course Review from ${profile.full_name} - ${course.title}`,
+        subject: `New Course Review from ${profile.full_name || profile.email} - ${course.title}`,
         html: `
           <h2>New Review Received</h2>
           <p><strong>Course:</strong> ${course.title}</p>
           <p><strong>Student:</strong> ${profile.full_name || 'Anonymous'}</p>
+          <p><strong>Email:</strong> ${profile.email}</p>
           <p><strong>Rating:</strong> ${req.body.record.rating}/5</p>
           ${req.body.record.review_text ? `<p><strong>Review:</strong> ${req.body.record.review_text}</p>` : ''}
           <p><strong>Anonymous Review:</strong> ${req.body.record.is_anonymous ? 'Yes' : 'No'}</p>
