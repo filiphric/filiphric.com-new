@@ -12,13 +12,13 @@
         <p class="text-center mb-6">As a company you can choose the amount of flexibility you need. All licenses include full course access and future updates. You can choose a GitHub login or a magic link that will ensure that your license is used by the proper users.</p>
         <!-- Desktop view -->
         <div class="lg:grid lg:grid-cols-3 lg:gap-8 grid grid-cols-1 gap-8">
-          <div v-for="plan in plans" :key="plan.name" class="bg-white shadow-block p-6">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">{{ plan.name }}</h3>
-            <p class="text-gray-600">{{ plan.description }}</p>
-            <p class="mt-4 text-3xl font-bold text-gray-900">{{ plan.price }} € <span v-if="plan.priceDescription" class="text-sm text-gray-500">{{ plan.priceDescription }}</span></p>
+          <div v-for="plan in plans" :key="plan.name" class="bg-white shadow-block p-6 dark:bg-black-dark">
+            <h3 class="text-2xl font-semibold mb-2">{{ plan.name }}</h3>
+            <p>{{ plan.description }}</p>
+            <p class="mt-4 text-3xl font-bold">{{ plan.price }} € <span v-if="plan.priceDescription" class="text-sm">{{ plan.priceDescription }}</span></p>
             <ul class="mt-6 space-y-2">
               <li v-for="feature in features" class="flex items-start">
-                <p class="text-sm text-gray-700">
+                <p class="text-sm">
                   {{ typeof feature[plan.name.toLowerCase() as keyof typeof feature] === 'boolean' ? '' : feature[plan.name.toLowerCase() as keyof typeof feature] }}
                 </p>
               </li>
@@ -129,17 +129,17 @@
           <div class="max-w-3xl mx-auto space-y-6">
             <div class="bg-ivory-dark dark:bg-black-dark p-6 rounded-lg">
               <h3 class="font-bold mb-2">What's the difference between license types?</h3>
-              <p class="text-gray-600 pt-3">Basic licenses are tied to specific GitHub accounts. Once a license is tied to a given account, it cannot be transferred.</p>
+              <p class="pt-3">Basic licenses are tied to specific GitHub accounts. Once a license is tied to a given account, it cannot be transferred.</p>
               <p class="pt-3">With <span class="font-bold">Flexible plan</span> you are allowed a single transfer of a license to another employee. This is great for situations where an employee leaves the company and you’d like to provide education to a new member of a team. </p> 
               <p class="pt-3">The <span class="font-bold">Enterprise plan</span> allows unlimited transfer license transfers throughout the year. This plan is best suitable for agencies or teams with regular member changes. Please note that the <NuxtLink to="/terms-of-service" class="prettyLink font-bold">Terms of Service</NuxtLink> apply.</p>
             </div>
             <div class="bg-ivory-dark dark:bg-black-dark p-6 rounded-lg">
               <h3 class="font-bold mb-2">How does the magic link sign-in work?</h3>
-              <p class="text-gray-600">Users can securely access the course by receiving a one-time login link via email, making it easy to get started without password management. Link is generated on the login page and sent to the email address of the user.</p>
+              <p>Users can securely access the course by receiving a one-time login link via email, making it easy to get started without password management. Link is generated on the login page and sent to the email address of the user.</p>
             </div>
             <div class="bg-ivory-dark dark:bg-black-dark p-6 rounded-lg">
               <h3 class="font-bold mb-2">Can I mix different license types?</h3>
-              <p class="text-gray-600">Yes, you can purchase different license types to best suit your team's needs. Contact me for a custom quote.</p>
+              <p>Yes, you can purchase different license types to best suit your team's needs. Contact me for a custom quote.</p>
             </div>
           </div>
         </div>
