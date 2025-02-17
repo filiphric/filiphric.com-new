@@ -28,7 +28,7 @@
               </span>
             </span>
           </div>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div class="flex md:flex-col flex-row justify-center md:justify-start">
             <div class="relative">
               <CoursesPaymentButton 
                 v-if="courseInfo && !hasPurchased"
@@ -48,7 +48,7 @@
               Go to course
             </ActionButton>
           </div>
-          <p class="text-xs mt-2 text-gray-400">By purchasing this course, you agree to the <NuxtLink to="/terms-of-service" class="font-extrabold prettyLink">Terms of Service</NuxtLink>.</p>
+          <p v-if="courseInfo && !hasPurchased" class="text-xs mt-2 text-gray-400">By purchasing this course, you agree to the <NuxtLink to="/terms-of-service" class="font-extrabold prettyLink">Terms of Service</NuxtLink>.</p>
           <p class="text-md mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
         </div> 
         <div class="w-full md:w-1/2 overflow-hidden rotate-1">
@@ -157,6 +157,52 @@
         </p>
         <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">Lessons span from 30 seconds to 7 minutes (I said no longer than 5 minutes in the video, oops) but are designed to be as information dense as possible.</p>
       </div>
+      <div class="mt-28">
+        <h2 class="text-4xl font-bold mb-14 text-center">
+          What People Say
+        </h2>
+        <Carousel
+          :itemsToShow="1"
+          :wrap-around="true"
+          :autoplay="10000"
+          :breakpoints="{
+            1024: {
+              itemsToShow: 3
+            }
+          }"
+          class="max-w-6xl mx-auto"
+        >
+          <Slide 
+            v-for="(testimonial, index) in testimonials" 
+            :key="index"
+          >
+            <div class="mx-4 mb-7" :class="{ 'shadow-block-tangerine': index === 0, 'shadow-block-blueberry': index === 1,
+            'shadow-block-mint': index === 2,
+            'shadow-block-cheese': index === 3,
+            'shadow-block-lime': index === 4,
+            'shadow-block-punch': index === 5
+             }">
+              <div class="bg-white dark:bg-black-lighter p-7 border-2 border-black h-full">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="text-yellow-400 text-2xl">★★★★★</span>
+                </div>
+                <p class="text-lg mb-4">
+                  {{ testimonial.text }}
+                </p>
+                <hr class="my-4 border-black dark:border-white w-1/4 opacity-20">
+                <div class="text-gray-500 dark:text-gray-300 flex gap-3 justify-start items-center">
+                  <img :src="testimonial.avatar" class="w-10 h-10 rounded-full" />
+                  <div class="flex flex-col">
+                    <p class="font-bold">{{ testimonial.name }}</p>
+                    <p class="text-sm">{{ testimonial.title }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Slide>
+
+        </Carousel>
+      </div>
       
       <div class="mt-28">
         <h2 class="text-4xl font-bold mb-14 text-center">Translated into 23 languages</h2>
@@ -212,7 +258,7 @@
       <div class="mt-28">
         <h2 class="text-4xl font-bold mb-14 text-center">Certificate of completion</h2>
         <div class="flex flex-col md:flex-row gap-20 justify-center items-center">
-          <Image src="/certificate_r3pka2.png" alt="Certificate of completion" class="h-72 mt-7 -rotate-1 shadow-white/10 shadow-lg drop-shadow-md" />
+          <Image src="/certificate_r3pka2.png" alt="Certificate of completion" class="max-h-72 mt-7 -rotate-1 shadow-white/10 dark:shadow-black/10 shadow-lg drop-shadow-md" />
           <div class="flex flex-col gap-5 justify-center rotate-1">
             <p class="text-lg md:text-xl lg:text-2xl">
               Brag to your friends and colleagues about your new Cypress skills!
@@ -327,7 +373,7 @@
             </span>
           </span>
         </div>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-row gap-4 justify-center">
           <div class="relative">
             <CoursesPaymentButton 
               v-if="courseInfo && !hasPurchased"
@@ -347,7 +393,7 @@
             Go to course
           </ActionButton>
         </div>
-        <p class="text-xs mt-2 text-gray-400">By purchasing this course, you agree to the <NuxtLink to="/terms-of-service" class="font-extrabold prettyLink">Terms of Service</NuxtLink>.</p>
+        <p v-if="courseInfo && !hasPurchased" class="text-xs mt-2 text-gray-400">By purchasing this course, you agree to the <NuxtLink to="/terms-of-service" class="font-extrabold prettyLink">Terms of Service</NuxtLink>.</p>
         <p class="text-sm mt-4">Buying for a group? <a href="mailto:filip@filiphric.sk" class="font-extrabold prettyLink">Contact me for a discount!</a></p>
       </div> 
     </div>
@@ -415,6 +461,27 @@ const { data: courseInfo } = await useAsyncData<Course | null>('course-info', as
 const hasPurchased = computed(() => {
   return store.purchasedCourses.some(course => course.id === courseInfo.value?.id)
 })
+
+const testimonials = [
+  {
+    text: "Awesome tips, lot of the stuff was something new to me or opened up new perspectives of thinking when trying to solve a problem. Thank you Filip for the effort and covering great tips in this course.",
+    name: "Vane Terziski",
+    title: "Senior Software Development Engineer in Test",
+    avatar: "https://avatars.githubusercontent.com/u/12384232"
+  },
+  {
+    text: "99 short, practical and to the point tips which are immediately applicable and fit perfectly into a busy workday. The excellent video and audio quality made the learning easy and enjoyable. I definitely recommend the course.",
+    name: "Daniel Neuhaus",
+    title: "QA Lead",
+    avatar: "https://media.licdn.com/dms/image/v2/C5603AQGpSkTwBX8ynw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1645030555378?e=1745452800&v=beta&t=NANKVpHYBN89M0yaq5hhJOMRHIM9WM2x5XXWWEBEM7g"
+  },
+  {
+    text: "A really nice course. It has somenthing for everyone.",
+    name: "Ioan Solderea",
+    title: "QA Lead",
+    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQGar3ofNLdmuA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1659504952723?e=1745452800&v=beta&t=phTqkO5UnKSwbKxwVgyDxIdK6deKwFNpfgCgC0SHqaw"
+  }
+]
 
 useHead({
   meta: [

@@ -96,7 +96,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@vueuse/nuxt',
     '@nuxtjs/supabase',
-    '@nuxtjs/mdc'
+    '@nuxtjs/mdc',
+    'vue3-carousel-nuxt'
   ],
 
   nitro: {
