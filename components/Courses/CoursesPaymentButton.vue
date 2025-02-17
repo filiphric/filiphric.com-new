@@ -6,7 +6,7 @@
         <button type="submit">
           <ActionButton 
             :disabled="!props.info?.id"
-            class="h-14 text-lg text-center"
+            class="h-14 md:text-lg text-center"
           >
           Purchase course for {{ 99 - (props.discount * 100) }} €
           </ActionButton>
