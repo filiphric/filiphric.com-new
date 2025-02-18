@@ -476,7 +476,7 @@ const testimonials = [
     avatar: "https://media.licdn.com/dms/image/v2/C5603AQGpSkTwBX8ynw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1645030555378?e=1745452800&v=beta&t=NANKVpHYBN89M0yaq5hhJOMRHIM9WM2x5XXWWEBEM7g"
   },
   {
-    text: "A really nice course. It has somenthing for everyone.",
+    text: "A really nice course. It has something for everyone.",
     name: "Ioan Solderea",
     title: "QA Lead",
     avatar: "https://media.licdn.com/dms/image/v2/D4D03AQGar3ofNLdmuA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1659504952723?e=1745452800&v=beta&t=phTqkO5UnKSwbKxwVgyDxIdK6deKwFNpfgCgC0SHqaw"

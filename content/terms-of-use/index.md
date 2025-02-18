@@ -1,6 +1,6 @@
 ---
 title: "Terms of Service"
-published: true
+published: false
 slug: "terms-of-service"
 description: "Terms and conditions for purchasing and accessing online courses"
 tags: ["terms", "conditions"]
