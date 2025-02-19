@@ -19,7 +19,7 @@
         </div>
       </NuxtLink>
     </div>
-    <div class="col-span-2 grid grid-cols-1 h-full space-y-7">
+    <div class="col-span-2 grid grid-cols-1 space-y-7">
       <div>
         <NuxtLink
           :to="item.coming_soon ? undefined : item.url"
