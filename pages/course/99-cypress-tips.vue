@@ -28,7 +28,7 @@
               </span>
             </span>
           </div>
-          <div class="flex md:flex-col flex-row justify-center md:justify-start">
+          <div class="flex md:flex-col flex-row justify-center md:items-start">
             <div class="relative">
               <CoursesPaymentButton 
                 v-if="courseInfo && !hasPurchased"

@@ -49,6 +49,9 @@ export const resolveIcon = (filename: any) => {
   if (filename.includes('tsconfig.json') || filename.includes('tsconfig.node.json') || filename.includes('tsconfig.base.json')) {
     classes.push('tsconfig')
   }
+  if (filename.includes('wdio.conf.ts')) {
+    classes.push('wdio')
+  }
   // don’t forget to add icon references to main.css file
 
   return classes

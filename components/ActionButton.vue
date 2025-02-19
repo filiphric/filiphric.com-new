@@ -1,5 +1,5 @@
 <template>
-  <div class="relative inline-block">
+  <div class="relative inline-block h-full">
     <div class="bg-lime absolute top-0 left-0 border-black border-2 px-5 py-2 w-full h-full"></div>
     <NuxtLink 
       :to="to" 
