@@ -96,6 +96,9 @@
 .filename.eslint:before  {
 	background-image: url('../icons/file_eslint.svg');
 }
+.filename.wdio:before  {
+	background-image: url('../icons/file_type_wdio.svg');
+}
 
 /* directory icons */
 .filename.dir:before {

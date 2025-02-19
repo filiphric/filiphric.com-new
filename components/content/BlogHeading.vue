@@ -8,6 +8,7 @@
         :cypress-version="cypressVersion"
         :playwright-version="playwrightVersion"
         :vitest-version="vitestVersion"
+        :webdriverio-version="webdriverioVersion"
         :date="date"
         :reading-time="readingTime"
       />
@@ -43,6 +44,10 @@ defineProps({
     default: ''
   },
   vitestVersion: {
+    type: String,
+    default: ''
+  },
+  webdriverioVersion: {
     type: String,
     default: ''
   }
