@@ -7,8 +7,8 @@
       <NuxtLink to="/about" class="prettyLink max-w-fit">
         About me
       </NuxtLink>
-      <NuxtLink to="/talks-webinars" class="prettyLink max-w-fit">
-        Talks & webinars
+      <NuxtLink to="/about#conference-appearances" class="prettyLink max-w-fit">
+        Conference appearances
       </NuxtLink>
       <NuxtLink to="/private-workshops" class="prettyLink max-w-fit">
         Private workshops

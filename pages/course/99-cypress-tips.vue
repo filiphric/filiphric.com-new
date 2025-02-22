@@ -282,21 +282,12 @@
           <p class="text-lg md:text-xl lg:text-2xl mb-5 md:mb-7">
             I have a close to a decade of experience with teaching hundreds of developers and testers. I specialize in helping people level up their testing practices. Whether you are starting with test automation or you are looking to level up, I'm ready to help.
           </p>
-          <!-- <div class="flex flex-wrap gap-4">
-            <NuxtLink 
-              to="/about" 
-              class="prettyLink max-w-fit"
-            >
-              More about me
-            </NuxtLink>
-            <NuxtLink 
-              to="/talks-webinars" 
-              class="prettyLink max-w-fit"
-            >
-              Talks & webinars
-            </NuxtLink>
-          </div> -->
-        </div>
+          <ActionButton 
+            to="/about"
+          >
+            More about me
+          </ActionButton>
+      </div>
         <div class="shadow-block w-full md:w-1/2 overflow-hidden bg-white dark:bg-transparent rotate-1">
           <Image src="/small_square_kdhln0.png" alt="Filip Hric" class="w-full h-auto" />
         </div>

@@ -8,7 +8,7 @@
         I am an international keynote speaker. I like to do live coding on stage and demonstrate real-life examples and problem solutions.
       </p>
       <div class="text-lg md:text-xl lg:text-2xl">
-        <ActionButton to="/talks" class="rotate-1">
+        <ActionButton to="/about#conference-appearances" class="rotate-1">
           Learn more
         </ActionButton>
       </div>
