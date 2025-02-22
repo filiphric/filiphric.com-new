@@ -40,8 +40,22 @@ For example, I’m more than happy to speak for free at a an online meetup in co
 
 An example of an opposite case are internal company events. I approach these as professional consultations where my expertise is transformed into value for the company. 
 
+## Branding and promotion
+I’m happy to help you with the promotion of your event by posting about it on my social media channels. If you have a template or a page you want me to share, it’s a great help.
+
+Some events nowadays ask me to record a video promoting the event. In exchange for recording a video I usually ask organizers for the ability to promote my course on the event page and during the event. This is not a requirement, but I believe it’s a fair trade. Alternatives can always be discussed.
+
+I don’t use presentation templates provided by the event organizers. I always strive to bring originality to the events I present at. My design choices as well as the way I present my ideas to the audience are a big part of that.
+
 ## Diversity and inclusion
 I don’t feel comfortable taking part in events where the speaker line-up is a stereotypical group of IT guys. I value conference organizers that make the effort to include under-represented groups in tech and I believe they carry the responsibility to make sure that the speaker line-up is diverse. While I’m not a member of any under-represented group, I’m more than happy to help with this effort.
+
+## Bio and photo
+### Bio
+Filip Hric is a freelance DevRel, consultant, tester and developer. He teaches testers about web development and developers about testing. Filip is an international keynote speaker and one of the leading experts on test automation in Cypress.io. He’s an author of several Cypress workshops and has taught hundreds of testers and developers around the world how to effectively use Cypress and apply good practices in web test automation. Enjoys running, playing guitar and spending time with his wife and four children.
+
+### Photo
+You can find my currently used photo on [this link](https://www.dropbox.com/scl/fo/vwtpbk660ub9hqz3tadh7/ADgRWMV8pe28Rcw65E6Z_hY?rlkey=e85iw65iqztqnldbnbrjibqpg&st=een7jiy2&dl=1).
 
 ## Contact me
 If you have any question or if you are considering me for you upcoming event, feel free to contact me through your [preferred social network or directly via email](https://links.filiphric.com).
