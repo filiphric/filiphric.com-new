@@ -15,15 +15,20 @@
       <div v-else class="space-y-7">
         <div class="flex items-center gap-5">
           <img 
+            v-if="profile?.avatar_url"
             :src="profile?.avatar_url || ''" 
             :alt="profile?.full_name || 'User'" 
             class="w-24 h-24 rounded-full"
           >
+          <IconUser 
+            v-else
+            class="w-24 h-24 rounded-full" 
+          />
           <div class="flex flex-col gap-1 justify-center">
-            <h1 class="text-4xl font-bold">{{ profile?.full_name }}</h1>
+            <h1 class="text-4xl font-bold">{{ profile?.full_name || 'Anoymous user' }}</h1>
             <div class="flex items-center gap-1">
               <p class="text-gray-500">{{ profile?.email }}</p>
-              <p class="text-gray-500 mx-2">|</p>
+              <p v-if="profile?.github_username" class="text-gray-500 mx-2">|</p>
               <NuxtLink 
                 v-if="profile?.github_username"
                 :to="`https://github.com/${profile.github_username}`" 
@@ -64,6 +69,7 @@
                 Your Courses
               </button>
               <button
+                v-if="profile?.github_username"
                 @click="navigateToTab('membership')"
                 :class="[
                   'py-4 px-1 border-b-2 font-medium text-sm md:text-base whitespace-nowrap',
@@ -86,6 +92,7 @@
                 Your Certificates
               </button>
               <button
+                v-if="profile?.github_username"
                 @click="handleBillingClick"
                 class="py-4 px-1 font-medium text-sm md:text-base whitespace-nowrap text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:hover:text-gray-300 flex items-center gap-1"
               >
@@ -122,7 +129,7 @@
                     </button>
                   </div>
                   <div v-else class="flex items-center gap-2">
-                    <p class="py-1.5">{{ profile?.full_name }}</p>
+                    <p class="py-1.5">{{ profile?.full_name || 'Anoymous user' }}</p>
                     <button
                       @click="startEditName"
                       class="text-gray-500 hover:text-gray-700"
@@ -135,10 +142,9 @@
                   <p class="w-32 text-gray-500">Email:</p>
                   <p class="py-1.5">{{ profile?.email }}</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div v-if="profile?.github_username" class="flex items-center gap-4">
                   <p class="w-32 text-gray-500">GitHub:</p>
                   <NuxtLink 
-                    v-if="profile?.github_username"
                     :to="`https://github.com/${profile.github_username}`" 
                     target="_blank"
                     class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1"

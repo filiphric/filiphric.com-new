@@ -16,6 +16,14 @@ export const useSupabaseAuth = () => {
     return { error }
   }
 
+  const signInWithOtp = async ({ email, options }: { email: string, options?: { emailRedirectTo?: string } }) => {
+    const { error } = await client.auth.signInWithOtp({
+      email,
+      options
+    })
+    return { error }
+  }
+
   const signOut = async () => {
     const { error } = await client.auth.signOut()
     if (!error) {
@@ -32,6 +40,7 @@ export const useSupabaseAuth = () => {
 
   return {
     signInWithProvider,
+    signInWithOtp,
     signOut,
     getCurrentUser
   }
