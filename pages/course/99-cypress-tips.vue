@@ -191,7 +191,7 @@
                 </p>
                 <hr class="my-4 border-black dark:border-white w-1/4 opacity-20">
                 <div class="text-gray-500 dark:text-gray-300 flex gap-3 justify-start items-center">
-                  <img :src="testimonial.avatar" class="w-10 h-10 rounded-full" />
+                  <Image :src="testimonial.avatar" class="w-10 h-10 rounded-full" alt="Testimonial avatar" />
                   <div class="flex flex-col">
                     <p class="font-bold">{{ testimonial.name }}</p>
                     <p class="text-sm">{{ testimonial.title }}</p>
@@ -458,19 +458,19 @@ const testimonials = [
     text: "Awesome tips, lot of the stuff was something new to me or opened up new perspectives of thinking when trying to solve a problem. Thank you Filip for the effort and covering great tips in this course.",
     name: "Vane Terziski",
     title: "Senior Software Development Engineer in Test",
-    avatar: "https://avatars.githubusercontent.com/u/12384232"
+    avatar: "12384232_mi4y5t.jpeg"
   },
   {
     text: "99 short, practical and to the point tips which are immediately applicable and fit perfectly into a busy workday. The excellent video and audio quality made the learning easy and enjoyable. I definitely recommend the course.",
     name: "Daniel Neuhaus",
     title: "QA Lead",
-    avatar: "https://media.licdn.com/dms/image/v2/C5603AQGpSkTwBX8ynw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1645030555378?e=1745452800&v=beta&t=NANKVpHYBN89M0yaq5hhJOMRHIM9WM2x5XXWWEBEM7g"
+    avatar: "1645030555378_fnjjfr.jpeg"
   },
   {
     text: "A really nice course. It has something for everyone.",
     name: "Ioan Solderea",
     title: "QA Lead",
-    avatar: "https://media.licdn.com/dms/image/v2/D4D03AQGar3ofNLdmuA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1659504952723?e=1745452800&v=beta&t=phTqkO5UnKSwbKxwVgyDxIdK6deKwFNpfgCgC0SHqaw"
+    avatar: "1659504952723_pplrzw.jpeg"
   }
 ]
 
