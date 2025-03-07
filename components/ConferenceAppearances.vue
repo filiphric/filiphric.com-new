@@ -3,7 +3,7 @@
   <div class="col-span-1 md:col-span-2 mt-14">
     <h2 class="text-3xl font-bold mb-10" id="conference-appearances">Conference Appearances</h2>
     <p class="text-lg md:text-xl mb-5 md:mb-7">
-      I am an international keynote speaker. I like to do live coding on stage and demonstrate real-life examples and problem solutions. If you’d like to book me for your conference, please don’t hesiate to <NuxtLink to="https://links.filiphric.com" class="text-lime">contact me</NuxtLink> to discuss details. You can find the basic information about my conference appearances in the <NuxtLink to="/speaking-policy" class="text-lime">speaking policy document</NuxtLink>.
+      I am an international keynote speaker. I like to do live coding on stage and demonstrate real-life examples and problem solutions. If you’d like to book me for your conference, please don’t hesitate to <NuxtLink to="https://links.filiphric.com" class="text-lime">contact me</NuxtLink> to discuss details. You can find the basic information about my conference appearances in the <NuxtLink to="/speaking-policy" class="text-lime">speaking policy document</NuxtLink>.
     </p>
     <!-- Tabs -->
     <div class="mb-4 border-b border-gray-200">
