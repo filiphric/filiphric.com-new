@@ -15,7 +15,7 @@ new BrowserCheck('filiphric-com', {
   locations: ['us-east-1'],
   tags: [],
   sslCheckDomain: '',
-  frequency: Frequency.EVERY_10M,
+  frequency: Frequency.EVERY_24H,
   environmentVariables: [],
   code: {
     entrypoint: './homepage.spec.ts',

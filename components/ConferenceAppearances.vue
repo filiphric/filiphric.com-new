@@ -98,10 +98,10 @@ const conferences = {
       type: 'Workshop'
     },
     {
-      name: 'CODECON Bratislava',
-      date: 'June 5-7',
-      location: 'Bratislava, Slovakia',
-      type: 'Moderator'
+      name: 'Tesena Fest',
+      date: 'September 25',
+      location: 'Prage, Czech Republic',
+      type: 'Panel discussion'
     }
   ],
   '2024': [
