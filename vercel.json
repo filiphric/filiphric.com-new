@@ -84,6 +84,10 @@
     {
       "destination": "https://test-like-developer-develop-like-tester.vercel.app",
       "source": "/atd2024"
+    },
+    {
+      "destination": "https://how-to-steal-ai-job.vercel.app/overview",
+      "source": "/testcrunch"
     }
   ],
   "rewrites": [
