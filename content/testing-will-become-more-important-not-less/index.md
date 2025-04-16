@@ -37,7 +37,7 @@ Since modern AI tools are good at generating code, there's nothing really stoppi
 
 And as we iterate over new versions, we avoid regressions by running those tests generated in previous iterations.
 
-## #2 More agents and a i solutions will add test automation
+## #2 More agents and A.I. solutions will add test automation
 
 We are going to see more agents and A.I. solutions that will add test automation alongside produced code. Those that will generate tests along with produced code will see less regressions and will scale much better.
 
