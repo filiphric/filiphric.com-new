@@ -5,7 +5,7 @@ published: true
 slug: "testing-email-flows-with-mailosaur"
 description: "A short giude on how to test e2e flows that require an email to be opened. Code demonstration using Mailosaur."
 tags: ['cypress', 'email testing']
-image: "mailosaur_rvq6ik"
+image: "mailosaur_bgkd1u.png"
 ---
 
 <Tweet id="977018512689455106" />
