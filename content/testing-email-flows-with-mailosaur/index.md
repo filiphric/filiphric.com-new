@@ -10,7 +10,7 @@ image: "mailosaur_bgkd1u.png"
 
 <Tweet id="977018512689455106" />
 
-I would like to give you a glimpse of how we use Cypress with a tool called [Mailosaur](https://mailosaur.com/).
+I would like to give you a glimpse of how we use Cypress with a tool called [Mailosaur](https://link.filiphric.com/mailosaur).
 
 ## Telling the whole story
 
@@ -30,9 +30,9 @@ Normally, this is something you would solve on staging environment, by either cr
 
 ## Enter Mailosaur
 
-[Mailosaur](https://mailosaur.com/) a service that creates an email inbox for you. What’s special about it is, that you can access it not only via their interface, but also via their plugin. All of email content and metadata can be viewed in plain text, HTML, or parsed to JSON, where you can view all links, attachments or images.
+[Mailosaur](https://link.filiphric.com/mailosaur) a service that creates an email inbox for you. What’s special about it is, that you can access it not only via their interface, but also via their plugin. All of email content and metadata can be viewed in plain text, HTML, or parsed to JSON, where you can view all links, attachments or images.
 
-My favourite part is the fact that you can [wait for a specific message to arrive](https://mailosaur.com/docs/frameworks-and-tools/cypress/email-testing#basic-usage). This means you can access all of that information within few milliseconds and then use them further in your test.
+My favourite part is the fact that you can [wait for a specific message to arrive](https://link.filiphric.com/mailosaur-cypress-plugin). This means you can access all of that information within few milliseconds and then use them further in your test.
 
 With Mailosaur, you create an email server, where all emails with specific username land. You’ll end up with something like:
 
@@ -42,7 +42,7 @@ With Mailosaur, you create an email server, where all emails with specific usern
 
 ## Integrating Mailosaur with Cypress
 
-Mailosaur has integrations for all the main testing frameworks such as Cypress, Playwright, WebdriverIO, and [much more](https://mailosaur.com/docs/frameworks-and-tools). With Cypress, you can simply install the plugin, set it up and start testing your emails.
+Mailosaur has integrations for all the main testing frameworks such as Cypress, Playwright, WebdriverIO, and [much more](https://link.filiphric.com/mailosaur-tools). With Cypress, you can simply install the plugin, set it up and start testing your emails.
 
 ```bash
 npm install cypress-mailosaur
