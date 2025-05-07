@@ -23,11 +23,5 @@
 
 const { data } = await useAsyncData('privacy-policy', () => queryContent('/privacy-policy').findOne())
 
-useHead({
-  meta: [{
-    name: 'robots',
-    content: 'noindex'
-  }]
-})
 </script>
 
