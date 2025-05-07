@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <ClientOnly>
     <ProseCodeInline>
       git clone https://github.com/filiphric/{{ repo }}.git
     </ProseCodeInline>
@@ -11,7 +11,7 @@
     <ProseCodeInline>
       npm install
     </ProseCodeInline>
-  </div>
+  </ClientOnly>
 </template>
 <script setup lang="ts">
 import { useRouteQuery } from '@vueuse/router'

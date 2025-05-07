@@ -88,6 +88,10 @@
     {
       "destination": "https://how-to-steal-ai-job.vercel.app/overview",
       "source": "/testcrunch"
+    },
+    {
+      "destination": "/courses",
+      "source": "/courses_external"
     }
   ],
   "rewrites": [

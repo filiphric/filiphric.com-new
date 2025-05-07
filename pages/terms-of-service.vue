@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-const { data } = await useAsyncData('terms-of-use', () => queryContent('/terms-of-use').findOne())
+const { data } = await useAsyncData('terms-of-service', () => queryContent('/terms-of-service').findOne())
 
 useHead({
   meta: [{
