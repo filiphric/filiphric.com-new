@@ -1,11 +1,17 @@
 <template>
   <ClientOnly>
-    <ProseCodeInline>
-      git clone https://github.com/filiphric/{{ repo }}.git
+    <ProseCodeInline v-if="repoQuery">
+      git clone https://github.com/filiphric/{{ repoQuery }}.git
+    </ProseCodeInline>
+    <ProseCodeInline v-else>
+      git clone https://github.com/filiphric/cypress-core-workshop.git
     </ProseCodeInline>
     <br>
-    <ProseCodeInline>
-      cd {{ repo }}
+    <ProseCodeInline v-if="repoQuery">
+      cd {{ repoQuery }}
+    </ProseCodeInline>
+    <ProseCodeInline v-else>
+      cd cypress-core-workshop
     </ProseCodeInline>
     <br>
     <ProseCodeInline>
@@ -16,5 +22,4 @@
 <script setup lang="ts">
 import { useRouteQuery } from '@vueuse/router'
 const repoQuery = useRouteQuery('repo')
-const repo = repoQuery.value?.length ? repoQuery.value : 'cypress-core-workshop'
 </script>
