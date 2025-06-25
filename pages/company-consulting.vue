@@ -59,7 +59,7 @@
 
     <!-- Early Product Feedback Section -->
     <section class="my-20">
-      <ContentBlock alt="Early product feedback for startups" image="early-product-feedback_ruchqv">
+      <ContentBlock alt="Early product feedback for startups" image="early-product-feedback_ruchqv" rtl="true">
         <template #heading>
           Early Product Feedback
         </template>
