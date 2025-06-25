@@ -98,10 +98,22 @@ const conferences = {
       type: 'Workshop'
     },
     {
-      name: 'Tesena Fest',
-      date: 'September 25',
-      location: 'Prage, Czech Republic',
-      type: 'Panel discussion'
+      name: 'GeoSTQB Tester Day',
+      date: 'September 8-9',
+      location: 'Tbilisi, Georgia',
+      type: 'Workshop'
+    },
+    {
+      name: 'StarWEST',
+      date: 'September 22-26',
+      location: 'Anaheim, California',
+      type: ['Workshop', 'Talk']
+    },
+    {
+      name: 'TestCon',
+      date: 'October 22-24',
+      location: 'Vilnius, Lithuania',
+      type: 'Talk'
     }
   ],
   '2024': [
@@ -189,7 +201,12 @@ const conferences = {
       location: 'Anaheim, California',
       type: 'Workshop'
     },
-
+    {
+      name: 'QA Meetup Košice',
+      date: 'October 4',
+      location: 'Košice, Slovakia',
+      type: 'Talk'
+    },
     {
       name: 'CypressConf',
       date: 'October 22-23',
@@ -366,7 +383,7 @@ const conferences = {
       name: 'StarEAST',
       date: 'April 23-27',
       location: 'Orlando, Florida',
-      type: 'Talk'
+      type: 'Workshop'
     },
     {
       name: 'Testmu conference',
