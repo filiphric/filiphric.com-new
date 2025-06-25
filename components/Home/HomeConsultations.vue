@@ -11,7 +11,7 @@
         I help companies deliver high-quality software by setting up a healthy testing culture. I have helped review test automation suites as well as quality processes in various startups.
       </p>
       <div class="text-lg md:text-xl lg:text-2xl">
-        <ActionButton to="/consultations" class="-rotate-1">
+        <ActionButton to="/company-consulting" class="-rotate-1">
           Learn more
         </ActionButton>
       </div>
