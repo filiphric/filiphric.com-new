@@ -8,7 +8,7 @@
             :disabled="!props.info?.id"
             class="h-14 text-lg text-center text-nowrap"
           >
-          Purchase course for {{ 99 - (props.discount * 100) }} €
+          Purchase course for {{ 49 - (props.discount * 100) }} €
           </ActionButton>
         </button>
       </div>

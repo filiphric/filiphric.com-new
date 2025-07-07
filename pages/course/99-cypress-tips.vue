@@ -415,8 +415,16 @@ onMounted(async () => {
   }
 })
 
-const { data } = await useFetch('/api/parity-coupon', { server: false })
-const parityCoupon = computed(() => data.value)
+// const { data } = await useFetch('/api/parity-coupon', { server: false })
+// const parityCoupon = computed(() => data.value)
+
+// Temporary removeparity coupons
+const parityCoupon = ref({
+  eligible: false,
+  amount: 0,
+  couponId: '',
+  country: 'US'
+})
 
 const applyDiscount = () => {
   couponId.value = parityCoupon.value.couponId

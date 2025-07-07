@@ -21,8 +21,6 @@ export default function (request: Request) {
 
   const result = { country, amount, eligible, couponId }
 
-  console.log(result)
-
   return new Response(JSON.stringify(result), {
     headers: { 'content-type': 'application/json' }
   })
