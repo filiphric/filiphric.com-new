@@ -1,6 +1,6 @@
 <template>
   <Transition name="fade" mode="out-in">
-    <div class="fixed z-10 grid h-screen w-screen auto-rows-min text-clip bg-ivory dark:bg-black-light">
+    <div class="fixed z-10 grid h-screen w-screen auto-rows-min overflow-y-auto text-clip bg-ivory dark:bg-black-light">
       <div class="mx-3 mb-14 grid self-start justify-self-end pt-7 ">
         <button
           class="place-self-end"
