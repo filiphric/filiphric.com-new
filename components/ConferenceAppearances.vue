@@ -113,7 +113,13 @@ const conferences = {
       name: 'TestCon',
       date: 'October 22-24',
       location: 'Vilnius, Lithuania',
-      type: 'Keynote'
+      type: ['Keynote', 'Panel discussion']
+    },
+    {
+      name: 'CypressConf',
+      date: 'October 24-25',
+      location: 'Online',
+      type: 'Workshop'
     }
   ],
   '2024': [
