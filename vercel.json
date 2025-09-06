@@ -92,6 +92,10 @@
     {
       "destination": "/courses",
       "source": "/courses_external"
+    },
+    {
+      "destination": "https://cursor-workshop-slides.vercel.app",
+      "source": "/cursor-workshop"
     }
   ],
   "rewrites": [
