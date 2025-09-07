@@ -54,48 +54,16 @@
       "source": "/cypress-core-workshop"
     },
     {
-      "destination": "https://blink-and-you-will-miss-it.vercel.app",
-      "source": "/jsheroes"
-    },
-    {
-      "destination": "https://how-to-start-unflaking-your-tests.vercel.app",
-      "source": "/devtalks"
-    },
-    {
-      "destination": "https://console-log-debugging-modern-web.vercel.app",
-      "source": "/dailydotdev"
-    },
-    {
-      "destination": "https://how-to-write-a-flaky-test.vercel.app",
-      "source": "/cypressconf"
-    },
-    {
-      "destination": "https://how-to-write-a-flaky-test.vercel.app",
-      "source": "/tester-day"
-    },
-    {
-      "destination": "https://things.filiphric.com",
-      "source": "/things"
-    },
-    {
-      "destination": "https://cypress-presentation-qq8r.vercel.app/1",
-      "source": "/lets-gov"
-    },
-    {
-      "destination": "https://test-like-developer-develop-like-tester.vercel.app",
-      "source": "/atd2024"
-    },
-    {
-      "destination": "https://how-to-steal-ai-job.vercel.app/overview",
-      "source": "/testcrunch"
-    },
-    {
       "destination": "/courses",
       "source": "/courses_external"
     },
     {
       "destination": "https://cursor-workshop-slides.vercel.app",
       "source": "/cursor-workshop"
+    },
+    {
+      "destination": "https://github.com/filiphric/cursor-course",
+      "source": "/cursor-workshop-repo"
     }
   ],
   "rewrites": [
