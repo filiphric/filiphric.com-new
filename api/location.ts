@@ -8,7 +8,7 @@ export const config = {
 export default function (request: Request) {
   const geo = geolocation(request)
   const country = geo.country || 'US'
-  const amount = getPPPDiscountPercent(country)
+  const amount = getPPPDiscountPercent(country) ?? 0
   const eligible = amount > 0
   const prices = {
     0: 'price_1MkwcQBnBECxBVfm82qvYyU5',
