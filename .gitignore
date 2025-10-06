@@ -8,6 +8,8 @@ node_modules
 dist
 .vercel
 .data
+.claude
+.cursor
 
 cypress/videos/*
 cypress/screenshots/*
