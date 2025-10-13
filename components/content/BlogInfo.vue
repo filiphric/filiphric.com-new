@@ -14,6 +14,9 @@
       <div v-if="webdriverioVersion" class="inline-block">
         <span class="mx-2">|</span><IconWebdriverio class="mr-0.5 inline-block w-6" /> {{ webdriverioVersion }}
       </div>
+      <div v-if="cursorVersion" class="inline-block">
+        <span class="mx-2">|</span><IconCursor class="mr-0.5 inline-block w-6" /> {{ cursorVersion }}
+      </div>
       <div v-if="readingTime" class="text-sm">
         {{ readingTime }}
       </div>
@@ -36,6 +39,10 @@ defineProps({
     default: ''
   },
   playwrightVersion: {
+    type: String,
+    default: ''
+  },
+  cursorVersion: {
     type: String,
     default: ''
   },

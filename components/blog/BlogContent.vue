@@ -5,6 +5,7 @@
       :playwright-version="doc.playwrightVersion"
       :vitest-version="doc.vitestVersion"
       :webdriverio-version="doc.webdriverioVersion"
+      :cursor-version="doc.cursorVersion"
       :date="doc.date"
       :title="doc.title"
       :image="doc.image"
@@ -33,6 +34,7 @@ const props = defineProps<{
     title: string,
     cypressVersion: string,
     playwrightVersion: string,
+    cursorVersion: string,
     vitestVersion: string,
     webdriverioVersion: string,
     image: string,

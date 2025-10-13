@@ -9,6 +9,7 @@
         :playwright-version="playwrightVersion"
         :vitest-version="vitestVersion"
         :webdriverio-version="webdriverioVersion"
+        :cursor-version="cursorVersion"
         :date="date"
         :reading-time="readingTime"
       />
@@ -28,6 +29,10 @@ defineProps({
     default: ''
   },
   playwrightVersion: {
+    type: String,
+    default: ''
+  },
+  cursorVersion: {
     type: String,
     default: ''
   },
