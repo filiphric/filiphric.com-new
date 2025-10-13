@@ -16,7 +16,7 @@
 .filename.ext-html:before  {
 	background-image: url('../icons/file_html.svg');
 }
-.filename.ext-md:before  {
+.filename.ext-md:before, .filename.ext-mdc:before {
 	background-image: url('../icons/file_md.svg');
 }
 .filename.ext-gitignore:before  {
