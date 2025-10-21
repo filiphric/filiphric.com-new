@@ -90,7 +90,7 @@ the A.I. suddenly understands exactly what you're trying to do. It's like the di
 
 If you want to use Playwright MCP to generate your test, the results can be a bit odd and slow. I never had good results using it instead of codegen. 
 
-I stronngly believe that **debugging** is a much better use case for this tool. Playwright already collects a lot of information about the test run. This makes it really valuable when in need of providing info to the LLM. I tried to leverage this even before Playwright came up with their own MCP server. I created my own debugging tool that could figure out what went wrong with a test. That project ended up going nowhere, because Playwright MCP is actually good enough for this use case.
+I strongly believe that **debugging** is a much better use case for this tool. Playwright already collects a lot of information about the test run. This makes it really valuable when in need of providing info to the LLM. I tried to leverage this even before Playwright came up with their own MCP server. I created my own debugging tool that could figure out what went wrong with a test. That project ended up going nowhere, because Playwright MCP is actually good enough for this use case.
 
 If you want to debug a test that is failing you can start as simple as this prompt:
 ```plaintext
