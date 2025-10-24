@@ -68,6 +68,10 @@
     {
       "destination": "https://how-to-steal-ai-job.vercel.app",
       "source": "/starwest-2025"
+    },
+    {
+      "destination": "https://github.com/filiphric/mailosaur-workshop",
+      "source": "/cypress-auth-workshop"
     }
   ],
   "rewrites": [
