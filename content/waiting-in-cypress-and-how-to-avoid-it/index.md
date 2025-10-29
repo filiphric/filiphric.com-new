@@ -27,11 +27,15 @@ I know, I know. The heading of this article promises a guide on how to avoid thi
 **PRO TIP:** you can use [eslint-plugin-cypress](https://www.npmjs.com/package/eslint-plugin-cypress) to get lint warning every time you use `.wait()` in your test.
 
 ## Use "defaultCommandTimeout" to change default timeout
-Every element you query for an element using `.get()` `.contains()` or some other command, it will have a default wait time of 4 seconds. Cypress will wait for the element to appear in DOM and will retry while it can. If 4 seconds are not enough, you can set the time up globally for your project in the `cypress.json` file to make Cypress wait longer:
-```json [cypress.json]
-{
-  "defaultCommandTimeout": 5000
-}
+Every element you query for an element using `.get()` `.contains()` or some other command, it will have a default wait time of 4 seconds. Cypress will wait for the element to appear in DOM and will retry while it can. If 4 seconds are not enough, you can set the time up globally for your project in the `cypress.config.js` file to make Cypress wait longer:
+```js [cypress.config.js]
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  e2e: {
+    defaultCommandTimeout: 5000
+  }
+})
 ```
 Setting this timeout has one important side effect. Your tests will fail slower. This may prolong the feedback loop for you, so you might want to reach for a less harsh solution.
 

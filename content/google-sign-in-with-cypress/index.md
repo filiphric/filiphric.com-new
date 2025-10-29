@@ -85,7 +85,7 @@ cy.request({
   })
 ```
 
-Side note: See that I am storing all the important keys in `Cypress.env()`. I don’t actually save them in `cypress.json` or `cypress.env.json` and neither should you. Never save these in your repository and never commit them. Instead, keep them in your environment and add them to Cypress at runtime. [I wrote a whole article](/create-a-configuration-plugin-in-cypress) on how you can do this and you can find an example in [Cypress docs](https://docs.cypress.io/guides/testing-strategies/google-authentication#Setting-Google-app-credentials-in-Cypress) as well.
+>Side note: See that I am storing all the important keys in `Cypress.env()`. I don't actually save them in `cypress.config.js` and neither should you. Never save these in your repository and never commit them. Instead, keep them in your environment and add them to Cypress at runtime. [I wrote a whole article](/create-a-configuration-plugin-in-cypress) on how you can do this and you can find an example in [Cypress docs](https://docs.cypress.io/guides/testing-strategies/google-authentication#Setting-Google-app-credentials-in-Cypress) as well.
 
 The `id_token` that is returned from the server is the information (among other) that the Google server will usually respond with once it closes the login window. Instead of interacting with UI, we have now achieved retrieving this information via our `.request()` command.
 

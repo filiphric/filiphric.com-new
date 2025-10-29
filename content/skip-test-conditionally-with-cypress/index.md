@@ -54,32 +54,44 @@ describe('suite #2', () => {
 })
 ```
 ## Config file
-In your `cypress.json` you can specify which tests you want to run or skip. You can use the name of your tests or use minimatch to pick which tests should run. Let’s say you have three tests:
+In your `cypress.config.js` you can specify which tests you want to run or skip. You can use the name of your tests or use minimatch to pick which tests should run. Let's say you have three tests:
 ```plaintext
 test1.ts
 test2.ts
 test.smoke.ts
 ```
 
-To just run `test1`, you’d put this in your `cypress.json` file:
+To just run `test1`, you'd put this in your `cypress.config.js` file:
 
-```json {cypress.json}
-{
-  "testFiles": "test1.ts"
-}
+```js {cypress.config.js}
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  e2e: {
+    specPattern: 'cypress/e2e/test1.ts'
+  }
+})
 ```
-If you use subfolders in your `integration` folder, you can select all tests with the same name inside all of those folder by passing `**/test.ts`. More importantly, if you use a naming convention for your smoke tests, like `test.smoke.ts`, you can filter these by passing `*.smoke.ts` to your `testFiles`. So for example this configuration will run just our `test.smoke.ts` file:
-```json {cypress.json}
-{
-  "testFiles": "*.smoke.ts"
-}
+If you use subfolders in your `e2e` folder, you can select all tests with the same name inside all of those folder by passing `**/test.ts`. More importantly, if you use a naming convention for your smoke tests, like `test.smoke.ts`, you can filter these by passing `*.smoke.ts` to your `specPattern`. So for example this configuration will run just our `test.smoke.ts` file:
+```js {cypress.config.js}
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  e2e: {
+    specPattern: 'cypress/e2e/*.smoke.ts'
+  }
+})
 ```
 
- All these principles apply to skipping tests as well. For ignoring your test files, use `ignoreTestFiles`. You can also pass arrays these attributes. These can contain either test name or minimatch, so you can do stuff like:
-```json {cypress.json}
-{
-  "ignoreTestFiles": ["test1.ts", "*.smoke.ts"]
-}
+ All these principles apply to skipping tests as well. For ignoring your test files, use `excludeSpecPattern`. You can also pass arrays to these attributes. These can contain either test name or minimatch, so you can do stuff like:
+```js {cypress.config.js}
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  e2e: {
+    excludeSpecPattern: ["cypress/e2e/test1.ts", "cypress/e2e/*.smoke.ts"]
+  }
+})
 ```
 This configuration will run only our `test2.ts` file. To get a better understanding of how minimatch works, you can experiment on [globster.xyz](https://globster.xyz) or on [this nice little site](https://pthrasher.github.io/minimatch-test/).
 
@@ -123,13 +135,13 @@ it('does not run on mobile viewports', () => {
 ```
 
 ## Using CLI
-Similarly to our `cypress.json` configuration, we can pass CLI arguments to run only those tests we want. To run only smoke tests we’ll run:
+Similarly to our `cypress.config.js` configuration, we can pass CLI arguments to run only those tests we want. To run only smoke tests we'll run:
 ```bash
-npx cypress run --spec 'cypress/integration/*.smoke.ts'
+npx cypress run --spec 'cypress/e2e/*.smoke.ts'
 ```
-To run all tests except the smoke ones, we’ll run a command like this:
+To run all tests except the smoke ones, we'll run a command like this:
 ```bash
-npx cypress run --spec 'cypress/integration/*[!.smoke].ts'
+npx cypress run --spec 'cypress/e2e/*[!.smoke].ts'
 ```
 
 ## Your own logic

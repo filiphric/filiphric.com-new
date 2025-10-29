@@ -11,7 +11,7 @@ Cypress makes it incredibly easy to read their code. Even people that don’t wo
 That’s why I overlooked the **cy.log()** command. It seemed kind of arbitrary and didn’t make too much sense to add extra log into what is already pretty readable flow. Cypress pretty much nailed it when it comes to readability of code. Not only that, readability of test reports is amazing as well.
 
 When working with headless mode, you can actually see what your test does, since Cypress records video for your headless runs. If you need to examine a failed run, you can easily look into what your test did before it failed.
->Extra tip: Did you know, you may choose the option to upload video only on failed runs? Save some extra seconds by adding `videoUploadOnPasses: false` to your cypress.json config file.
+>Extra tip: Did you know, you may choose the option to upload video only on failed runs? Save some extra seconds by adding `videoUploadOnPasses: false` to your cypress.config.js file.
 
 Situation changes rapidly as your test suite grows. With over 1000 tests here in Slido we sometimes face a situation where we sometimes have to look into failures of multiple tests. It takes slightly more time to look into video than to look on a screenshot. Although video shows the whole test run, screenshots can be more efficient if done properly. I don’t know about you, but I’d rather go through 10 screenshots than through 10 videos to find out why a test failed.
 

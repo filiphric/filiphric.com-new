@@ -333,7 +333,7 @@ declare global {
     export interface Cypress {
 
       /**
-       * Returns all environment variables set with CYPRESS_ prefix or in "env" object in "cypress.json"
+       * Returns all environment variables set with CYPRESS_ prefix or in "env" object in "cypress.config.js"
        *
        * @see https://on.cypress.io/env
        */
@@ -342,8 +342,8 @@ declare global {
        * Returns specific environment variable or undefined
        * @see https://on.cypress.io/env
        * @example
-       *    // cypress.json
-       *    { "env": { "foo": "bar" } }
+       *    // cypress.config.js
+       *    env: { foo: "bar" }
        *    Cypress.env("foo") // => bar
        */
       env<T extends keyof EnvKeys>(key: T): EnvKeys[T];

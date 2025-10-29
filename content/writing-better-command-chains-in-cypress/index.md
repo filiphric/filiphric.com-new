@@ -64,7 +64,7 @@ Cypress has retry built in to many of the commands. For example let’s say that
 ```js
 cy.get('li')
 ```
-There is a default timeout set to 4000 milliseconds, which you can change in your `cypress.json` file. If you are coming from Selenium, you might know this as fluent wait. It is built-in to most of Cypress commands, so there’s nothing extra to be added to our tests to make them wait fluently.
+There is a default timeout set to 4000 milliseconds, which you can change in your `cypress.config.js` file. If you are coming from Selenium, you might know this as fluent wait. It is built-in to most of Cypress commands, so there's nothing extra to be added to our tests to make them wait fluently.
 
 Let’s now say, that our lists has 5 elements. They don’t render out immediately, but each one takes about 200 milliseconds to appear in our application.
 ```js

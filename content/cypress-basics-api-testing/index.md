@@ -28,7 +28,7 @@ If you pass two arguments into `.request()` command, the first argument will be 
 cy.request('DELETE', '/api/boards/9873789121')
 ```
 
-Also, I haven’t specified a full url. That is because the `/api/boards` will be automatically appended to anything that is defined as `baseUrl` in `cypress.json`
+Also, I haven't specified a full url. That is because the `/api/boards` will be automatically appended to anything that is defined as `baseUrl` in `cypress.config.js`
 
 `.request()` command can take maximum of 3 arguments. The third one will be a request body. 
 
@@ -37,7 +37,7 @@ cy.request('POST', '/api/boards', {
   name: 'space travel plan'
 })
 ```
-This simple syntax is super useful, when you want to send a bunch of requests to your database to quickly setup your data for your UI test. My friend Furbo has written a [great blogpost about this](https://code.kiwi.com/skip-the-ui-using-api-calls-d358b9b61b91?gi=d56b0341034d). 
+This simple syntax is super useful, when you want to send a bunch of requests to your database to quickly setup your data for your UI test. My friend Furbo has written a [great blogpost about this](https://code.kiwi.com/articles/skip-the-ui-using-api-calls/). 
 
 ## Passing multiple attributes to .request() command
 If you want to pass some more options or just provide your `.request` command a little more context, you can pass a single object. The same request from previous example can be written like this:

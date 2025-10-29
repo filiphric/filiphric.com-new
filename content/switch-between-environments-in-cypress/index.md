@@ -18,21 +18,21 @@ While I am a fan of using `Cypress.env()` for storing values, there are multiple
 
 ## Using `baseUrl`
 
-For starters, let’s look at `.visit()` command. This command will open browser with a location you define. But it also takes the `baseUrl` attribute from your `cypress.json`. This means that when you have your `baseUrl` set to `http://localhost:3000`, you can write your urls like this:
+For starters, let's look at `.visit()` command. This command will open browser with a location you define. But it also takes the `baseUrl` attribute from your `cypress.config.js`. This means that when you have your `baseUrl` set to `http://localhost:3000`, you can write your urls like this:
 
 ```js
 cy.visit('/dashboard')
 ```
 
-and the resolved location will be `http://localhost:3000/dashboard`. The `baseUrl` attribute is used in `.request()` and `.intercept()` commands as well. This is better than using an env variable. For example, you don’t need to deal with renaming everything if you decide one day to change the name of your the `localUrl` env variable.
+and the resolved location will be `http://localhost:3000/dashboard`. The `baseUrl` attribute is used in `.request()` and `.intercept()` commands as well. This is better than using an env variable. For example, you don't need to deal with renaming everything if you decide one day to change the name of your the `localUrl` env variable.
 
-## Rewriting cypress.json
-The easiest way to switch environments is to simply rewrite your `cypress.json` file and set `baseUrl` to a different value each time you want to switch environments. This is of course tedious and takes way too much work if you need to switch often. Also, its not the best way if you use version control and want to run your tests in CI. You need to make a commit every time you want to test against different envrionment and creates mess in your git history.
+## Rewriting cypress.config.js
+The easiest way to switch environments is to simply rewrite your `cypress.config.js` file and set `baseUrl` to a different value each time you want to switch environments. This is of course tedious and takes way too much work if you need to switch often. Also, its not the best way if you use version control and want to run your tests in CI. You need to make a commit every time you want to test against different envrionment and creates mess in your git history.
 
 ## Pointing to a different configuration file
-Instead of using `cypress.json`, you can point Cypress to a completely different file. Let’s say you have a `production.json` file, where your `baseUrl` attribute is set to your production server. To run Cypress using this file, you can do the following:
+Instead of using the default `cypress.config.js`, you can point Cypress to a completely different file. Let's say you have a `cypress.production.config.js` file, where your `baseUrl` attribute is set to your production server. To run Cypress using this file, you can do the following:
 ```bash
-npx cypress open --config-file production.json
+npx cypress open --config-file cypress.production.config.js
 ```
 
 This of course works for `cypress run` command as well.
@@ -43,36 +43,42 @@ If you don’t want to change the whole config, you can just change the `baseUrl
 npx cypress open --baseUrl http://localhost:3000
 ```
 
-## Writing a plugin
+## Using setupNodeEvents
 I wrote about this approach in the past, so you can check out a [more detailed article here.](/create-a-configuration-plugin-in-cypress) Basically, as Cypress opens, you can change the config on the fly and rewrite anything in the config. See the following code:
-```js [cypress/plugins/index.js]
-module.exports = (on, config) => {
+```js [cypress.config.js]
+import { defineConfig } from 'cypress'
 
-  config.baseUrl = 'http://localhost:3000'
-
-  return config
-
-}
-```
-This will mean that even if you have `baseUrl` set to `https://cypress.io`, when you open Cypress, it will be rewritten to `http://localhost:3000`. If you want to seamlessly switch between environments, you can pass an env variable via CLI and then read it in your plugin. So for example you can write a plugin like this:
-
-```js [cypress/plugins/index.js]
-module.exports = (on, config) => {
-
-  if (config.env === 'local') {
-    config.baseUrl = 'http://localhost:3000'
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      config.baseUrl = 'http://localhost:3000'
+      return config
+    }
   }
+})
+```
+This will mean that even if you have `baseUrl` set to `https://cypress.io`, when you open Cypress, it will be rewritten to `http://localhost:3000`. If you want to seamlessly switch between environments, you can pass an env variable via CLI and then read it in your config. So for example you can write a config like this:
 
-  return config
+```js [cypress.config.js]
+import { defineConfig } from 'cypress'
 
-}
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      if (config.env.environment === 'local') {
+        config.baseUrl = 'http://localhost:3000'
+      }
+      return config
+    }
+  }
+})
 ```
 And then pass this to your CLI:
 ```bash
-npx cypress open --env local
+npx cypress open --env environment=local
 ```
 
-As a result, whenever you pass the `local` flag, Cypress will rewrite your `baseUrl` to `http://localhost:3000`. If you pass a different variable, or don’t pass anything, Cypress will take the `baseUrl` from `cypress.json`
+As a result, whenever you pass the `local` environment flag, Cypress will rewrite your `baseUrl` to `http://localhost:3000`. If you pass a different variable, or don't pass anything, Cypress will use the default `baseUrl` from `cypress.config.js`
 
 ## Using Module API
 Module API let’s you be very flexible in how you run your tests. When using it, instead of typing `npx cypress run`, you will run your own script. This way, you will type e.g. `node cypress-run.js` to your terminal and create a file that looks something like this:
